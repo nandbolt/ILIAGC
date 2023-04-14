@@ -2,6 +2,10 @@
 xInput = keyboard_check(ord("D")) - keyboard_check(ord("A"));
 jumpInputted = keyboard_check_pressed(vk_space);
 
+// Update ground state
+if (tilemap_get_at_pixel(collisionTiles,x,y+1)) grounded = true;
+else grounded = false;
+
 // If moving
 var _speed = velocity.getLength();
 //show_debug_message(_speed);
@@ -9,20 +13,35 @@ if (_speed > 0)
 {
 	// Calculate air resistance
 	airResistance.setToVector(velocity);
-	airResistance.multiplyByScalar(-1 * airFrictionConstant * _speed * _speed);
+	airResistance.multiplyByScalar(-1 * airConstant * _speed * _speed);
 	
 	// Apply air resistance
 	velocity.addVector(airResistance);
+	
+	// If grounded
+	if (grounded)
+	{
+		// Calculate ground resistance
+		groundResistance.setToVector(velocity);
+		groundResistance.multiplyByScalar(-1 * groundConstant);
+		
+		// Apply ground resistance (account for overshoot)
+		var _dir = sign(velocity.x);
+		velocity.addVector(groundResistance);
+		if (sign(velocity.x) != _dir) velocity.x = 0;
+	}
 }
 
 // Apply xInput to x velocity
-velocity.x += xInput * runStrength;
+var _moveStrength = runStrength;
+if (!grounded) _moveStrength = driftStrength;
+velocity.x += xInput * _moveStrength;
 
 // Apply gravity to y velocity
 velocity.y += gravityStrength;
 
 // If jump inputted
-if (jumpInputted)
+if (jumpInputted && grounded)
 {
 	// Apply jump
 	velocity.y = -jumpStrength;
