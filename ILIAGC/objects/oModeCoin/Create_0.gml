@@ -18,6 +18,10 @@ onCollect = function()
 		gameStarted = true;
 	}
 	
-	// Spawn first coin
-	instance_create_layer(random_range(24,168),random_range(24,168),"Instances",oCoin);
+	// Spawn/activate first coin
+	var _coin = instance_create_layer(random_range(24,168),random_range(24,168),"Instances",oCoin);
+	with (_coin)
+	{
+		activate();
+	}
 }

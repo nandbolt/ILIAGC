@@ -1,3 +1,6 @@
+// State
+active = true;
+
 // Spin
 spinCounter = 0;
 

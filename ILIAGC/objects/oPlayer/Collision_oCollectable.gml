@@ -1,9 +1,13 @@
 // Change scope to collectable
 with (other)
 {
-	// Call collect function
-	onCollect();
-	
-	// Destroy collectable
-	instance_destroy();
+	// If active
+	if (active)
+	{
+		// Call collect function
+		onCollect();
+		
+		// Destroy collectable
+		instance_destroy();
+	}
 }
