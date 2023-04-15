@@ -6,65 +6,79 @@ if (editingEquation)
 	// Enter
 	if (keyboard_check_pressed(vk_enter))
 	{
-		// Graph equation/clear characters
-		characters = [];
+		// Graph equation/clear tokenIdxs
+		graphEquation();
+		tokenIdxs = [];
+		editingEquation = false;
 	}
 	// Backspace
-	else if (keyboard_check_pressed(vk_backspace) && array_length(characters) > 0)
+	else if (keyboard_check_pressed(vk_backspace) && array_length(tokenIdxs) > 0)
 	{
-		// Remove character
-		array_pop(characters);
+		// Remove token
+		array_pop(tokenIdxs);
 	}
 	// 0
-	else if (keyboard_check_pressed(ord("0"))) array_push(characters, 2);
+	else if (keyboard_check_pressed(ord("0")) && !keyboard_check(vk_shift)) array_push(tokenIdxs, 2);
 	// 1
-	else if (keyboard_check_pressed(ord("1"))) array_push(characters, 3);
+	else if (keyboard_check_pressed(ord("1"))) array_push(tokenIdxs, 3);
 	// 2
-	else if (keyboard_check_pressed(ord("2"))) array_push(characters, 4);
+	else if (keyboard_check_pressed(ord("2"))) array_push(tokenIdxs, 4);
 	// 3
-	else if (keyboard_check_pressed(ord("3"))) array_push(characters, 5);
+	else if (keyboard_check_pressed(ord("3"))) array_push(tokenIdxs, 5);
 	// 4
-	else if (keyboard_check_pressed(ord("4"))) array_push(characters, 6);
+	else if (keyboard_check_pressed(ord("4"))) array_push(tokenIdxs, 6);
 	// 5
-	else if (keyboard_check_pressed(ord("5"))) array_push(characters, 7);
+	else if (keyboard_check_pressed(ord("5"))) array_push(tokenIdxs, 7);
 	// 6
-	else if (keyboard_check_pressed(ord("6")) && !keyboard_check(vk_shift)) array_push(characters, 8);
+	else if (keyboard_check_pressed(ord("6")) && !keyboard_check(vk_shift)) array_push(tokenIdxs, 8);
 	// 7
-	else if (keyboard_check_pressed(ord("7"))) array_push(characters, 9);
+	else if (keyboard_check_pressed(ord("7"))) array_push(tokenIdxs, 9);
 	// 8
-	else if (keyboard_check_pressed(ord("8")) && !keyboard_check(vk_shift)) array_push(characters, 10);
+	else if (keyboard_check_pressed(ord("8")) && !keyboard_check(vk_shift)) array_push(tokenIdxs, 10);
 	// 9
-	else if (keyboard_check_pressed(ord("9"))) array_push(characters, 11);
+	else if (keyboard_check_pressed(ord("9")) && !keyboard_check(vk_shift)) array_push(tokenIdxs, 11);
 	// X
-	else if (keyboard_check_pressed(ord("X"))) array_push(characters, 12);
+	else if (keyboard_check_pressed(ord("X"))) array_push(tokenIdxs, 12);
 	// +
 	else if (keyboard_lastchar == "+")
 	{
-		array_push(characters, 15);
+		array_push(tokenIdxs, 15);
 		keyboard_lastchar = "";
 	}
 	// -
 	else if (keyboard_lastchar == "-")
 	{
-		array_push(characters, 16);
+		array_push(tokenIdxs, 16);
 		keyboard_lastchar = "";
 	}
 	// *
 	else if (keyboard_lastchar = "*")
 	{
-		array_push(characters, 17);
+		array_push(tokenIdxs, 17);
 		keyboard_lastchar = "";
 	}
 	// /
 	else if (keyboard_lastchar = "/")
 	{
-		array_push(characters, 18);
+		array_push(tokenIdxs, 18);
 		keyboard_lastchar = "";
 	}
 	// ^
 	else if (keyboard_lastchar = "^")
 	{
-		array_push(characters, 19);
+		array_push(tokenIdxs, 19);
+		keyboard_lastchar = "";
+	}
+	// (
+	else if (keyboard_lastchar == "(")
+	{
+		array_push(tokenIdxs, 20);
+		keyboard_lastchar = "";
+	}
+	// )
+	else if (keyboard_lastchar == ")")
+	{
+		array_push(tokenIdxs, 21);
 		keyboard_lastchar = "";
 	}
 	

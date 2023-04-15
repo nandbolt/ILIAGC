@@ -22,6 +22,9 @@ groundConstant = 0.15;
 // States
 grounded = false;
 
+// Graph
+graphPosition = new Vector2();
+
 // Tilemaps
 collisionTiles = layer_tilemap_get_id("CollisionTiles");
 collisionThreshold = 0.1;

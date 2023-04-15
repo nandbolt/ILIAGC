@@ -7,7 +7,7 @@ _x += 8;
 var _coinCountString = string(coins);
 for (var _i = 1; _i <= string_length(_coinCountString); _i++)
 {
-	draw_sprite(sCharacters,real(string_char_at(_coinCountString,_i))+2,_x,_y);
+	draw_sprite(sTokens,real(string_char_at(_coinCountString,_i))+2,_x,_y);
 	_x += 8;
 }
 
@@ -16,6 +16,6 @@ _x = 96;
 var _gameTimeString = string(gameTimer);
 for (var _i = 1; _i <= string_length(_gameTimeString); _i++)
 {
-	draw_sprite(sCharacters,real(string_char_at(_gameTimeString,_i))+2,_x,_y);
+	draw_sprite(sTokens,real(string_char_at(_gameTimeString,_i))+2,_x,_y);
 	_x += 8;
 }

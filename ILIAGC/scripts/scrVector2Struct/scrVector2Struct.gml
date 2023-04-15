@@ -46,4 +46,10 @@ function Vector2(_x = 0, _y = 0) constructor
 			multiplyByScalar(_inverseLength);
 		}
 	}
+	
+	/// @func	toString();
+	static toString = function()
+	{
+		return "(" + string(x) + "," + string(y) + ")";
+	}
 }

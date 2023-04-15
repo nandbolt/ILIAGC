@@ -74,6 +74,7 @@ if (_tile == 1)
 
 // Update x
 x += velocity.x;
+graphPosition.x = convertXToGraphX(x);
 
 #region Y Tile Collisions
 
@@ -102,3 +103,6 @@ if (_tile == 1)
 
 // Update y
 y += velocity.y;
+graphPosition.y = convertYToGraphY(y);
+//show_debug_message("Position: " + string(x) + "," + string(y));
+//show_debug_message("Graph position: " + string(graphPosition));
