@@ -184,3 +184,20 @@ y += velocity.y;
 graphPosition.y = convertYToGraphY(y);
 //show_debug_message("Position: " + string(x) + "," + string(y));
 //show_debug_message("Graph position: " + string(graphPosition));
+
+#region Animations
+
+// If airborne
+if (!grounded) sprite_index = sPlayerAirborne;
+// Else if inputted an x direction
+else if (xInput != 0)
+{
+	// Run animation
+	sprite_index = sPlayerRunning;
+	if (xInput > 0) image_xscale = 1;
+	else image_xscale = -1;
+}
+// Else idle animation
+else sprite_index = sPlayerIdle;
+
+#endregion

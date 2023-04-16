@@ -9,6 +9,8 @@
     {"id":{"name":"scrWorldFunctions","path":"scripts/scrWorldFunctions/scrWorldFunctions.yy",},"order":1,},
     {"id":{"name":"oCoin","path":"objects/oCoin/oCoin.yy",},"order":0,},
     {"id":{"name":"oPlayer","path":"objects/oPlayer/oPlayer.yy",},"order":0,},
+    {"id":{"name":"sPlayerAirborne","path":"sprites/sPlayerAirborne/sPlayerAirborne.yy",},"order":2,},
+    {"id":{"name":"sPlayerRunning","path":"sprites/sPlayerRunning/sPlayerRunning.yy",},"order":1,},
     {"id":{"name":"sDash","path":"sprites/sDash/sDash.yy",},"order":0,},
     {"id":{"name":"sCoinPlay","path":"sprites/sCoinPlay/sCoinPlay.yy",},"order":1,},
     {"id":{"name":"sBorder","path":"sprites/sBorder/sBorder.yy",},"order":0,},
