@@ -4,6 +4,7 @@
   "name": "ILIAGC",
   "resources": [
     {"id":{"name":"tsCollision","path":"tilesets/tsCollision/tsCollision.yy",},"order":0,},
+    {"id":{"name":"oSprite","path":"objects/oSprite/oSprite.yy",},"order":7,},
     {"id":{"name":"sPlayerIdle","path":"sprites/sPlayerIdle/sPlayerIdle.yy",},"order":0,},
     {"id":{"name":"oWorld","path":"objects/oWorld/oWorld.yy",},"order":5,},
     {"id":{"name":"scrWorldFunctions","path":"scripts/scrWorldFunctions/scrWorldFunctions.yy",},"order":1,},
@@ -25,6 +26,7 @@
     {"id":{"name":"scrGlobals","path":"scripts/scrGlobals/scrGlobals.yy",},"order":4,},
     {"id":{"name":"sGraphSegment","path":"sprites/sGraphSegment/sGraphSegment.yy",},"order":1,},
     {"id":{"name":"sTokens","path":"sprites/sTokens/sTokens.yy",},"order":1,},
+    {"id":{"name":"fDefault","path":"fonts/fDefault/fDefault.yy",},"order":0,},
     {"id":{"name":"rMain","path":"rooms/rMain/rMain.yy",},"order":1,},
     {"id":{"name":"oGraph","path":"objects/oGraph/oGraph.yy",},"order":1,},
     {"id":{"name":"oGrapher","path":"objects/oGrapher/oGrapher.yy",},"order":0,},

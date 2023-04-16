@@ -1,0 +1,1 @@
+/// @desc Used during pausing

@@ -9,7 +9,6 @@ if (editingEquation)
 		// Graph equation/clear tokenIdxs
 		graphEquation();
 		tokenIdxs = [];
-		editingEquation = false;
 	}
 	// Backspace
 	else if (keyboard_check_pressed(vk_backspace) && array_length(tokenIdxs) > 0)
@@ -103,6 +102,26 @@ if (keyboard_check_pressed(vk_tab))
 	{
 		cursor = false;
 		blinkTimer = 0;
+		
+		// Pause player/timer
+		var _playerSprite = instance_create_layer(oPlayer.x,oPlayer.y,"Instances",oSprite);
+		with (_playerSprite)
+		{
+			// Setup player sprite placeholder
+			sprite_index = oPlayer.sprite_index;
+			image_index = oPlayer.image_index;
+			image_xscale = oPlayer.image_xscale;
+		}
+		instance_deactivate_object(oPlayer);
+		oWorld.gameTimerPaused = true;
 	}
-	else cursor = true;
+	else
+	{
+		cursor = true;
+		
+		// Reactivate player/timer
+		instance_destroy(oSprite);
+		instance_activate_object(oPlayer);
+		oWorld.gameTimerPaused = false;
+	}
 }

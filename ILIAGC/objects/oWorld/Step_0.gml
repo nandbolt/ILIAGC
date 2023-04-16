@@ -1,5 +1,5 @@
-// If game started
-if (gameStarted)
+// If game started and timer not paused
+if (gameStarted && !gameTimerPaused)
 {
 	// Increment counter
 	gameCounter++;

@@ -1,1 +1,2 @@
-/// @desc Init Game
+// Font
+draw_set_font(fDefault);

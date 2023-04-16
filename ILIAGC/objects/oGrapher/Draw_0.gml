@@ -13,4 +13,9 @@ if (editingEquation)
 {
 	// Cursor
 	draw_sprite(sTokens,cursor,_x,_y);
+	
+	// Paused
+	draw_set_halign(fa_center);
+	draw_set_valign(fa_middle);
+	draw_text(room_width * 0.5,room_height * 0.5,"PAUSED");
 }
