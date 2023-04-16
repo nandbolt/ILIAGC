@@ -1,10 +1,22 @@
 // Update input
 xInput = keyboard_check(ord("D")) - keyboard_check(ord("A"));
 jumpInputted = keyboard_check_pressed(vk_space);
+crouchInputted = keyboard_check(ord("S"));
 
 // Update ground state
+grounded = false;
 if (tilemap_get_at_pixel(collisionTiles,x,y+1)) grounded = true;
-else grounded = false;
+else if (!crouchInputted && instance_exists(oGraph))
+{
+	// Loop through all graphs
+	with (oGraph)
+	{
+		// If about to collide with a graph in y direction
+		var _graphY = getGraphOutput(convertXToGraphX(other.x));
+		var _otherGraphY = convertYToGraphY(other.y), _otherGraphGoalY = convertYToGraphY(other.y + 1);
+		if (_otherGraphY > _graphY && _otherGraphGoalY <= _graphY) other.grounded = true;
+	}
+}
 
 // If moving
 var _speed = velocity.getLength();
@@ -47,6 +59,27 @@ if (jumpInputted && grounded)
 	velocity.y = -jumpStrength;
 }
 
+#region X Graph Collisions
+
+// If not crouching
+if (!crouchInputted)
+{
+	// Loop through all graphs
+	with (oGraph)
+	{
+		// If about to collide with a graph in y direction
+		var _otherGraphY = convertYToGraphY(other.y);
+		var _graphY = getGraphOutput(convertXToGraphX(other.x)), _graphGoalY = getGraphOutput(convertXToGraphX(other.x + other.velocity.x));
+		if (_otherGraphY > _graphY && _otherGraphY <= _graphGoalY)
+		{
+			// Reset velocity
+			other.velocity.x = 0;
+		}
+	}
+}
+
+#endregion
+
 #region X Tile Collisions
 
 // If about to collide with tile in x direction
@@ -76,9 +109,30 @@ if (_tile == 1)
 x += velocity.x;
 graphPosition.x = convertXToGraphX(x);
 
+#region Y Graph Collisions
+
+// If not crouching
+if (!crouchInputted)
+{
+	// Loop through all graphs
+	with (oGraph)
+	{
+		// If about to collide with a graph in y direction
+		var _graphY = getGraphOutput(convertXToGraphX(other.x));
+		var _otherGraphY = convertYToGraphY(other.y), _otherGraphGoalY = convertYToGraphY(other.y + other.velocity.y);
+		if (_otherGraphY > _graphY && _otherGraphGoalY <= _graphY)
+		{
+			// Reset velocity
+			other.velocity.y = 0;
+		}
+	}
+}
+
+#endregion
+
 #region Y Tile Collisions
 
-// If about to collide with tile in x direction
+// If about to collide with tile in y direction
 _tile = tilemap_get_at_pixel(collisionTiles, x, y + velocity.y);
 if (_tile == 1)
 {

@@ -12,8 +12,11 @@ tokenIdxs = [];
 /// @func	graphEquation();
 graphEquation = function()
 {
-	// Destroy all other graphs
-	instance_destroy(oGraph);
+	// Damage existing graphs
+	with (oGraph)
+	{
+		damageGraph();
+	}
 	
 	// Create graph (at origin)
 	var _graph = instance_create_layer(16,176,"Instances",oGraph);

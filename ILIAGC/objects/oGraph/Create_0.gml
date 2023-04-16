@@ -5,6 +5,9 @@ graphPath = path_add();
 // Equation
 expressionTree = new Tree();
 
+// Health (to manage how many graphs on screen at once)
+hp = 2;
+
 /// @func	createExpressionTree({array} tokenIdxs);
 createExpressionTree = function(_tokenIdxs)
 {
@@ -79,7 +82,7 @@ createExpressionTree = function(_tokenIdxs)
 createGraphPath = function()
 {
 	// Loop through domain (x {0,10})
-	for (var _gx = 0; _gx <= 10; _gx++)
+	for (var _gx = 0; _gx <= 10; _gx += 0.1)
 	{
 		// Get graph output
 		var _gy = getGraphOutput(_gx);
@@ -114,7 +117,12 @@ evaluateExpression = function(_input, _node)
 	if (_node.data == "+") _value += _leftValue + _rightValue;
 	else if (_node.data == "-") _value += _leftValue - _rightValue;
 	else if (_node.data == "*") _value += _leftValue * _rightValue;
-	else if (_node.data == "/") _value += _leftValue / _rightValue;
+	else if (_node.data == "/")
+	{
+		// Account for divide by zero error
+		if (_rightValue == 0) _value += 100;
+		else _value += _leftValue / _rightValue;
+	}
 	else if (_node.data == "^") _value += power(_leftValue, _rightValue);
 	
 	// Return value
@@ -126,4 +134,12 @@ evaluateExpression = function(_input, _node)
 getGraphOutput = function(_input)
 {
 	return evaluateExpression(_input,expressionTree.root);
+}
+
+/// @func	damageGraph();
+damageGraph = function()
+{
+	// Destroy graph hp <= 0
+	hp--;
+	if (hp <= 0) instance_destroy();
 }

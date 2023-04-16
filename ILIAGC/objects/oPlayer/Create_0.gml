@@ -19,6 +19,9 @@ airConstant = 0.002;
 groundResistance = new Vector2();
 groundConstant = 0.15;
 
+// Crouch
+crouchInputted = false;
+
 // States
 grounded = false;
 
