@@ -3,6 +3,8 @@ xInput = keyboard_check(ord("D")) - keyboard_check(ord("A"));
 jumpInputted = keyboard_check_pressed(vk_space);
 crouchInputted = keyboard_check(ord("S"));
 
+#region Ground State
+
 // Update ground state
 grounded = false;
 if (tilemap_get_at_pixel(collisionTiles,x,y+1)) grounded = true;
@@ -17,6 +19,14 @@ else if (!crouchInputted && instance_exists(oGraph))
 		if (_otherGraphY > _graphY && _otherGraphGoalY <= _graphY) other.grounded = true;
 	}
 }
+
+// Set coyote buffer
+if (!grounded) coyoteBufferCounter = clamp(coyoteBufferCounter-1,0,coyoteBuffer);
+else coyoteBufferCounter = coyoteBuffer;
+
+#endregion
+
+#region Resistances (Friction)
 
 // If moving
 var _speed = velocity.getLength();
@@ -44,6 +54,8 @@ if (_speed > 0)
 	}
 }
 
+#endregion
+
 // Apply xInput to x velocity
 var _moveStrength = runStrength;
 if (!grounded) _moveStrength = driftStrength;
@@ -52,12 +64,24 @@ velocity.x += xInput * _moveStrength;
 // Apply gravity to y velocity
 velocity.y += gravityStrength;
 
-// If jump inputted
-if (jumpInputted && grounded)
+#region Jump
+
+// Set jump buffer counter
+if (jumpInputted) jumpBufferCounter = jumpBuffer;
+else jumpBufferCounter = clamp(jumpBufferCounter-1,0,jumpBuffer);
+
+// If jump buffered and grounded or jump buffered and coyote ready
+if ((jumpBufferCounter > 0 && grounded) || (jumpBufferCounter > 0 && coyoteBufferCounter > 0))
 {
 	// Apply jump
 	velocity.y = -jumpStrength;
+	
+	// Reset jump
+	jumpBufferCounter = 0;
+	coyoteBufferCounter = 0;
 }
+
+#endregion
 
 #region X Graph Collisions
 

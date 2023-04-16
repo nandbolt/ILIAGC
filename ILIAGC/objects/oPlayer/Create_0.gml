@@ -9,6 +9,10 @@ driftStrength = 0.05;
 // Jumping
 jumpInputted = false;
 jumpStrength = 3;
+jumpBuffer = 10;
+jumpBufferCounter = 0;
+coyoteBuffer = 10;
+coyoteBufferCounter = 0;
 
 // Gravity
 gravityStrength = 0.1;
