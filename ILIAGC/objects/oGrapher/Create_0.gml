@@ -28,4 +28,7 @@ graphEquation = function()
 		// Create graph path
 		createGraphPath();
 	}
+	
+	// Clear tokens
+	tokenIdxs = [];
 }

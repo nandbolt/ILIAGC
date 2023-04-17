@@ -1,3 +1,15 @@
+#region Global Variables
+
+#endregion
+
+#region Macros
+
+#macro TILE_SIZE 16
+
+#endregion
+
+#region Enums
+
 enum TokenIndexs
 {
 	UNDERSCORE			= 0,
@@ -22,4 +34,13 @@ enum TokenIndexs
 	CARROT				= 19,
 	OPEN_PARENTHESIS	= 20,
 	CLOSE_PARENTHESIS	= 21,
+	SINE				= 22,
+	COSINE				= 23,
+	TANGENT				= 24,
+	LOG					= 25,
+	ROOT				= 26,
+	PI					= 27,
+	E					= 28,
 }
+
+#endregion

@@ -1,1 +1,3 @@
-/// @desc Used during pausing
+// Spin
+spins = false;
+spinCounter = 0;

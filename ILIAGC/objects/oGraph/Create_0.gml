@@ -45,7 +45,7 @@ createExpressionTree = function(_tokenIdxs)
 			if (!ds_stack_empty(nodeStack)) currentNode = ds_stack_pop(nodeStack);
 		}
 		// X or Operator
-		else if (_tokenIdx > TokenIndexs.NUM9 && _tokenIdx < TokenIndexs.OPEN_PARENTHESIS)
+		else if ((_tokenIdx > TokenIndexs.NUM9 && _tokenIdx < TokenIndexs.OPEN_PARENTHESIS) || (_tokenIdx > TokenIndexs.CLOSE_PARENTHESIS && _tokenIdx < TokenIndexs.PI))
 		{
 			// Set node data to string operator
 			currentNode.data = convertTokenIndexToString(_tokenIdx);
@@ -64,7 +64,9 @@ createExpressionTree = function(_tokenIdxs)
 		else
 		{
 			// Update node data
-			currentNode.data = real(convertTokenIndexToString(_tokenIdx));
+			if (_tokenIdx == TokenIndexs.PI) currentNode.data = pi;
+			else if (_tokenIdx == TokenIndexs.E) currentNode.data = 2.72;
+			else currentNode.data = real(convertTokenIndexToString(_tokenIdx));
 			currentNode = ds_stack_pop(nodeStack);
 		}
 	}
@@ -120,10 +122,27 @@ evaluateExpression = function(_input, _node)
 	else if (_node.data == "/")
 	{
 		// Account for divide by zero error
-		if (_rightValue == 0) _value += 100;
-		else _value += _leftValue / _rightValue;
+		if (_rightValue == 0) _rightValue = 0.01;
+		_value += _leftValue / _rightValue;
 	}
 	else if (_node.data == "^") _value += power(_leftValue, _rightValue);
+	else if (_node.data == "s") _value += _leftValue * sin(_rightValue);
+	else if (_node.data == "c") _value += _leftValue * cos(_rightValue);
+	else if (_node.data == "t")
+	{
+		// Account for divide by zero error
+		var _cosine = cos(_rightValue);
+		if (_cosine == 0) _cosine = 0.01;
+		_value += _leftValue * (sin(_rightValue) / _cosine);
+	}
+	else if (_node.data == "l") _value += logn(_leftValue, _rightValue);
+	else if (_node.data == "r")
+	{
+		// Account for divide by zero and negative root error
+		if (_leftValue == 0) _leftValue = 1;
+		if (_rightValue < 0) _rightValue = 0;
+		_value += power(_rightValue,1 / _leftValue);
+	}
 	
 	// Return value
 	return _value;

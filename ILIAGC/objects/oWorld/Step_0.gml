@@ -22,6 +22,9 @@ if (gameStarted && !gameTimerPaused)
 			
 			// Spawn mode coin
 			instance_create_layer(96,96,"Instances",oModeCoin);
+			
+			// Highscore
+			if (coins > mostCoins) mostCoins = coins;
 		}
 	}
 }

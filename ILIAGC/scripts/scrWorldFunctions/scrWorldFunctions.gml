@@ -27,50 +27,64 @@ function convertTokenIndexToString(_idx)
 {
 	switch (_idx)
 	{
-		case 0:
+		case TokenIndexs.UNDERSCORE:
 			return "_";
-		case 1:
+		case TokenIndexs.SPACE:
 			return " ";
-		case 2:
+		case TokenIndexs.NUM0:
 			return "0";
-		case 3:
+		case TokenIndexs.NUM1:
 			return "1";
-		case 4:
+		case TokenIndexs.NUM2:
 			return "2";
-		case 5:
+		case TokenIndexs.NUM3:
 			return "3";
-		case 6:
+		case TokenIndexs.NUM4:
 			return "4";
-		case 7:
+		case TokenIndexs.NUM5:
 			return "5";
-		case 8:
+		case TokenIndexs.NUM6:
 			return "6";
-		case 9:
+		case TokenIndexs.NUM7:
 			return "7";
-		case 10:
+		case TokenIndexs.NUM8:
 			return "8";
-		case 11:
+		case TokenIndexs.NUM9:
 			return "9";
-		case 12:
+		case TokenIndexs.X:
 			return "x";
-		case 13:
+		case TokenIndexs.Y:
 			return "y";
-		case 14:
+		case TokenIndexs.EQUAL_SIGN:
 			return "=";
-		case 15:
+		case TokenIndexs.PLUS:
 			return "+";
-		case 16:
+		case TokenIndexs.MINUS:
 			return "-";
-		case 17:
+		case TokenIndexs.ASTERISK:
 			return "*";
-		case 18:
+		case TokenIndexs.SLASH:
 			return "/";
-		case 19:
+		case TokenIndexs.CARROT:
 			return "^";
-		case 20:
+		case TokenIndexs.OPEN_PARENTHESIS:
 			return "(";
-		case 21:
+		case TokenIndexs.CLOSE_PARENTHESIS:
 			return ")";
+		case TokenIndexs.SINE:
+			return "s";
+		case TokenIndexs.COSINE:
+			return "c";
+		case TokenIndexs.TANGENT:
+			return "t";
+		case TokenIndexs.LOG:
+			return "l";
+		case TokenIndexs.ROOT:
+			return "r";
+		case TokenIndexs.PI:
+			return "p";
+		case TokenIndexs.E:
+			return "e";
 		default:
 			return "";
 	}
@@ -82,49 +96,63 @@ function convertTokenStringToIndex(_token)
 	switch (_token)
 	{
 		case "_":
-			return 0;
+			return TokenIndexs.UNDERSCORE;
 		case " ":
-			return 1;
+			return TokenIndexs.SPACE;
 		case "0":
-			return 2;
+			return TokenIndexs.NUM0;
 		case "1":
-			return 3;
+			return TokenIndexs.NUM1;
 		case "2":
-			return 4;
+			return TokenIndexs.NUM2;
 		case "3":
-			return 5;
+			return TokenIndexs.NUM3;
 		case "4":
-			return 6;
+			return TokenIndexs.NUM4;
 		case "5":
-			return 7;
+			return TokenIndexs.NUM5;
 		case "6":
-			return 8;
+			return TokenIndexs.NUM6;
 		case "7":
-			return 9;
+			return TokenIndexs.NUM7;
 		case "8":
-			return 10;
+			return TokenIndexs.NUM8;
 		case "9":
-			return 11;
+			return TokenIndexs.NUM9;
 		case "x":
-			return 12;
+			return TokenIndexs.X;
 		case "y":
-			return 13;
+			return TokenIndexs.Y;
 		case "=":
-			return 14;
+			return TokenIndexs.EQUAL_SIGN;
 		case "+":
-			return 15;
+			return TokenIndexs.PLUS;
 		case "-":
-			return 16;
+			return TokenIndexs.MINUS;
 		case "*":
-			return 17;
+			return TokenIndexs.ASTERISK;
 		case "/":
-			return 18;
+			return TokenIndexs.SLASH;
 		case "^":
-			return 19;
+			return TokenIndexs.CARROT;
 		case "(":
-			return 20;
+			return TokenIndexs.OPEN_PARENTHESIS;
 		case ")":
-			return 21;
+			return TokenIndexs.CLOSE_PARENTHESIS;
+		case "s":
+			return TokenIndexs.SINE;
+		case "c":
+			return TokenIndexs.COSINE;
+		case "t":
+			return TokenIndexs.TANGENT;
+		case "l":
+			return TokenIndexs.LOG;
+		case "r":
+			return TokenIndexs.ROOT;
+		case "p":
+			return TokenIndexs.PI;
+		case "e":
+			return TokenIndexs.E;
 		default:
 			return -1;
 	}

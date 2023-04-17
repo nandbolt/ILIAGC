@@ -20,6 +20,7 @@
     {"id":{"name":"oCollectable","path":"objects/oCollectable/oCollectable.yy",},"order":1,},
     {"id":{"name":"scrVector2Struct","path":"scripts/scrVector2Struct/scrVector2Struct.yy",},"order":0,},
     {"id":{"name":"scrTreeStruct","path":"scripts/scrTreeStruct/scrTreeStruct.yy",},"order":0,},
+    {"id":{"name":"sCoinHighScore","path":"sprites/sCoinHighScore/sCoinHighScore.yy",},"order":2,},
     {"id":{"name":"oMain","path":"objects/oMain/oMain.yy",},"order":2,},
     {"id":{"name":"sCoin","path":"sprites/sCoin/sCoin.yy",},"order":0,},
     {"id":{"name":"oModeCoin","path":"objects/oModeCoin/oModeCoin.yy",},"order":1,},
