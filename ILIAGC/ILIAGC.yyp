@@ -13,6 +13,7 @@
     {"id":{"name":"sPlayerAirborne","path":"sprites/sPlayerAirborne/sPlayerAirborne.yy",},"order":2,},
     {"id":{"name":"sPlayerRunning","path":"sprites/sPlayerRunning/sPlayerRunning.yy",},"order":1,},
     {"id":{"name":"sDash","path":"sprites/sDash/sDash.yy",},"order":0,},
+    {"id":{"name":"oGame","path":"objects/oGame/oGame.yy",},"order":8,},
     {"id":{"name":"sCoinPlay","path":"sprites/sCoinPlay/sCoinPlay.yy",},"order":1,},
     {"id":{"name":"sBorder","path":"sprites/sBorder/sBorder.yy",},"order":0,},
     {"id":{"name":"scrTreeNodeStruct","path":"scripts/scrTreeNodeStruct/scrTreeNodeStruct.yy",},"order":1,},

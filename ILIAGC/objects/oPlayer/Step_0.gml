@@ -71,6 +71,7 @@ if (jumpInputted) jumpBufferCounter = jumpBuffer;
 else jumpBufferCounter = clamp(jumpBufferCounter-1,0,jumpBuffer);
 
 // If jump buffered and grounded or jump buffered and coyote ready
+var _jumpFrame = false;
 if ((jumpBufferCounter > 0 && grounded) || (jumpBufferCounter > 0 && coyoteBufferCounter > 0))
 {
 	// Apply jump
@@ -79,6 +80,7 @@ if ((jumpBufferCounter > 0 && grounded) || (jumpBufferCounter > 0 && coyoteBuffe
 	// Reset jump
 	jumpBufferCounter = 0;
 	coyoteBufferCounter = 0;
+	_jumpFrame = true;
 }
 
 #endregion
@@ -86,7 +88,7 @@ if ((jumpBufferCounter > 0 && grounded) || (jumpBufferCounter > 0 && coyoteBuffe
 #region X Graph Collisions
 
 // If not crouching
-if (!crouchInputted)
+if (!crouchInputted && !_jumpFrame)
 {
 	// Loop through all graphs
 	with (oGraph)
@@ -96,8 +98,16 @@ if (!crouchInputted)
 		var _graphY = getGraphOutput(convertXToGraphX(other.x)), _graphGoalY = getGraphOutput(convertXToGraphX(other.x + other.velocity.x));
 		if (_otherGraphY > _graphY && _otherGraphY <= _graphGoalY)
 		{
+			// Set graph r vector
+			var _graphR = new Vector2(other.velocity.x, convertGraphYToY(_graphGoalY) - other.y - abs(other.y - convertGraphYToY(_graphY)));
+			_graphR.normalize();
+			_graphR.multiplyByScalar(other.velocity.x);
+			
 			// Reset velocity
-			other.velocity.x = 0;
+			other.velocity.setToVector(_graphR);
+			
+			// Delete r vector
+			delete _graphR;
 		}
 	}
 }
