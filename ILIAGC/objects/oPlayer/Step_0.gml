@@ -101,7 +101,7 @@ if (!crouchInputted && !_jumpFrame)
 			// Set graph r vector
 			var _graphR = new Vector2(other.velocity.x, convertGraphYToY(_graphGoalY) - other.y - abs(other.y - convertGraphYToY(_graphY)));
 			_graphR.normalize();
-			_graphR.multiplyByScalar(other.velocity.x);
+			_graphR.multiplyByScalar(abs(other.velocity.x));
 			
 			// Reset velocity
 			other.velocity.setToVector(_graphR);
