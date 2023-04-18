@@ -4,7 +4,7 @@ if (editingEquation)
 	#region Check Equation Inputs
 	
 	// Check last character
-	if (keyboard_check_pressed(vk_enter)) graphEquation();
+	if (getGraphEquationInput()) graphEquation();
 	else if (keyboard_lastchar == "\b" && array_length(tokenIdxs) > 0) array_pop(tokenIdxs);
 	else if (keyboard_lastchar == "0" && !keyboard_check(vk_shift)) array_push(tokenIdxs, TokenIndexs.NUM0);
 	else if (keyboard_lastchar == "1") array_push(tokenIdxs, TokenIndexs.NUM1);
@@ -47,7 +47,7 @@ if (editingEquation)
 }
 
 // If want to edit equation
-if (keyboard_check_pressed(vk_tab)) 
+if (getToggleEquationEditorInput()) 
 {
 	editingEquation = !editingEquation;
 	
@@ -58,8 +58,8 @@ if (keyboard_check_pressed(vk_tab))
 		blinkTimer = 0;
 		
 		// Pause player/timer
-		var _playerSprite = instance_create_layer(oPlayer.x,oPlayer.y,"Instances",oSprite);
-		with (_playerSprite)
+		playerSpriteInstance = instance_create_layer(oPlayer.x,oPlayer.y,"Instances",oSprite);
+		with (playerSpriteInstance)
 		{
 			// Setup player sprite placeholder
 			sprite_index = oPlayer.sprite_index;
@@ -74,7 +74,7 @@ if (keyboard_check_pressed(vk_tab))
 		cursor = true;
 		
 		// Reactivate player/timer
-		instance_destroy(oSprite);
+		if (playerSpriteInstance != noone) instance_destroy(playerSpriteInstance);
 		instance_activate_object(oPlayer);
 		oWorld.gameTimerPaused = false;
 	}

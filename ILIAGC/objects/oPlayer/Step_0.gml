@@ -1,7 +1,7 @@
 // Update input
-xInput = keyboard_check(ord("D")) - keyboard_check(ord("A"));
-jumpInputted = keyboard_check_pressed(vk_space);
-crouchInputted = keyboard_check(ord("S"));
+xInput = getRightXInput() - getLeftXInput();
+jumpInputted = getJumpInput();
+crouchInputted = getCrouchInput();
 
 #region Ground State
 

@@ -24,7 +24,14 @@ if (gameStarted && !gameTimerPaused)
 			instance_create_layer(96,96,"Instances",oModeCoin);
 			
 			// Highscore
-			if (coins > mostCoins) mostCoins = coins;
+			if (coins > mostCoins)
+			{
+				// Save new high score to disk
+				mostCoins = coins;
+				ini_open("save.ini");
+				ini_write_real("high_scores","most_coins",mostCoins);
+				ini_close();
+			}
 		}
 	}
 }

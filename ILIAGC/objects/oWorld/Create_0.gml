@@ -23,3 +23,8 @@ with (_mostCoinsSpriteInstance)
 	sprite_index = sCoinHighScore;
 	spins = true;
 }
+
+// Get high score from disk
+ini_open("save.ini");
+mostCoins = ini_read_real("high_scores","most_coins",0);
+ini_close();

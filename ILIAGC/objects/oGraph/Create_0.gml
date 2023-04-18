@@ -135,7 +135,12 @@ evaluateExpression = function(_input, _node)
 		if (_cosine == 0) _cosine = 0.01;
 		_value += _leftValue * (sin(_rightValue) / _cosine);
 	}
-	else if (_node.data == "l") _value += logn(_leftValue, _rightValue);
+	else if (_node.data == "l")
+	{
+		// Account for invalid log domain (right value <= 0)
+		if (_rightValue <= 0) _rightValue = 0.01;
+		_value += logn(_leftValue, _rightValue);
+	}
 	else if (_node.data == "r")
 	{
 		// Account for divide by zero and negative root error

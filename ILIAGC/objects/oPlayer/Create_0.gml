@@ -35,3 +35,27 @@ graphPosition = new Vector2();
 // Tilemaps
 collisionTiles = layer_tilemap_get_id("CollisionTiles");
 collisionThreshold = 0.1;
+
+/// @func	getLeftXInput();
+getLeftXInput = function()
+{
+	return keyboard_check(ord("A")) || keyboard_check(vk_left) || gamepad_button_check(0,gp_padl);
+}
+
+/// @func	getRightXInput();
+getRightXInput = function()
+{
+	return keyboard_check(ord("D")) || keyboard_check(vk_right) || gamepad_button_check(0,gp_padr);
+}
+
+/// @func	getJumpInput();
+getJumpInput = function()
+{
+	return keyboard_check_pressed(vk_space) || keyboard_check_pressed(ord("J")) || gamepad_button_check_pressed(0,gp_face1);
+}
+
+/// @func	getCrouchInput();
+getCrouchInput = function()
+{
+	return keyboard_check(ord("S")) || keyboard_check(vk_down) || gamepad_button_check(0,gp_padd);
+}
