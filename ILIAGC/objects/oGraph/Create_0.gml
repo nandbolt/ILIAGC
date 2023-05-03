@@ -8,12 +8,38 @@ expressionTree = new Tree();
 // Health (to manage how many graphs on screen at once)
 hp = 2;
 
+//show_debug_message("TEST: " + string(real(".1") + 1));
+
 /// @func	createExpressionTree({array} tokenIdxs);
 createExpressionTree = function(_tokenIdxs)
-{
+{	
 	// Create stack/init current node
 	currentNode = expressionTree.root;
 	nodeStack = ds_stack_create();
+	
+	// Print tokens (raw)
+	var _tokens = [];
+	for (var _i = 0; _i < array_length(_tokenIdxs); _i++) array_push(_tokens, convertTokenIndexToString(_tokenIdxs[_i]));
+	show_debug_message("");
+	show_debug_message("raw: "+string(_tokens));
+	_tokens = [];
+	
+	// Add implied tokens
+	addImpliedTokens(_tokenIdxs);
+	
+	// If process was not a success
+	if (!validExpression(_tokenIdxs))
+	{
+		// Destroy stack
+		ds_stack_destroy(nodeStack);
+		
+		// Exit function
+		return false;
+	}
+	
+	// Print tokens (processed)
+	for (var _i = 0; _i < array_length(_tokenIdxs); _i++) array_push(_tokens, convertTokenIndexToString(_tokenIdxs[_i]));
+	show_debug_message("processed: "+string(_tokens));
 	
 	// Loop through tokenIdxs
 	for (var _i = 0; _i < array_length(_tokenIdxs); _i++)
@@ -45,7 +71,8 @@ createExpressionTree = function(_tokenIdxs)
 			if (!ds_stack_empty(nodeStack)) currentNode = ds_stack_pop(nodeStack);
 		}
 		// X or Operator
-		else if ((_tokenIdx > TokenIndexs.NUM9 && _tokenIdx < TokenIndexs.OPEN_PARENTHESIS) || (_tokenIdx > TokenIndexs.CLOSE_PARENTHESIS && _tokenIdx < TokenIndexs.PI))
+		else if ((_tokenIdx > TokenIndexs.NUM9 && _tokenIdx < TokenIndexs.OPEN_PARENTHESIS) || (_tokenIdx > TokenIndexs.CLOSE_PARENTHESIS && _tokenIdx < TokenIndexs.PI)
+				|| _tokenIdx != TokenIndexs.DECIMAL)
 		{
 			// Set node data to string operator
 			currentNode.data = convertTokenIndexToString(_tokenIdx);
@@ -66,7 +93,25 @@ createExpressionTree = function(_tokenIdxs)
 			// Update node data
 			if (_tokenIdx == TokenIndexs.PI) currentNode.data = pi;
 			else if (_tokenIdx == TokenIndexs.E) currentNode.data = 2.72;
-			else currentNode.data = real(convertTokenIndexToString(_tokenIdx));
+			else
+			{
+				// Setup for longer numbers
+				var _numString = convertTokenIndexToString(_tokenIdx), _j = 1;
+				var _nextTokenIdx = _tokenIdxs[_i + _j];
+				
+				// While next index is a number or decimal
+				while ((_nextTokenIdx > TokenIndexs.SPACE && _nextTokenIdx < TokenIndexs.X) || _nextTokenIdx == TokenIndexs.DECIMAL)
+				{
+					// Add to number string
+					_numString += convertTokenIndexToString(_nextTokenIdx);
+					
+					// Get next token index
+					_j++;
+					_nextTokenIdx = _tokenIdxs[_i + _j];
+				}
+				currentNode.data = real(_numString);
+				_i += _j - 1;
+			}
 			currentNode = ds_stack_pop(nodeStack);
 		}
 	}
@@ -74,10 +119,102 @@ createExpressionTree = function(_tokenIdxs)
 	// Destroy stack
 	ds_stack_destroy(nodeStack);
 	
+	// Print tree
 	with (expressionTree)
 	{
 		printTree(root);
 	}
+	
+	// Tree creation successful
+	return true;
+}
+
+/// @func	addImpliedTokens({array} tokenIdxs);
+addImpliedTokens = function(_tokenIdxs)
+{
+	// If entered nothing
+	if (array_length(_tokenIdxs) == 1)
+	{
+		// 0 + 0
+		array_push(_tokenIdxs, TokenIndexs.NUM0);
+		array_push(_tokenIdxs, TokenIndexs.PLUS);
+		array_push(_tokenIdxs, TokenIndexs.NUM0);
+	}
+	
+	// If entered one thing
+	if (array_length(_tokenIdxs) == 1)
+	{
+		// Add + 0
+		array_push(_tokenIdxs, TokenIndexs.PLUS);
+		array_push(_tokenIdxs, TokenIndexs.NUM0);
+	}
+	
+	// If first number is not an open parenthesis or last number is not a closed parenthesis
+	if (_tokenIdxs[0] != TokenIndexs.OPEN_PARENTHESIS || _tokenIdxs[array_length(_tokenIdxs) - 1] != TokenIndexs.CLOSE_PARENTHESIS)
+	{
+		// Add ( + ) to token indexs
+		array_insert(_tokenIdxs, 0, TokenIndexs.OPEN_PARENTHESIS);
+		array_push(_tokenIdxs, TokenIndexs.CLOSE_PARENTHESIS);
+	}
+	
+	// Add implied multiplication
+	for (var _i = 0; _i < array_length(_tokenIdxs) - 1; _i++)
+	{
+		// Get tokens
+		var _tokenIdx = _tokenIdxs[_i], _nextTokenIdx = _tokenIdxs[_i + 1];
+		
+		// Constant touching x
+		if (tokenIsConstant(_tokenIdx) && (_nextTokenIdx == TokenIndexs.X || _nextTokenIdx == TokenIndexs.PI || _nextTokenIdx == TokenIndexs.E))
+		{
+			// Add multiplication
+			array_insert(_tokenIdxs, _i + 1, TokenIndexs.ASTERISK);
+		}
+		// Negative sign
+		else if (_tokenIdx == TokenIndexs.OPEN_PARENTHESIS && _nextTokenIdx == TokenIndexs.MINUS)
+		{
+			// Add zero
+			array_insert(_tokenIdxs, _i + 1, TokenIndexs.NUM0);
+		}
+		else if (_tokenIdx == TokenIndexs.OPEN_PARENTHESIS || tokenIsOperator(_tokenIdx))
+		{
+			// Log base 10
+			if (_nextTokenIdx == TokenIndexs.LOG) array_insert(_tokenIdxs, _i + 1, TokenIndexs.NUM1, TokenIndexs.NUM0);
+			// Square root
+			else if (_nextTokenIdx == TokenIndexs.ROOT) array_insert(_tokenIdxs, _i + 1, TokenIndexs.NUM2);
+			// Trig * 1
+			else if (_nextTokenIdx > TokenIndexs.CLOSE_PARENTHESIS && _nextTokenIdx < TokenIndexs.LOG) array_insert(_tokenIdxs, _i + 1, TokenIndexs.NUM1);
+		}
+	}
+}
+
+/// @func	tokenIsConstant({int} tokenIdx);
+tokenIsConstant = function(_tokenIdx)
+{
+	return (_tokenIdx > TokenIndexs.SPACE && _tokenIdx < TokenIndexs.X) || _tokenIdx == TokenIndexs.PI || _tokenIdx == TokenIndexs.E;
+}
+
+/// @func	tokenIsOperator({int} tokenIdx);
+tokenIsOperator = function(_tokenIdx)
+{
+	return (_tokenIdx > TokenIndexs.EQUAL_SIGN && _tokenIdx < TokenIndexs.OPEN_PARENTHESIS) || (_tokenIdx > TokenIndexs.CLOSE_PARENTHESIS && _tokenIdx < TokenIndexs.PI);
+}
+
+/// @func	validExpression({array} tokenIdxs);
+validExpression = function(_tokenIdxs)
+{
+	// Parenthesis check
+	var _psum = 0;
+	for (var _i = 0; _i < array_length(_tokenIdxs); _i++)
+	{
+		if (_tokenIdxs[_i] == TokenIndexs.OPEN_PARENTHESIS) _psum++;
+		else if (_tokenIdxs[_i] == TokenIndexs.CLOSE_PARENTHESIS) _psum--;
+	}
+	if (_psum != 0) return false;
+	
+	// Operand Operator Operand check
+	
+	// Valid expression
+	return true;
 }
 
 /// @func	createGraphPath();

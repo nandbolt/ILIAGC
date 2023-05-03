@@ -85,6 +85,8 @@ function convertTokenIndexToString(_idx)
 			return "p";
 		case TokenIndexs.E:
 			return "e";
+		case TokenIndexs.DECIMAL:
+			return ".";
 		default:
 			return "";
 	}
@@ -153,6 +155,8 @@ function convertTokenStringToIndex(_token)
 			return TokenIndexs.PI;
 		case "e":
 			return TokenIndexs.E;
+		case ".":
+			return TokenIndexs.DECIMAL;
 		default:
 			return -1;
 	}

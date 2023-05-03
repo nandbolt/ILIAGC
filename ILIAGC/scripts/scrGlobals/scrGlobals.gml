@@ -41,6 +41,7 @@ enum TokenIndexs
 	ROOT				= 26,
 	PI					= 27,
 	E					= 28,
+	DECIMAL				= 29,
 }
 
 #endregion

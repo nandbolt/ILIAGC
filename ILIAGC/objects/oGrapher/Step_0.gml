@@ -31,6 +31,7 @@ if (editingEquation)
 	else if (keyboard_lastchar == "r") array_push(tokenIdxs, TokenIndexs.ROOT);
 	else if (keyboard_lastchar == "p") array_push(tokenIdxs, TokenIndexs.PI);
 	else if (keyboard_lastchar == "e") array_push(tokenIdxs, TokenIndexs.E);
+	else if (keyboard_lastchar == ".") array_push(tokenIdxs, TokenIndexs.DECIMAL);
 	
 	// Clear last character
 	keyboard_lastchar = "";

@@ -25,15 +25,14 @@ graphEquation = function()
 	var _graph = instance_create_layer(16,176,"Instances",oGraph);
 	with (_graph)
 	{
-		// Create expression tree
-		createExpressionTree(other.tokenIdxs);
-		
-		// Create graph path
-		createGraphPath();
+		// Create expression tree, then graph path if tree was successful
+		if (createExpressionTree(other.tokenIdxs))
+		{
+			createGraphPath();
+			other.tokenIdxs = [];
+		}
+		else instance_destroy();
 	}
-	
-	// Clear tokens
-	tokenIdxs = [];
 }
 
 /// @func	getToggleEquationEditorInput();
