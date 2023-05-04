@@ -1,6 +1,9 @@
 // If editing equation
 if (editingEquation)
 {
+	// Toggle info
+	if (keyboard_check_pressed(ord("H"))) showInfo = !showInfo;
+	
 	#region Check Equation Inputs
 	
 	// Check last character

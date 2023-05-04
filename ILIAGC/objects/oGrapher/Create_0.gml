@@ -25,6 +25,9 @@ previousPostfixEquation = "None";
 // Player
 playerSpriteInstance = noone;
 
+// Other
+showInfo = true;
+
 /// @func	graphEquation();
 graphEquation = function()
 {	
