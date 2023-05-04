@@ -1,6 +1,7 @@
 // Movement vectors
 xInput = 0;
 velocity = new Vector2();
+normal = new Vector2();
 
 // Movement scalars
 runStrength = 0.2;

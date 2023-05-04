@@ -8,8 +8,6 @@ expressionTree = new Tree();
 // Health (to manage how many graphs on screen at once)
 hp = 2;
 
-//show_debug_message("TEST: " + string(real(".1") + 1));
-
 /// @func	createExpressionTree({array} _postfixExpression);
 createExpressionTree = function(_postfixExpression)
 {	
@@ -148,7 +146,7 @@ evaluateExpression = function(_input, _node)
 /// Returns the output of the graph's function [x = input, y = output]
 getGraphOutput = function(_input)
 {
-	return evaluateExpression(_input,expressionTree.root);
+	return evaluateExpression(_input, expressionTree.root);
 }
 
 /// @func	damageGraph();
@@ -157,4 +155,11 @@ damageGraph = function()
 	// Destroy graph hp <= 0
 	hp--;
 	if (hp <= 0) instance_destroy();
+}
+
+/// @func	pointAboveGraph({real} x, {real} y);
+pointAboveGraph = function(_x, _y)
+{
+	var _graphOutputY = getGraphOutput(convertXToGraphX(_x)), _graphY = convertYToGraphY(_y);
+	return _graphY > _graphOutputY;
 }

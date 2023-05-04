@@ -85,29 +85,53 @@ if ((jumpBufferCounter > 0 && grounded) || (jumpBufferCounter > 0 && coyoteBuffe
 
 #endregion
 
-#region X Graph Collisions
+#region Graph Collisions
 
 // If not crouching
-if (!crouchInputted && !_jumpFrame)
+if (!crouchInputted)
 {
 	// Loop through all graphs
 	with (oGraph)
 	{
-		// If about to collide with a graph in y direction
-		var _otherGraphY = convertYToGraphY(other.y);
-		var _graphY = getGraphOutput(convertXToGraphX(other.x)), _graphGoalY = getGraphOutput(convertXToGraphX(other.x + other.velocity.x));
-		if (_otherGraphY > _graphY && _otherGraphY <= _graphGoalY)
+		// If above function but trying to go below it (collision)
+		if (pointAboveGraph(other.x, other.y) && !pointAboveGraph(other.x + other.velocity.x, other.y + other.velocity.y))
 		{
-			// Set graph r vector
-			var _graphR = new Vector2(other.velocity.x, convertGraphYToY(_graphGoalY) - other.y - abs(other.y - convertGraphYToY(_graphY)));
-			_graphR.normalize();
-			_graphR.multiplyByScalar(abs(other.velocity.x));
+			// Get normal
+			var _leftY = convertGraphYToY(getGraphOutput(convertXToGraphX(other.x - 1)));
+			var _rightY = convertGraphYToY(getGraphOutput(convertXToGraphX(other.x + 1)));
+			other.normal.x = 2;
+			other.normal.y = _rightY - _leftY;
+			other.normal.rotate(90);
+			other.normal.normalize();
 			
-			// Reset velocity
-			other.velocity.setToVector(_graphR);
+			// Slide
+			if (other.normal.x != 0)
+			{
+				var _r = new Vector2(other.normal.x,other.normal.y);
+				var _dotProduct = other.velocity.dotWithVector(_r);
+				_r.multiplyByScalar(_dotProduct);
+				other.velocity.x -= _r.x;
+				other.velocity.y -= _r.y;
+			}
+			else other.velocity.y = 0;
 			
-			// Delete r vector
-			delete _graphR;
+			// Get rotation direction
+			var _rotationDirection = sign(angle_difference(other.normal.getAngleDegrees(), other.velocity.getAngleDegrees()));
+			
+			// Rotate until above graph
+			var _count = 0;
+			while (!pointAboveGraph(other.x + other.velocity.x, other.y + other.velocity.y))
+			{
+				// Rotate velocity
+				other.velocity.rotate(_rotationDirection);
+				_count++;
+				if (_count > 45)
+				{
+					other.velocity.x = 0;
+					other.velocity.y = 0;
+					break;
+				}
+			}
 		}
 	}
 }
@@ -142,27 +166,6 @@ if (_tile == 1)
 // Update x
 x += velocity.x;
 graphPosition.x = convertXToGraphX(x);
-
-#region Y Graph Collisions
-
-// If not crouching
-if (!crouchInputted)
-{
-	// Loop through all graphs
-	with (oGraph)
-	{
-		// If about to collide with a graph in y direction
-		var _graphY = getGraphOutput(convertXToGraphX(other.x));
-		var _otherGraphY = convertYToGraphY(other.y), _otherGraphGoalY = convertYToGraphY(other.y + other.velocity.y);
-		if (_otherGraphY > _graphY && _otherGraphGoalY <= _graphY)
-		{
-			// Reset velocity
-			other.velocity.y = 0;
-		}
-	}
-}
-
-#endregion
 
 #region Y Tile Collisions
 
@@ -209,5 +212,9 @@ else if (xInput != 0)
 }
 // Else idle animation
 else sprite_index = sPlayerIdle;
+
+// If grounded
+if (grounded) image_blend = c_aqua;
+else image_blend = c_white;
 
 #endregion
