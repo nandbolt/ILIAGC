@@ -161,3 +161,34 @@ function convertTokenStringToIndex(_token)
 			return -1;
 	}
 }
+
+/// @func	tokenIsConstant({int} tokenIdx);
+function tokenIsConstant(_tokenIdx)
+{
+	return (_tokenIdx > TokenIndexs.SPACE && _tokenIdx < TokenIndexs.X) || _tokenIdx == TokenIndexs.PI || _tokenIdx == TokenIndexs.E;
+}
+
+/// @func	tokenIsOperator({int} tokenIdx);
+function tokenIsOperator(_tokenIdx)
+{
+	return (_tokenIdx > TokenIndexs.EQUAL_SIGN && _tokenIdx < TokenIndexs.OPEN_PARENTHESIS) || (_tokenIdx > TokenIndexs.CLOSE_PARENTHESIS && _tokenIdx < TokenIndexs.PI);
+}
+
+/// @func	tokenStringIsOperator({string} token);
+function tokenStringIsOperator(_token)
+{
+	return _token == "+" || _token == "-" || _token == "*" || _token == "/" || _token == "^" ||
+		   _token == "s" || _token == "c" || _token == "t" || _token == "l" || _token == "r";
+}
+
+/// @func	tokenIsNumber({int} tokenIdx);
+function tokenIsNumber(_tokenIdx)
+{
+	return _tokenIdx > TokenIndexs.SPACE && _tokenIdx < TokenIndexs.X;
+}
+
+/// @func	tokenIsTrigOperator({int} tokenIdx);
+function tokenIsTrigOperator(_tokenIdx)
+{
+	return _tokenIdx > TokenIndexs.CLOSE_PARENTHESIS && _tokenIdx < TokenIndexs.LOG;
+}

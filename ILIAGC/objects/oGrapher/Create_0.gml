@@ -8,31 +8,188 @@ blinkFrequency = 20;
 
 // Equation
 tokenIdxs = [];
+precedenceMap = ds_map_create();
+ds_map_add(precedenceMap, "(", 1);
+ds_map_add(precedenceMap, "+", 2);
+ds_map_add(precedenceMap, "-", 2);
+ds_map_add(precedenceMap, "*", 3);
+ds_map_add(precedenceMap, "/", 3);
+ds_map_add(precedenceMap, "s", 3);
+ds_map_add(precedenceMap, "c", 3);
+ds_map_add(precedenceMap, "t", 3);
+ds_map_add(precedenceMap, "^", 4);
+ds_map_add(precedenceMap, "l", 5);
+ds_map_add(precedenceMap, "r", 5);
+previousPostfixEquation = "None";
 
 // Player
 playerSpriteInstance = noone;
 
 /// @func	graphEquation();
 graphEquation = function()
-{
-	// Damage existing graphs
-	with (oGraph)
+{	
+	// Check expression validity
+	var _expression = simplifyExpression(tokenIdxs);
+	if (validExpression(_expression))
 	{
-		damageGraph();
+		// Get postfix expression
+		var _postfixExpression = convertInfixToPostfix(_expression);
+		previousPostfixEquation = "";
+		for (var _i = 0; _i < array_length(_postfixExpression); _i++)
+		{
+			previousPostfixEquation += _postfixExpression[_i] + " ";
+		}
+		
+		// Damage existing graphs
+		with (oGraph)
+		{
+			damageGraph();
+		}
+	
+		// Create graph (at origin)
+		var _graph = instance_create_layer(16,176,"Instances",oGraph);
+		with (_graph)
+		{
+			// Create expression tree
+			createExpressionTree(_postfixExpression);
+		}
+		
+		// Clear tokens
+		tokenIdxs = [];
+	}
+	else previousPostfixEquation = "Invalid EQ";
+}
+
+/// @func	simplifyExpression({array} tokenIdxs);
+simplifyExpression = function(_tokenIdxs)
+{
+	var _expression = [];
+	
+	for (var _i = 0; _i < array_length(_tokenIdxs); _i++)
+	{
+		var _tokenIdx = _tokenIdxs[_i];
+		
+		// If number or decimal
+		if (tokenIsNumber(_tokenIdx) || _tokenIdx == TokenIndexs.DECIMAL)
+		{
+			// Construct number string, add to expression
+			var _numString = convertTokenIndexToString(_tokenIdx);
+			var _j = 1;
+			while (_i + _j < array_length(_tokenIdxs))
+			{
+				var _nextTokenIdx = _tokenIdxs[_i + _j];
+				if (tokenIsNumber(_nextTokenIdx) || _nextTokenIdx == TokenIndexs.DECIMAL) _numString += convertTokenIndexToString(_nextTokenIdx);
+				else break;
+				_j++;
+			}
+			array_push(_expression, _numString);
+			_i += _j - 1;
+		}
+		else
+		{
+			// Trig
+			if (tokenIsTrigOperator(_tokenIdx) && (_i == 0 || tokenIsOperator(_tokenIdxs[_i - 1]) || _tokenIdxs[_i - 1] == TokenIndexs.OPEN_PARENTHESIS))
+			{
+				// Add implied 1 to trig operator
+				array_push(_expression, "1");
+			}
+			// Log
+			else if (_tokenIdx == TokenIndexs.LOG && (_i == 0 || tokenIsOperator(_tokenIdxs[_i - 1])))
+			{
+				// Add log base 10
+				array_push(_expression, "10");
+			}
+			// Root
+			else if (_tokenIdx == TokenIndexs.ROOT && (_i == 0 || tokenIsOperator(_tokenIdxs[_i - 1])))
+			{
+				// Add square root
+				array_push(_expression, "2");
+			}
+			// Negative
+			else if (_tokenIdx == TokenIndexs.MINUS && (_i == 0 || tokenIsOperator(_tokenIdxs[_i - 1]) || _tokenIdxs[_i - 1] == TokenIndexs.OPEN_PARENTHESIS))
+			{
+				// Add implied 0
+				array_push(_expression, "0");
+			}
+			array_push(_expression, convertTokenIndexToString(_tokenIdx));
+		}
+		
+		// If constant, not last index and touching x, pi, e, or open parenthesis
+		if ((tokenIsConstant(_tokenIdx) || _tokenIdx == TokenIndexs.DECIMAL) && _i < array_length(_tokenIdxs) - 1 &&
+			(_tokenIdxs[_i + 1] == TokenIndexs.X || _tokenIdxs[_i + 1] == TokenIndexs.PI || _tokenIdxs[_i + 1] == TokenIndexs.E ||
+			 _tokenIdxs[_i + 1] == TokenIndexs.OPEN_PARENTHESIS))
+		{
+			// Add multiplication
+			array_push(_expression, "*");
+		}
 	}
 	
-	// Create graph (at origin)
-	var _graph = instance_create_layer(16,176,"Instances",oGraph);
-	with (_graph)
+	// Single character expression (add + 0)
+	if (array_length(_expression) == 1) array_push(_expression, "+", "0");
+	
+	return _expression;
+}
+
+/// @func	validExpression({array} expression);
+validExpression = function(_expression)
+{
+	// Parenthesis check
+	var _psum = 0;
+	for (var _i = 0; _i < array_length(_expression); _i++)
 	{
-		// Create expression tree, then graph path if tree was successful
-		if (createExpressionTree(other.tokenIdxs))
-		{
-			createGraphPath();
-			other.tokenIdxs = [];
-		}
-		else instance_destroy();
+		if (_expression[_i] == "(") _psum++;
+		else if (_expression[_i] == ")") _psum--;
+		if (_psum < 0) return false;
 	}
+	if (_psum != 0) return false;
+	
+	return true;
+}
+
+/// @func	convertInfixToPostfix({array} expression);
+convertInfixToPostfix = function(_expression)
+{
+	var _postfixExpression = [];
+	var _operatorStack = ds_stack_create();
+	
+	// Scan infix expression
+	for (var _i = 0; _i < array_length(_expression); _i++)
+	{
+		// Get token
+		var _token = _expression[_i];
+		var _isOperator = tokenStringIsOperator(_token);
+		
+		// Append token to stack if operand
+		if (!_isOperator && _token != "(" && _token != ")") array_push(_postfixExpression, _token);
+		// Push onto stack if left parenthesis
+		else if (_token == "(") ds_stack_push(_operatorStack, _token);
+		// Pop stack until corresponding left parenthesis is removed, append each operator to end of output list
+		else if (_token == ")")
+		{
+			var _topToken = ds_stack_pop(_operatorStack);
+			while (_topToken != "(")
+			{
+				array_push(_postfixExpression, _topToken);
+				_topToken = ds_stack_pop(_operatorStack);
+			}
+		}
+		// Else token is operator
+		else
+		{
+			// Remove any operators already in stack that have higher or equal precedence and append them to output list, then push token to stack
+			while (!ds_stack_empty(_operatorStack) && (precedenceMap[? ds_stack_top(_operatorStack)] >= precedenceMap[? _token]))
+			{
+				array_push(_postfixExpression, ds_stack_pop(_operatorStack));
+			}
+			ds_stack_push(_operatorStack, _token)
+		}
+	}
+	
+	// Add remaining operators on stack to output list
+	while (!ds_stack_empty(_operatorStack)) array_push(_postfixExpression, ds_stack_pop(_operatorStack));
+	
+	ds_stack_destroy(_operatorStack);
+	return _postfixExpression;
 }
 
 /// @func	getToggleEquationEditorInput();
