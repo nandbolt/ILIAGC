@@ -82,6 +82,23 @@ if (getToggleEquationEditorInput())
 		}
 		instance_deactivate_object(oPlayer);
 		oWorld.gameTimerPaused = true;
+		
+		// Acid rain
+		if (instance_exists(oAcidRain))
+		{
+			// Go through each acid rain and make a sprite instance for them, then deactivate them all
+			with (oAcidRain)
+			{
+				var _spriteInstance = instance_create_layer(x, y, "BackgroundInstances", oSprite);
+				with (_spriteInstance)
+				{
+					sprite_index = other.sprite_index;
+					image_alpha = other.image_alpha;
+				}
+				array_push(other.acidRainSpriteInstances, _spriteInstance);
+			}
+			instance_deactivate_object(oAcidRain);
+		}
 	}
 	else
 	{
@@ -90,6 +107,15 @@ if (getToggleEquationEditorInput())
 		// Reactivate player/timer
 		if (playerSpriteInstance != noone) instance_destroy(playerSpriteInstance);
 		instance_activate_object(oPlayer);
+		if (array_length(acidRainSpriteInstances) > 0)
+		{
+			// Go through each acid rain and destroy the sprite instance, then reactivate them all
+			while (array_length(acidRainSpriteInstances) > 0)
+			{
+				instance_destroy(array_pop(acidRainSpriteInstances));
+			}
+			instance_activate_object(oAcidRain);
+		}
 		oWorld.gameTimerPaused = false;
 	}
 }

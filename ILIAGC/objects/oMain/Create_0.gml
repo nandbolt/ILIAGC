@@ -1,3 +1,6 @@
+// Randomize
+randomize();
+
 // Font
 draw_set_font(fDefault);
 

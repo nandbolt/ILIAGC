@@ -12,7 +12,7 @@ coins = 0;
 mostCoins = 0;
 
 // Obstacles
-obstacles = [oGraphEater, oSpikes];
+obstacles = [oGraphEater, oSpikes, oCloud];
 baseMinObstacleTime = 600;
 baseMaxObstacleTime = 900;
 lowestMinObstacleTime = 180;

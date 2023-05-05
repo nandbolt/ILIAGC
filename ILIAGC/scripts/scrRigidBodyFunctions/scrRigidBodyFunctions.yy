@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "scrVector2Struct",
+  "name": "scrRigidBodyFunctions",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {

@@ -25,6 +25,9 @@ previousPostfixEquation = "None";
 // Player
 playerSpriteInstance = noone;
 
+// Acid rain
+acidRainSpriteInstances = [];
+
 // Other
 showInfo = true;
 

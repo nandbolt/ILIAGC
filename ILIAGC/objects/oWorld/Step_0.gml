@@ -18,7 +18,10 @@ if (gameStarted && !gameTimerPaused)
 	{
 		// Create obstacle
 		var _i = irandom_range(0, array_length(obstacles) - 1);
-		instance_create_layer(random_range(24,168), random_range(24,168), "BackgroundInstances", obstacles[_i]);
+		var _obstacle = obstacles[_i];
+		var _x = random_range(24,168), _y = random_range(24,168);
+		if (_obstacle == oCloud) _y = 24;
+		instance_create_layer(_x, _y, "BackgroundInstances", _obstacle);
 		obstacleTimer = irandom_range(minObstacleTime, maxObstacleTime);
 	}
 	
