@@ -7,8 +7,11 @@ xInput = 0;
 // Movement scalars
 runStrength = 0.2;
 driftStrength = 0.05;
+normalGroundConstant = 0.15;
+slideConstant = 0;
 
 // Jumping
+jumpPressed = false;
 jumpInputted = false;
 jumpStrength = 3;
 jumpBuffer = 10;
@@ -39,10 +42,16 @@ getRightXInput = function()
 	return keyboard_check(ord("D")) || keyboard_check(vk_right) || gamepad_button_check(0,gp_padr);
 }
 
+/// @func	getJumpPressedInput();
+getJumpPressedInput = function()
+{
+	return keyboard_check_pressed(vk_space) || keyboard_check_pressed(ord("J")) || gamepad_button_check_pressed(0,gp_face1);
+}
+
 /// @func	getJumpInput();
 getJumpInput = function()
 {
-	return keyboard_check_pressed(vk_space) || keyboard_check_pressed(ord("J")) || gamepad_button_check_pressed(0,gp_face1);
+	return keyboard_check(vk_space) || keyboard_check(ord("J")) || gamepad_button_check(0,gp_face1);
 }
 
 /// @func	getCrouchInput();

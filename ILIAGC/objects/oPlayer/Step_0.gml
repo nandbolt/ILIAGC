@@ -1,8 +1,11 @@
 // Update input
 xInput = getRightXInput() - getLeftXInput();
 jumpInputted = getJumpInput();
+jumpPressed = getJumpPressedInput();
 crouchInputted = getCrouchInput();
-if (crouchInputted) ignoreGraphs = true;
+
+// Ignore graphs
+if (crouchInputted && jumpInputted) ignoreGraphs = true;
 else ignoreGraphs = false;
 
 #region Invincibility
@@ -32,10 +35,13 @@ else coyoteBufferCounter = coyoteBuffer;
 #endregion
 
 // Resistances
+if (crouchInputted) groundConstant = slideConstant;
+else groundConstant = normalGroundConstant;
 rbHandleResistances();
 
 // Apply xInput to x velocity
 var _moveStrength = runStrength;
+if (crouchInputted) _moveStrength = 0;
 if (!grounded) _moveStrength = driftStrength;
 velocity.x += xInput * _moveStrength;
 
@@ -45,7 +51,7 @@ rbApplyGravity();
 #region Jump
 
 // Set jump buffer counter
-if (jumpInputted) jumpBufferCounter = jumpBuffer;
+if (jumpPressed && !crouchInputted) jumpBufferCounter = jumpBuffer;
 else jumpBufferCounter = clamp(jumpBufferCounter-1,0,jumpBuffer);
 
 // If jump buffered and grounded or jump buffered and coyote ready
@@ -86,6 +92,17 @@ graphPosition.y = convertYToGraphY(y);
 
 // If airborne
 if (!grounded) sprite_index = sPlayerAirborne;
+// Else if crouch inputted
+else if (crouchInputted)
+{
+	if (abs(velocity.x) < 0.01) sprite_index = sPlayerCrouch;
+	else
+	{
+		sprite_index = sPlayerSlide;
+		if (velocity.x > 0) image_xscale = 1;
+		else image_xscale = -1;
+	}
+}
 // Else if inputted an x direction
 else if (xInput != 0)
 {
