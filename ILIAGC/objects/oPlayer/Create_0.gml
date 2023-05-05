@@ -29,6 +29,9 @@ crouchInputted = false;
 
 // States
 grounded = false;
+invincible = false;
+damageInvincibilityTime = 120;
+invincibleTimer = 0;
 
 // Graph
 graphPosition = new Vector2();
@@ -59,4 +62,20 @@ getJumpInput = function()
 getCrouchInput = function()
 {
 	return keyboard_check(ord("S")) || keyboard_check(vk_down) || gamepad_button_check(0,gp_padd);
+}
+
+/// @func	takeDamage({real} damage);
+takeDamage = function(_damage)
+{
+	// If not invincible
+	if (!invincible && oWorld.gameStarted)
+	{
+		// Decrement game timer
+		oWorld.gameTimer = clamp(oWorld.gameTimer - _damage, 0, 99);
+		
+	
+		// Player invinciblity
+		invincible = true;
+		invincibleTimer = damageInvincibilityTime;
+	}
 }

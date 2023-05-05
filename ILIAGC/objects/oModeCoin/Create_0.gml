@@ -10,6 +10,11 @@ onCollect = function()
 		// Start timers
 		gameTimer = 59;
 		gameCounter = 0;
+		timeElapsed = 0;
+		minObstacleTime = baseMinObstacleTime;
+		maxObstacleTime = baseMaxObstacleTime;
+		obstacleTimer = irandom_range(minObstacleTime, maxObstacleTime);
+		clockTimer = 600;
 		
 		// Reset coins
 		coins = 0;

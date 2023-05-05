@@ -5,10 +5,24 @@ gameStarted = false;
 gameTimer = 0;
 gameCounter = 0;
 gameTimerPaused = false;
+timeElapsed = 0;
 
 // Coins
 coins = 0;
 mostCoins = 0;
+
+// Obstacles
+obstacles = [oGraphEater, oSpikes];
+baseMinObstacleTime = 600;
+baseMaxObstacleTime = 900;
+lowestMinObstacleTime = 180;
+lowestMaxObstacleTime = 300;
+minObstacleTime = lowestMinObstacleTime;
+maxObstacleTime = lowestMaxObstacleTime;
+obstacleTimer = irandom_range(minObstacleTime, maxObstacleTime);
+
+// Clock
+clockTimer = 600;
 
 // Coin Sprites (HUD)
 var _coinsSpriteInstance = instance_create_layer(8,8,"HUDInstances",oSprite);

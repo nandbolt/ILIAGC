@@ -136,6 +136,9 @@ simplifyExpression = function(_tokenIdxs)
 /// @func	validExpression({array} expression);
 validExpression = function(_expression)
 {
+	// Empty check 
+	if (array_length(_expression) == 0) return false;
+	
 	// Parenthesis check
 	var _psum = 0;
 	for (var _i = 0; _i < array_length(_expression); _i++)

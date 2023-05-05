@@ -78,6 +78,7 @@ if (getToggleEquationEditorInput())
 			sprite_index = oPlayer.sprite_index;
 			image_index = oPlayer.image_index;
 			image_xscale = oPlayer.image_xscale;
+			image_blend = oPlayer.image_blend;
 		}
 		instance_deactivate_object(oPlayer);
 		oWorld.gameTimerPaused = true;

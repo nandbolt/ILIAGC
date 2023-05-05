@@ -3,6 +3,21 @@ xInput = getRightXInput() - getLeftXInput();
 jumpInputted = getJumpInput();
 crouchInputted = getCrouchInput();
 
+#region Invincibility
+
+// Switch scopes
+if (oWorld.gameStarted && !oWorld.gameTimerPaused)
+{
+	// Update invincibility if invincible
+	if (invincible)
+	{
+		if (invincibleTimer <= 0) invincible = false;
+		else invincibleTimer--;
+	}
+}
+
+#endregion
+
 #region Ground State
 
 // Update ground state
@@ -214,7 +229,8 @@ else if (xInput != 0)
 else sprite_index = sPlayerIdle;
 
 // If grounded
-if (grounded) image_blend = c_aqua;
+if (invincible) image_blend = c_yellow;
+else if (grounded) image_blend = c_aqua;
 else image_blend = c_white;
 
 #endregion

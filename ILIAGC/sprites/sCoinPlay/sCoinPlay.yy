@@ -69,6 +69,6 @@
   "nineSlice": null,
   "parent": {
     "name": "Coin",
-    "path": "folders/Sprites/Coin.yy",
+    "path": "folders/Sprites/Collectables/Coin.yy",
   },
 }
