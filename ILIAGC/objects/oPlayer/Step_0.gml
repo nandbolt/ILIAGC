@@ -95,7 +95,7 @@ if (!grounded) sprite_index = sPlayerAirborne;
 // Else if crouch inputted
 else if (crouchInputted)
 {
-	if (abs(velocity.x) < 0.01) sprite_index = sPlayerCrouch;
+	if (abs(velocity.x) < 0.05) sprite_index = sPlayerCrouch;
 	else
 	{
 		sprite_index = sPlayerSlide;

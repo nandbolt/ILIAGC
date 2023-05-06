@@ -5,9 +5,6 @@ graphPath = path_add();
 // Equation
 expressionTree = new Tree();
 
-// Health (to manage how many graphs on screen at once)
-hp = 2;
-
 /// @func	createExpressionTree({array} _postfixExpression);
 createExpressionTree = function(_postfixExpression)
 {	

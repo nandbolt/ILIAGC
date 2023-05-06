@@ -6,8 +6,9 @@ cursor = false;
 blinkTimer = 0;
 blinkFrequency = 20;
 
-// Equation
-tokenIdxs = [];
+// Graphs + equations
+graphs = [[[], noone, 0], [[], noone, 0]];	// Per graph: [0]token indexs for equation, [1]graph instance, [2]cooldown
+graphIdx = 0;
 precedenceMap = ds_map_create();
 ds_map_add(precedenceMap, "(", 1);
 ds_map_add(precedenceMap, "+", 2);
@@ -21,6 +22,7 @@ ds_map_add(precedenceMap, "^", 4);
 ds_map_add(precedenceMap, "l", 5);
 ds_map_add(precedenceMap, "r", 5);
 previousPostfixEquation = "None";
+graphCooldown = 5;	// Seconds
 
 // Player
 playerSpriteInstance = noone;
@@ -33,9 +35,16 @@ showInfo = true;
 
 /// @func	graphEquation();
 graphEquation = function()
-{	
+{
+	// Exit function if graph on cooldown
+	if (graphs[graphIdx][2] > 0)
+	{
+		previousPostfixEquation = "Cooldown ends in " + string(graphs[graphIdx][2]);
+		return;
+	}
+	
 	// Check expression validity
-	var _expression = simplifyExpression(tokenIdxs);
+	var _expression = simplifyExpression(graphs[graphIdx][0]);
 	if (validExpression(_expression))
 	{
 		// Get postfix expression
@@ -46,22 +55,19 @@ graphEquation = function()
 			previousPostfixEquation += _postfixExpression[_i] + " ";
 		}
 		
-		// Damage existing graphs
-		with (oGraph)
-		{
-			damageGraph();
-		}
+		// Destroy current graph
+		destroyGraph();
 	
-		// Create graph (at origin)
-		var _graph = instance_create_layer(16,176,"Instances",oGraph);
-		with (_graph)
+		// Create graph (at origin) and set to current
+		graphs[graphIdx][1] = instance_create_layer(16,176,"Instances",oGraph);
+		with (graphs[graphIdx][1])
 		{
 			// Create expression tree
 			createExpressionTree(_postfixExpression);
 		}
 		
-		// Clear tokens
-		tokenIdxs = [];
+		// Set cooldown
+		if (oWorld.gameStarted) graphs[graphIdx][2] = graphCooldown;
 	}
 	else previousPostfixEquation = "Invalid EQ";
 }
@@ -211,4 +217,16 @@ getToggleEquationEditorInput = function()
 getGraphEquationInput = function()
 {
 	return keyboard_check_pressed(vk_enter) || gamepad_button_check_pressed(0,gp_face2);
+}
+
+/// @func	destroyGraph();
+destroyGraph = function()
+{
+	// If current graph is not noone
+	if (graphs[graphIdx][1] != noone)
+	{
+		// Destroy graph if it exists, then set to noone
+		if (instance_exists(graphs[graphIdx][1])) instance_destroy(graphs[graphIdx][1]);
+		graphs[graphIdx][1] = noone;
+	}
 }

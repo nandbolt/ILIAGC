@@ -8,7 +8,7 @@ xInput = 0;
 runStrength = 0.2;
 driftStrength = 0.05;
 normalGroundConstant = 0.15;
-slideConstant = 0;
+slideConstant = 0.02;
 
 // Jumping
 jumpPressed = false;

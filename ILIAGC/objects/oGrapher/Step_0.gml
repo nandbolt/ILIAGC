@@ -3,46 +3,55 @@ if (editingEquation)
 {
 	// Toggle info
 	if (keyboard_check_pressed(ord("H"))) showInfo = !showInfo;
+	else if (keyboard_check_pressed(vk_left))
+	{
+		// Toggle previous graph
+		if (graphIdx == 0) graphIdx = array_length(graphs) - 1;
+		else graphIdx--;
+	}
+	else if (keyboard_check_pressed(vk_right))
+	{
+		// Toggle next graph
+		if (graphIdx == array_length(graphs) - 1) graphIdx = 0;
+		else graphIdx++;
+	}
 	
 	#region Check Equation Inputs
 	
 	// Check last character
 	var _lc = string_lower(keyboard_lastchar);
 	if (getGraphEquationInput()) graphEquation();
-	else if (_lc == "\b" && array_length(tokenIdxs) > 0) array_pop(tokenIdxs);
-	else if (_lc == "0" && !keyboard_check(vk_shift)) array_push(tokenIdxs, TokenIndexs.NUM0);
-	else if (_lc == "1") array_push(tokenIdxs, TokenIndexs.NUM1);
-	else if (_lc == "2") array_push(tokenIdxs, TokenIndexs.NUM2);
-	else if (_lc == "3") array_push(tokenIdxs, TokenIndexs.NUM3);
-	else if (_lc == "4") array_push(tokenIdxs, TokenIndexs.NUM4);
-	else if (_lc == "5") array_push(tokenIdxs, TokenIndexs.NUM5);
-	else if (_lc == "6" && !keyboard_check(vk_shift)) array_push(tokenIdxs, TokenIndexs.NUM6);
-	else if (_lc == "7") array_push(tokenIdxs, TokenIndexs.NUM7);
-	else if (_lc == "8" && !keyboard_check(vk_shift)) array_push(tokenIdxs, TokenIndexs.NUM8);
-	else if (_lc == "9" && !keyboard_check(vk_shift)) array_push(tokenIdxs, TokenIndexs.NUM9);
-	else if (_lc == "x") array_push(tokenIdxs, TokenIndexs.X);
-	else if (_lc == "+") array_push(tokenIdxs, TokenIndexs.PLUS);
-	else if (_lc == "-") array_push(tokenIdxs, TokenIndexs.MINUS);
-	else if (_lc = "*") array_push(tokenIdxs, TokenIndexs.ASTERISK);
-	else if (_lc = "/") array_push(tokenIdxs, TokenIndexs.SLASH);
-	else if (_lc = "^") array_push(tokenIdxs, TokenIndexs.CARROT);
-	else if (_lc == "(") array_push(tokenIdxs, TokenIndexs.OPEN_PARENTHESIS);
-	else if (_lc == ")") array_push(tokenIdxs, TokenIndexs.CLOSE_PARENTHESIS);
-	else if (_lc == "s") array_push(tokenIdxs, TokenIndexs.SINE);
-	else if (_lc == "c") array_push(tokenIdxs, TokenIndexs.COSINE);
-	else if (_lc == "t") array_push(tokenIdxs, TokenIndexs.TANGENT);
-	else if (_lc == "l") array_push(tokenIdxs, TokenIndexs.LOG);
-	else if (_lc == "r") array_push(tokenIdxs, TokenIndexs.ROOT);
-	else if (_lc == "p") array_push(tokenIdxs, TokenIndexs.PI);
-	else if (_lc == "e") array_push(tokenIdxs, TokenIndexs.E);
-	else if (_lc == ".") array_push(tokenIdxs, TokenIndexs.DECIMAL);
+	else if (_lc == "\b" && array_length(graphs[graphIdx][0]) > 0) array_pop(graphs[graphIdx][0]);
+	else if (_lc == "0" && !keyboard_check(vk_shift)) array_push(graphs[graphIdx][0], TokenIndexs.NUM0);
+	else if (_lc == "1") array_push(graphs[graphIdx][0], TokenIndexs.NUM1);
+	else if (_lc == "2") array_push(graphs[graphIdx][0], TokenIndexs.NUM2);
+	else if (_lc == "3") array_push(graphs[graphIdx][0], TokenIndexs.NUM3);
+	else if (_lc == "4") array_push(graphs[graphIdx][0], TokenIndexs.NUM4);
+	else if (_lc == "5") array_push(graphs[graphIdx][0], TokenIndexs.NUM5);
+	else if (_lc == "6" && !keyboard_check(vk_shift)) array_push(graphs[graphIdx][0], TokenIndexs.NUM6);
+	else if (_lc == "7") array_push(graphs[graphIdx][0], TokenIndexs.NUM7);
+	else if (_lc == "8" && !keyboard_check(vk_shift)) array_push(graphs[graphIdx][0], TokenIndexs.NUM8);
+	else if (_lc == "9" && !keyboard_check(vk_shift)) array_push(graphs[graphIdx][0], TokenIndexs.NUM9);
+	else if (_lc == "x") array_push(graphs[graphIdx][0], TokenIndexs.X);
+	else if (_lc == "+") array_push(graphs[graphIdx][0], TokenIndexs.PLUS);
+	else if (_lc == "-") array_push(graphs[graphIdx][0], TokenIndexs.MINUS);
+	else if (_lc = "*") array_push(graphs[graphIdx][0], TokenIndexs.ASTERISK);
+	else if (_lc = "/") array_push(graphs[graphIdx][0], TokenIndexs.SLASH);
+	else if (_lc = "^") array_push(graphs[graphIdx][0], TokenIndexs.CARROT);
+	else if (_lc == "(") array_push(graphs[graphIdx][0], TokenIndexs.OPEN_PARENTHESIS);
+	else if (_lc == ")") array_push(graphs[graphIdx][0], TokenIndexs.CLOSE_PARENTHESIS);
+	else if (_lc == "s") array_push(graphs[graphIdx][0], TokenIndexs.SINE);
+	else if (_lc == "c") array_push(graphs[graphIdx][0], TokenIndexs.COSINE);
+	else if (_lc == "t") array_push(graphs[graphIdx][0], TokenIndexs.TANGENT);
+	else if (_lc == "l") array_push(graphs[graphIdx][0], TokenIndexs.LOG);
+	else if (_lc == "r") array_push(graphs[graphIdx][0], TokenIndexs.ROOT);
+	else if (_lc == "p") array_push(graphs[graphIdx][0], TokenIndexs.PI);
+	else if (_lc == "e") array_push(graphs[graphIdx][0], TokenIndexs.E);
+	else if (_lc == ".") array_push(graphs[graphIdx][0], TokenIndexs.DECIMAL);
 	else if (_lc == " ")
 	{
-		// Damage graphs
-		with (oGraph)
-		{
-			damageGraph();
-		}
+		// Destroy current graph
+		destroyGraph();
 	}
 	
 	// Clear last character
