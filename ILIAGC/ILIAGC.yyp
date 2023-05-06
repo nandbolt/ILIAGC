@@ -27,6 +27,7 @@
     {"id":{"name":"oGraphEater","path":"objects/oGraphEater/oGraphEater.yy",},"order":0,},
     {"id":{"name":"scrVector2Struct","path":"scripts/scrVector2Struct/scrVector2Struct.yy",},"order":0,},
     {"id":{"name":"oClock","path":"objects/oClock/oClock.yy",},"order":2,},
+    {"id":{"name":"oDebug","path":"objects/oDebug/oDebug.yy",},"order":10,},
     {"id":{"name":"oAcidRain","path":"objects/oAcidRain/oAcidRain.yy",},"order":3,},
     {"id":{"name":"scrTreeStruct","path":"scripts/scrTreeStruct/scrTreeStruct.yy",},"order":0,},
     {"id":{"name":"sCoinHighScore","path":"sprites/sCoinHighScore/sCoinHighScore.yy",},"order":2,},

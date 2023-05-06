@@ -116,7 +116,6 @@ else sprite_index = sPlayerIdle;
 
 // If grounded
 if (invincible) image_blend = c_yellow;
-else if (grounded) image_blend = c_aqua;
 else image_blend = c_white;
 
 #endregion
