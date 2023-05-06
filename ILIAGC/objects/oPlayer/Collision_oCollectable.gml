@@ -4,10 +4,11 @@ with (other)
 	// If active
 	if (active)
 	{
-		// Call collect function
+		// Collect
 		onCollect();
 		
-		// Destroy collectable
-		instance_destroy();
+		// Deactivate
+		active = false;
+		collected = true;
 	}
 }

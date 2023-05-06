@@ -12,7 +12,7 @@ gravityStrength = 0.05;
 
 // Resistances
 airConstant = 0.003;
-groundConstant = 0;
+groundConstant = 0.01;
 
 // Damage
 damage = 5;
