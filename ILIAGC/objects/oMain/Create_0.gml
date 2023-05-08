@@ -5,7 +5,7 @@ draw_set_font(fDefault);
 //instance_create_layer(0,0,"Instances",oDebug);
 
 // Randomize
-randomize();
+//randomize();
 
 // Game
 instance_create_layer(0,0,"Instances",oGame);

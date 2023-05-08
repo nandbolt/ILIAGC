@@ -24,6 +24,72 @@ obstacleTimer = irandom_range(minObstacleTime, maxObstacleTime);
 // Clock
 clockTimer = 600;
 
+#region Coin Rush Functions
+
+/// @func	startGameCoinRush();
+startGameCoinRush = function()
+{
+	// Start timers
+	gameTimer = 59;
+	gameCounter = 0;
+	timeElapsed = 0;
+	minObstacleTime = baseMinObstacleTime;
+	maxObstacleTime = baseMaxObstacleTime;
+	obstacleTimer = irandom_range(minObstacleTime, maxObstacleTime);
+	clockTimer = 600;
+		
+	// Reset coins
+	coins = 0;
+	
+	// Spawn/activate first coin
+	var _coin = instance_create_layer(random_range(24,168),random_range(24,168),"Instances",oCoin);
+	with (_coin)
+	{
+		activate();
+	}
+	
+	// Start game
+	gameStarted = true;
+}
+
+/// @func	endGameCoinRush();
+endGameCoinRush = function()
+{
+	// Destroy all game objects
+	instance_destroy(oCollectable);
+	instance_destroy(oObstacle);
+			
+	// Spawn mode coin
+	instance_create_layer(96,96,"Instances",oModeCoin);
+			
+	// Highscore
+	if (coins > mostCoins)
+	{
+		// Save new high score to disk
+		mostCoins = coins;
+		ini_open("save.ini");
+		ini_write_real("high_scores","most_coins",mostCoins);
+		ini_close();
+	}
+			
+	// Zero graph cooldowns
+	with (oGrapher)
+	{
+		for (var _i = 0; _i < array_length(graphs); _i++)
+		{
+			graphs[_i][2] = 0;
+		}
+	}
+	
+	// Reset variables
+	gameTimer = 0;
+	
+	// End game
+	gameStarted = false;
+}
+
+#endregion
+
 // Coin Sprites (HUD)
 var _coinsSpriteInstance = instance_create_layer(8,8,"HUDInstances",oSprite);
 with (_coinsSpriteInstance)

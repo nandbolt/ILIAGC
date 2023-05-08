@@ -67,11 +67,21 @@ takeDamage = function(_damage)
 	if (!invincible && oWorld.gameStarted)
 	{
 		// Decrement game timer
-		oWorld.gameTimer = clamp(oWorld.gameTimer - _damage, 0, 99);
+		oWorld.gameTimer -= _damage;
 		
-	
-		// Player invinciblity
-		invincible = true;
-		invincibleTimer = damageInvincibilityTime;
+		// End game if timer reached zero
+		if (oWorld.gameTimer <= 0)
+		{
+			with (oWorld)
+			{
+				endGameCoinRush();
+			}
+		}
+		else
+		{
+			// Player invinciblity
+			invincible = true;
+			invincibleTimer = damageInvincibilityTime;
+		}
 	}
 }

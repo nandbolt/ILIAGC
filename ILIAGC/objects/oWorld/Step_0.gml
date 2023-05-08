@@ -60,37 +60,7 @@ if (gameStarted && !gameTimerPaused)
 			}
 		}
 		
-		// If timer reached zero
-		if (gameTimer <= 0)
-		{
-			// Destroy all game objects
-			instance_destroy(oCollectable);
-			instance_destroy(oObstacle);
-			
-			// End game
-			gameStarted = false;
-			
-			// Spawn mode coin
-			instance_create_layer(96,96,"Instances",oModeCoin);
-			
-			// Highscore
-			if (coins > mostCoins)
-			{
-				// Save new high score to disk
-				mostCoins = coins;
-				ini_open("save.ini");
-				ini_write_real("high_scores","most_coins",mostCoins);
-				ini_close();
-			}
-			
-			// Zero graph cooldowns
-			with (oGrapher)
-			{
-				for (var _i = 0; _i < array_length(graphs); _i++)
-				{
-					graphs[_i][2] = 0;
-				}
-			}
-		}
+		// End game if timer reached zero
+		if (gameTimer <= 0) endGameCoinRush();
 	}
 }
