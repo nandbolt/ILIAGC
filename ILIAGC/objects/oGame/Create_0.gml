@@ -1,3 +1,24 @@
+// Canvas
+canvasWidth = CANVAS_BASE_WIDTH;
+canvasHeight = CANVAS_BASE_HEIGHT;
+
+/// @func	browserScaleCanvas({int} baseWidth, {int} baseHeight, {int} currentWidth, {int} currentHeight, {bool} center);
+browserScaleCanvas = function(_baseWidth, _baseHeight, _currentWidth, _currentHeight, _center)
+{
+	// Set window size
+	var _aspect = _baseWidth / _baseHeight;
+	if ((_currentWidth / _aspect) > _currentHeight) window_set_size(_currentHeight * _aspect, _currentHeight);
+	else window_set_size(_currentWidth, _currentWidth / _aspect);
+	if (_center) window_center();
+	
+	// Set viewport size
+	view_set_wport(0, min(window_get_width(), _baseWidth));
+	view_set_hport(0, min(window_get_height(), _baseHeight));
+	
+	// Resize surface
+	surface_resize(application_surface, min(window_get_width(), _baseWidth), min(window_get_height(), _baseHeight));
+}
+
 /// @func	getQuitInput();
 getQuitInput = function()
 {
