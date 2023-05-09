@@ -5,6 +5,10 @@ graphPath = path_add();
 // Equation
 expressionTree = new Tree();
 
+// Draw
+drawTime = 30;
+drawCounter = 0;
+
 /// @func	createExpressionTree({array} _postfixExpression);
 createExpressionTree = function(_postfixExpression)
 {	

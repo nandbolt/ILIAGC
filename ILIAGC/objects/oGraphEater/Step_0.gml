@@ -2,7 +2,7 @@
 event_inherited();
 
 // Spin
-imageAngle -= 10;
+image_angle -= 10;
 
 // If graph exists
 if (instance_exists(oGraph))

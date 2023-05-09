@@ -17,8 +17,5 @@ groundConstant = 0.01;
 // Damage
 damage = 5;
 
-// Alpha
-image_alpha = 1;
-
-// Init random x velocity
-velocity.x = random_range(-0.1,0.1);
+// Sprite
+fadeTime = 20;

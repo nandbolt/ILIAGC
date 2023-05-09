@@ -1,6 +1,9 @@
 // Inherit parent
 event_inherited();
 
+// Exit if not active
+if (!active) exit;
+
 // Update ground state
 rbUpdateGroundState();
 
@@ -12,7 +15,7 @@ rbApplyGravity();
 
 // Repel other rain
 var _otherRainInstance = instance_place(x,y,oAcidRain);
-if (_otherRainInstance != noone)
+if (_otherRainInstance != noone && _otherRainInstance.active)
 {
 	var _r = new Vector2(_otherRainInstance.x - x, _otherRainInstance.y - y)
 	_r.normalize();

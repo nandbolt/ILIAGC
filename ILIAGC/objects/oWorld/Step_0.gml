@@ -21,7 +21,7 @@ if (gameStarted && !gameTimerPaused)
 		var _obstacle = obstacles[_i];
 		var _x = random_range(24,168), _y = random_range(24,168);
 		if (_obstacle == oCloud) _y = 24;
-		instance_create_layer(_x, _y, "BackgroundInstances", _obstacle);
+		instance_create_layer(_x, _y, "Instances", _obstacle);
 		obstacleTimer = irandom_range(minObstacleTime, maxObstacleTime);
 	}
 	

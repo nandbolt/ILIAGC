@@ -65,6 +65,12 @@ if ((jumpBufferCounter > 0 && grounded) || (jumpBufferCounter > 0 && coyoteBuffe
 	jumpBufferCounter = 0;
 	coyoteBufferCounter = 0;
 	_jumpFrame = true;
+	
+	// Jump particles
+	with (oParticles)
+	{
+		part_particles_create(partSystem, other.x, other.y, partTypeDust, 2);
+	}
 }
 
 #endregion
@@ -139,8 +145,8 @@ else
 }
 
 // If grounded
-if (invincible) image_blend = c_yellow;
-else image_blend = c_white;
+if (invincible) image_alpha = random(1);
+else image_alpha = 1;
 
 // Reset image index if new sprite
 if (sprite_index != _previousSprite) image_index = 0;

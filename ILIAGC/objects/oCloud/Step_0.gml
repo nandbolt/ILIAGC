@@ -2,7 +2,7 @@
 event_inherited();
 
 // If game active
-if (oWorld.gameStarted && !oWorld.gameTimerPaused)
+if (oWorld.gameStarted && !oWorld.gameTimerPaused && active)
 {
 	// If time to spawn rain
 	if (rainTimer >= rainFrequency)

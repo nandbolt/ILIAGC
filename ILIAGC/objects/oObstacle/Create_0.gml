@@ -5,7 +5,9 @@ active = false;
 hp = 10;
 
 // Sprite
-fadeSpeed = 1 / 180;
+fadeTime = 60;
+fadeCounter = 0;
+activeImageAlpha = 0.5;
 
 // Set invisible
 image_alpha = 0;
