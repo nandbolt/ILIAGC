@@ -182,3 +182,5 @@ else if (os_type == os_android)
 
 // Y number
 draw_sprite_ext(sTokens, graphIdx + 3, 12, 204, 0.5, 0.5, 0, c_white, 1);
+var _amount = (graphs[graphIdx][2] / graphCooldown) * 100;
+draw_healthbar(4, 194, 12, 194, _amount, c_white, c_black, c_black, 1, true, false);

@@ -33,15 +33,6 @@ if (gameStarted && !gameTimerPaused)
 		gameCounter = 0;
 		timeElapsed++;
 		
-		// Decrement graph cooldowns
-		with (oGrapher)
-		{
-			for (var _i = 0; _i < array_length(graphs); _i++)
-			{
-				if (graphs[_i][2] > 0) graphs[_i][2]--;
-			}
-		}
-		
 		// Difficulty scaling
 		if (timeElapsed mod 20 == 0)
 		{

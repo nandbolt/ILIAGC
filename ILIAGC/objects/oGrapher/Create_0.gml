@@ -26,7 +26,7 @@ ds_map_add(precedenceMap, "^", 4);
 ds_map_add(precedenceMap, "l", 5);
 ds_map_add(precedenceMap, "r", 5);
 previousPostfixEquation = "None";
-graphCooldown = 5;	// Seconds
+graphCooldown = 300;
 
 // Player
 playerSpriteInstance = noone;

@@ -1,6 +1,19 @@
 // Input
 mousePressed = mouse_check_button_pressed(mb_left);
 
+// If game started and timer not paused
+if (oWorld.gameStarted && !oWorld.gameTimerPaused)
+{
+	// Decrement graph cooldowns
+	with (oGrapher)
+	{
+		for (var _i = 0; _i < array_length(graphs); _i++)
+		{
+			if (graphs[_i][2] > 0) graphs[_i][2]--;
+		}
+	}
+}
+
 // If editing equation
 if (editingEquation)
 {

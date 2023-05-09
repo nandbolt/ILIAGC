@@ -6,4 +6,4 @@ hp = 5;
 
 // Rain
 rainTimer = 0;
-rainFrequency = 20;
+rainFrequency = 30;
