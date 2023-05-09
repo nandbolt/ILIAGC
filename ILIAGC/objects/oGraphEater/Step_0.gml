@@ -1,3 +1,6 @@
+// Inherit parent
+event_inherited();
+
 // Spin
 imageAngle -= 10;
 

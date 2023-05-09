@@ -133,6 +133,10 @@ function rbHandleYTileCollisions()
 	
 		// Reset velocity
 		velocity.y = 0;
+		
+		// Set normal
+		normal.x = 0;
+		normal.y = -1;
 	}
 }
 

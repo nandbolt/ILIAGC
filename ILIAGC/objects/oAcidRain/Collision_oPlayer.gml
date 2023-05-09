@@ -1,5 +1,8 @@
-// Damage
-with (other)
+if (active)
 {
-	takeDamage(other.damage);
+	// Damage
+	with (other)
+	{
+		takeDamage(other.damage);
+	}
 }

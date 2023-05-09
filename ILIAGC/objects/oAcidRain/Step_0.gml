@@ -1,3 +1,6 @@
+// Inherit parent
+event_inherited();
+
 // Update ground state
 rbUpdateGroundState();
 

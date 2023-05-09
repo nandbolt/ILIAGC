@@ -90,32 +90,59 @@ graphPosition.y = convertYToGraphY(y);
 
 #region Animations
 
+var _previousSprite = sprite_index;
+
 // If airborne
-if (!grounded) sprite_index = sPlayerAirborne;
-// Else if crouch inputted
-else if (crouchInputted)
+if (!grounded)
 {
-	if (abs(velocity.x) < 0.05) sprite_index = sPlayerCrouch;
-	else
+	if (velocity.y < 0)
 	{
-		sprite_index = sPlayerSlide;
-		if (velocity.x > 0) image_xscale = 1;
+		// Center jump
+		if (abs(velocity.x) < 0.5) sprite_index = sPlayerJumpCenter;
+		// Jump
+		else sprite_index = sPlayerJump;
+	}
+	// Fall
+	else sprite_index = sPlayerFall;
+	
+	// Set angle
+	image_angle = lerp(image_angle, 0, spriteRotationSpeed);
+}
+else
+{
+	// If crouch inputted
+	if (crouchInputted)
+	{
+		// Crouch
+		if (abs(velocity.x) < 0.05) sprite_index = sPlayerCrouch;
+		else
+		{
+			// Slide
+			sprite_index = sPlayerSlide;
+			if (velocity.x > 0) image_xscale = 1;
+			else image_xscale = -1;
+		}
+	}
+	// Else if inputted an x direction
+	else if (xInput != 0)
+	{
+		// Run
+		sprite_index = sPlayerRun;
+		if (xInput > 0) image_xscale = 1;
 		else image_xscale = -1;
 	}
+	// Idle
+	else sprite_index = sPlayerIdle;
+	
+	// Set angle
+	image_angle = lerp(image_angle, normal.getAngleDegrees() - 90, spriteRotationSpeed);
 }
-// Else if inputted an x direction
-else if (xInput != 0)
-{
-	// Run animation
-	sprite_index = sPlayerRunning;
-	if (xInput > 0) image_xscale = 1;
-	else image_xscale = -1;
-}
-// Else idle animation
-else sprite_index = sPlayerIdle;
 
 // If grounded
 if (invincible) image_blend = c_yellow;
 else image_blend = c_white;
+
+// Reset image index if new sprite
+if (sprite_index != _previousSprite) image_index = 0;
 
 #endregion

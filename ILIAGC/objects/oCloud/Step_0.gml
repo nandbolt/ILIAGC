@@ -1,3 +1,6 @@
+// Inherit parent
+event_inherited();
+
 // If game active
 if (oWorld.gameStarted && !oWorld.gameTimerPaused)
 {
