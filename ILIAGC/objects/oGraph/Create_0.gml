@@ -103,7 +103,12 @@ evaluateExpression = function(_input, _node)
 		if (_rightValue == 0) _rightValue = 0.01;
 		_value += _leftValue / _rightValue;
 	}
-	else if (_node.data == "^") _value += power(_leftValue, _rightValue);
+	else if (_node.data == "^")
+	{
+		// Apparently left value can't be negative
+		var _power = power(_leftValue * sign(_leftValue), _rightValue);
+		_value += _power;
+	}
 	else if (_node.data == "s") _value += _leftValue * sin(_rightValue);
 	else if (_node.data == "c") _value += _leftValue * cos(_rightValue);
 	else if (_node.data == "t")

@@ -7,6 +7,7 @@
     {"id":{"name":"sAcidRain","path":"sprites/sAcidRain/sAcidRain.yy",},"order":2,},
     {"id":{"name":"oSprite","path":"objects/oSprite/oSprite.yy",},"order":7,},
     {"id":{"name":"sPlayerIdle","path":"sprites/sPlayerIdle/sPlayerIdle.yy",},"order":0,},
+    {"id":{"name":"sKeyBackground","path":"sprites/sKeyBackground/sKeyBackground.yy",},"order":2,},
     {"id":{"name":"oWorld","path":"objects/oWorld/oWorld.yy",},"order":5,},
     {"id":{"name":"sPlayerSlide","path":"sprites/sPlayerSlide/sPlayerSlide.yy",},"order":4,},
     {"id":{"name":"scrWorldFunctions","path":"scripts/scrWorldFunctions/scrWorldFunctions.yy",},"order":1,},

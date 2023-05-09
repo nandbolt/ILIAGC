@@ -2,8 +2,11 @@
 if (editingEquation)
 {
 	// Toggle info
-	if (keyboard_check_pressed(ord("H"))) showInfo = !showInfo;
-	else if (keyboard_check_pressed(vk_left))
+	if (keyboard_check_pressed(ord("H")))
+	{
+		showInfo = !showInfo;
+	}
+	else if (keyboard_check_pressed(vk_up))
 	{
 		// Toggle previous graph
 		if (graphIdx == 0) graphIdx = array_length(graphs) - 1;
@@ -13,7 +16,7 @@ if (editingEquation)
 		equationTokens = [];
 		array_copy(equationTokens, 0, graphs[graphIdx][0], 0, array_length(graphs[graphIdx][0]));
 	}
-	else if (keyboard_check_pressed(vk_right))
+	else if (keyboard_check_pressed(vk_down))
 	{
 		// Toggle next graph
 		if (graphIdx == array_length(graphs) - 1) graphIdx = 0;
@@ -22,6 +25,18 @@ if (editingEquation)
 		// Update equation tokens
 		equationTokens = [];
 		array_copy(equationTokens, 0, graphs[graphIdx][0], 0, array_length(graphs[graphIdx][0]));
+	}
+	else if (keyboard_check_pressed(vk_left))
+	{
+		// Toggle next menu
+		if (menuIdx == 0) menuIdx = 2;
+		else menuIdx--;
+	}
+	else if (keyboard_check_pressed(vk_right))
+	{
+		// Toggle next menu
+		if (menuIdx == 2) menuIdx = 0;
+		else menuIdx++;
 	}
 	
 	#region Check Equation Inputs
@@ -60,6 +75,10 @@ if (editingEquation)
 	{
 		// Destroy current graph
 		destroyGraph();
+		
+		// Clear equations
+		equationTokens = [];
+		graphs[graphIdx][0] = [];
 	}
 	
 	// Clear last character

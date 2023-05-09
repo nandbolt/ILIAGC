@@ -33,6 +33,16 @@ acidRainSpriteInstances = [];
 
 // Other
 showInfo = true;
+menuIdx = 0;
+
+#region On-Screen Keyboard
+showKeyboard = false;
+keyboard = [
+[TokenIndexs.NUM1,   TokenIndexs.NUM2,    TokenIndexs.NUM3,   TokenIndexs.NUM4,				TokenIndexs.NUM5,			   TokenIndexs.NUM6, TokenIndexs.NUM7,  TokenIndexs.NUM8,	  TokenIndexs.NUM9],
+[TokenIndexs.NUM0,   TokenIndexs.DECIMAL, TokenIndexs.X,      TokenIndexs.OPEN_PARENTHESIS, TokenIndexs.CLOSE_PARENTHESIS, TokenIndexs.PLUS, TokenIndexs.MINUS, TokenIndexs.ASTERISK, TokenIndexs.SLASH],
+[TokenIndexs.CARROT, TokenIndexs.SINE,    TokenIndexs.COSINE, TokenIndexs.TANGENT,			TokenIndexs.ROOT,			   TokenIndexs.LOG,  TokenIndexs.PI,	TokenIndexs.E,		  TokenIndexs.E],
+]
+#endregion
 
 /// @func	graphEquation();
 graphEquation = function()
@@ -218,13 +228,13 @@ convertInfixToPostfix = function(_expression)
 /// @func	getToggleEquationEditorInput();
 getToggleEquationEditorInput = function()
 {
-	return keyboard_check_pressed(vk_tab) || gamepad_button_check_pressed(0,gp_start);
+	return keyboard_check_pressed(vk_tab) || gamepad_button_check_pressed(0,gp_start) || (mouse_check_button_pressed(mb_left) && mouse_y > 191);
 }
 
 /// @func	getGraphEquationInput();
 getGraphEquationInput = function()
 {
-	return keyboard_check_pressed(vk_enter) || gamepad_button_check_pressed(0,gp_face2);
+	return keyboard_check_pressed(vk_enter) || gamepad_button_check_pressed(0,gp_face2) || (mouse_check_button_pressed(mb_left) && mouse_y < 192);
 }
 
 /// @func	destroyGraph();
