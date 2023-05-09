@@ -1,6 +1,6 @@
 // Position
 var _x = 24, _y = 200;
-var _s = 0.5, _yoff = 7;
+var _s = 0.5, _xoff = 7, _yoff = 7;
 
 // Tab
 draw_set_halign(fa_left);
@@ -136,15 +136,22 @@ if (editingEquation)
 	
 	if (showKeyboard)
 	{
-		for (var _j = 0; _j < 3; _j++)
+		_x = keyboardX;
+		_y = keyboardY;
+		var _keyboardWidth = array_length(keyboard[0]), _keyboardHeight = array_length(keyboard);
+		for (var _j = 0; _j < _keyboardHeight; _j++)
 		{
-			for (var _i = 0; _i < 9; _i++)
+			for (var _i = 0; _i < _keyboardWidth; _i++)
 			{
-				_x = TILE_SIZE * (_i + 1) + HALF_TILE_SIZE;
-				_y = TILE_SIZE * (_j + 7) + HALF_TILE_SIZE;
-				draw_sprite(sKeyBackground, 0, _x, _y);
-				draw_sprite(sTokens, keyboard[_j][_i], _x, _y);
+				if (!(_j == 3 && _i > 6))
+				{
+					draw_sprite(sKeyBackground, 0, _x, _y);
+					draw_sprite(sTokens, keyboard[_j][_i], _x, _y);
+				}
+				_x += TILE_SIZE;
 			}
+			_x = keyboardX;
+			_y += TILE_SIZE;
 		}
 	}
 	
@@ -152,6 +159,20 @@ if (editingEquation)
 	
 	// Reset color
 	draw_set_color(c_white);
+}
+// Draw buttons if on android
+else if (os_type == os_android)
+{
+	_xoff = (room_width - TILE_SIZE) * 0.25;
+	_x = _xoff * 0.5;
+	_y = room_height * 0.7;
+	draw_sprite_ext(sArrowButton,0,_x,_y,1,1,180,c_white,1);	// Left
+	_x += _xoff;
+	draw_sprite_ext(sArrowButton,0,_x,_y,1,1,0,c_white,1);		// Right
+	_x += _xoff;
+	draw_sprite_ext(sArrowButton,0,_x,_y,1,1,-90,c_white,1);	// Down
+	_x += _xoff;
+	draw_sprite_ext(sJumpButton,0,_x,_y,1,1,0,c_white,1);		// Jump
 }
 
 // Y number

@@ -1,3 +1,6 @@
+// Input
+mousePressed = mouse_check_button_pressed(mb_left);
+
 // If editing equation
 if (editingEquation)
 {
@@ -6,7 +9,7 @@ if (editingEquation)
 	{
 		showInfo = !showInfo;
 	}
-	else if (keyboard_check_pressed(vk_up))
+	else if (keyboard_check_pressed(vk_up) || oskeyboardCheckUp())
 	{
 		// Toggle previous graph
 		if (graphIdx == 0) graphIdx = array_length(graphs) - 1;
@@ -16,7 +19,7 @@ if (editingEquation)
 		equationTokens = [];
 		array_copy(equationTokens, 0, graphs[graphIdx][0], 0, array_length(graphs[graphIdx][0]));
 	}
-	else if (keyboard_check_pressed(vk_down))
+	else if (keyboard_check_pressed(vk_down) || oskeyboardCheckDown())
 	{
 		// Toggle next graph
 		if (graphIdx == array_length(graphs) - 1) graphIdx = 0;
@@ -26,13 +29,13 @@ if (editingEquation)
 		equationTokens = [];
 		array_copy(equationTokens, 0, graphs[graphIdx][0], 0, array_length(graphs[graphIdx][0]));
 	}
-	else if (keyboard_check_pressed(vk_left))
+	else if (keyboard_check_pressed(vk_left) || oskeyboardCheckLeft())
 	{
 		// Toggle next menu
 		if (menuIdx == 0) menuIdx = 2;
 		else menuIdx--;
 	}
-	else if (keyboard_check_pressed(vk_right))
+	else if (keyboard_check_pressed(vk_right) || oskeyboardCheckRight())
 	{
 		// Toggle next menu
 		if (menuIdx == 2) menuIdx = 0;
@@ -44,34 +47,34 @@ if (editingEquation)
 	// Check last character
 	var _lc = string_lower(keyboard_lastchar);
 	if (getGraphEquationInput()) graphEquation();
-	else if (_lc == "\b" && array_length(equationTokens) > 0) array_pop(equationTokens);
-	else if (_lc == "0" && !keyboard_check(vk_shift)) array_push(equationTokens, TokenIndexs.NUM0);
-	else if (_lc == "1") array_push(equationTokens, TokenIndexs.NUM1);
-	else if (_lc == "2") array_push(equationTokens, TokenIndexs.NUM2);
-	else if (_lc == "3") array_push(equationTokens, TokenIndexs.NUM3);
-	else if (_lc == "4") array_push(equationTokens, TokenIndexs.NUM4);
-	else if (_lc == "5") array_push(equationTokens, TokenIndexs.NUM5);
-	else if (_lc == "6" && !keyboard_check(vk_shift)) array_push(equationTokens, TokenIndexs.NUM6);
-	else if (_lc == "7") array_push(equationTokens, TokenIndexs.NUM7);
-	else if (_lc == "8" && !keyboard_check(vk_shift)) array_push(equationTokens, TokenIndexs.NUM8);
-	else if (_lc == "9" && !keyboard_check(vk_shift)) array_push(equationTokens, TokenIndexs.NUM9);
-	else if (_lc == "x") array_push(equationTokens, TokenIndexs.X);
-	else if (_lc == "+") array_push(equationTokens, TokenIndexs.PLUS);
-	else if (_lc == "-") array_push(equationTokens, TokenIndexs.MINUS);
-	else if (_lc = "*") array_push(equationTokens, TokenIndexs.ASTERISK);
-	else if (_lc = "/") array_push(equationTokens, TokenIndexs.SLASH);
-	else if (_lc = "^") array_push(equationTokens, TokenIndexs.CARROT);
-	else if (_lc == "(") array_push(equationTokens, TokenIndexs.OPEN_PARENTHESIS);
-	else if (_lc == ")") array_push(equationTokens, TokenIndexs.CLOSE_PARENTHESIS);
-	else if (_lc == "s") array_push(equationTokens, TokenIndexs.SINE);
-	else if (_lc == "c") array_push(equationTokens, TokenIndexs.COSINE);
-	else if (_lc == "t") array_push(equationTokens, TokenIndexs.TANGENT);
-	else if (_lc == "l") array_push(equationTokens, TokenIndexs.LOG);
-	else if (_lc == "r") array_push(equationTokens, TokenIndexs.ROOT);
-	else if (_lc == "p") array_push(equationTokens, TokenIndexs.PI);
-	else if (_lc == "e") array_push(equationTokens, TokenIndexs.E);
-	else if (_lc == ".") array_push(equationTokens, TokenIndexs.DECIMAL);
-	else if (_lc == " ")
+	else if ((_lc == "\b" || oskeyboardCheckBackspace()) && array_length(equationTokens) > 0) array_pop(equationTokens);
+	else if ((_lc == "0" && !keyboard_check(vk_shift)) || oskeyboardCheck0()) array_push(equationTokens, TokenIndexs.NUM0);
+	else if (_lc == "1" || oskeyboardCheck1()) array_push(equationTokens, TokenIndexs.NUM1);
+	else if (_lc == "2" || oskeyboardCheck2()) array_push(equationTokens, TokenIndexs.NUM2);
+	else if (_lc == "3" || oskeyboardCheck3()) array_push(equationTokens, TokenIndexs.NUM3);
+	else if (_lc == "4" || oskeyboardCheck4()) array_push(equationTokens, TokenIndexs.NUM4);
+	else if (_lc == "5" || oskeyboardCheck5()) array_push(equationTokens, TokenIndexs.NUM5);
+	else if ((_lc == "6" && !keyboard_check(vk_shift)) || oskeyboardCheck6()) array_push(equationTokens, TokenIndexs.NUM6);
+	else if (_lc == "7"  || oskeyboardCheck7()) array_push(equationTokens, TokenIndexs.NUM7);
+	else if ((_lc == "8" && !keyboard_check(vk_shift)) || oskeyboardCheck8()) array_push(equationTokens, TokenIndexs.NUM8);
+	else if ((_lc == "9" && !keyboard_check(vk_shift)) || oskeyboardCheck9()) array_push(equationTokens, TokenIndexs.NUM9);
+	else if (_lc == "x" || oskeyboardCheckX()) array_push(equationTokens, TokenIndexs.X);
+	else if (_lc == "+" || oskeyboardCheckPlus()) array_push(equationTokens, TokenIndexs.PLUS);
+	else if (_lc == "-" || oskeyboardCheckMinus()) array_push(equationTokens, TokenIndexs.MINUS);
+	else if (_lc = "*" || oskeyboardCheckAsterisk()) array_push(equationTokens, TokenIndexs.ASTERISK);
+	else if (_lc = "/" || oskeyboardCheckSlash()) array_push(equationTokens, TokenIndexs.SLASH);
+	else if (_lc = "^" || oskeyboardCheckCarrot()) array_push(equationTokens, TokenIndexs.CARROT);
+	else if (_lc == "(" || oskeyboardCheckOpenParenthesis()) array_push(equationTokens, TokenIndexs.OPEN_PARENTHESIS);
+	else if (_lc == ")" || oskeyboardCheckCloseParenthesis()) array_push(equationTokens, TokenIndexs.CLOSE_PARENTHESIS);
+	else if (_lc == "s" || oskeyboardCheckSin()) array_push(equationTokens, TokenIndexs.SINE);
+	else if (_lc == "c" || oskeyboardCheckCos()) array_push(equationTokens, TokenIndexs.COSINE);
+	else if (_lc == "t" || oskeyboardCheckTan()) array_push(equationTokens, TokenIndexs.TANGENT);
+	else if (_lc == "l" || oskeyboardCheckLog()) array_push(equationTokens, TokenIndexs.LOG);
+	else if (_lc == "r" || oskeyboardCheckRoot()) array_push(equationTokens, TokenIndexs.ROOT);
+	else if (_lc == "p" || oskeyboardCheckPi()) array_push(equationTokens, TokenIndexs.PI);
+	else if (_lc == "e" || oskeyboardCheckE()) array_push(equationTokens, TokenIndexs.E);
+	else if (_lc == "." || oskeyboardCheckDecimal()) array_push(equationTokens, TokenIndexs.DECIMAL);
+	else if (_lc == " " || oskeyboardCheckSpace())
 	{
 		// Destroy current graph
 		destroyGraph();

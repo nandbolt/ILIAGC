@@ -45,6 +45,13 @@ enum TokenIndexs
 	PI					= 27,
 	E					= 28,
 	DECIMAL				= 29,
+	ENTER				= 30,
+	BACKSPACE			= 31,
+	TAB					= 32,
+	RIGHT				= 33,
+	LEFT				= 34,
+	DOWN				= 35,
+	UP					= 36,
 }
 
 #endregion

@@ -1,4 +1,6 @@
 // Update input
+mouseInput = mouse_check_button(mb_left);
+mousePressedInput = mouse_check_button_pressed(mb_left);
 xInput = getRightXInput() - getLeftXInput();
 jumpInputted = getJumpInput();
 jumpPressed = getJumpPressedInput();
