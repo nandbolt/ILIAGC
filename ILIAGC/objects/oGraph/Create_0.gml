@@ -1,6 +1,7 @@
 // Graph
 graphOrigin = new Vector2(convertXToGraphX(x),convertYToGraphY(y));
 graphPath = path_add();
+graphIdx = 0;
 
 // Equation
 expressionTree = new Tree();

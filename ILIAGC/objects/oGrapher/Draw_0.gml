@@ -10,9 +10,9 @@ draw_text_transformed(22, 24, "Tab: EQ Editor", _s, _s, 0);
 draw_set_alpha(1);
 
 // Equation
-for (var _i = 0; _i < array_length(graphs[graphIdx][0]); _i++)
+for (var _i = 0; _i < array_length(equationTokens); _i++)
 {
-	draw_sprite(sTokens,graphs[graphIdx][0][_i],_x,_y);
+	draw_sprite(sTokens, equationTokens[_i], _x, _y);
 	_x += 8;
 }
 

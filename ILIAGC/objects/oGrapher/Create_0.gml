@@ -9,6 +9,7 @@ blinkFrequency = 20;
 // Graphs + equations
 graphs = [[[], noone, 0], [[], noone, 0]];	// Per graph: [0]token indexs for equation, [1]graph instance, [2]cooldown
 graphIdx = 0;
+equationTokens = [];
 precedenceMap = ds_map_create();
 ds_map_add(precedenceMap, "(", 1);
 ds_map_add(precedenceMap, "+", 2);
@@ -36,6 +37,10 @@ showInfo = true;
 /// @func	graphEquation();
 graphEquation = function()
 {
+	// Set graph equation
+	graphs[graphIdx][0] = [];
+	array_copy(graphs[graphIdx][0], 0, equationTokens, 0, array_length(equationTokens));
+	
 	// Exit function if graph on cooldown
 	if (graphs[graphIdx][2] > 0)
 	{
@@ -64,6 +69,9 @@ graphEquation = function()
 		{
 			// Create expression tree
 			createExpressionTree(_postfixExpression);
+			
+			// Set idx
+			graphIdx = other.graphIdx;
 		}
 		
 		// Set cooldown
