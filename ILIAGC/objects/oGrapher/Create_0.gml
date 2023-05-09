@@ -39,7 +39,7 @@ showInfo = true;
 menuIdx = 0;
 
 #region On-Screen Keyboard
-showKeyboard = true;
+showKeyboard = false;
 keyboardX = TILE_SIZE + HALF_TILE_SIZE;
 keyboardY = TILE_SIZE * 7 + HALF_TILE_SIZE;
 keyboard = [
