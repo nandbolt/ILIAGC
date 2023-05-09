@@ -160,5 +160,16 @@ if (getToggleEquationEditorInput())
 			instance_activate_object(oAcidRain);
 		}
 		oWorld.gameTimerPaused = false;
+		
+		// Apply cooldowns
+		for (var _i = 0; _i < array_length(graphs); _i++)
+		{
+			// Apply cooldown on exit
+			if (graphs[graphIdx][3])
+			{
+				graphs[graphIdx][2] = graphCooldown;
+				graphs[graphIdx][3] = false;
+			}
+		}
 	}
 }

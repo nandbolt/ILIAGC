@@ -10,7 +10,7 @@ blinkTimer = 0;
 blinkFrequency = 20;
 
 // Graphs + equations
-graphs = [[[], noone, 0], [[], noone, 0]];	// Per graph: [0]token indexs for equation, [1]graph instance, [2]cooldown
+graphs = [[[], noone, 0, false], [[], noone, 0, false]];	// Per graph: [0]token indexs for equation, [1]graph instance, [2]cooldown, [3]apply cooldown
 graphIdx = 0;
 equationTokens = [];
 precedenceMap = ds_map_create();
@@ -328,8 +328,8 @@ graphEquation = function()
 			graphIdx = other.graphIdx;
 		}
 		
-		// Set cooldown
-		if (oWorld.gameStarted) graphs[graphIdx][2] = graphCooldown;
+		// Apply cooldown on exit
+		if (oWorld.gameStarted) graphs[graphIdx][3] = true;
 	}
 	else previousPostfixEquation = "Invalid EQ";
 }
