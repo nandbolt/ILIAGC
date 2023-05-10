@@ -50,6 +50,9 @@ startGameCoinRush = function()
 	
 	// Start game
 	gameStarted = true;
+	
+	// Start music
+	audio_play_sound(mChillinInACalculator, 3, true);
 }
 
 /// @func	endGameCoinRush();
@@ -89,6 +92,9 @@ endGameCoinRush = function()
 	
 	// End game
 	gameStarted = false;
+	
+	// Stop music
+	audio_stop_sound(mChillinInACalculator);
 }
 
 #endregion
