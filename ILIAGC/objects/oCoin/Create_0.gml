@@ -23,6 +23,9 @@ onCollect = function()
 	{
 		activate();
 	}
+	
+	// Collect sound
+	audio_play_sound(sfxCoinCollect, 1, false);
 }
 
 /// @func	activate();

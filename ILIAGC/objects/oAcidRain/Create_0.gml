@@ -19,3 +19,6 @@ damage = 5;
 
 // Sprite
 fadeTime = 20;
+
+// Rain spawn sound
+audio_play_sound(sfxRainSpawn, 1, false);

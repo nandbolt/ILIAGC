@@ -71,6 +71,9 @@ endGameCoinRush = function()
 		ini_write_real("high_scores","most_coins",mostCoins);
 		ini_close();
 	}
+	
+	// Game over sound
+	audio_play_sound(sfxGameOver, 2, false);
 			
 	// Zero graph cooldowns
 	with (oGrapher)

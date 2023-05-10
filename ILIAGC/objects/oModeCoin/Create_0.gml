@@ -9,4 +9,7 @@ onCollect = function()
 	{
 		startGameCoinRush();
 	}
+	
+	// Collect sound
+	audio_play_sound(sfxPowerCollect, 1, false);
 }

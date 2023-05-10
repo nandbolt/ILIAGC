@@ -15,3 +15,6 @@ for (var _i = 0; _i < _pointCount - 1; _i++)
 	}
 }
 path_delete(graphPath);
+
+// Destroy audio
+audio_play_sound(sfxDestroyGraph, 2, false);

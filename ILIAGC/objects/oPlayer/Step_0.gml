@@ -28,7 +28,15 @@ if (oWorld.gameStarted && !oWorld.gameTimerPaused)
 #region Ground State
 
 // Update ground state
+var _wasGrounded = grounded;
 rbUpdateGroundState();
+
+// If landed
+if (!_wasGrounded && grounded)
+{
+	// Land sound
+	audio_play_sound(sfxLand, 1, false);
+}
 
 // Set coyote buffer
 if (!grounded) coyoteBufferCounter = clamp(coyoteBufferCounter-1,0,coyoteBuffer);
@@ -73,6 +81,9 @@ if ((jumpBufferCounter > 0 && grounded) || (jumpBufferCounter > 0 && coyoteBuffe
 	{
 		part_particles_create(partSystem, other.x, other.y, partTypeDust, 2);
 	}
+	
+	// Jump sound
+	audio_play_sound(sfxJump, 2, false);
 }
 
 #endregion
@@ -129,6 +140,9 @@ else
 			sprite_index = sPlayerSlide;
 			if (velocity.x > 0) image_xscale = 1;
 			else image_xscale = -1;
+			
+			// Slide sound
+			if (!audio_is_playing(sfxSlide)) audio_play_sound(sfxSlide, 1, false, clamp(abs(velocity.x) * 0.75, 0, 1));
 		}
 	}
 	// Else if inputted an x direction

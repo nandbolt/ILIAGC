@@ -16,13 +16,21 @@ if (gameStarted && !gameTimerPaused)
 	// If obstacle timer complete
 	if (obstacleTimer <= 0)
 	{
-		// Create obstacle
-		var _i = irandom_range(0, array_length(obstacles) - 1);
-		var _obstacle = obstacles[_i];
-		var _x = random_range(24,168), _y = random_range(24,168);
-		if (_obstacle == oCloud) _y = 24;
-		instance_create_layer(_x, _y, "Instances", _obstacle);
-		obstacleTimer = irandom_range(minObstacleTime, maxObstacleTime);
+		// Get obstacle count
+		var _obstacleCount = 1;
+		var _num = random(100);
+		if (_num < 10) _obstacleCount = 3;
+		else if (_num < 40) _obstacleCount = 2;
+		repeat (_obstacleCount)
+		{
+			// Create obstacle
+			var _i = irandom_range(0, array_length(obstacles) - 1);
+			var _obstacle = obstacles[_i];
+			var _x = random_range(24,168), _y = random_range(24,168);
+			if (_obstacle == oCloud) _y = random_range(24,84);
+			instance_create_layer(_x, _y, "Instances", _obstacle);
+			obstacleTimer = irandom_range(minObstacleTime, maxObstacleTime);
+		}
 	}
 	
 	// If a second has passed

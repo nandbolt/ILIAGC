@@ -21,6 +21,9 @@ if (editingEquation)
 	if (keyboard_check_pressed(ord("H")))
 	{
 		showInfo = !showInfo;
+		
+		// Key sound
+		audio_play_sound(sfxKeyPressed, 1, false);
 	}
 	else if (keyboard_check_pressed(vk_up) || oskeyboardCheckUp())
 	{
@@ -31,6 +34,9 @@ if (editingEquation)
 		// Update equation tokens
 		equationTokens = [];
 		array_copy(equationTokens, 0, graphs[graphIdx][0], 0, array_length(graphs[graphIdx][0]));
+		
+		// Key sound
+		audio_play_sound(sfxKeyPressed, 1, false);
 	}
 	else if (keyboard_check_pressed(vk_down) || oskeyboardCheckDown())
 	{
@@ -41,18 +47,27 @@ if (editingEquation)
 		// Update equation tokens
 		equationTokens = [];
 		array_copy(equationTokens, 0, graphs[graphIdx][0], 0, array_length(graphs[graphIdx][0]));
+		
+		// Key sound
+		audio_play_sound(sfxKeyPressed, 1, false);
 	}
 	else if (keyboard_check_pressed(vk_left) || oskeyboardCheckLeft())
 	{
 		// Toggle next menu
 		if (menuIdx == 0) menuIdx = 2;
 		else menuIdx--;
+		
+		// Key sound
+		audio_play_sound(sfxKeyPressed, 1, false);
 	}
 	else if (keyboard_check_pressed(vk_right) || oskeyboardCheckRight())
 	{
 		// Toggle next menu
 		if (menuIdx == 2) menuIdx = 0;
 		else menuIdx++;
+		
+		// Key sound
+		audio_play_sound(sfxKeyPressed, 1, false);
 	}
 	
 	#region Check Equation Inputs
@@ -60,33 +75,33 @@ if (editingEquation)
 	// Check last character
 	var _lc = string_lower(keyboard_lastchar);
 	if (getGraphEquationInput()) graphEquation();
-	else if ((_lc == "\b" || oskeyboardCheckBackspace()) && array_length(equationTokens) > 0) array_pop(equationTokens);
-	else if ((_lc == "0" && !keyboard_check(vk_shift)) || oskeyboardCheck0()) array_push(equationTokens, TokenIndexs.NUM0);
-	else if (_lc == "1" || oskeyboardCheck1()) array_push(equationTokens, TokenIndexs.NUM1);
-	else if (_lc == "2" || oskeyboardCheck2()) array_push(equationTokens, TokenIndexs.NUM2);
-	else if (_lc == "3" || oskeyboardCheck3()) array_push(equationTokens, TokenIndexs.NUM3);
-	else if (_lc == "4" || oskeyboardCheck4()) array_push(equationTokens, TokenIndexs.NUM4);
-	else if (_lc == "5" || oskeyboardCheck5()) array_push(equationTokens, TokenIndexs.NUM5);
-	else if ((_lc == "6" && !keyboard_check(vk_shift)) || oskeyboardCheck6()) array_push(equationTokens, TokenIndexs.NUM6);
-	else if (_lc == "7"  || oskeyboardCheck7()) array_push(equationTokens, TokenIndexs.NUM7);
-	else if ((_lc == "8" && !keyboard_check(vk_shift)) || oskeyboardCheck8()) array_push(equationTokens, TokenIndexs.NUM8);
-	else if ((_lc == "9" && !keyboard_check(vk_shift)) || oskeyboardCheck9()) array_push(equationTokens, TokenIndexs.NUM9);
-	else if (_lc == "x" || oskeyboardCheckX()) array_push(equationTokens, TokenIndexs.X);
-	else if (_lc == "+" || oskeyboardCheckPlus()) array_push(equationTokens, TokenIndexs.PLUS);
-	else if (_lc == "-" || oskeyboardCheckMinus()) array_push(equationTokens, TokenIndexs.MINUS);
-	else if (_lc = "*" || oskeyboardCheckAsterisk()) array_push(equationTokens, TokenIndexs.ASTERISK);
-	else if (_lc = "/" || oskeyboardCheckSlash()) array_push(equationTokens, TokenIndexs.SLASH);
-	else if (_lc = "^" || oskeyboardCheckCarrot()) array_push(equationTokens, TokenIndexs.CARROT);
-	else if (_lc == "(" || oskeyboardCheckOpenParenthesis()) array_push(equationTokens, TokenIndexs.OPEN_PARENTHESIS);
-	else if (_lc == ")" || oskeyboardCheckCloseParenthesis()) array_push(equationTokens, TokenIndexs.CLOSE_PARENTHESIS);
-	else if (_lc == "s" || oskeyboardCheckSin()) array_push(equationTokens, TokenIndexs.SINE);
-	else if (_lc == "c" || oskeyboardCheckCos()) array_push(equationTokens, TokenIndexs.COSINE);
-	else if (_lc == "t" || oskeyboardCheckTan()) array_push(equationTokens, TokenIndexs.TANGENT);
-	else if (_lc == "l" || oskeyboardCheckLog()) array_push(equationTokens, TokenIndexs.LOG);
-	else if (_lc == "r" || oskeyboardCheckRoot()) array_push(equationTokens, TokenIndexs.ROOT);
-	else if (_lc == "p" || oskeyboardCheckPi()) array_push(equationTokens, TokenIndexs.PI);
-	else if (_lc == "e" || oskeyboardCheckE()) array_push(equationTokens, TokenIndexs.E);
-	else if (_lc == "." || oskeyboardCheckDecimal()) array_push(equationTokens, TokenIndexs.DECIMAL);
+	else if ((_lc == "\b" || oskeyboardCheckBackspace()) && array_length(equationTokens) > 0) removeEquationToken();
+	else if ((_lc == "0" && !keyboard_check(vk_shift)) || oskeyboardCheck0()) addEquationToken(TokenIndexs.NUM0);
+	else if (_lc == "1" || oskeyboardCheck1()) addEquationToken(TokenIndexs.NUM1);
+	else if (_lc == "2" || oskeyboardCheck2()) addEquationToken(TokenIndexs.NUM2);
+	else if (_lc == "3" || oskeyboardCheck3()) addEquationToken(TokenIndexs.NUM3);
+	else if (_lc == "4" || oskeyboardCheck4()) addEquationToken(TokenIndexs.NUM4);
+	else if (_lc == "5" || oskeyboardCheck5()) addEquationToken(TokenIndexs.NUM5);
+	else if ((_lc == "6" && !keyboard_check(vk_shift)) || oskeyboardCheck6()) addEquationToken(TokenIndexs.NUM6);
+	else if (_lc == "7"  || oskeyboardCheck7()) addEquationToken(TokenIndexs.NUM7);
+	else if ((_lc == "8" && !keyboard_check(vk_shift)) || oskeyboardCheck8()) addEquationToken(TokenIndexs.NUM8);
+	else if ((_lc == "9" && !keyboard_check(vk_shift)) || oskeyboardCheck9()) addEquationToken(TokenIndexs.NUM9);
+	else if (_lc == "x" || oskeyboardCheckX()) addEquationToken(TokenIndexs.X);
+	else if (_lc == "+" || oskeyboardCheckPlus()) addEquationToken(TokenIndexs.PLUS);
+	else if (_lc == "-" || oskeyboardCheckMinus()) addEquationToken(TokenIndexs.MINUS);
+	else if (_lc = "*" || oskeyboardCheckAsterisk()) addEquationToken(TokenIndexs.ASTERISK);
+	else if (_lc = "/" || oskeyboardCheckSlash()) addEquationToken(TokenIndexs.SLASH);
+	else if (_lc = "^" || oskeyboardCheckCarrot()) addEquationToken(TokenIndexs.CARROT);
+	else if (_lc == "(" || oskeyboardCheckOpenParenthesis()) addEquationToken(TokenIndexs.OPEN_PARENTHESIS);
+	else if (_lc == ")" || oskeyboardCheckCloseParenthesis()) addEquationToken(TokenIndexs.CLOSE_PARENTHESIS);
+	else if (_lc == "s" || oskeyboardCheckSin()) addEquationToken(TokenIndexs.SINE);
+	else if (_lc == "c" || oskeyboardCheckCos()) addEquationToken(TokenIndexs.COSINE);
+	else if (_lc == "t" || oskeyboardCheckTan()) addEquationToken(TokenIndexs.TANGENT);
+	else if (_lc == "l" || oskeyboardCheckLog()) addEquationToken(TokenIndexs.LOG);
+	else if (_lc == "r" || oskeyboardCheckRoot()) addEquationToken(TokenIndexs.ROOT);
+	else if (_lc == "p" || oskeyboardCheckPi()) addEquationToken(TokenIndexs.PI);
+	else if (_lc == "e" || oskeyboardCheckE()) addEquationToken(TokenIndexs.E);
+	else if (_lc == "." || oskeyboardCheckDecimal()) addEquationToken(TokenIndexs.DECIMAL);
 	else if (_lc == " " || oskeyboardCheckSpace())
 	{
 		// Destroy current graph
@@ -185,4 +200,7 @@ if (getToggleEquationEditorInput())
 			}
 		}
 	}
+	
+	// Toggle grapher sound
+	audio_play_sound(sfxToggleGrapher, 2, false);
 }

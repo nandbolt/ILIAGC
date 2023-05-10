@@ -10,4 +10,7 @@ onCollect = function()
 		// Update time
 		gameTimer += 10;
 	}
+	
+	// Collect sound
+	audio_play_sound(sfxPowerCollect, 1, false);
 }

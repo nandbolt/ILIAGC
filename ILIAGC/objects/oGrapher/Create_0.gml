@@ -330,6 +330,9 @@ graphEquation = function()
 		
 		// Apply cooldown on exit
 		if (oWorld.gameStarted) graphs[graphIdx][3] = true;
+		
+		// Graph equation sound
+		audio_play_sound(sfxGraphEquation, 3, false);
 	}
 	else previousPostfixEquation = "Invalid EQ";
 }
@@ -491,4 +494,26 @@ destroyGraph = function()
 		if (instance_exists(graphs[graphIdx][1])) instance_destroy(graphs[graphIdx][1]);
 		graphs[graphIdx][1] = noone;
 	}
+}
+
+/// @func	addEquationToken({int} tokenIdx);
+addEquationToken = function(_tokenIdx)
+{
+	// Add to array
+	array_push(equationTokens, _tokenIdx);
+	
+	// Key sound
+	if (_tokenIdx == TokenIndexs.X) audio_play_sound(sfxVariablePressed, 1, false);
+	else if (tokenIsOperator(_tokenIdx)) audio_play_sound(sfxOperatorPressed, 1, false);
+	else audio_play_sound(sfxConstantPressed, 1, false);
+}
+
+/// @func	removeEquationToken();
+removeEquationToken = function()
+{
+	// Pop off array
+	array_pop(equationTokens)
+	
+	// Key sound
+	audio_play_sound(sfxBackspacePressed, 1, false);
 }

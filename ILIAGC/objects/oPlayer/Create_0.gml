@@ -89,6 +89,9 @@ takeDamage = function(_damage)
 			// Player invinciblity
 			invincible = true;
 			invincibleTimer = damageInvincibilityTime;
+			
+			// Hurt sound
+			audio_play_sound(sfxHurt, 1, false);
 		}
 	}
 }
