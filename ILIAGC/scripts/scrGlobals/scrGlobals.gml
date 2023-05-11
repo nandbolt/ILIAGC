@@ -13,6 +13,12 @@
 
 #region Enums
 
+enum Collision
+{
+	SLIDE,
+	BOUNCE,
+}
+
 enum TokenIndexs
 {
 	UNDERSCORE			= 0,
@@ -59,6 +65,7 @@ enum Powerup
 	SHIELD,
 	AIR_JUMP,
 	INVINCIBLE,
+	BALL,
 }
 
 #endregion

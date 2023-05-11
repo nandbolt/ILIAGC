@@ -27,10 +27,12 @@ stepsBetweenClocks = 1800;
 clockTimer = stepsBetweenClocks;
 
 // Powerups
-powerups = [oPowerupShield];
+//powerups = [oPowerupShield];
+powerups = [oPowerupBall];
 minStepsBetweenPowerups = 1800;
 maxStepsBetweenPowerups = 3600;
 powerupTimer = irandom_range(minStepsBetweenPowerups, maxStepsBetweenPowerups);
+powerupTimer = 60;
 
 #region Coin Rush Functions
 

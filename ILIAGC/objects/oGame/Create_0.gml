@@ -5,6 +5,7 @@ myPowerups = [
 	[Powerup.SHIELD,		1, 1],
 	[Powerup.AIR_JUMP,		0, 1],
 	[Powerup.INVINCIBLE,	0, 1],
+	[Powerup.BALL,			0, 1],
 ]
 
 #endregion

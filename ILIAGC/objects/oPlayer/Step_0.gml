@@ -42,16 +42,12 @@ if (invinciblePowerActive) rainbowTime += 1 / 60;
 
 #endregion
 
-#region Ground State
-
 // Update ground state
 rbUpdateGroundState();
 
 // Set coyote buffer
 if (!grounded) coyoteBufferCounter = clamp(coyoteBufferCounter-1,0,coyoteBuffer);
 else coyoteBufferCounter = coyoteBuffer;
-
-#endregion
 
 // Resistances
 if (crouchInputted) groundConstant = slideConstant;
@@ -91,18 +87,8 @@ rbHandleGraphCollisions();
 // X Tile Collisions
 rbHandleXTileCollisions();
 
-// Update x
-x += velocity.x;
-graphPosition.x = convertXToGraphX(x);
-
 // Y Tile Collisions
 rbHandleYTileCollisions();
-
-// Update y
-y += velocity.y;
-graphPosition.y = convertYToGraphY(y);
-//show_debug_message("Position: " + string(x) + "," + string(y));
-//show_debug_message("Graph position: " + string(graphPosition));
 
 #region Animations
 

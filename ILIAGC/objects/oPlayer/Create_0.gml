@@ -27,9 +27,6 @@ invincible = false;
 damageInvincibilityTime = 60;
 invincibleTimer = 0;
 
-// Graph
-graphPosition = new Vector2();
-
 // Sprites
 spriteRotationSpeed = 0.1;
 

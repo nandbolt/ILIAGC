@@ -30,11 +30,5 @@ rbHandleGraphCollisions();
 // X Tile Collisions
 rbHandleXTileCollisions();
 
-// Update x
-x += velocity.x;
-
 // Y Tile Collisions
 rbHandleYTileCollisions();
-
-// Update y
-y += velocity.y;

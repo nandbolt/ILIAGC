@@ -180,6 +180,18 @@ if (getToggleEquationEditorInput())
 			}
 			instance_deactivate_object(oAcidRain);
 		}
+		
+		// Ball
+		if (instance_exists(oBall))
+		{
+			ballSpriteInstance = instance_create_layer(oBall.x,oBall.y,"Instances",oSprite);
+			with (ballSpriteInstance)
+			{
+				// Setup player sprite placeholder
+				sprite_index = sBall;
+			}
+			instance_deactivate_object(oBall);
+		}
 	}
 	else
 	{
@@ -199,6 +211,11 @@ if (getToggleEquationEditorInput())
 			instance_activate_object(oAcidRain);
 		}
 		oWorld.gameTimerPaused = false;
+		if (ballSpriteInstance != noone)
+		{
+			instance_destroy(ballSpriteInstance);
+			instance_activate_object(oBall);
+		}
 		
 		// Apply cooldowns
 		for (var _i = 0; _i < array_length(graphs); _i++)

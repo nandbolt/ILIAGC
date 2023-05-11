@@ -18,9 +18,11 @@ function initRigidBody()
 	groundResistance = new Vector2();
 	groundConstant = 0.15;
 	
-	// Tilemaps
+	// Collisions
+	collisionType = Collision.SLIDE;
 	collisionTiles = layer_tilemap_get_id("CollisionTiles");
 	collisionThreshold = 0.1;
+	collisionVelocity = new Vector2();
 	
 	// Sounds
 	landSound = sfxLand;
@@ -41,11 +43,16 @@ function cleanupRigidBody()
 	delete normal;
 	delete airResistance;
 	delete groundResistance;
+	delete collisionVelocity;
 }
 
 /// @func	rbHandleGraphCollisions();
 function rbHandleGraphCollisions()
 {
+	// Reset collision velocity
+	collisionVelocity.x = 0;
+	collisionVelocity.y = 0;
+	
 	// If not ignoring graphs
 	if (!ignoreGraphs)
 	{
@@ -73,41 +80,53 @@ function rbHandleGraphCollisions()
 				// Get normal
 				var _leftY = convertGraphYToY(getGraphOutput(convertXToGraphX(other.x - 1)));
 				var _rightY = convertGraphYToY(getGraphOutput(convertXToGraphX(other.x + 1)));
-				other.normal.x = 2;
-				other.normal.y = _rightY - _leftY;
-				other.normal.rotate(90);
-				other.normal.normalize();
-			
-				// Slide
-				if (other.normal.x != 0)
+				with (other)
 				{
-					var _r = new Vector2(other.normal.x,other.normal.y);
-					var _dotProduct = other.velocity.dotWithVector(_r);
-					_r.multiplyByScalar(_dotProduct);
-					other.velocity.x -= _r.x;
-					other.velocity.y -= _r.y;
-				}
-				else other.velocity.y = 0;
-			
-				// Get rotation direction
-				var _rotationDirection = sign(angle_difference(other.normal.getAngleDegrees(), other.velocity.getAngleDegrees()));
-			
-				// Rotate until above graph
-				var _count = 0;
-				while (!pointAboveGraph(other.x + other.velocity.x, other.y + other.velocity.y))
-				{
-					// Rotate velocity
-					other.velocity.rotate(_rotationDirection);
-					_count++;
-					if (_count > 45)
+					normal.x = 2;
+					normal.y = _rightY - _leftY;
+					normal.rotate(90);
+					normal.normalize();
+					
+					// Calculate resultant velocity
+					if (normal.x != 0)
 					{
-						other.velocity.x = 0;
-						other.velocity.y = 0;
-						break;
+						var _r = new Vector2(normal.x, normal.y);
+						var _dotProduct = velocity.dotWithVector(_r);
+						_r.multiplyByScalar(_dotProduct);
+						if (collisionType == Collision.BOUNCE) _r.multiplyByScalar(2);
+						velocity.x -= _r.x;
+						velocity.y -= _r.y;
+					}
+					else
+					{
+						if (collisionType == Collision.BOUNCE) collisionVelocity.y = -velocity.y;
+						velocity.y = 0;
+					}
+				}
+					
+				// Calculate resulting velocity
+				if (other.collisionType == Collision.SLIDE)
+				{
+					// Get rotation direction
+					var _rotationDirection = sign(angle_difference(other.normal.getAngleDegrees(), other.velocity.getAngleDegrees()));
+			
+					// Rotate until above graph
+					var _count = 0;
+					while (!pointAboveGraph(other.x + other.velocity.x, other.y + other.velocity.y))
+					{
+						// Rotate velocity
+						other.velocity.rotate(_rotationDirection);
+						_count++;
+						if (_count > 45)
+						{
+							other.velocity.x = 0;
+							other.velocity.y = 0;
+							break;
+						}
 					}
 				}
 				
-				// If landed
+				// Land if wasn't grounded
 				with (other)
 				{
 					if (!grounded) rbLand();
@@ -124,6 +143,9 @@ function rbHandleXTileCollisions()
 	var _tile = tilemap_get_at_pixel(collisionTiles, x + velocity.x, y);
 	if (_tile == 1)
 	{
+		// Store bounce velocity
+		collisionVelocity.x = -velocity.x;
+		
 		// Halve velocity
 		velocity.x *= 0.5;
 	
@@ -140,6 +162,12 @@ function rbHandleXTileCollisions()
 		// Reset velocity
 		velocity.x = 0;
 	}
+	
+	// Update x
+	x += velocity.x;
+	
+	// Set velocity to bounce if applicable
+	if (collisionType == Collision.BOUNCE && collisionVelocity.x != 0) velocity.x = collisionVelocity.x;
 }
 
 /// @func	rbHandleYTileCollisions();
@@ -149,6 +177,9 @@ function rbHandleYTileCollisions()
 	var _tile = tilemap_get_at_pixel(collisionTiles, x, y + velocity.y);
 	if (_tile == 1)
 	{
+		// Store bounce velocity
+		collisionVelocity.y = -velocity.y;
+		
 		// Halve velocity
 		velocity.y *= 0.5;
 	
@@ -164,7 +195,7 @@ function rbHandleYTileCollisions()
 		
 		// If landed
 		if (!grounded && velocity.y > 0) rbLand();
-	
+		
 		// Reset velocity
 		velocity.y = 0;
 		
@@ -172,6 +203,12 @@ function rbHandleYTileCollisions()
 		normal.x = 0;
 		normal.y = -1;
 	}
+	
+	// Update y
+	y += velocity.y;
+	
+	// Set velocity to bounce if applicable
+	if (collisionType == Collision.BOUNCE && collisionVelocity.y != 0) velocity.y = collisionVelocity.y;
 }
 
 /// @func	rbHandleResistances();

@@ -28,12 +28,11 @@ ds_map_add(precedenceMap, "r", 5);
 previousPostfixEquation = "None";
 graphCooldown = 300;
 
-// Player
+// Sprites
 playerSpriteInstance = noone;
 playerShieldSpriteInstance = noone;
-
-// Acid rain
 acidRainSpriteInstances = [];
+ballSpriteInstance = noone;
 
 // Other
 showInfo = true;
