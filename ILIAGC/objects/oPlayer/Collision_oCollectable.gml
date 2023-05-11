@@ -5,7 +5,7 @@ with (other)
 	if (active)
 	{
 		// If shop item
-		if (object_index == oShopItemCoin || object_is_ancestor(self, oShopItemCoin))
+		if (object_index == oShopItemCoin || object_is_ancestor(object_index, oShopItemCoin))
 		{
 			// Exit if can't afford it
 			if (oWorld.coinsInBank < price) exit;

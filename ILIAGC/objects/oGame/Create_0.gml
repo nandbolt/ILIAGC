@@ -1,3 +1,14 @@
+#region Unlockables
+
+// Powerup idx, current lvl, max lvl
+myPowerups = [
+	[Powerup.SHIELD,		1, 1],
+	[Powerup.AIR_JUMP,		0, 1],
+	[Powerup.INVINCIBLE,	0, 1],
+]
+
+#endregion
+
 // Canvas
 canvasWidth = CANVAS_BASE_WIDTH;
 canvasHeight = CANVAS_BASE_HEIGHT;

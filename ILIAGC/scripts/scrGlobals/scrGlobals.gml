@@ -54,4 +54,11 @@ enum TokenIndexs
 	UP					= 36,
 }
 
+enum Powerup
+{
+	SHIELD,
+	AIR_JUMP,
+	INVINCIBLE,
+}
+
 #endregion

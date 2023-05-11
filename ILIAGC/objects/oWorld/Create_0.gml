@@ -27,7 +27,7 @@ stepsBetweenClocks = 1800;
 clockTimer = stepsBetweenClocks;
 
 // Powerups
-powerups = [oPowerupShield, oPowerupAirJump, oPowerupInvincible];
+powerups = [oPowerupShield];
 minStepsBetweenPowerups = 1800;
 maxStepsBetweenPowerups = 3600;
 powerupTimer = irandom_range(minStepsBetweenPowerups, maxStepsBetweenPowerups);
