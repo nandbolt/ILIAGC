@@ -150,6 +150,7 @@ if (getToggleEquationEditorInput())
 			image_index = oPlayer.image_index;
 			image_xscale = oPlayer.image_xscale;
 			image_blend = oPlayer.image_blend;
+			image_angle = oPlayer.image_angle;
 		}
 		instance_deactivate_object(oPlayer);
 		oWorld.gameTimerPaused = true;

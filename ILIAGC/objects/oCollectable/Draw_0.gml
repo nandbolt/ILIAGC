@@ -1,2 +1,0 @@
-// Self
-draw_self();

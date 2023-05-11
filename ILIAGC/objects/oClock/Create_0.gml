@@ -1,6 +1,9 @@
 // Inherit the parent event
 event_inherited();
 
+// Sound
+collectSound = sfxPowerCollect;
+
 /// @func	onCollect();
 onCollect = function()
 {
@@ -8,7 +11,7 @@ onCollect = function()
 	with (oWorld)
 	{
 		// Update time
-		gameTimer += 10;
+		gameTimer += 30;
 	}
 	
 	// Collect sound

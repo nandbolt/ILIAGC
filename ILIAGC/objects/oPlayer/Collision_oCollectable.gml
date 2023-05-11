@@ -4,11 +4,16 @@ with (other)
 	// If active
 	if (active)
 	{
-		// Collect
-		onCollect();
+		// If shop item
+		if (object_index == oShopItemCoin || object_is_ancestor(self, oShopItemCoin))
+		{
+			// Exit if can't afford it
+			if (oWorld.coinsInBank < price) exit;
+			// Else pay the price
+			else oWorld.coinsInBank -= price;
+		}
 		
-		// Deactivate
-		active = false;
-		collected = true;
+		// Collect
+		collect();
 	}
 }

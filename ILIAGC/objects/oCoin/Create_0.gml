@@ -8,12 +8,8 @@ nextCoin = noone;
 /// @func	onCollect();
 onCollect = function()
 {
-	// Change to world scope
-	with (oWorld)
-	{
-		// Update coins
-		coins++;
-	}
+	// Update coins
+	oWorld.coins++;
 	
 	// Make sure there is another coin
 	if (nextCoin == noone) nextCoin = instance_create_layer(random_range(24,168),random_range(24,168),"Instances",oCoin);
@@ -23,16 +19,12 @@ onCollect = function()
 	{
 		activate();
 	}
-	
-	// Collect sound
-	audio_play_sound(sfxCoinCollect, 1, false);
 }
 
-/// @func	activate();
-activate = function()
+/// @func	onActivate();
+onActivate = function()
 {
-	// Set active state
-	active = true;
+	// Set alpha
 	image_alpha = 1;
 	
 	// Spawn the next coin

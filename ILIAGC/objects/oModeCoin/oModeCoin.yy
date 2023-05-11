@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "oModeCoin",
   "spriteId": {
-    "name": "sCoinPlay",
-    "path": "sprites/sCoinPlay/sCoinPlay.yy",
+    "name": "sCoinOutline",
+    "path": "sprites/sCoinOutline/sCoinOutline.yy",
   },
   "solid": false,
   "visible": true,
@@ -12,8 +12,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "oCollectable",
-    "path": "objects/oCollectable/oCollectable.yy",
+    "name": "oLogicCoin",
+    "path": "objects/oLogicCoin/oLogicCoin.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -33,7 +33,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Collectables",
-    "path": "folders/Objects/Collectable/Collectables.yy",
+    "name": "LogicCoins",
+    "path": "folders/Objects/Collectable/Collectables/LogicCoins.yy",
   },
 }

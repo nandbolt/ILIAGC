@@ -121,6 +121,8 @@ if (!grounded)
 		// Jump
 		else sprite_index = sPlayerJump;
 	}
+	// Cannonball (go through graphs)
+	else if (crouchInputted) sprite_index = sPlayerCrouch;
 	// Fall
 	else sprite_index = sPlayerFall;
 	

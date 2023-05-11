@@ -2,7 +2,7 @@
 event_inherited();
 
 // Text
-description = "Play Coin Rush";
+description = "Home";
 
 /// @func	onCollect();
 onCollect = function()
@@ -10,9 +10,7 @@ onCollect = function()
 	// Destroy all coins
 	instance_destroy(oCollectable);
 	
-	// Start game
-	with (oWorld)
-	{
-		startGameCoinRush();
-	}
+	// Spawn home coins
+	instance_create_layer(96, 96, "Instances", oModeCoin);
+	instance_create_layer(160, 160, "Instances", oShopCoin);
 }

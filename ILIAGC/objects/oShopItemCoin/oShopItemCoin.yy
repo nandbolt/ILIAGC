@@ -1,17 +1,20 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "oCollectable",
+  "name": "oShopItemCoin",
   "spriteId": {
-    "name": "sCoin",
-    "path": "sprites/sCoin/sCoin.yy",
+    "name": "sCoinOutline",
+    "path": "sprites/sCoinOutline/sCoinOutline.yy",
   },
   "solid": false,
   "visible": true,
   "managed": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "oLogicCoin",
+    "path": "objects/oLogicCoin/oLogicCoin.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -26,13 +29,12 @@
   "physicsShapePoints": [],
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":1,"collisionObjectId":null,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Collectable",
-    "path": "folders/Objects/Collectable.yy",
+    "name": "LogicCoins",
+    "path": "folders/Objects/Collectable/Collectables/LogicCoins.yy",
   },
 }

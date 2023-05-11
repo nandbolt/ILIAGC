@@ -10,6 +10,7 @@ timeElapsed = 0;
 // Coins
 coins = 0;
 mostCoins = 0;
+coinsInBank = 0;
 
 // Obstacles
 obstacles = [oGraphEater, oSpikes, oCloud];
@@ -22,7 +23,8 @@ maxObstacleTime = lowestMaxObstacleTime;
 obstacleTimer = irandom_range(minObstacleTime, maxObstacleTime);
 
 // Clock
-clockTimer = 600;
+stepsBetweenClocks = 1800;
+clockTimer = stepsBetweenClocks;
 
 #region Coin Rush Functions
 
@@ -36,7 +38,7 @@ startGameCoinRush = function()
 	minObstacleTime = baseMinObstacleTime;
 	maxObstacleTime = baseMaxObstacleTime;
 	obstacleTimer = irandom_range(minObstacleTime, maxObstacleTime);
-	clockTimer = 600;
+	clockTimer = stepsBetweenClocks;
 		
 	// Reset coins
 	coins = 0;
@@ -62,8 +64,9 @@ endGameCoinRush = function()
 	instance_destroy(oCollectable);
 	instance_destroy(oObstacle);
 			
-	// Spawn mode coin
+	// Spawn home coins
 	instance_create_layer(96,96,"Instances",oModeCoin);
+	instance_create_layer(160,160,"Instances",oShopCoin);
 			
 	// Highscore
 	if (coins > mostCoins)
@@ -92,6 +95,9 @@ endGameCoinRush = function()
 	
 	// End game
 	gameStarted = false;
+	
+	// Add coins to the bank
+	coinsInBank += coins;
 	
 	// Stop music
 	audio_stop_sound(mChillinInACalculator);

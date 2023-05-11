@@ -9,7 +9,7 @@ if (gameStarted && !gameTimerPaused)
 	if (clockTimer <= 0)
 	{
 		instance_create_layer(random_range(24,168), random_range(24,168), "BackgroundInstances", oClock);
-		clockTimer = 600;
+		clockTimer = stepsBetweenClocks;
 	}
 	else if (!instance_exists(oClock)) clockTimer--;
 	

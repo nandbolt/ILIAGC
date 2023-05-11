@@ -13,6 +13,7 @@ for (var _i = 1; _i <= string_length(_coinCountString); _i++)
 // Time
 _x = 85;
 var _gameTimeString = string(gameTimer);
+if (!gameStarted) _gameTimeString = string(coinsInBank);
 for (var _i = 1; _i <= string_length(_gameTimeString); _i++)
 {
 	draw_sprite(sTokens,real(string_char_at(_gameTimeString,_i))+2,_x,_y);
