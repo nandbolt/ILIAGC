@@ -48,12 +48,6 @@ createExpressionTree = function(_postfixExpression)
 	// Destroy stack
 	ds_stack_destroy(_nodeStack);
 	
-	// Print tree
-	with (expressionTree)
-	{
-		printTree(root);
-	}
-	
 	// Create graph path
 	createGraphPath();
 }

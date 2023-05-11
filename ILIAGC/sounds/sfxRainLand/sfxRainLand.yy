@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSound",
   "resourceVersion": "1.0",
-  "name": "sfxSpikeSpawn",
+  "name": "sfxRainLand",
   "conversionMode": 0,
   "compression": 0,
   "volume": 1.0,
@@ -14,8 +14,8 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "sfxSpikeSpawn.wav",
-  "duration": 0.459342,
+  "soundFile": "sfxRainLand.wav",
+  "duration": 0.102041,
   "parent": {
     "name": "World",
     "path": "folders/Sounds/World.yy",

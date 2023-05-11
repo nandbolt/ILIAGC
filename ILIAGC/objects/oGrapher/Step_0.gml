@@ -142,6 +142,15 @@ if (getToggleEquationEditorInput())
 		blinkTimer = 0;
 		
 		// Pause player/timer
+		if (oPlayer.shield > 0)
+		{
+			playerShieldSpriteInstance = instance_create_layer(oPlayer.x, oPlayer.y, "Instances", oSprite);
+			with (playerShieldSpriteInstance)
+			{
+				sprite_index = sShield;
+				image_angle = oPlayer.image_angle;
+			}
+		}
 		playerSpriteInstance = instance_create_layer(oPlayer.x,oPlayer.y,"Instances",oSprite);
 		with (playerSpriteInstance)
 		{
@@ -178,6 +187,7 @@ if (getToggleEquationEditorInput())
 		
 		// Reactivate player/timer
 		if (playerSpriteInstance != noone) instance_destroy(playerSpriteInstance);
+		if (playerShieldSpriteInstance != noone) instance_destroy(playerShieldSpriteInstance);
 		instance_activate_object(oPlayer);
 		if (array_length(acidRainSpriteInstances) > 0)
 		{

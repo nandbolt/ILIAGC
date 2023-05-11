@@ -13,6 +13,15 @@ if (gameStarted && !gameTimerPaused)
 	}
 	else if (!instance_exists(oClock)) clockTimer--;
 	
+	// Powerup timer
+	if (powerupTimer <= 0)
+	{
+		var _powerupObject = powerups[irandom(array_length(powerups) - 1)];
+		instance_create_layer(random_range(24,168), random_range(24,168), "BackgroundInstances", _powerupObject);
+		powerupTimer = irandom_range(minStepsBetweenPowerups, maxStepsBetweenPowerups);
+	}
+	else powerupTimer--;
+	
 	// If obstacle timer complete
 	if (obstacleTimer <= 0)
 	{

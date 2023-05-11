@@ -21,6 +21,16 @@ function initRigidBody()
 	// Tilemaps
 	collisionTiles = layer_tilemap_get_id("CollisionTiles");
 	collisionThreshold = 0.1;
+	
+	// Sounds
+	landSound = sfxLand;
+	
+	#region Functions
+	
+	/// @func	onLand();
+	onLand = function(){}
+	
+	#endregion
 }
 
 /// @func	cleanupRigidBody();
@@ -45,6 +55,21 @@ function rbHandleGraphCollisions()
 			// If above function but trying to go below it (collision)
 			if (pointAboveGraph(other.x, other.y) && !pointAboveGraph(other.x + other.velocity.x, other.y + other.velocity.y))
 			{
+				// Loop until close enough to tile
+				var _r = new Vector2(other.velocity.x * 0.5, other.velocity.y * 0.5);
+				while (_r.getLength() > other.collisionThreshold)
+				{
+					// Move closer to graph if not about to collide with tile in x direction
+					if (pointAboveGraph(other.x + _r.x, other.y + _r.y))
+					{
+						other.x += _r.x;
+						other.y += _r.y;
+					}
+					// Else halve velocity
+					else _r.multiplyByScalar(0.5);
+				}
+				delete _r;
+				
 				// Get normal
 				var _leftY = convertGraphYToY(getGraphOutput(convertXToGraphX(other.x - 1)));
 				var _rightY = convertGraphYToY(getGraphOutput(convertXToGraphX(other.x + 1)));
@@ -80,6 +105,12 @@ function rbHandleGraphCollisions()
 						other.velocity.y = 0;
 						break;
 					}
+				}
+				
+				// If landed
+				with (other)
+				{
+					if (!grounded) rbLand();
 				}
 			}
 		}
@@ -130,6 +161,9 @@ function rbHandleYTileCollisions()
 			// Else halve velocity
 			else velocity.y *= 0.5;
 		}
+		
+		// If landed
+		if (!grounded && velocity.y > 0) rbLand();
 	
 		// Reset velocity
 		velocity.y = 0;
@@ -173,18 +207,26 @@ function rbHandleResistances()
 /// @func	rbUpdateGroundState();
 function rbUpdateGroundState()
 {
-	grounded = false;
-	if (tilemap_get_at_pixel(collisionTiles,x,y+1)) grounded = true;
-	else if (!ignoreGraphs && instance_exists(oGraph))
+	// Only update ground state if grounded (collisions should take care of airborne)
+	if (grounded)
 	{
-		// Loop through all graphs
-		with (oGraph)
+		// Check if still on ground
+		var _onGround = false;
+		if (tilemap_get_at_pixel(collisionTiles,x,y+1)) _onGround = true;
+		else if (!ignoreGraphs && instance_exists(oGraph))
 		{
-			// If about to collide with a graph in y direction
-			var _graphY = getGraphOutput(convertXToGraphX(other.x));
-			var _otherGraphY = convertYToGraphY(other.y), _otherGraphGoalY = convertYToGraphY(other.y + 1);
-			if (_otherGraphY > _graphY && _otherGraphGoalY <= _graphY) other.grounded = true;
+			// Loop through all graphs
+			with (oGraph)
+			{
+				// If about to collide with a graph in y direction
+				var _graphY = getGraphOutput(convertXToGraphX(other.x));
+				var _otherGraphY = convertYToGraphY(other.y), _otherGraphGoalY = convertYToGraphY(other.y + 1);
+				if (_otherGraphY > _graphY && _otherGraphGoalY <= _graphY) _onGround = true;
+			}
 		}
+		
+		// Update ground state if not on ground
+		if (!_onGround) grounded = false;
 	}
 }
 
@@ -193,4 +235,17 @@ function rbApplyGravity()
 {
 	// Apply gravity to y velocity
 	velocity.y += gravityStrength;
+}
+
+/// @func	rbLand();
+function rbLand()
+{
+	// Call on land function
+	onLand();
+	
+	// Set ground state
+	grounded = true;
+	
+	// Land sound
+	audio_play_sound(landSound, 1, false);
 }

@@ -37,6 +37,19 @@ spriteRotationSpeed = 0.1;
 mouseInput = false;
 mousePressedInput = false;
 
+#region Powerups
+
+// Shield
+shield = 0;
+
+// Air jump
+canAirJump = false;
+airJumps = 0;
+
+#endregion
+
+#region Input Functions
+
 /// @func	getLeftXInput();
 getLeftXInput = function()
 {
@@ -67,14 +80,38 @@ getCrouchInput = function()
 	return keyboard_check(ord("S")) || keyboard_check(vk_down) || gamepad_button_check(0,gp_padd) || touchInputDown();
 }
 
+#endregion
+
+/// @func	jump();
+jump = function()
+{
+	// Apply jump
+	velocity.y = -jumpStrength;
+	
+	// Reset jump
+	jumpBufferCounter = 0;
+	coyoteBufferCounter = 0;
+	
+	// Jump particles
+	with (oParticles)
+	{
+		part_particles_create(partSystem, other.x, other.y, partTypeDust, 2);
+	}
+	
+	// Jump sound
+	audio_play_sound(sfxJump, 2, false);
+}
+
 /// @func	takeDamage({real} damage);
 takeDamage = function(_damage)
 {
 	// If not invincible
 	if (!invincible && oWorld.gameStarted)
 	{
-		// Decrement game timer
-		oWorld.gameTimer -= _damage;
+		// If has shield
+		if (shield > 0) shield--;
+		// Else decrement game timer
+		else oWorld.gameTimer -= _damage;
 		
 		// End game if timer reached zero
 		if (oWorld.gameTimer <= 0)
@@ -94,4 +131,11 @@ takeDamage = function(_damage)
 			audio_play_sound(sfxHurt, 1, false);
 		}
 	}
+}
+
+/// @func	onLand();
+onLand = function()
+{
+	// Reset air jumps
+	if (canAirJump) airJumps = 1;
 }

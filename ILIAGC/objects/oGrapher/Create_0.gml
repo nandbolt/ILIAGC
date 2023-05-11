@@ -30,6 +30,7 @@ graphCooldown = 300;
 
 // Player
 playerSpriteInstance = noone;
+playerShieldSpriteInstance = noone;
 
 // Acid rain
 acidRainSpriteInstances = [];

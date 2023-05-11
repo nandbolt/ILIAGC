@@ -28,15 +28,7 @@ if (oWorld.gameStarted && !oWorld.gameTimerPaused)
 #region Ground State
 
 // Update ground state
-var _wasGrounded = grounded;
 rbUpdateGroundState();
-
-// If landed
-if (!_wasGrounded && grounded)
-{
-	// Land sound
-	audio_play_sound(sfxLand, 1, false);
-}
 
 // Set coyote buffer
 if (!grounded) coyoteBufferCounter = clamp(coyoteBufferCounter-1,0,coyoteBuffer);
@@ -64,26 +56,14 @@ rbApplyGravity();
 if (jumpPressed && !crouchInputted) jumpBufferCounter = jumpBuffer;
 else jumpBufferCounter = clamp(jumpBufferCounter-1,0,jumpBuffer);
 
-// If jump buffered and grounded or jump buffered and coyote ready
-var _jumpFrame = false;
-if ((jumpBufferCounter > 0 && grounded) || (jumpBufferCounter > 0 && coyoteBufferCounter > 0))
+// Jump if jump buffered and grounded or jump buffered and coyote ready
+if ((jumpBufferCounter > 0 && grounded) || (jumpBufferCounter > 0 && coyoteBufferCounter > 0)) jump();
+// Else if air jump
+else if (canAirJump && jumpPressed && airJumps > 0 && !grounded && !crouchInputted)
 {
-	// Apply jump
-	velocity.y = -jumpStrength;
-	
-	// Reset jump
-	jumpBufferCounter = 0;
-	coyoteBufferCounter = 0;
-	_jumpFrame = true;
-	
-	// Jump particles
-	with (oParticles)
-	{
-		part_particles_create(partSystem, other.x, other.y, partTypeDust, 2);
-	}
-	
-	// Jump sound
-	audio_play_sound(sfxJump, 2, false);
+	// Air jump
+	jump();
+	airJumps--;
 }
 
 #endregion

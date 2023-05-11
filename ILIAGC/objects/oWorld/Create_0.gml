@@ -26,6 +26,14 @@ obstacleTimer = irandom_range(minObstacleTime, maxObstacleTime);
 stepsBetweenClocks = 1800;
 clockTimer = stepsBetweenClocks;
 
+// Powerups
+//powerups = [oPowerupShield, oPowerupAirJump];
+powerups = [oPowerupAirJump];
+minStepsBetweenPowerups = 1800;
+maxStepsBetweenPowerups = 3600;
+powerupTimer = irandom_range(minStepsBetweenPowerups, maxStepsBetweenPowerups);
+powerupTimer = 180;
+
 #region Coin Rush Functions
 
 /// @func	startGameCoinRush();
@@ -98,6 +106,14 @@ endGameCoinRush = function()
 	
 	// Add coins to the bank
 	coinsInBank += coins;
+	
+	// Clear powerups
+	with (oPlayer)
+	{
+		shield = 0;
+		canAirJump = false;
+		airJumps = 0;
+	}
 	
 	// Stop music
 	audio_stop_sound(mChillinInACalculator);
