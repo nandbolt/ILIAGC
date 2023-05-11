@@ -10,18 +10,35 @@ crouchInputted = getCrouchInput();
 if (crouchInputted && jumpInputted) ignoreGraphs = true;
 else ignoreGraphs = false;
 
-#region Invincibility
+#region Powerups/Invincibility
 
 // Switch scopes
 if (oWorld.gameStarted && !oWorld.gameTimerPaused)
 {
+	// Invincible power timer
+	if (invinciblePowerActive)
+	{
+		if (invinciblePowerTimer <= 0) invinciblePowerActive = false;
+		else invinciblePowerTimer--;
+	}
+	
+	// Air jump power timer
+	if (canAirJump)
+	{
+		if (airJumpTimer <= 0) canAirJump = false;
+		else airJumpTimer--;
+	}
+	
 	// Update invincibility if invincible
-	if (invincible)
+	if (invincible && !invinciblePowerActive)
 	{
 		if (invincibleTimer <= 0) invincible = false;
 		else invincibleTimer--;
 	}
 }
+
+// Rainbow timer
+if (invinciblePowerActive) rainbowTime += 1 / 60;
 
 #endregion
 
@@ -143,7 +160,7 @@ else
 }
 
 // If grounded
-if (invincible) image_alpha = random(1);
+if (invincible && !invinciblePowerActive) image_alpha = random(1);
 else image_alpha = 1;
 
 // Reset image index if new sprite

@@ -4,11 +4,11 @@ event_inherited();
 /// @func	onCollect();
 onCollect = function()
 {
-	// Set player air jumps
+	// Set invincibility
 	with (oPlayer)
 	{
-		canAirJump = true;
-		airJumps = 1;
-		airJumpTimer = 180;
+		invinciblePowerActive = true;
+		invincible = true;
+		invinciblePowerTimer = 600;
 	}
 }

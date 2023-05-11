@@ -45,6 +45,26 @@ shield = 0;
 // Air jump
 canAirJump = false;
 airJumps = 0;
+airJumpTimer = 0;
+
+// Invincible
+invinciblePowerActive = false;
+invinciblePowerTimer = 0;
+#region Rainbow Shader Uniforms
+rainbowUniUV         = shader_get_uniform(shdrRainbow, "u_uv");
+rainbowUniTime       = shader_get_uniform(shdrRainbow, "u_time");
+rainbowUniSpeed      = shader_get_uniform(shdrRainbow, "u_speed");
+rainbowUniSection    = shader_get_uniform(shdrRainbow, "u_section");
+rainbowUniSaturation = shader_get_uniform(shdrRainbow, "u_saturation"); 
+rainbowUniBrightness = shader_get_uniform(shdrRainbow, "u_brightness");
+rainbowUniMix        = shader_get_uniform(shdrRainbow, "u_mix");
+rainbowTime  = 0;
+rainbowSpeed = 1.0;
+rainbowSection = 0.5;
+rainbowSaturation = 0.8;
+rainbowBrightness = 0.9;
+rainbowMix = 0.7;
+#endregion
 
 #endregion
 

@@ -4,7 +4,7 @@
   "name": "shdrInvert",
   "type": 1,
   "parent": {
-    "name": "Palletes",
-    "path": "folders/Shaders/Palletes.yy",
+    "name": "Shaders",
+    "path": "folders/Shaders.yy",
   },
 }

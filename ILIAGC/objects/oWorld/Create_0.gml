@@ -27,12 +27,10 @@ stepsBetweenClocks = 1800;
 clockTimer = stepsBetweenClocks;
 
 // Powerups
-//powerups = [oPowerupShield, oPowerupAirJump];
-powerups = [oPowerupAirJump];
+powerups = [oPowerupShield, oPowerupAirJump, oPowerupInvincible];
 minStepsBetweenPowerups = 1800;
 maxStepsBetweenPowerups = 3600;
 powerupTimer = irandom_range(minStepsBetweenPowerups, maxStepsBetweenPowerups);
-powerupTimer = 180;
 
 #region Coin Rush Functions
 
@@ -110,9 +108,16 @@ endGameCoinRush = function()
 	// Clear powerups
 	with (oPlayer)
 	{
+		// Shield
 		shield = 0;
+		
+		// Air jump
 		canAirJump = false;
 		airJumps = 0;
+		
+		// Invincible
+		invinciblePowerActive = false;
+		invincible = false;
 	}
 	
 	// Stop music

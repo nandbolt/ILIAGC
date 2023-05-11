@@ -1,5 +1,5 @@
 //
-// Simple passthrough vertex shader
+// Invert vertex shader
 //
 attribute vec3 in_Position;                  // (x,y,z)
 //attribute vec3 in_Normal;                  // (x,y,z)     unused in this shader.
