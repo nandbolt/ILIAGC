@@ -1,10 +1,10 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "oShopItemShield",
+  "name": "oShopItemEquationUp",
   "spriteId": {
-    "name": "sPowerupShield",
-    "path": "sprites/sPowerupShield/sPowerupShield.yy",
+    "name": "sShopItemEquationUp",
+    "path": "sprites/sShopItemEquationUp/sShopItemEquationUp.yy",
   },
   "solid": false,
   "visible": true,
@@ -33,7 +33,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Powerups",
-    "path": "folders/Objects/Collectable/Collectables/LogicCoins/ShopItems/Powerups.yy",
+    "name": "Upgrade",
+    "path": "folders/Objects/Collectable/Collectables/LogicCoins/ShopItems/Upgrade.yy",
   },
 }

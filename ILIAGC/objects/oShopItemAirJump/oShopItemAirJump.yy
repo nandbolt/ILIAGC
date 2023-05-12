@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "oShopItemAirJump",
   "spriteId": {
-    "name": "sCoinOutline",
-    "path": "sprites/sCoinOutline/sCoinOutline.yy",
+    "name": "sPowerupAirJump",
+    "path": "sprites/sPowerupAirJump/sPowerupAirJump.yy",
   },
   "solid": false,
   "visible": true,

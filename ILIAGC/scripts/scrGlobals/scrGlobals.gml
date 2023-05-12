@@ -68,4 +68,9 @@ enum Powerup
 	BALL,
 }
 
+enum Upgrade
+{
+	EQUATION_UP,
+}
+
 #endregion

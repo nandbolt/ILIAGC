@@ -1,11 +1,14 @@
 #region Unlockables
 
-// Powerup idx, current lvl, max lvl
+// Item idx, current lvl, max lvl
 myPowerups = [
 	[Powerup.SHIELD,		1, 1],
 	[Powerup.AIR_JUMP,		0, 1],
 	[Powerup.INVINCIBLE,	0, 1],
 	[Powerup.BALL,			0, 1],
+]
+myUpgrades = [
+	[Upgrade.EQUATION_UP,	0, 1],
 ]
 
 #endregion
