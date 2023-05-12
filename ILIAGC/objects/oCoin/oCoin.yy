@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "oCoin",
   "spriteId": {
-    "name": "sCoin",
-    "path": "sprites/sCoin/sCoin.yy",
+    "name": "sCoinGold",
+    "path": "sprites/sCoinGold/sCoinGold.yy",
   },
   "solid": false,
   "visible": true,
@@ -33,7 +33,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Collectables",
-    "path": "folders/Objects/Collectable/Collectables.yy",
+    "name": "TimeCoins",
+    "path": "folders/Objects/Collectable/Collectables/TimeCoins.yy",
   },
 }

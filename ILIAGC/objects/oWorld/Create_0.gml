@@ -143,7 +143,7 @@ endGameCoinRush = function()
 var _coinsSpriteInstance = instance_create_layer(8,8,"HUDInstances",oSprite);
 with (_coinsSpriteInstance)
 {
-	sprite_index = sCoin;
+	sprite_index = sCoinGold;
 	spins = true;
 }
 var _mostCoinsSpriteInstance = instance_create_layer(144,8,"HUDInstances",oSprite);
