@@ -12,6 +12,9 @@ myPowerups = [
 myUpgrades = [
 	[Upgrade.EQUATION_UP,	0, 1],
 ]
+myMisc = [
+	[Misc.DEBUG_MODE,		0, 1],
+]
 
 #endregion
 

@@ -26,6 +26,12 @@ onCollect = function()
 		var _lvl = oGame.myUpgrades[_i][1];
 		if (_lvl == 0) array_push(_shopUpgrades, oGame.myUpgrades[_i]);
 	}
+	var _shopMisc = [];
+	for (var _i = 0; _i < array_length(oGame.myMisc); _i++)
+	{
+		var _lvl = oGame.myMisc[_i][1];
+		if (_lvl == 0) array_push(_shopMisc, oGame.myMisc[_i]);
+	}
 	
 	// Show available shop items
 	for (var _y = 64; _y <= 128; _y += 64)
@@ -47,6 +53,14 @@ onCollect = function()
 				var _i = irandom(array_length(_shopUpgrades) - 1);
 				shopSpawnItemUpgrade(_shopUpgrades[_i][0], _x, _y, _shopUpgrades[_i][1] + 1);
 				array_delete(_shopUpgrades, _i, 1);
+			}
+			// Else if shop has misc inventory
+			else if (array_length(_shopMisc) > 0)
+			{
+				// Spawn random shop item and remove from backstock
+				var _i = irandom(array_length(_shopMisc) - 1);
+				shopSpawnItemMisc(_shopMisc[_i][0], _x, _y, _shopMisc[_i][1] + 1);
+				array_delete(_shopMisc, _i, 1);
 			}
 		}
 	}

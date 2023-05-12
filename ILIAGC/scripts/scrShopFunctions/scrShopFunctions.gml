@@ -42,3 +42,18 @@ function shopSpawnItemUpgrade(_idx, _x, _y, _level)
 	}
 	instance_create_layer(_x, _y, "Instances", _shopItem);
 }
+
+/// @func	shopSpawnItemMisc({int} idx, {real} x, {real} y, {int} level);
+function shopSpawnItemMisc(_idx, _x, _y, _level)
+{
+	var _shopItem = noone;
+	switch (_idx)
+	{
+		case Misc.DEBUG_MODE:
+			_shopItem = oShopItemDebug;
+			break;
+		default:
+			_shopItem = oShopItemCoin;
+	}
+	instance_create_layer(_x, _y, "Instances", _shopItem);
+}

@@ -1,14 +1,20 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "oDebug",
-  "spriteId": null,
+  "name": "oShopItemDebug",
+  "spriteId": {
+    "name": "sShopItemDebugMode",
+    "path": "sprites/sShopItemDebugMode/sShopItemDebugMode.yy",
+  },
   "solid": false,
   "visible": true,
   "managed": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "oShopItemCoin",
+    "path": "objects/oShopItemCoin/oShopItemCoin.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -22,13 +28,12 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Persistent",
-    "path": "folders/Objects/Persistent.yy",
+    "name": "Misc",
+    "path": "folders/Objects/Collectable/Collectables/LogicCoins/ShopItems/Misc.yy",
   },
 }

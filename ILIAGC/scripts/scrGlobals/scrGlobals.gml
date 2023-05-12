@@ -75,4 +75,9 @@ enum Upgrade
 	EQUATION_UP,
 }
 
+enum Misc
+{
+	DEBUG_MODE,
+}
+
 #endregion
