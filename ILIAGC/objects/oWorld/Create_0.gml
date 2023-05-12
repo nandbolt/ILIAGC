@@ -130,6 +130,9 @@ endGameCoinRush = function()
 		ironGraphTimer = 0;
 	}
 	
+	// Destroy all graphs
+	instance_destroy(oGraph);
+	
 	// Stop music
 	audio_stop_sound(mChillinInACalculator);
 }
