@@ -7,8 +7,10 @@ xInput = 0;
 // Movement scalars
 runStrength = 0.2;
 driftStrength = 0.05;
-normalGroundConstant = 0.15;
-slideConstant = 0.02;
+runGroundConstant = 0.15;
+idleGroundConstant = 0.3;
+slideGroundConstant = 0.02;
+holdGroundConstant = 2;
 
 // Jumping
 jumpPressed = false;
