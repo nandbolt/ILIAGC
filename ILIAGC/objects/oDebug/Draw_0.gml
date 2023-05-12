@@ -27,6 +27,8 @@ if (instance_exists(oPlayer))
 			draw_set_color(c_gray);
 			draw_text_transformed(_x, _y, "Player", _s, _s, 0);
 			_y += _yoff;
+			draw_text_transformed(_x, _y, "Grounded: " + string(grounded), _s, _s, 0);
+			_y += _yoff;
 			draw_text_transformed(_x, _y, "World Pos: (" + string(x) + ", " + string(y) + ")", _s, _s, 0);
 			_y += _yoff;
 			var _graphX = convertXToGraphX(x);

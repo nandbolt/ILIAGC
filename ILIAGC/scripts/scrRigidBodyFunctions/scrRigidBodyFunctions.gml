@@ -126,10 +126,11 @@ function rbHandleGraphCollisions()
 					}
 				}
 				
-				// Land if wasn't grounded
+				// Land if wasn't grounded and normal isn't too steep
 				with (other)
 				{
-					if (!grounded) rbLand();
+					var _normalAngle = normal.getAngleDegrees();
+					if (!grounded && _normalAngle < 178 && _normalAngle > 2) rbLand();
 				}
 			}
 		}
@@ -282,6 +283,9 @@ function rbLand()
 	
 	// Set ground state
 	grounded = true;
+	
+	// Get normal angle
+	var _normalAngle = normal.getAngleDegrees();
 	
 	// Land sound
 	audio_play_sound(landSound, 1, false);
