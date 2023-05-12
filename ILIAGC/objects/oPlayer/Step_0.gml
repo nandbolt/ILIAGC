@@ -10,11 +10,15 @@ crouchInputted = getCrouchInput();
 if (crouchInputted && jumpInputted) ignoreGraphs = true;
 else ignoreGraphs = false;
 
-#region Powerups/Invincibility
+#region Powerups/Invincibility/Other
 
 // Switch scopes
 if (oWorld.gameStarted && !oWorld.gameTimerPaused)
 {
+	// Bubble gum timer
+	if (bubbleGumTimer > 0) bubbleGumTimer--;
+	else collisionType = Collision.SLIDE;
+	
 	// Invincible power timer
 	if (invinciblePowerActive)
 	{
@@ -151,5 +155,9 @@ else image_alpha = 1;
 
 // Reset image index if new sprite
 if (sprite_index != _previousSprite) image_index = 0;
+
+// Bubble gum
+if (bubbleGumTimer > 0) image_blend = c_fuchsia;
+else image_blend = c_white;
 
 #endregion

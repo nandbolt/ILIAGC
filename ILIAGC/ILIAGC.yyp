@@ -8,6 +8,7 @@
     {"id":{"name":"sAcidRain","path":"sprites/sAcidRain/sAcidRain.yy",},"order":2,},
     {"id":{"name":"oSprite","path":"objects/oSprite/oSprite.yy",},"order":7,},
     {"id":{"name":"oBall","path":"objects/oBall/oBall.yy",},"order":1,},
+    {"id":{"name":"oBubbleGum","path":"objects/oBubbleGum/oBubbleGum.yy",},"order":5,},
     {"id":{"name":"shdrContrast","path":"shaders/shdrContrast/shdrContrast.yy",},"order":3,},
     {"id":{"name":"oShopItemShield","path":"objects/oShopItemShield/oShopItemShield.yy",},"order":0,},
     {"id":{"name":"sPlayerIdle","path":"sprites/sPlayerIdle/sPlayerIdle.yy",},"order":0,},

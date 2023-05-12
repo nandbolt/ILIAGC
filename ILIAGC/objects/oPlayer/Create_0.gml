@@ -68,6 +68,13 @@ kickStrength = 2;
 
 #endregion
 
+#region Handicaps
+
+// Bubble gum
+bubbleGumTimer = 0;
+
+#endregion
+
 #region Input Functions
 
 /// @func	getLeftXInput();
