@@ -107,7 +107,7 @@ endGameCoinRush = function()
 	// Add coins to the bank
 	coinsInBank += coins;
 	
-	// Clear powerups
+	// Clear effects
 	with (oPlayer)
 	{
 		// Shield
@@ -120,6 +120,9 @@ endGameCoinRush = function()
 		// Invincible
 		invinciblePowerActive = false;
 		invincible = false;
+		
+		// Bubble gum
+		bubbleGumTimer = 0;
 	}
 	
 	// Stop music
