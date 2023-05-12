@@ -318,7 +318,7 @@ graphEquation = function()
 		destroyGraph();
 	
 		// Create graph (at origin) and set to current
-		graphs[graphIdx][1] = instance_create_layer(16,176,"Instances",oGraph);
+		graphs[graphIdx][1] = instance_create_layer(16,176,"BackgroundInstances",oGraph);
 		with (graphs[graphIdx][1])
 		{
 			// Create expression tree
