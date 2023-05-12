@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "oPowerupAirJump",
   "spriteId": {
-    "name": "sCoinOutline",
-    "path": "sprites/sCoinOutline/sCoinOutline.yy",
+    "name": "sPowerupAirJump",
+    "path": "sprites/sPowerupAirJump/sPowerupAirJump.yy",
   },
   "solid": false,
   "visible": true,

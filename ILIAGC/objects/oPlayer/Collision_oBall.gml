@@ -1,22 +1,28 @@
-// Kick
+// Change to ball scope
 with (other)
 {
-	var _r = new Vector2();
-	
-	// Add velocity if moving
-	if (other.velocity.getLength() > 0)
-	{
-		_r.x = other.velocity.x;
-		_r.y = other.velocity.y;
+	// If not kicked
+	if (kickTimer == 0 && other.velocity.getLength() > 0.5)
+	{		
+		// Kick
+		velocity.x = other.velocity.x * other.kickStrength;
+		velocity.y = other.velocity.y * other.kickStrength;
+		
+		// Set kick timer
+		kickTimer = kickTime;
+		
+		// Set rotation
+		var _dir = 1;
+		if (irandom(1) == 0) _dir = -1
+		rotationSpeed = kickRotationSpeed * _dir;
+		
+		// Particles
+		with (oParticles)
+		{
+			part_particles_create(partSystem, other.x, other.y, partTypeDust, 2);
+		}
+		
+		// Sound
+		audio_play_sound(landSound, 1, false);
 	}
-	// Use displacement if not moving
-	else
-	{
-		_r.x = x - other.x;
-		_r.y = y - other.y;
-	}
-	_r.normalize();
-	_r.multiplyByScalar(1);
-	velocity.addVector(_r);
-	delete _r;
 }

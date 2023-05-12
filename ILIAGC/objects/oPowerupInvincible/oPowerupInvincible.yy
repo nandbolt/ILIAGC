@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "oPowerupInvincible",
   "spriteId": {
-    "name": "sCoinOutline",
-    "path": "sprites/sCoinOutline/sCoinOutline.yy",
+    "name": "sPowerupInvincible",
+    "path": "sprites/sPowerupInvincible/sPowerupInvincible.yy",
   },
   "solid": false,
   "visible": true,

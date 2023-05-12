@@ -1,6 +1,10 @@
 // Rigid body
 initRigidBody();
 
+// Rotation
+imageAngle = image_angle;
+rotationSpeed = 0;
+
 // Bounce
 collisionType = Collision.BOUNCE;
 
@@ -13,3 +17,8 @@ groundConstant = 0.01;
 
 // Lifetime
 lifeTime = 1800;
+
+// Kick
+kickTimer = 0;
+kickTime = 20;
+kickRotationSpeed = 10;

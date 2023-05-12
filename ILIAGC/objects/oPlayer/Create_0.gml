@@ -63,6 +63,9 @@ rainbowBrightness = 0.9;
 rainbowMix = 0.7;
 #endregion
 
+// Ball
+kickStrength = 2;
+
 #endregion
 
 #region Input Functions

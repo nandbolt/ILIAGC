@@ -13,6 +13,9 @@ function shopSpawnItemPowerup(_idx, _x, _y, _level)
 		case Powerup.INVINCIBLE:
 			_shopItem = oShopItemInvincible;
 			break;
+		case Powerup.BALL:
+			_shopItem = oShopItemBall;
+			break;
 		default:
 			_shopItem = oShopItemCoin;
 	}

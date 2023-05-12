@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "oPowerupBall",
   "spriteId": {
-    "name": "sCoinOutline",
-    "path": "sprites/sCoinOutline/sCoinOutline.yy",
+    "name": "sPowerupBall",
+    "path": "sprites/sPowerupBall/sPowerupBall.yy",
   },
   "solid": false,
   "visible": true,

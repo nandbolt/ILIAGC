@@ -2,12 +2,12 @@
 event_inherited();
 
 // Text
-description = "Shield";
-price = 10;
+description = "Ball";
+price = 0;
 
 /// @func	onCollect();
 onCollect = function()
 {
 	array_push(oWorld.powerups, oPowerupBall);
-	oGame.myPowerups[Powerup.SHIELD][1]++;
+	oGame.myPowerups[Powerup.BALL][1]++;
 }

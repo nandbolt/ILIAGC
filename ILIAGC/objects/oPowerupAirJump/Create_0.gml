@@ -9,6 +9,6 @@ onCollect = function()
 	{
 		canAirJump = true;
 		airJumps = 1;
-		airJumpTimer = 180;
+		airJumpTimer = 1200;
 	}
 }

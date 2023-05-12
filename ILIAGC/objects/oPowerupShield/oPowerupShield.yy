@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "oPowerupShield",
   "spriteId": {
-    "name": "sCoinOutline",
-    "path": "sprites/sCoinOutline/sCoinOutline.yy",
+    "name": "sPowerupShield",
+    "path": "sprites/sPowerupShield/sPowerupShield.yy",
   },
   "solid": false,
   "visible": true,
