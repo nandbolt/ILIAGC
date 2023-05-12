@@ -53,6 +53,7 @@
     {"id":{"name":"oCollectable","path":"objects/oCollectable/oCollectable.yy",},"order":1,},
     {"id":{"name":"oGraphEater","path":"objects/oGraphEater/oGraphEater.yy",},"order":0,},
     {"id":{"name":"sBallCollider","path":"sprites/sBallCollider/sBallCollider.yy",},"order":1,},
+    {"id":{"name":"oStorageCoin","path":"objects/oStorageCoin/oStorageCoin.yy",},"order":5,},
     {"id":{"name":"oCoinBlue","path":"objects/oCoinBlue/oCoinBlue.yy",},"order":3,},
     {"id":{"name":"scrVector2Struct","path":"scripts/scrVector2Struct/scrVector2Struct.yy",},"order":0,},
     {"id":{"name":"oClock","path":"objects/oClock/oClock.yy",},"order":0,},

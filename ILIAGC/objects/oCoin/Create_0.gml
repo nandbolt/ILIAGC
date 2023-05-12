@@ -5,9 +5,9 @@ event_inherited();
 active = false;
 nextCoin = noone;
 value = 1;
-goldBound = 120;
-silverBound = 300;
-redBound = 600;
+goldBound = 300;
+silverBound = 600;
+redBound = 900;
 
 /// @func	onCollect();
 onCollect = function()

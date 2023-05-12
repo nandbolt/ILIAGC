@@ -23,8 +23,8 @@ maxObstacleTime = lowestMaxObstacleTime;
 obstacleTimer = irandom_range(minObstacleTime, maxObstacleTime);
 
 // Clock
-stepsBetweenClocks = 1800;
-clockTimer = stepsBetweenClocks;
+timeBetweenNormalClocks = 30;
+timeBetweenBonusClocks = 300;
 
 // Powerups
 powerups = [oPowerupShield];
@@ -46,7 +46,6 @@ startGameCoinRush = function()
 	minObstacleTime = baseMinObstacleTime;
 	maxObstacleTime = baseMaxObstacleTime;
 	obstacleTimer = irandom_range(minObstacleTime, maxObstacleTime);
-	clockTimer = stepsBetweenClocks;
 		
 	// Reset coins
 	coins = 0;

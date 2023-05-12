@@ -5,14 +5,6 @@ if (gameStarted && !gameTimerPaused)
 	gameCounter++;
 	obstacleTimer--;
 	
-	// Clock timer
-	if (clockTimer <= 0)
-	{
-		instance_create_layer(random_range(24,168), random_range(24,168), "BackgroundInstances", oClock);
-		clockTimer = stepsBetweenClocks;
-	}
-	else if (!instance_exists(oClock)) clockTimer--;
-	
 	// Powerup timer
 	if (powerupTimer <= 0)
 	{
@@ -56,6 +48,10 @@ if (gameStarted && !gameTimerPaused)
 			minObstacleTime = clamp(minObstacleTime - 20, lowestMinObstacleTime, baseMinObstacleTime);
 			maxObstacleTime = clamp(maxObstacleTime - 20, lowestMaxObstacleTime, baseMaxObstacleTime);
 		}
+		
+		// Clock aid
+		if (timeElapsed mod timeBetweenNormalClocks == 0) instance_create_layer(random_range(24,168), random_range(24,168), "BackgroundInstances", oClock);
+		if (timeElapsed mod timeBetweenBonusClocks == 0) instance_create_layer(random_range(24,168), random_range(24,168), "BackgroundInstances", oClock);
 		
 		// If obstacles exist
 		if (instance_exists(oObstacle))
