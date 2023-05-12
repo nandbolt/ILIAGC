@@ -4,6 +4,7 @@ var _drawPercent = 1;
 if (drawCounter < drawTime) _drawPercent = drawCounter / drawTime;
 var _c = c_white;
 if (oGrapher.editingEquation && graphIdx == oGrapher.graphIdx) _c = c_yellow;
+else if (ironGraph) _c = c_lime;
 for (var _i = 0; _i < _pointCount - 1; _i++)
 {
 	// Check draw percent

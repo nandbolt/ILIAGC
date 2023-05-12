@@ -10,6 +10,9 @@ expressionTree = new Tree();
 drawTime = 30;
 drawCounter = 0;
 
+// Iron
+ironGraph = false;
+
 /// @func	createExpressionTree({array} _postfixExpression);
 createExpressionTree = function(_postfixExpression)
 {	

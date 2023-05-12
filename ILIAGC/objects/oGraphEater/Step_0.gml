@@ -10,20 +10,24 @@ if (instance_exists(oGraph))
 	// Check all graphs
 	with (oGraph)
 	{
-		// If any points disagree
-		var _aboveGraph = pointAboveGraph(other.bbox_left, other.bbox_top);
-		if (_aboveGraph != pointAboveGraph(other.bbox_right, other.bbox_top) || _aboveGraph != pointAboveGraph(other.bbox_right, other.bbox_bottom) ||
-			_aboveGraph != pointAboveGraph(other.bbox_left, other.bbox_bottom))
+		// If not iron graph
+		if (!ironGraph)
 		{
-			// Clear equation
-			with (oGrapher)
+			// If any points disagree
+			var _aboveGraph = pointAboveGraph(other.bbox_left, other.bbox_top);
+			if (_aboveGraph != pointAboveGraph(other.bbox_right, other.bbox_top) || _aboveGraph != pointAboveGraph(other.bbox_right, other.bbox_bottom) ||
+				_aboveGraph != pointAboveGraph(other.bbox_left, other.bbox_bottom))
 			{
-				graphs[other.graphIdx][0] = [];
-				if (other.graphIdx == graphIdx) equationTokens = [];
-			}
+				// Clear equation
+				with (oGrapher)
+				{
+					graphs[other.graphIdx][0] = [];
+					if (other.graphIdx == graphIdx) equationTokens = [];
+				}
 			
-			// Destroy graph
-			instance_destroy();
+				// Destroy graph
+				instance_destroy();
+			}
 		}
 	}
 }

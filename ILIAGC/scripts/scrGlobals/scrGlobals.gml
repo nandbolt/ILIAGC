@@ -66,6 +66,7 @@ enum Powerup
 	AIR_JUMP,
 	INVINCIBLE,
 	BALL,
+	IRON_GRAPH,
 }
 
 enum Upgrade

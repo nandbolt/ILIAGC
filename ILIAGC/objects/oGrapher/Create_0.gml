@@ -38,6 +38,9 @@ ballSpriteInstance = noone;
 showInfo = true;
 menuIdx = 0;
 
+// Iron graph
+ironGraphTimer = 0;
+
 #region On-Screen Keyboard
 showKeyboard = false;
 keyboardX = TILE_SIZE + HALF_TILE_SIZE;
@@ -326,6 +329,9 @@ graphEquation = function()
 			
 			// Set idx
 			graphIdx = other.graphIdx;
+			
+			// If iron graph
+			if (other.ironGraphTimer > 0) ironGraph = true;
 		}
 		
 		// Apply cooldown on exit

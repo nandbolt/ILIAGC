@@ -30,8 +30,8 @@ clockTimer = stepsBetweenClocks;
 powerups = [oPowerupShield];
 minStepsBetweenPowerups = 1800;
 maxStepsBetweenPowerups = 3600;
-//minStepsBetweenPowerups = 60;
-//maxStepsBetweenPowerups = 60;
+//minStepsBetweenPowerups = 180;
+//maxStepsBetweenPowerups = 180;
 powerupTimer = irandom_range(minStepsBetweenPowerups, maxStepsBetweenPowerups);
 
 #region Coin Rush Functions
@@ -123,6 +123,11 @@ endGameCoinRush = function()
 		
 		// Bubble gum
 		bubbleGumTimer = 0;
+	}
+	with (oGrapher)
+	{
+		// Iron graphs
+		ironGraphTimer = 0;
 	}
 	
 	// Stop music

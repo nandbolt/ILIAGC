@@ -16,6 +16,9 @@ function shopSpawnItemPowerup(_idx, _x, _y, _level)
 		case Powerup.BALL:
 			_shopItem = oShopItemBall;
 			break;
+		case Powerup.IRON_GRAPH:
+			_shopItem = oShopItemIronGraph;
+			break;
 		default:
 			_shopItem = oShopItemCoin;
 	}
