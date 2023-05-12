@@ -19,5 +19,12 @@ draw_self();
 // Shield
 if (shield > 0) draw_sprite_ext(sShield,0,x,y,1,1,image_angle,c_white,1);
 
+// Shield
+if (blocks > 0)
+{
+	var _x = floor(x / TILE_SIZE) * TILE_SIZE, _y = floor(y / TILE_SIZE) * TILE_SIZE + TILE_SIZE;
+	draw_sprite(sBlock,0,_x,_y);
+}
+
 // Reset shader
 if (invinciblePowerActive) shader_reset();

@@ -7,6 +7,7 @@ myPowerups = [
 	[Powerup.INVINCIBLE,	0, 1],
 	[Powerup.BALL,			0, 1],
 	[Powerup.IRON_GRAPH,	0, 1],
+	[Powerup.BLOCK,			0, 1],
 ]
 myUpgrades = [
 	[Upgrade.EQUATION_UP,	0, 1],

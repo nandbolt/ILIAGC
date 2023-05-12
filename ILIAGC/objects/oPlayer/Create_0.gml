@@ -66,6 +66,9 @@ rainbowMix = 0.7;
 // Ball
 kickStrength = 2;
 
+// Block
+blocks = 0;
+
 #endregion
 
 #region Handicaps

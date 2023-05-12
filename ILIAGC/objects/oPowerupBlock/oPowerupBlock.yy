@@ -1,10 +1,10 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "oSpikes",
+  "name": "oPowerupBlock",
   "spriteId": {
-    "name": "sSpikes",
-    "path": "sprites/sSpikes/sSpikes.yy",
+    "name": "sPowerupBlock",
+    "path": "sprites/sPowerupBlock/sPowerupBlock.yy",
   },
   "solid": false,
   "visible": true,
@@ -12,8 +12,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "oObstacle",
-    "path": "objects/oObstacle/oObstacle.yy",
+    "name": "oPowerup",
+    "path": "objects/oPowerup/oPowerup.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -28,14 +28,12 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"oPlayer","path":"objects/oPlayer/oPlayer.yy",},},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"oBall","path":"objects/oBall/oBall.yy",},},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Obstactles",
-    "path": "folders/Objects/Obstactles.yy",
+    "name": "Powerups",
+    "path": "folders/Objects/Collectable/Collectables/Powerups.yy",
   },
 }

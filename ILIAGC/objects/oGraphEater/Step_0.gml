@@ -31,3 +31,11 @@ if (instance_exists(oGraph))
 		}
 	}
 }
+
+// If block exists
+if (instance_exists(oBlock))
+{
+	// Destroy block if colliding with one
+	var _block = instance_place(x,y,oBlock);
+	if (_block != noone) instance_destroy(_block);
+}

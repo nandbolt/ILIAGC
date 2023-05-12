@@ -75,12 +75,31 @@ else jumpBufferCounter = clamp(jumpBufferCounter-1,0,jumpBuffer);
 
 // Jump if jump buffered and grounded or jump buffered and coyote ready
 if ((jumpBufferCounter > 0 && grounded) || (jumpBufferCounter > 0 && coyoteBufferCounter > 0)) jump();
-// Else if air jump
-else if (canAirJump && jumpPressed && airJumps > 0 && !grounded && !crouchInputted)
+else
 {
-	// Air jump
-	jump();
-	airJumps--;
+	// If block set
+	if (blocks > 0 && jumpPressed)
+	{
+		// If at empty space
+		var _x = floor(x / TILE_SIZE) * TILE_SIZE, _y = floor(y / TILE_SIZE) * TILE_SIZE + TILE_SIZE;
+		if (tilemap_get_at_pixel(collisionTiles, _x, _y) == 0)
+		{
+			// Set block
+			instance_create_layer(_x, _y, "Instances", oBlock);
+			blocks--;
+			
+			// Block sound
+			audio_play_sound(sfxGraphEquation, 1, false);
+		}
+	}
+	
+	// If air jump
+	if (canAirJump && jumpPressed && airJumps > 0 && !grounded && !crouchInputted)
+	{
+		// Air jump
+		jump();
+		airJumps--;
+	}
 }
 
 #endregion

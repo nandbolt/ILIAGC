@@ -187,13 +187,34 @@ if (getToggleEquationEditorInput())
 		// Ball
 		if (instance_exists(oBall))
 		{
-			ballSpriteInstance = instance_create_layer(oBall.x,oBall.y,"Instances",oSprite);
-			with (ballSpriteInstance)
+			with (oBall)
 			{
-				// Setup player sprite placeholder
-				sprite_index = sBall;
+				var _spriteInstance = instance_create_layer(x, y - 6, "BackgroundInstances", oSprite);
+				with (_spriteInstance)
+				{
+					// Setup player sprite placeholder
+					sprite_index = sBall;
+					image_angle = other.imageAngle;
+				}
+				array_push(other.ballSpriteInstances, _spriteInstance);
 			}
 			instance_deactivate_object(oBall);
+		}
+		
+		// Bubble gum
+		if (instance_exists(oBubbleGum))
+		{
+			with (oBubbleGum)
+			{
+				var _spriteInstance = instance_create_layer(x, y, "BackgroundInstances", oSprite);
+				with (_spriteInstance)
+				{
+					sprite_index = other.sprite_index;
+					image_alpha = other.image_alpha;
+				}
+				array_push(other.bubbleGumSpriteInstances, _spriteInstance);
+			}
+			instance_deactivate_object(oBubbleGum);
 		}
 	}
 	else
@@ -204,6 +225,8 @@ if (getToggleEquationEditorInput())
 		if (playerSpriteInstance != noone) instance_destroy(playerSpriteInstance);
 		if (playerShieldSpriteInstance != noone) instance_destroy(playerShieldSpriteInstance);
 		instance_activate_object(oPlayer);
+		
+		// Acid rain
 		if (array_length(acidRainSpriteInstances) > 0)
 		{
 			// Go through each acid rain and destroy the sprite instance, then reactivate them all
@@ -214,10 +237,27 @@ if (getToggleEquationEditorInput())
 			instance_activate_object(oAcidRain);
 		}
 		oWorld.gameTimerPaused = false;
-		if (ballSpriteInstance != noone)
+		
+		// Ball
+		if (array_length(ballSpriteInstances) > 0)
 		{
-			instance_destroy(ballSpriteInstance);
+			// Go through each acid rain and destroy the sprite instance, then reactivate them all
+			while (array_length(ballSpriteInstances) > 0)
+			{
+				instance_destroy(array_pop(ballSpriteInstances));
+			}
 			instance_activate_object(oBall);
+		}
+		
+		// Bubble gum
+		if (array_length(bubbleGumSpriteInstances) > 0)
+		{
+			// Go through each acid rain and destroy the sprite instance, then reactivate them all
+			while (array_length(bubbleGumSpriteInstances) > 0)
+			{
+				instance_destroy(array_pop(bubbleGumSpriteInstances));
+			}
+			instance_activate_object(oBubbleGum);
 		}
 		
 		// Apply cooldowns

@@ -32,7 +32,8 @@ graphCooldown = 300;
 playerSpriteInstance = noone;
 playerShieldSpriteInstance = noone;
 acidRainSpriteInstances = [];
-ballSpriteInstance = noone;
+ballSpriteInstances = [];
+bubbleGumSpriteInstances = [];
 
 // Other
 showInfo = true;
