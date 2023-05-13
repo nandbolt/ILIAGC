@@ -67,6 +67,9 @@ function shopSpawnItemTheme(_idx, _x, _y, _level)
 		case Theme.DAY:
 			_shopItem = oShopItemDay;
 			break;
+		case Theme.BASIC:
+			_shopItem = oShopItemBasic;
+			break;
 		default:
 			_shopItem = oShopItemCoin;
 	}

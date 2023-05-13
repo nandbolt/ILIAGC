@@ -18,6 +18,7 @@ myMisc = [
 myTheme = [
 	[Theme.DEFAULT,			1, 1],
 	[Theme.DAY,				0, 1],
+	[Theme.BASIC,			0, 1],
 ];
 
 #endregion

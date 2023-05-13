@@ -84,6 +84,7 @@ enum Theme
 {
 	DEFAULT,
 	DAY,
+	BASIC,
 }
 
 #endregion

@@ -149,7 +149,7 @@ if (editingEquation)
 			case 3:
 				#region Table
 				draw_set_alpha(_a);
-				draw_rectangle(_x-1,_y,172,92,false);
+				draw_rectangle(_x-1,_y,172,96,false);
 				draw_set_alpha(1);
 				draw_text_transformed(_x, _y, "Table", _s, _s, 0);
 				_y += _yoff * 2;
@@ -161,10 +161,10 @@ if (editingEquation)
 				draw_text_transformed(_x3, _y, "X", _s, _s, 0);
 				draw_text_transformed(_x, _y, "X", _s, _s, 0);
 				draw_set_color(c_white);
-				draw_line(_x4-4,_y-1,_x4-4,_y+41);
-				draw_line(_x2-4,_y-1,_x2-4,_y+41);
-				draw_line(_x-1,_y+6,_x+33,_y+6);
-				draw_line(_x3-1,_y+6,_x3+33,_y+6);
+				draw_sprite_ext(sGraphSegment, 0, _x4-2, _y-1, 45, 0.5, 270, c_white, 1);
+				draw_sprite_ext(sGraphSegment, 0, _x2-2, _y-1, 45, 0.5, 270, c_white, 1);
+				draw_sprite_ext(sGraphSegment, 0, _x-1, _y+7, 34, 0.5, 0, c_white, 1);
+				draw_sprite_ext(sGraphSegment, 0, _x3-1, _y+7, 34, 0.5, 0, c_white, 1);
 				_y += _yoff;
 				draw_text_transformed(_x, _y, "0", _s, _s, 0);
 				draw_text_transformed(_x2, _y, string(table[0]), _s, _s, 0);
