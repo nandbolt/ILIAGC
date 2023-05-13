@@ -38,9 +38,13 @@ bubbleGumSpriteInstances = [];
 // Other
 showInfo = true;
 menuIdx = 0;
+menuCount = 4;
 
 // Iron graph
 ironGraphTimer = 0;
+
+// Table
+table = [0,0,0,0,0,0,0,0,0,0];
 
 #region On-Screen Keyboard
 showKeyboard = false;
@@ -338,6 +342,9 @@ graphEquation = function()
 		// Apply cooldown on exit
 		if (oWorld.gameStarted) graphs[graphIdx][3] = true;
 		
+		// Fill table if necessary
+		if (menuIdx == 3) fillTable();
+		
 		// Graph equation sound
 		audio_play_sound(sfxGraphEquation, 3, false);
 	}
@@ -523,4 +530,22 @@ removeEquationToken = function()
 	
 	// Key sound
 	audio_play_sound(sfxBackspacePressed, 1, false);
+}
+
+/// @func fillTable();
+fillTable = function()
+{
+	// If current graph exists
+	if (instance_exists(graphs[graphIdx][1]))
+	{
+		with (graphs[graphIdx][1])
+		{
+			for (var _i = 0; _i < 10; _i++)
+			{
+				other.table[_i] = getGraphOutput(_i);
+			}
+		}
+	}
+	// Clear table
+	else for (var _i = 0; _i < array_length(table); _i++) table[_i] = 0;
 }

@@ -130,6 +130,50 @@ if (editingEquation)
 	
 				#endregion
 				break;
+			case 3:
+				#region Table
+				draw_text_transformed(_x, _y, "Table", _s, _s, 0);
+				_y += _yoff * 2;
+				var _x2 = _x + 20, _x3 = room_width * 0.5 + 8;
+				var _x4 = _x3 + 20;
+				draw_text_transformed(_x4, _y, "Y", _s, _s, 0);
+				draw_text_transformed(_x2, _y, "Y", _s, _s, 0);
+				draw_set_color(c_aqua);
+				draw_text_transformed(_x3, _y, "X", _s, _s, 0);
+				draw_text_transformed(_x, _y, "X", _s, _s, 0);
+				draw_set_color(c_white);
+				draw_line(_x4-4,_y-1,_x4-4,_y+41);
+				draw_line(_x2-4,_y-1,_x2-4,_y+41);
+				draw_line(_x-1,_y+6,_x+33,_y+6);
+				draw_line(_x3-1,_y+6,_x3+33,_y+6);
+				_y += _yoff;
+				draw_text_transformed(_x, _y, "0", _s, _s, 0);
+				draw_text_transformed(_x2, _y, string(table[0]), _s, _s, 0);
+				draw_text_transformed(_x3, _y, "5", _s, _s, 0);
+				draw_text_transformed(_x4, _y, string(table[5]), _s, _s, 0);
+				_y += _yoff;
+				draw_text_transformed(_x, _y, "1", _s, _s, 0);
+				draw_text_transformed(_x2, _y, string(table[1]), _s, _s, 0);
+				draw_text_transformed(_x3, _y, "6", _s, _s, 0);
+				draw_text_transformed(_x4, _y, string(table[6]), _s, _s, 0);
+				_y += _yoff;
+				draw_text_transformed(_x, _y, "2", _s, _s, 0);
+				draw_text_transformed(_x2, _y, string(table[2]), _s, _s, 0);
+				draw_text_transformed(_x3, _y, "7", _s, _s, 0);
+				draw_text_transformed(_x4, _y, string(table[7]), _s, _s, 0);
+				_y += _yoff;
+				draw_text_transformed(_x, _y, "3", _s, _s, 0);
+				draw_text_transformed(_x2, _y, string(table[3]), _s, _s, 0);
+				draw_text_transformed(_x3, _y, "8", _s, _s, 0);
+				draw_text_transformed(_x4, _y, string(table[8]), _s, _s, 0);
+				_y += _yoff;
+				draw_text_transformed(_x, _y, "4", _s, _s, 0);
+				draw_text_transformed(_x2, _y, string(table[4]), _s, _s, 0);
+				draw_text_transformed(_x3, _y, "9", _s, _s, 0);
+				draw_text_transformed(_x4, _y, string(table[9]), _s, _s, 0);
+				_y += _yoff;
+				#endregion
+				break;
 		}
 	}
 	

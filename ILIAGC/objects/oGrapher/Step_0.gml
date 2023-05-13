@@ -38,6 +38,9 @@ if (editingEquation)
 		equationTokens = [];
 		array_copy(equationTokens, 0, graphs[graphIdx][0], 0, array_length(graphs[graphIdx][0]));
 		
+		// Fill table if necessary
+		if (menuIdx == 3) fillTable();
+		
 		// Key sound
 		audio_play_sound(sfxKeyPressed, 1, false);
 	}
@@ -51,14 +54,20 @@ if (editingEquation)
 		equationTokens = [];
 		array_copy(equationTokens, 0, graphs[graphIdx][0], 0, array_length(graphs[graphIdx][0]));
 		
+		// Fill table if necessary
+		if (menuIdx == 3) fillTable();
+		
 		// Key sound
 		audio_play_sound(sfxKeyPressed, 1, false);
 	}
 	else if (keyboard_check_pressed(vk_left) || oskeyboardCheckLeft())
 	{
 		// Toggle next menu
-		if (menuIdx == 0) menuIdx = 2;
+		if (menuIdx == 0) menuIdx = menuCount;
 		else menuIdx--;
+		
+		// Fill table if necessary
+		if (menuIdx == 3) fillTable();
 		
 		// Key sound
 		audio_play_sound(sfxKeyPressed, 1, false);
@@ -66,8 +75,11 @@ if (editingEquation)
 	else if (keyboard_check_pressed(vk_right) || oskeyboardCheckRight())
 	{
 		// Toggle next menu
-		if (menuIdx == 2) menuIdx = 0;
+		if (menuIdx == menuCount) menuIdx = 0;
 		else menuIdx++;
+		
+		// Fill table if necessary
+		if (menuIdx == 3) fillTable();
 		
 		// Key sound
 		audio_play_sound(sfxKeyPressed, 1, false);
@@ -113,6 +125,9 @@ if (editingEquation)
 		// Clear equations
 		equationTokens = [];
 		graphs[graphIdx][0] = [];
+		
+		// Fill table if necessary
+		if (menuIdx == 3) fillTable();
 	}
 	
 	// Clear last character
@@ -143,6 +158,9 @@ if (getToggleEquationEditorInput())
 	{
 		cursor = false;
 		blinkTimer = 0;
+		
+		// Fill table if necessary
+		if (menuIdx == 3) fillTable();
 		
 		// Pause player/timer
 		if (oPlayer.shield > 0)
