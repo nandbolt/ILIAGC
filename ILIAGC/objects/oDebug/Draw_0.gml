@@ -8,14 +8,16 @@ if (instance_exists(oPlayer))
 	with (oPlayer)
 	{
 		// Vectors
-		draw_line_color(x,y,x+velocity.x*5,y+velocity.y*5,c_lime,c_lime);
-		draw_line_color(x,y,x+normal.x*10,y+normal.y*10,c_yellow,c_yellow);
+		draw_sprite_ext(sGraphSegment, 0, x, y, abs(velocity.getLength())*5, 0.5, velocity.getAngleDegrees(), c_lime, 0.8);
+		draw_sprite_ext(sGraphSegment, 0, x, y, 10, 0.5, normal.getAngleDegrees(), c_yellow, 0.8);
 
 		// Hitbox
-		draw_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, true);
+		draw_set_alpha(0.5);
+		draw_sprite_stretched(sBallCollider, 0, bbox_left, bbox_top, bbox_right - bbox_left, bbox_bottom - bbox_top);
+		draw_set_alpha(1);
 
 		// Origin
-		draw_circle(x-0.5, y-0.5, 1, false);
+		draw_sprite(sGraphSegment, 0, x-0.5, y-0.5);
 		
 		// Player stats
 		if (!oGrapher.editingEquation)
@@ -60,7 +62,9 @@ if (instance_exists(oCollectable))
 	with (oCollectable)
 	{
 		// Hitbox
-		draw_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, true);
+		draw_set_alpha(0.5);
+		draw_sprite_stretched(sBallCollider, 0, bbox_left, bbox_top, bbox_right - bbox_left, bbox_bottom - bbox_top);
+		draw_set_alpha(1);
 	}
 }
 
@@ -70,7 +74,9 @@ if (instance_exists(oObstacle))
 	with (oObstacle)
 	{
 		// Hitbox
-		draw_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, true);
+		draw_set_alpha(0.5);
+		draw_sprite_stretched(sBallCollider, 0, bbox_left, bbox_top, bbox_right - bbox_left, bbox_bottom - bbox_top);
+		draw_set_alpha(1);
 	}
 }
 
@@ -80,6 +86,8 @@ if (instance_exists(oBall))
 	with (oBall)
 	{
 		// Hitbox
-		draw_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, true);
+		draw_set_alpha(0.5);
+		draw_sprite_stretched(sBallCollider, 0, bbox_left, bbox_top, bbox_right - bbox_left, bbox_bottom - bbox_top);
+		draw_set_alpha(1);
 	}
 }

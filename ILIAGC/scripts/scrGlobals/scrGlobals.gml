@@ -87,6 +87,8 @@ enum Theme
 	BASIC,
 	AQUA,
 	GREEN,
+	ALT_DEFAULT,
+	TI_83,
 }
 
 #endregion

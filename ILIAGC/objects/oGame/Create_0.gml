@@ -21,6 +21,8 @@ myTheme = [
 	[Theme.BASIC,			0, 1],
 	[Theme.AQUA,			0, 1],
 	[Theme.GREEN,			0, 1],
+	[Theme.ALT_DEFAULT,		0, 1],
+	[Theme.TI_83,			0, 1],
 ];
 
 #endregion
