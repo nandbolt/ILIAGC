@@ -57,3 +57,18 @@ function shopSpawnItemMisc(_idx, _x, _y, _level)
 	}
 	instance_create_layer(_x, _y, "Instances", _shopItem);
 }
+
+/// @func	shopSpawnItemTheme({int} idx, {real} x, {real} y, {int} level);
+function shopSpawnItemTheme(_idx, _x, _y, _level)
+{
+	var _shopItem = noone;
+	switch (_idx)
+	{
+		case Theme.DAY:
+			_shopItem = oShopItemDay;
+			break;
+		default:
+			_shopItem = oShopItemCoin;
+	}
+	instance_create_layer(_x, _y, "Instances", _shopItem);
+}

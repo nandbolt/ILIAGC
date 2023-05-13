@@ -3,6 +3,7 @@
   "resourceVersion": "1.6",
   "name": "ILIAGC",
   "resources": [
+    {"id":{"name":"oShopItemDay","path":"objects/oShopItemDay/oShopItemDay.yy",},"order":0,},
     {"id":{"name":"tsCollision","path":"tilesets/tsCollision/tsCollision.yy",},"order":0,},
     {"id":{"name":"sfxRainLand","path":"sounds/sfxRainLand/sfxRainLand.yy",},"order":4,},
     {"id":{"name":"sAcidRain","path":"sprites/sAcidRain/sAcidRain.yy",},"order":2,},
@@ -199,6 +200,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Misc","folderPath":"folders/Objects/Collectable/Collectables/LogicCoins/ShopItems/Misc.yy","order":3,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Misc","folderPath":"folders/Sprites/Collectables/ShopItems/Misc.yy","order":1,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Upgrades","folderPath":"folders/Sprites/Collectables/ShopItems/Upgrades.yy","order":2,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Theme","folderPath":"folders/Objects/Collectable/Collectables/LogicCoins/ShopItems/Theme.yy","order":4,},
   ],
   "AudioGroups": [
     {"resourceType":"GMAudioGroup","resourceVersion":"1.3","name":"audiogroup_default","targets":-1,},

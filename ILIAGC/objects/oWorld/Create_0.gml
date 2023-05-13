@@ -1,6 +1,9 @@
 // States
 gameStarted = false;
 
+// Shader
+currentShader = shdrPass;
+
 // Timer
 gameTimer = 0;
 gameCounter = 0;
@@ -122,6 +125,10 @@ endGameCoinRush = function()
 		
 		// Bubble gum
 		bubbleGumTimer = 0;
+		collisionType = Collision.SLIDE;
+		
+		// Block
+		blocks = 0;
 	}
 	with (oGrapher)
 	{

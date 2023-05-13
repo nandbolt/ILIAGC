@@ -1,3 +1,6 @@
+// Shader
+var _previousShader = shader_current();
+
 // If invincible power active
 if (invinciblePowerActive)
 {
@@ -27,4 +30,4 @@ if (blocks > 0)
 }
 
 // Reset shader
-if (invinciblePowerActive) shader_reset();
+if (invinciblePowerActive) shader_set(_previousShader);

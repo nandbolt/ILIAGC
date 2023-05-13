@@ -8,13 +8,17 @@ myPowerups = [
 	[Powerup.BALL,			0, 1],
 	[Powerup.IRON_GRAPH,	0, 1],
 	[Powerup.BLOCK,			0, 1],
-]
+];
 myUpgrades = [
 	[Upgrade.EQUATION_UP,	0, 1],
-]
+];
 myMisc = [
 	[Misc.DEBUG_MODE,		0, 1],
-]
+];
+myTheme = [
+	[Theme.DEFAULT,			1, 1],
+	[Theme.DAY,				0, 1],
+];
 
 #endregion
 

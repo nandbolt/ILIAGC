@@ -1,6 +1,7 @@
 // Position
 var _x = 24, _y = 200;
 var _s = 0.5, _xoff = 7, _yoff = 7;
+var _a = 1;
 
 // Tab
 draw_set_halign(fa_left);
@@ -52,11 +53,15 @@ if (editingEquation)
 		// Help menus
 		_y = 36;
 		_x = 22;
+		_a = 0.15;
 		draw_set_color(c_yellow);
 		switch (menuIdx)
 		{
 			case 0:
 				#region How To Graph
+				draw_set_alpha(_a);
+				draw_rectangle(_x-1,_y,172,108,false);
+				draw_set_alpha(1);
 				draw_text_transformed(_x, _y,"How To Graph", _s, _s, 0);
 				_y += _yoff;
 				draw_set_color(c_white);
@@ -69,6 +74,9 @@ if (editingEquation)
 				break;
 			case 1:
 				#region EQ Editor Controls
+				draw_set_alpha(_a);
+				draw_rectangle(_x-1,_y,172,108,false);
+				draw_set_alpha(1);
 				draw_text_transformed(_x, _y,"EQ Editor Controls", _s, _s, 0);
 				_y += _yoff;
 				draw_set_color(c_white);
@@ -111,6 +119,9 @@ if (editingEquation)
 				break;
 			case 2:
 				#region Example EQs
+				draw_set_alpha(_a);
+				draw_rectangle(_x-1,_y,172,108,false);
+				draw_set_alpha(1);
 				draw_text_transformed(_x, _y, "Example EQs", _s, _s, 0);
 				_y += _yoff;
 				draw_set_color(c_white);
@@ -137,6 +148,9 @@ if (editingEquation)
 				break;
 			case 3:
 				#region Table
+				draw_set_alpha(_a);
+				draw_rectangle(_x-1,_y,172,92,false);
+				draw_set_alpha(1);
 				draw_text_transformed(_x, _y, "Table", _s, _s, 0);
 				_y += _yoff * 2;
 				var _x2 = _x + 20, _x3 = room_width * 0.5 + 8;

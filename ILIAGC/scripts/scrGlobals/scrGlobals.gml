@@ -80,4 +80,10 @@ enum Misc
 	DEBUG_MODE,
 }
 
+enum Theme
+{
+	DEFAULT,
+	DAY,
+}
+
 #endregion

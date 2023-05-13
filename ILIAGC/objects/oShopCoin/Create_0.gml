@@ -32,6 +32,12 @@ onCollect = function()
 		var _lvl = oGame.myMisc[_i][1];
 		if (_lvl == 0) array_push(_shopMisc, oGame.myMisc[_i]);
 	}
+	var _shopTheme = [];
+	for (var _i = 0; _i < array_length(oGame.myTheme); _i++)
+	{
+		var _lvl = oGame.myTheme[_i][1];
+		if (_lvl == 0) array_push(_shopTheme, oGame.myTheme[_i]);
+	}
 	
 	// Show available shop items
 	for (var _y = 64; _y <= 128; _y += 64)
@@ -61,6 +67,14 @@ onCollect = function()
 				var _i = irandom(array_length(_shopMisc) - 1);
 				shopSpawnItemMisc(_shopMisc[_i][0], _x, _y, _shopMisc[_i][1] + 1);
 				array_delete(_shopMisc, _i, 1);
+			}
+			// Else if shop has theme inventory
+			else if (array_length(_shopTheme) > 0)
+			{
+				// Spawn random shop item and remove from backstock
+				var _i = irandom(array_length(_shopTheme) - 1);
+				shopSpawnItemTheme(_shopTheme[_i][0], _x, _y, _shopTheme[_i][1] + 1);
+				array_delete(_shopTheme, _i, 1);
 			}
 		}
 	}
