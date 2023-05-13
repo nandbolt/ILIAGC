@@ -83,22 +83,3 @@ if (instance_exists(oBall))
 		draw_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, true);
 	}
 }
-
-// Grapher
-if (instance_exists(oGrapher))
-{
-	with (oGrapher)
-	{
-		if (editingEquation && showInfo)
-		{
-			// Alignment
-			draw_set_halign(fa_left);
-			draw_set_valign(fa_top);
-			
-			// Previous Postfix Equation
-			draw_set_color(c_gray);
-			draw_text_transformed(22, 164,"Postfix EQ: " + previousPostfixEquation, 0.5, 0.5, 0);
-			draw_set_color(c_white);
-		}
-	}
-}

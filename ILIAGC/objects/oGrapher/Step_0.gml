@@ -162,6 +162,10 @@ if (getToggleEquationEditorInput())
 		// Fill table if necessary
 		if (menuIdx == 3) fillTable();
 		
+		// Show cooldown if applicable
+		if (graphs[graphIdx][2] > 0) previousPostfixEquation = "Cooldown ends in " + string(graphs[graphIdx][2] / 60) + " seconds";
+		else if (string_length(previousPostfixEquation) > 0 && string_char_at(previousPostfixEquation, 0) == "C") previousPostfixEquation = "None";
+		
 		// Pause player/timer
 		if (oPlayer.shield > 0)
 		{

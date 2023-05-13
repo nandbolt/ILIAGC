@@ -306,7 +306,7 @@ graphEquation = function()
 	// Exit function if graph on cooldown
 	if (graphs[graphIdx][2] > 0)
 	{
-		previousPostfixEquation = "Cooldown ends in " + string(graphs[graphIdx][2]);
+		previousPostfixEquation = "Cooldown ends in " + string(graphs[graphIdx][2] / 60) + " seconds";
 		return;
 	}
 	
@@ -348,7 +348,7 @@ graphEquation = function()
 		// Graph equation sound
 		audio_play_sound(sfxGraphEquation, 3, false);
 	}
-	else previousPostfixEquation = "Invalid EQ";
+	else previousPostfixEquation = "Invalid equation";
 }
 
 /// @func	simplifyExpression({array} tokenIdxs);
