@@ -27,7 +27,7 @@ for (var _i = 0; _i < _pointCount - 1; _i++)
 		!pointVisible(_x, _y) && !pointVisible(_xNext, _yNext))  _a = 0.2;
 	
 	// Draw line
-	draw_sprite_ext(sGraphSegment, 0, _x, _y, _len, 1, _dir, _c, _a);
+	draw_sprite_ext(graphSegment, 0, _x, _y, _len, 1, _dir, _c, _a);
 	
 	// Reset alpha
 	_a = 1;

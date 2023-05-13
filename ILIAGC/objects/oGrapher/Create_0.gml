@@ -27,6 +27,7 @@ ds_map_add(precedenceMap, "l", 5);
 ds_map_add(precedenceMap, "r", 5);
 previousPostfixEquation = "None";
 graphCooldown = 300;
+graphSegment = sGraphSegment;
 
 // Sprites
 playerSpriteInstance = noone;
@@ -332,8 +333,9 @@ graphEquation = function()
 			// Create expression tree
 			createExpressionTree(_postfixExpression);
 			
-			// Set idx
+			// Set info
 			graphIdx = other.graphIdx;
+			graphSegment = other.graphSegment;
 			
 			// If iron graph
 			if (other.ironGraphTimer > 0) ironGraph = true;

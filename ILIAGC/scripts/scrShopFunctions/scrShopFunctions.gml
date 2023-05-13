@@ -70,6 +70,12 @@ function shopSpawnItemTheme(_idx, _x, _y, _level)
 		case Theme.BASIC:
 			_shopItem = oShopItemBasic;
 			break;
+		case Theme.AQUA:
+			_shopItem = oShopItemAqua;
+			break;
+		case Theme.GREEN:
+			_shopItem = oShopItemGreen;
+			break;
 		default:
 			_shopItem = oShopItemCoin;
 	}

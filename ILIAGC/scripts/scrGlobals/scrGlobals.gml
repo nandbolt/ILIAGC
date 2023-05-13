@@ -85,6 +85,8 @@ enum Theme
 	DEFAULT,
 	DAY,
 	BASIC,
+	AQUA,
+	GREEN,
 }
 
 #endregion

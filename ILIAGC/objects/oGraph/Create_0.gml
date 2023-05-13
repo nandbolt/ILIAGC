@@ -2,6 +2,7 @@
 graphOrigin = new Vector2(convertXToGraphX(x),convertYToGraphY(y));
 graphPath = path_add();
 graphIdx = 0;
+graphSegment = sGraphSegment;
 
 // Equation
 expressionTree = new Tree();

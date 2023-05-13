@@ -2,13 +2,13 @@
 event_inherited();
 
 // Text
-description = "Day";
+description = "Aqua";
 price = 0;
 
 /// @func	onCollect();
 onCollect = function()
 {
-	oWorld.currentShader = shdrDay;
-	window_set_color(c_white);
-	oGame.myTheme[Theme.DAY][1]++;
+	oWorld.currentShader = shdrAqua;
+	window_set_color(c_black);
+	oGame.myTheme[Theme.AQUA][1]++;
 }

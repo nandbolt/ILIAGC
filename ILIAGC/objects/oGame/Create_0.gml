@@ -19,6 +19,8 @@ myTheme = [
 	[Theme.DEFAULT,			1, 1],
 	[Theme.DAY,				0, 1],
 	[Theme.BASIC,			0, 1],
+	[Theme.AQUA,			0, 1],
+	[Theme.GREEN,			0, 1],
 ];
 
 #endregion
