@@ -44,6 +44,10 @@ if (instance_exists(oPlayer))
 					draw_text_transformed(_x, _y, "y" + string(graphIdx + 1) + "(x) = " + string(getGraphOutput(_graphX)), _s, _s, 0);
 					_y += _yoff;
 				}
+				
+				// Graph collision
+				draw_text_transformed(_x, _y, "Graph collision: " + string(collidedWithGraph), _s, _s, 0);
+				_y += _yoff;
 			}
 			draw_set_color(c_white);
 		}

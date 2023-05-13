@@ -2,7 +2,7 @@
 var _pointCount = path_get_number(graphPath);
 var _drawPercent = 1;
 if (drawCounter < drawTime) _drawPercent = drawCounter / drawTime;
-var _c = c_white;
+var _c = c_white, _a = 1;
 if (oGrapher.editingEquation && graphIdx == oGrapher.graphIdx) _c = c_yellow;
 else if (ironGraph) _c = c_lime;
 for (var _i = 0; _i < _pointCount - 1; _i++)
@@ -19,8 +19,16 @@ for (var _i = 0; _i < _pointCount - 1; _i++)
 	var _xNext = path_get_point_x(graphPath,_i + 1), _yNext = path_get_point_y(graphPath,_i + 1);
 	var _rx = _xNext - _x, _ry = _yNext - _y;
 	var _dir = point_direction(0, 0, _rx, _ry);
+	var _dirRounded = round(_dir);
 	var _len = point_distance(0, 0, _rx, _ry);
 	
+	// Check whether to set line as invisible (asymptote)
+	if ((_dirRounded == 90 || _dirRounded == 270) &&
+		!pointVisible(_x, _y) && !pointVisible(_xNext, _yNext))  _a = 0.2;
+	
 	// Draw line
-	draw_sprite_ext(sGraphSegment, 0, _x, _y, _len, 1, _dir, _c, 1);
+	draw_sprite_ext(sGraphSegment, 0, _x, _y, _len, 1, _dir, _c, _a);
+	
+	// Reset alpha
+	_a = 1;
 }

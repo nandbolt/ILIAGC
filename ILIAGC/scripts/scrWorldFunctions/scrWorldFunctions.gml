@@ -192,3 +192,9 @@ function tokenIsTrigOperator(_tokenIdx)
 {
 	return _tokenIdx > TokenIndexs.CLOSE_PARENTHESIS && _tokenIdx < TokenIndexs.LOG;
 }
+
+/// @func	pointVisible({real} x, {real} y);
+function pointVisible(_x, _y)
+{
+	return _x >= 0 && _x <= 176 && _y >= 0 && _y <= 208;
+}

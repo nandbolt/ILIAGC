@@ -23,6 +23,7 @@ function initRigidBody()
 	collisionTiles = layer_tilemap_get_id("CollisionTiles");
 	collisionThreshold = 0.1;
 	collisionVelocity = new Vector2();
+	collidedWithGraph = false;
 	
 	// Sounds
 	landSound = sfxLand;
@@ -49,9 +50,10 @@ function cleanupRigidBody()
 /// @func	rbHandleGraphCollisions();
 function rbHandleGraphCollisions()
 {
-	// Reset collision velocity
+	// Reset collision variables
 	collisionVelocity.x = 0;
 	collisionVelocity.y = 0;
+	collidedWithGraph = false;
 	
 	// If not ignoring graphs
 	if (!ignoreGraphs)
@@ -59,9 +61,12 @@ function rbHandleGraphCollisions()
 		// Loop through all graphs
 		with (oGraph)
 		{
-			// If above function but trying to go below it (collision)
-			if (pointAboveGraph(other.x, other.y) && !pointAboveGraph(other.x + other.velocity.x, other.y + other.velocity.y))
+			// If collision
+			if (vectorCollidesWithGraph(other.x, other.y, other.x + other.velocity.x, other.y + other.velocity.y))
 			{
+				// Update collision
+				other.collidedWithGraph = true;
+				
 				// Loop until close enough to tile
 				var _r = new Vector2(other.velocity.x * 0.5, other.velocity.y * 0.5);
 				while (_r.getLength() > other.collisionThreshold)
@@ -248,23 +253,21 @@ function rbUpdateGroundState()
 	// Only update ground state if grounded (collisions should take care of airborne)
 	if (grounded)
 	{
-		// Check if still on ground
-		var _onGround = false;
-		if (tilemap_get_at_pixel(collisionTiles,x,y+1)) _onGround = true;
+		// Reset grounded
+		grounded = false;
+		
+		// Tile check
+		if (tilemap_get_at_pixel(collisionTiles,x,y+1)) grounded = true;
+		// Graph check (if one exists and not ignoring them)
 		else if (!ignoreGraphs && instance_exists(oGraph))
 		{
 			// Loop through all graphs
 			with (oGraph)
 			{
-				// If about to collide with a graph in y direction
-				var _graphY = getGraphOutput(convertXToGraphX(other.x));
-				var _otherGraphY = convertYToGraphY(other.y), _otherGraphGoalY = convertYToGraphY(other.y + 1);
-				if (_otherGraphY > _graphY && _otherGraphGoalY <= _graphY) _onGround = true;
+				// If down vector collides with graph
+				if (vectorCollidesWithGraph(other.x, other.y, other.x, other.y + 1)) other.grounded = true;
 			}
 		}
-		
-		// Update ground state if not on ground
-		if (!_onGround) grounded = false;
 	}
 }
 

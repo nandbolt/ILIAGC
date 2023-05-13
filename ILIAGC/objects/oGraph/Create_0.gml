@@ -13,6 +13,9 @@ drawCounter = 0;
 // Iron
 ironGraph = false;
 
+// Vertical asymptote
+verticalAsymptoteValue = 10;	// -infinity -> +infinity, with this value essentially taking place of infinity
+
 /// @func	createExpressionTree({array} _postfixExpression);
 createExpressionTree = function(_postfixExpression)
 {	
@@ -166,4 +169,21 @@ pointAboveGraph = function(_x, _y)
 {
 	var _graphOutputY = getGraphOutput(convertXToGraphX(_x)), _graphY = convertYToGraphY(_y);
 	return _graphY > _graphOutputY;
+}
+
+/// @func	vectorCollidesWithGraph({real} startX, {real} startY, {real} endX, {real} endY);
+vectorCollidesWithGraph = function(_startX, _startY, _endX, _endY)
+{
+	// If starting point above and ending point below graph
+	if (pointAboveGraph(_startX, _startY) && !pointAboveGraph(_endX, _endY))
+	{
+		// Ignore collision if vertical asymptote
+		var _startOutput = getGraphOutput(convertXToGraphX(_startX));
+		var _endOutput = getGraphOutput(convertXToGraphX(_endX));
+		if (_startOutput < -verticalAsymptoteValue && _endOutput > verticalAsymptoteValue) return false;
+		
+		// Not a vertical asymptote, collision occurred
+		return true;
+	}
+	return false;
 }
