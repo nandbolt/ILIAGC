@@ -4,6 +4,10 @@ event_inherited();
 // Sound
 collectSound = sfxPowerCollect;
 
+// Particles
+stepsBetweenPulseParticles = 60;
+pulseParticleTimer = 0;
+
 /// @func	onCollect();
 onCollect = function()
 {

@@ -1,8 +1,18 @@
-// Shiny particles
-var _x = x + random_range(-4, 4), _y = y + random_range(-4, 4);
-with (oParticles)
+// If not collected
+if (!collected)
 {
-	part_particles_create(partSystem, _x, _y, partTypeDust, 1);
+	// Pulse particles
+	if (pulseParticleTimer <= 0)
+	{
+		with (oParticles)
+		{
+			part_particles_create(lowPartSystem, other.x, other.y, partTypePulse, 1);
+		}
+	
+		// Reset timer
+		pulseParticleTimer = stepsBetweenPulseParticles;
+	}
+	else pulseParticleTimer--;
 }
 
 // Inherit the parent event

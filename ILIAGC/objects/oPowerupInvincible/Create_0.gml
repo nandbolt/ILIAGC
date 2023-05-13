@@ -1,6 +1,9 @@
 // Inherit the parent event
 event_inherited();
 
+// Particles
+particleColor = c_fuchsia;
+
 /// @func	onCollect();
 onCollect = function()
 {
