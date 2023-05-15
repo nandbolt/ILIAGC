@@ -8,7 +8,6 @@ price = 0;
 /// @func	onCollect();
 onCollect = function()
 {
-	oWorld.currentShader = shdrContrast;
-	window_set_color(c_black);
+	setTheme(Theme.BASIC);
 	oGame.myTheme[Theme.BASIC][1]++;
 }

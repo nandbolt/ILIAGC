@@ -149,6 +149,7 @@
     {"id":{"name":"sPowerupInvincible","path":"sprites/sPowerupInvincible/sPowerupInvincible.yy",},"order":2,},
     {"id":{"name":"rMain","path":"rooms/rMain/rMain.yy",},"order":1,},
     {"id":{"name":"shdrGreen","path":"shaders/shdrGreen/shdrGreen.yy",},"order":7,},
+    {"id":{"name":"scrThemeFunctions","path":"scripts/scrThemeFunctions/scrThemeFunctions.yy",},"order":8,},
     {"id":{"name":"shdrAltDefault","path":"shaders/shdrAltDefault/shdrAltDefault.yy",},"order":9,},
     {"id":{"name":"sSlimeJumpCenter","path":"sprites/sSlimeJumpCenter/sSlimeJumpCenter.yy",},"order":4,},
     {"id":{"name":"sBubbleGum","path":"sprites/sBubbleGum/sBubbleGum.yy",},"order":4,},

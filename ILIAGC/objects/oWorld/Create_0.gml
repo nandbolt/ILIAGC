@@ -1,6 +1,9 @@
 // States
 gameStarted = false;
 
+// Theme
+currentTheme = Theme.DEFAULT;
+
 // Shader
 currentShader = shdrPass;
 
