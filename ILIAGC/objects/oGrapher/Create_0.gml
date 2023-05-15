@@ -293,10 +293,6 @@ oskeyboardCheckUp = function()
 /// @func	graphEquation();
 graphEquation = function()
 {
-	// Set graph equation
-	graphs[graphIdx][0] = [];
-	array_copy(graphs[graphIdx][0], 0, equationTokens, 0, array_length(equationTokens));
-	
 	// Exit function if graph on cooldown
 	if (graphs[graphIdx][2] > 0)
 	{
@@ -305,9 +301,13 @@ graphEquation = function()
 	}
 	
 	// Check expression validity
-	var _expression = simplifyExpression(graphs[graphIdx][0]);
+	var _expression = simplifyExpression(equationTokens);
 	if (validExpression(_expression))
 	{
+		// Set graph equation
+		graphs[graphIdx][0] = [];
+		array_copy(graphs[graphIdx][0], 0, equationTokens, 0, array_length(equationTokens));
+		
 		// Get postfix expression
 		var _postfixExpression = convertInfixToPostfix(_expression);
 		previousPostfixEquation = "";

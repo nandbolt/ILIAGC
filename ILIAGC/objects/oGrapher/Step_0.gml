@@ -147,6 +147,7 @@ if (editingEquation)
 // If want to edit equation
 if (getToggleEquationEditorInput()) 
 {
+	// Toggle editing equation
 	editingEquation = !editingEquation;
 	
 	// Update equation tokens
