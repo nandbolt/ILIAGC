@@ -2,7 +2,10 @@
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
   "name": "oPlayerSlime",
-  "spriteId": null,
+  "spriteId": {
+    "name": "sSlimeIdle",
+    "path": "sprites/sSlimeIdle/sSlimeIdle.yy",
+  },
   "solid": false,
   "visible": true,
   "managed": true,
@@ -24,11 +27,13 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [],
+  "eventList": [
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,},
+  ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Player",
-    "path": "folders/Objects/Actors/Player.yy",
+    "name": "Players",
+    "path": "folders/Objects/Actors/Players.yy",
   },
 }
