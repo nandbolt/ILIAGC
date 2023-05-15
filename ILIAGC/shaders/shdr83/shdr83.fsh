@@ -7,7 +7,7 @@ varying vec4 v_vColour;
 void main()
 {
 	// Gray
-    vec4 texColor = texture2D(gm_BaseTexture, v_vTexcoord);
+    vec4 texColor = v_vColour * texture2D(gm_BaseTexture, v_vTexcoord);
     float gray = dot(texColor.rgb, vec3(0.299, 0.587, 0.114));
 	
 	// Invert gray
