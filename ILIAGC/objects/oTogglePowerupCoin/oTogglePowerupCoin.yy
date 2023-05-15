@@ -1,10 +1,10 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "oShopItemShield",
+  "name": "oTogglePowerupCoin",
   "spriteId": {
-    "name": "sPowerupShield",
-    "path": "sprites/sPowerupShield/sPowerupShield.yy",
+    "name": "sCoinOutline",
+    "path": "sprites/sCoinOutline/sCoinOutline.yy",
   },
   "solid": false,
   "visible": true,
@@ -12,8 +12,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "oShopItemCoin",
-    "path": "objects/oShopItemCoin/oShopItemCoin.yy",
+    "name": "oToggleCoin",
+    "path": "objects/oToggleCoin/oToggleCoin.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -33,7 +33,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Powerups",
-    "path": "folders/Objects/Collectable/Collectables/LogicCoins/ShopItems/Powerups.yy",
+    "name": "StorageCoins",
+    "path": "folders/Objects/Collectable/Collectables/LogicCoins/StorageCoins.yy",
   },
 }

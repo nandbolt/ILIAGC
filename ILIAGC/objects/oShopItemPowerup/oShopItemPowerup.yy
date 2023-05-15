@@ -1,10 +1,10 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "oShopItemBlock",
+  "name": "oShopItemPowerup",
   "spriteId": {
-    "name": "sPowerupBlock",
-    "path": "sprites/sPowerupBlock/sPowerupBlock.yy",
+    "name": "sCoinOutline",
+    "path": "sprites/sCoinOutline/sCoinOutline.yy",
   },
   "solid": false,
   "visible": true,
@@ -33,7 +33,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Powerups",
-    "path": "folders/Objects/Collectable/Collectables/LogicCoins/ShopItems/Powerups.yy",
+    "name": "ShopItems",
+    "path": "folders/Objects/Collectable/Collectables/LogicCoins/ShopItems.yy",
   },
 }

@@ -4,8 +4,11 @@ if (active)
 	// Make player bouncy
 	with (other)
 	{
-		collisionType = Collision.BOUNCE;
-		bubbleGumTimer = 600;
+		if (!invincible)
+		{
+			collisionType = Collision.BOUNCE;
+			bubbleGumTimer = 600;
+		}
 	}
 
 	// Destroy self

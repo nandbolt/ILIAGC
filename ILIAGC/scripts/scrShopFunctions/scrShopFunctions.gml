@@ -1,31 +1,16 @@
 /// @func	shopSpawnItemPowerup({int} idx, {real} x, {real} y, {int} level);
 function shopSpawnItemPowerup(_idx, _x, _y, _level)
 {
-	var _shopItem = noone;
-	switch (_idx)
+	var _shopItem = instance_create_layer(_x, _y, "Instances", oShopItemPowerup);
+	with (_shopItem)
 	{
-		case Powerup.SHIELD:
-			_shopItem = oShopItemShield;
-			break;
-		case Powerup.AIR_JUMP:
-			_shopItem = oShopItemAirJump;
-			break;
-		case Powerup.INVINCIBLE:
-			_shopItem = oShopItemInvincible;
-			break;
-		case Powerup.BALL:
-			_shopItem = oShopItemBall;
-			break;
-		case Powerup.IRON_GRAPH:
-			_shopItem = oShopItemIronGraph;
-			break;
-		case Powerup.BLOCK:
-			_shopItem = oShopItemBlock;
-			break;
-		default:
-			_shopItem = oShopItemCoin;
+		// Set shop item info
+		powerup = _idx;
+		description = getPowerupName(_idx);
+		sprite_index = getPowerupSprite(_idx);
+		price = getPowerupCost(_idx);
+		level = _level;
 	}
-	instance_create_layer(_x, _y, "Instances", _shopItem);
 }
 
 /// @func	shopSpawnItemUpgrade({int} idx, {real} x, {real} y, {int} level);
