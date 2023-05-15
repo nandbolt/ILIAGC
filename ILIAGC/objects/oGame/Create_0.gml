@@ -24,6 +24,11 @@ myTheme = [
 	[Theme.ALT_DEFAULT,		0, 1],
 	[Theme.TI_83,			0, 1],
 ];
+myCharacters = [
+	[Character.HUMAN,		1, 1],
+	[Character.DOG,			0, 1],
+	[Character.SLIME,		0, 1],
+];
 
 #endregion
 

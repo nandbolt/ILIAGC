@@ -3,7 +3,7 @@ event_inherited();
 
 // Text
 description = "Equation Up";
-price = 999;
+price = 0;
 
 /// @func	onCollect();
 onCollect = function()

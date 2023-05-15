@@ -38,6 +38,12 @@ onCollect = function()
 		var _lvl = oGame.myTheme[_i][1];
 		if (_lvl == 0) array_push(_shopTheme, oGame.myTheme[_i]);
 	}
+	var _shopCharacters = [];
+	for (var _i = 0; _i < array_length(oGame.myCharacters); _i++)
+	{
+		var _lvl = oGame.myCharacters[_i][1];
+		if (_lvl == 0) array_push(_shopCharacters, oGame.myCharacters[_i]);
+	}
 	
 	// Show available shop items
 	for (var _y = 64; _y <= 128; _y += 64)
@@ -75,6 +81,14 @@ onCollect = function()
 				var _i = irandom(array_length(_shopTheme) - 1);
 				shopSpawnItemTheme(_shopTheme[_i][0], _x, _y, _shopTheme[_i][1] + 1);
 				array_delete(_shopTheme, _i, 1);
+			}
+			// Else if shop has character inventory
+			else if (array_length(_shopCharacters) > 0)
+			{
+				// Spawn random shop item and remove from backstock
+				var _i = irandom(array_length(_shopCharacters) - 1);
+				shopSpawnItemCharacter(_shopCharacters[_i][0], _x, _y, _shopCharacters[_i][1] + 1);
+				array_delete(_shopCharacters, _i, 1);
 			}
 		}
 	}

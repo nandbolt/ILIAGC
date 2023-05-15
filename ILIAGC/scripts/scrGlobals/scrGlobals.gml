@@ -91,4 +91,11 @@ enum Theme
 	TI_83,
 }
 
+enum Character
+{
+	HUMAN,
+	DOG,
+	SLIME,
+}
+
 #endregion
