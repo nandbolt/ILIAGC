@@ -156,6 +156,13 @@ if (getToggleEquationEditorInput())
 	// Reset variables
 	if (editingEquation)
 	{
+		// Pause game
+		with (oGame)
+		{
+			pauseGame();
+		}
+		
+		// Set type cursor
 		cursor = false;
 		blinkTimer = 0;
 		
@@ -165,122 +172,11 @@ if (getToggleEquationEditorInput())
 		// Show cooldown if applicable
 		if (graphs[graphIdx][2] > 0) previousPostfixEquation = "Cooldown ends in " + string(graphs[graphIdx][2] / 60) + " seconds";
 		else if (string_length(previousPostfixEquation) > 0 && string_char_at(previousPostfixEquation, 0) == "C") previousPostfixEquation = "None";
-		
-		// Pause player/timer
-		if (oPlayer.shield > 0)
-		{
-			playerShieldSpriteInstance = instance_create_layer(oPlayer.x, oPlayer.y, "Instances", oSprite);
-			with (playerShieldSpriteInstance)
-			{
-				sprite_index = sShield;
-				image_angle = oPlayer.image_angle;
-			}
-		}
-		playerSpriteInstance = instance_create_layer(oPlayer.x,oPlayer.y,"Instances",oSprite);
-		with (playerSpriteInstance)
-		{
-			// Setup player sprite placeholder
-			sprite_index = oPlayer.sprite_index;
-			image_index = oPlayer.image_index;
-			image_xscale = oPlayer.image_xscale;
-			image_blend = oPlayer.image_blend;
-			image_angle = oPlayer.image_angle;
-		}
-		instance_deactivate_object(oPlayer);
-		oWorld.gameTimerPaused = true;
-		
-		// Acid rain
-		if (instance_exists(oAcidRain))
-		{
-			// Go through each acid rain and make a sprite instance for them, then deactivate them all
-			with (oAcidRain)
-			{
-				var _spriteInstance = instance_create_layer(x, y, "BackgroundInstances", oSprite);
-				with (_spriteInstance)
-				{
-					sprite_index = other.sprite_index;
-					image_alpha = other.image_alpha;
-				}
-				array_push(other.acidRainSpriteInstances, _spriteInstance);
-			}
-			instance_deactivate_object(oAcidRain);
-		}
-		
-		// Ball
-		if (instance_exists(oBall))
-		{
-			with (oBall)
-			{
-				var _spriteInstance = instance_create_layer(x, y - 6, "BackgroundInstances", oSprite);
-				with (_spriteInstance)
-				{
-					// Setup player sprite placeholder
-					sprite_index = sBall;
-					image_angle = other.imageAngle;
-				}
-				array_push(other.ballSpriteInstances, _spriteInstance);
-			}
-			instance_deactivate_object(oBall);
-		}
-		
-		// Bubble gum
-		if (instance_exists(oBubbleGum))
-		{
-			with (oBubbleGum)
-			{
-				var _spriteInstance = instance_create_layer(x, y, "BackgroundInstances", oSprite);
-				with (_spriteInstance)
-				{
-					sprite_index = other.sprite_index;
-					image_alpha = other.image_alpha;
-				}
-				array_push(other.bubbleGumSpriteInstances, _spriteInstance);
-			}
-			instance_deactivate_object(oBubbleGum);
-		}
 	}
 	else
 	{
+		// Set cursor
 		cursor = true;
-		
-		// Reactivate player/timer
-		if (playerSpriteInstance != noone) instance_destroy(playerSpriteInstance);
-		if (playerShieldSpriteInstance != noone) instance_destroy(playerShieldSpriteInstance);
-		instance_activate_object(oPlayer);
-		
-		// Acid rain
-		if (array_length(acidRainSpriteInstances) > 0)
-		{
-			// Go through each acid rain and destroy the sprite instance, then reactivate them all
-			while (array_length(acidRainSpriteInstances) > 0)
-			{
-				instance_destroy(array_pop(acidRainSpriteInstances));
-			}
-			instance_activate_object(oAcidRain);
-		}
-		oWorld.gameTimerPaused = false;
-		
-		// Ball
-		if (array_length(ballSpriteInstances) > 0)
-		{
-			// Go through each acid rain and destroy the sprite instance, then reactivate them all
-			while (array_length(ballSpriteInstances) > 0)
-			{
-				instance_destroy(array_pop(ballSpriteInstances));
-			}
-			instance_activate_object(oBall);
-		}
-		
-		// Bubble gum
-		if (array_length(bubbleGumSpriteInstances) > 0)
-		{
-			// Go through each acid rain and destroy the sprite instance, then reactivate them all
-			while (array_length(bubbleGumSpriteInstances) > 0)
-			{
-				instance_destroy(array_pop(bubbleGumSpriteInstances));
-			}
-			instance_activate_object(oBubbleGum);
-		}
 		
 		// Apply cooldowns
 		for (var _i = 0; _i < array_length(graphs); _i++)
@@ -291,6 +187,12 @@ if (getToggleEquationEditorInput())
 				graphs[graphIdx][2] = graphCooldown;
 				graphs[graphIdx][3] = false;
 			}
+		}
+		
+		// Resume game
+		with (oGame)
+		{
+			resumeGame();
 		}
 	}
 	

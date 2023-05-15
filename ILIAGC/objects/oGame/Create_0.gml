@@ -48,8 +48,109 @@ browserScaleCanvas = function(_baseWidth, _baseHeight, _currentWidth, _currentHe
 	surface_resize(application_surface, min(window_get_width(), _baseWidth), min(window_get_height(), _baseHeight));
 }
 
-/// @func	getQuitInput();
-getQuitInput = function()
+/// @func	pauseGame();
+pauseGame = function()
 {
-	return keyboard_check_pressed(vk_escape) || gamepad_button_check_pressed(0,gp_select);
+	// Pause game timer
+	oWorld.gameTimerPaused = true;
+	
+	// Init sprite
+	var _spriteInstance = noone;
+	
+	#region Player
+	
+	with (oPlayer)
+	{
+		if (shield > 0)
+		{
+			_spriteInstance = instance_create_layer(x, y, "Instances", oPauseSprite);
+			with (_spriteInstance)
+			{
+				sprite_index = sShield;
+				image_angle = other.image_angle;
+			}
+		}
+		_spriteInstance = instance_create_layer(x,y,"Instances",oPauseSprite);
+		with (_spriteInstance)
+		{
+			// Setup player sprite placeholder
+			sprite_index = other.sprite_index;
+			image_index = other.image_index;
+			image_xscale = other.image_xscale;
+			image_blend = other.image_blend;
+			image_angle = other.image_angle;
+		}
+	}
+	instance_deactivate_object(oPlayer);
+	
+	#endregion
+	
+	#region Acid Rain
+	
+	if (instance_exists(oAcidRain))
+	{
+		// Go through each acid rain and make a sprite instance for them, then deactivate them all
+		with (oAcidRain)
+		{
+			var _spriteInstance = instance_create_layer(x, y, "BackgroundInstances", oPauseSprite);
+			with (_spriteInstance)
+			{
+				sprite_index = other.sprite_index;
+				image_alpha = other.image_alpha;
+			}
+		}
+		instance_deactivate_object(oAcidRain);
+	}
+	
+	#endregion
+		
+	#region Ball
+	
+	if (instance_exists(oBall))
+	{
+		with (oBall)
+		{
+			var _spriteInstance = instance_create_layer(x, y - 6, "BackgroundInstances", oPauseSprite);
+			with (_spriteInstance)
+			{
+				// Setup player sprite placeholder
+				sprite_index = sBall;
+				image_angle = other.imageAngle;
+			}
+		}
+		instance_deactivate_object(oBall);
+	}
+	
+	#endregion
+		
+	#region Bubble Gum
+	
+	if (instance_exists(oBubbleGum))
+	{
+		with (oBubbleGum)
+		{
+			var _spriteInstance = instance_create_layer(x, y, "BackgroundInstances", oPauseSprite);
+			with (_spriteInstance)
+			{
+				sprite_index = other.sprite_index;
+				image_alpha = other.image_alpha;
+			}
+		}
+		instance_deactivate_object(oBubbleGum);
+	}
+	
+	#endregion
+}
+
+/// @func	resumeGame();
+resumeGame = function()
+{
+	// Destroy all pause sprites
+	instance_destroy(oPauseSprite);
+	
+	// Activate all objects
+	instance_activate_all();
+	
+	// Resume game timer
+	oWorld.gameTimerPaused = false;
 }

@@ -29,13 +29,6 @@ previousPostfixEquation = "None";
 graphCooldown = 300;
 graphSegment = sGraphSegment;
 
-// Sprites
-playerSpriteInstance = noone;
-playerShieldSpriteInstance = noone;
-acidRainSpriteInstances = [];
-ballSpriteInstances = [];
-bubbleGumSpriteInstances = [];
-
 // Other
 showInfo = true;
 menuIdx = 0;
