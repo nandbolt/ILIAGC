@@ -1,10 +1,10 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "oShopItemSlime",
+  "name": "oShopItemCharacter",
   "spriteId": {
-    "name": "sShopItemEquationUp",
-    "path": "sprites/sShopItemEquationUp/sShopItemEquationUp.yy",
+    "name": "sCoinOutline",
+    "path": "sprites/sCoinOutline/sCoinOutline.yy",
   },
   "solid": false,
   "visible": true,
@@ -33,7 +33,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Characters",
-    "path": "folders/Objects/Collectable/Collectables/LogicCoins/ShopItems/Characters.yy",
+    "name": "ShopItems",
+    "path": "folders/Objects/Collectable/Collectables/LogicCoins/ShopItems.yy",
   },
 }

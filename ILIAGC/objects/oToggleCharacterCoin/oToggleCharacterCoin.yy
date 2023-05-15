@@ -1,10 +1,10 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "oShopItemDog",
+  "name": "oToggleCharacterCoin",
   "spriteId": {
-    "name": "sShopItemEquationUp",
-    "path": "sprites/sShopItemEquationUp/sShopItemEquationUp.yy",
+    "name": "sCoinOutline",
+    "path": "sprites/sCoinOutline/sCoinOutline.yy",
   },
   "solid": false,
   "visible": true,
@@ -12,8 +12,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "oShopItemCoin",
-    "path": "objects/oShopItemCoin/oShopItemCoin.yy",
+    "name": "oToggleCoin",
+    "path": "objects/oToggleCoin/oToggleCoin.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -33,7 +33,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Characters",
-    "path": "folders/Objects/Collectable/Collectables/LogicCoins/ShopItems/Characters.yy",
+    "name": "StorageCoins",
+    "path": "folders/Objects/Collectable/Collectables/LogicCoins/StorageCoins.yy",
   },
 }

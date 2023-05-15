@@ -73,20 +73,16 @@ function shopSpawnItemTheme(_idx, _x, _y, _level)
 	instance_create_layer(_x, _y, "Instances", _shopItem);
 }
 
-/// @func	shopSpawnItemCharacter({int} idx, {real} x, {real} y, {int} level);
-function shopSpawnItemCharacter(_idx, _x, _y, _level)
+/// @func	shopSpawnItemCharacter({int} idx, {real} x, {real} y);
+function shopSpawnItemCharacter(_idx, _x, _y)
 {
-	var _shopItem = noone;
-	switch (_idx)
+	var _shopItem = instance_create_layer(_x, _y, "Instances", oShopItemCharacter);
+	with (_shopItem)
 	{
-		case Character.DOG:
-			_shopItem = oShopItemDog;
-			break;
-		case Character.SLIME:
-			_shopItem = oShopItemSlime;
-			break;
-		default:
-			_shopItem = oShopItemCoin;
+		// Set shop item info
+		character = _idx;
+		description = getCharacterName(_idx);
+		sprite_index = getCharacterSprite(_idx);
+		price = getCharacterCost(_idx);
 	}
-	instance_create_layer(_x, _y, "Instances", _shopItem);
 }

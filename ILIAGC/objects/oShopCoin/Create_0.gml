@@ -87,7 +87,7 @@ onCollect = function()
 			{
 				// Spawn random shop item and remove from backstock
 				var _i = irandom(array_length(_shopCharacters) - 1);
-				shopSpawnItemCharacter(_shopCharacters[_i][0], _x, _y, _shopCharacters[_i][1] + 1);
+				shopSpawnItemCharacter(_shopCharacters[_i][0], _x, _y);
 				array_delete(_shopCharacters, _i, 1);
 			}
 		}
