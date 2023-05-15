@@ -125,14 +125,19 @@ if (!grounded)
 	if (velocity.y < 0)
 	{
 		// Center jump
-		if (abs(velocity.x) < 0.5) sprite_index = sPlayerJumpCenter;
+		if (abs(velocity.x) < 0.5) sprite_index = spriteJumpCenter;
 		// Jump
-		else sprite_index = sPlayerJump;
+		else
+		{
+			sprite_index = spriteJump;
+			if (velocity.x > 0) image_xscale = 1;
+			else image_xscale = -1;
+		}
 	}
 	// Cannonball (go through graphs)
-	else if (crouchInputted) sprite_index = sPlayerCrouch;
+	else if (crouchInputted) sprite_index = spriteCrouch;
 	// Fall
-	else sprite_index = sPlayerFall;
+	else sprite_index = spriteFall;
 	
 	// Set angle
 	image_angle = lerp(image_angle, 0, spriteRotationSpeed);
@@ -143,11 +148,11 @@ else
 	if (crouchInputted)
 	{
 		// Crouch
-		if (abs(velocity.x) < 0.05) sprite_index = sPlayerCrouch;
+		if (abs(velocity.x) < 0.05) sprite_index = spriteCrouch;
 		else
 		{
 			// Slide
-			sprite_index = sPlayerSlide;
+			sprite_index = spriteSlide;
 			if (velocity.x > 0) image_xscale = 1;
 			else image_xscale = -1;
 			
@@ -159,12 +164,12 @@ else
 	else if (xInput != 0)
 	{
 		// Run
-		sprite_index = sPlayerRun;
+		sprite_index = spriteRun;
 		if (xInput > 0) image_xscale = 1;
 		else image_xscale = -1;
 	}
 	// Idle
-	else sprite_index = sPlayerIdle;
+	else sprite_index = spriteIdle;
 	
 	// Set angle
 	image_angle = lerp(image_angle, normal.getAngleDegrees() - 90, spriteRotationSpeed);

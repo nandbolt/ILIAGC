@@ -30,6 +30,13 @@ damageInvincibilityTime = 60;
 invincibleTimer = 0;
 
 // Sprites
+spriteIdle = sPlayerIdle;
+spriteRun = sPlayerRun;
+spriteJump = sPlayerJump;
+spriteFall = sPlayerFall;
+spriteJumpCenter = sPlayerJumpCenter;
+spriteSlide = sPlayerSlide;
+spriteCrouch = sPlayerCrouch;
 spriteRotationSpeed = 0.1;
 
 // Mouse

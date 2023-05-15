@@ -136,6 +136,7 @@ endGameCoinRush = function()
 		// Iron graphs
 		ironGraphTimer = 0;
 	}
+	if (instance_exists(oBlock)) instance_destroy(oBlock);
 	
 	// Destroy all graphs
 	instance_destroy(oGraph);
