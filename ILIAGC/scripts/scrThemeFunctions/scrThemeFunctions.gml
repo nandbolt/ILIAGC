@@ -47,3 +47,47 @@ function unsetTheme(_idx)
 			break;
 	}
 }
+
+/// @func	getThemeName({int} idx);
+function getThemeName(_idx)
+{
+	switch (_idx)
+	{
+		case Theme.DAY:
+			return "Day";
+		case Theme.BASIC:
+			return "Basic";
+		case Theme.AQUA:
+			return "Aqua";
+		case Theme.GREEN:
+			return "Green";
+		case Theme.ALT_DEFAULT:
+			return "Alt Default";
+		case Theme.TI_83:
+			return "83";
+		default:
+			return "Default";
+	}
+}
+
+/// @func	getThemeSprite({int} idx);
+function getThemeSprite(_idx)
+{
+	switch (_idx)
+	{
+		case Theme.DAY:
+			return sThemeDay;
+		case Theme.BASIC:
+			return sThemeBasic;
+		case Theme.AQUA:
+			return sThemeAqua;
+		case Theme.GREEN:
+			return sThemeGreen;
+		case Theme.ALT_DEFAULT:
+			return sThemeAltDefault;
+		case Theme.TI_83:
+			return sTheme83;
+		default:
+			return sThemeDefault;
+	}
+}
