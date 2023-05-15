@@ -27,6 +27,14 @@ if (instance_exists(oPlayer))
 			_x = 22;
 			_y = 31;
 			draw_set_color(c_gray);
+			draw_text_transformed(_x, _y, "Game", _s, _s, 0);
+			_y += _yoff;
+			draw_text_transformed(_x, _y, "FPS Real: "+string(fps_real), _s, _s, 0);
+			_y += _yoff;
+			draw_text_transformed(_x, _y, "FPS: "+string(fps), _s, _s, 0);
+			_y += _yoff;
+			draw_text_transformed(_x, _y, "Instances: "+string(instance_count), _s, _s, 0);
+			_y += _yoff * 2;
 			draw_text_transformed(_x, _y, "Player", _s, _s, 0);
 			_y += _yoff;
 			draw_text_transformed(_x, _y, "Grounded: " + string(grounded), _s, _s, 0);

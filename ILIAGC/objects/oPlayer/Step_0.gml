@@ -54,7 +54,6 @@ if (!grounded) coyoteBufferCounter = clamp(coyoteBufferCounter-1,0,coyoteBuffer)
 else coyoteBufferCounter = coyoteBuffer;
 
 // Resistances
-var _normalAngle = normal.getAngleDegrees();
 if (crouchInputted) groundConstant = slideGroundConstant;
 else if (xInput != 0) groundConstant = runGroundConstant;
 else if (!jumpPressed && jumpInputted) groundConstant = holdGroundConstant;

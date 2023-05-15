@@ -287,9 +287,6 @@ function rbLand()
 	// Set ground state
 	grounded = true;
 	
-	// Get normal angle
-	var _normalAngle = normal.getAngleDegrees();
-	
 	// Land sound
 	audio_play_sound(landSound, 1, false);
 }
