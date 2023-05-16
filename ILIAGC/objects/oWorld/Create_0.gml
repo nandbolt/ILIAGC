@@ -168,3 +168,11 @@ with (_mostCoinsSpriteInstance)
 ini_open("save.ini");
 mostCoins = ini_read_real("high_scores","most_coins",0);
 ini_close();
+
+// Spawn player
+instance_create_layer(96, 144, "Instances", oPlayerHuman);
+
+// Spawn coins
+instance_create_layer(96, 96, "Instances", oModeCoin);
+instance_create_layer(160, 160, "Instances", oShopCoin);
+instance_create_layer(32, 160, "Instances", oStorageCoin);
