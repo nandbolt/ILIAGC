@@ -170,7 +170,7 @@ function rbHandleXTileCollisions()
 	}
 	
 	// Update x
-	x += velocity.x;
+	x = clamp(x + velocity.x, 16, 176);
 	
 	// Set velocity to bounce if applicable
 	if (collisionType == Collision.BOUNCE && collisionVelocity.x != 0) velocity.x = collisionVelocity.x;
@@ -211,7 +211,7 @@ function rbHandleYTileCollisions()
 	}
 	
 	// Update y
-	y += velocity.y;
+	y = clamp(y + velocity.y, 16, 176);
 	
 	// Set velocity to bounce if applicable
 	if (collisionType == Collision.BOUNCE && collisionVelocity.y != 0) velocity.y = collisionVelocity.y;

@@ -31,7 +31,7 @@ myCharacters = [
 ];
 myModes = [
 	[Mode.COIN_RUSH,		1, 1],
-	[Mode.SOCCER,			1, 1],
+	[Mode.SOCCER,			0, 1],
 ];
 
 #endregion

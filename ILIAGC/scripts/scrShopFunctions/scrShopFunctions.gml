@@ -68,3 +68,17 @@ function shopSpawnItemCharacter(_idx, _x, _y)
 		price = getCharacterCost(_idx);
 	}
 }
+
+/// @func	shopSpawnItemMode({int} idx, {real} x, {real} y);
+function shopSpawnItemMode(_idx, _x, _y)
+{
+	var _shopItem = instance_create_layer(_x, _y, "Instances", oShopItemMode);
+	with (_shopItem)
+	{
+		// Set shop item info
+		mode = _idx;
+		description = getModeName(_idx);
+		sprite_index = getModeSprite(_idx);
+		price = getModeCost(_idx);
+	}
+}
