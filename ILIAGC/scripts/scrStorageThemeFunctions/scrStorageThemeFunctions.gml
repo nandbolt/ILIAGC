@@ -40,6 +40,20 @@ function setTheme(_idx)
 			layer_background_vtiled(_background, false);
 			layer_y(layer_get_id("Background"), 104);
 			layer_set_visible("NeokyoCity", true);
+			layer_set_visible("GridAxis", false);
+			break;
+		case Theme.NNE:
+			// Player
+			with (oPlayer)
+			{
+				updateTheme(Theme.NNE);
+			}
+			
+			// Background
+			var _background = layer_background_get_id("Background");
+			layer_background_sprite(_background, sNNESpace);
+			layer_set_visible("NNE", true);
+			layer_set_visible("GridAxis", false);
 			break;
 	}
 	oWorld.currentTheme = _idx;
@@ -72,6 +86,20 @@ function unsetTheme(_idx)
 			layer_background_vtiled(_background, true);
 			layer_y(layer_get_id("Background"), 0);
 			layer_set_visible("NeokyoCity", false);
+			layer_set_visible("GridAxis", true);
+			break;
+		case Theme.NNE:
+			// Player
+			with (oPlayer)
+			{
+				updateTheme(Theme.DEFAULT);
+			}
+			
+			// Background
+			var _background = layer_background_get_id("Background");
+			layer_background_sprite(_background, sGrid);
+			layer_set_visible("NNE", false);
+			layer_set_visible("GridAxis", true);
 			break;
 	}
 }
@@ -95,6 +123,8 @@ function getThemeName(_idx)
 			return "83";
 		case Theme.NEOKYO_CITY:
 			return "Neokyo City";
+		case Theme.NNE:
+			return "Nowhere Near Earth";
 		default:
 			return "Default";
 	}
@@ -119,6 +149,8 @@ function getThemeSprite(_idx)
 			return sTheme83;
 		case Theme.NEOKYO_CITY:
 			return sThemeNeokyoCity;
+		case Theme.NNE:
+			return sThemeNNE;
 		default:
 			return sThemeDefault;
 	}
@@ -142,6 +174,8 @@ function getThemeCost(_idx)
 		case Theme.TI_83:
 			return 0;
 		case Theme.NEOKYO_CITY:
+			return 0;
+		case Theme.NNE:
 			return 0;
 		default:
 			return 0;

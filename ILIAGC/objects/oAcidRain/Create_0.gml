@@ -24,10 +24,8 @@ fadeTime = 20;
 landSound = sfxRainLand;
 
 // Theme
-if (oWorld.currentTheme == Theme.NEOKYO_CITY)
-{
-	sprite_index = sNeokyoCityLaser;
-}
+if (oWorld.currentTheme == Theme.NEOKYO_CITY) sprite_index = sNeokyoCityLaser;
+else if (oWorld.currentTheme == Theme.NNE) sprite_index = sNNEBubble;
 
 // Rain spawn sound
 audio_play_sound(sfxRainSpawn, 1, false);

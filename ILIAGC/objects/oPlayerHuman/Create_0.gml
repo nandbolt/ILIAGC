@@ -16,6 +16,16 @@ updateTheme = function(_theme)
 			spriteSlide = sDenizenSlide;
 			spriteCrouch = sDenizenCrouch;
 			break;
+		case Theme.NNE:
+			// Sprites
+			spriteIdle = sScientistIdle;
+			spriteRun = sScientistRun;
+			spriteJump = sScientistJump;
+			spriteFall = sScientistFall;
+			spriteJumpCenter = sScientistJumpCenter;
+			spriteSlide = sScientistSlide;
+			spriteCrouch = sScientistCrouch;
+			break;
 		default:
 			// Sprites
 			spriteIdle = sPlayerIdle;

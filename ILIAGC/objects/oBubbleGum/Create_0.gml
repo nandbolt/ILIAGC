@@ -26,6 +26,9 @@ maxBobSpeed = 0.5;
 bobTimer = 0;
 bobTimerSpeed = 0.05;
 
+// Theme
+if (oWorld.currentTheme == Theme.NNE) sprite_index = sNNEBigBubble;
+
 // Bubble spawn sound
 audio_play_sound(sfxRainSpawn, 1, false);
 
