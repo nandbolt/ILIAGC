@@ -27,6 +27,20 @@ function setTheme(_idx)
 			oWorld.currentShader = shdr83;
 			window_set_color(make_color_rgb(144,155,99));
 			break;
+		case Theme.NEOKYO_CITY:
+			// Player
+			with (oPlayer)
+			{
+				updateTheme(Theme.NEOKYO_CITY);
+			}
+			
+			// Background
+			var _background = layer_background_get_id("Background");
+			layer_background_sprite(_background, sNeokyoCityMountains);
+			layer_background_vtiled(_background, false);
+			layer_y(layer_get_id("Background"), 104);
+			layer_set_visible("NeokyoCity", true);
+			break;
 	}
 	oWorld.currentTheme = _idx;
 }
@@ -44,6 +58,20 @@ function unsetTheme(_idx)
 		case Theme.GREEN:
 		case Theme.ALT_DEFAULT:
 			oWorld.currentShader = shdrPass;
+			break;
+		case Theme.NEOKYO_CITY:
+			// Player
+			with (oPlayer)
+			{
+				updateTheme(Theme.DEFAULT);
+			}
+			
+			// Background
+			var _background = layer_background_get_id("Background");
+			layer_background_sprite(_background, sGrid);
+			layer_background_vtiled(_background, true);
+			layer_y(layer_get_id("Background"), 0);
+			layer_set_visible("NeokyoCity", false);
 			break;
 	}
 }
@@ -65,6 +93,8 @@ function getThemeName(_idx)
 			return "Alt Default";
 		case Theme.TI_83:
 			return "83";
+		case Theme.NEOKYO_CITY:
+			return "Neokyo City";
 		default:
 			return "Default";
 	}
@@ -87,6 +117,8 @@ function getThemeSprite(_idx)
 			return sThemeAltDefault;
 		case Theme.TI_83:
 			return sTheme83;
+		case Theme.NEOKYO_CITY:
+			return sThemeNeokyoCity;
 		default:
 			return sThemeDefault;
 	}
@@ -108,6 +140,8 @@ function getThemeCost(_idx)
 		case Theme.ALT_DEFAULT:
 			return 0;
 		case Theme.TI_83:
+			return 0;
+		case Theme.NEOKYO_CITY:
 			return 0;
 		default:
 			return 0;

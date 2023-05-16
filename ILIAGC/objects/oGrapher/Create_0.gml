@@ -27,7 +27,6 @@ ds_map_add(precedenceMap, "l", 5);
 ds_map_add(precedenceMap, "r", 5);
 previousPostfixEquation = "None";
 graphCooldown = 300;
-graphSegment = sGraphSegment;
 
 // Other
 showInfo = true;
@@ -328,7 +327,6 @@ graphEquation = function()
 			
 			// Set info
 			graphIdx = other.graphIdx;
-			graphSegment = other.graphSegment;
 			
 			// If iron graph
 			if (other.ironGraphTimer > 0) ironGraph = true;

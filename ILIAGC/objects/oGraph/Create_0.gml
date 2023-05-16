@@ -1,8 +1,42 @@
+// Color
+normalGraphColor = c_white;
+
 // Graph
 graphOrigin = new Vector2(convertXToGraphX(x),convertYToGraphY(y));
 graphPath = path_add();
 graphIdx = 0;
-graphSegment = sGraphSegment;
+if (oWorld.currentTheme == Theme.NEOKYO_CITY)
+{
+	graphSegment = sNeonGraphSegment;
+	var _num = irandom(5);
+	switch (_num)
+	{
+		// Argon
+		case 0:
+			normalGraphColor = c_fuchsia;
+			break;
+		// Helium
+		case 1:
+			normalGraphColor = make_color_rgb(255, 83, 73);
+			break;
+		// Krypton
+		case 2:
+			normalGraphColor = make_color_rgb(137, 207, 240);
+			break;
+		// Radon
+		case 3:
+			normalGraphColor = make_color_rgb(255, 165, 0);
+			break;
+		// Xenon
+		case 4:
+			normalGraphColor = make_color_rgb(92, 43, 226);
+			break;
+		// Neon
+		default:
+			normalGraphColor = c_red;
+	}
+}
+else graphSegment = sGraphSegment;
 
 // Equation
 expressionTree = new Tree();

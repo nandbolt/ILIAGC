@@ -179,3 +179,6 @@ onLand = function()
 	// Reset air jumps
 	if (canAirJump) airJumps = 1;
 }
+
+/// @func	updateTheme({int} theme);
+updateTheme = function(_theme){}

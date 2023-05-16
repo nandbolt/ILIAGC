@@ -95,6 +95,7 @@ enum Theme
 	GREEN,
 	ALT_DEFAULT,
 	TI_83,
+	NEOKYO_CITY,
 }
 
 enum Character

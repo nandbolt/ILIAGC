@@ -23,6 +23,7 @@ myTheme = [
 	[Theme.GREEN,			0, 1],
 	[Theme.ALT_DEFAULT,		0, 1],
 	[Theme.TI_83,			0, 1],
+	[Theme.NEOKYO_CITY,		0, 1],
 ];
 myCharacters = [
 	[Character.HUMAN,		1, 1],
