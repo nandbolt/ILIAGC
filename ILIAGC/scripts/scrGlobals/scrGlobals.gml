@@ -60,6 +60,12 @@ enum TokenIndexs
 	UP					= 36,
 }
 
+enum Mode
+{
+	COIN_RUSH,
+	SOCCER,
+}
+
 enum Powerup
 {
 	SHIELD,

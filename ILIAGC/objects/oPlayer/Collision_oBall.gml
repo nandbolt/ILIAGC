@@ -22,6 +22,9 @@ with (other)
 			part_particles_create(partSystem, other.x, other.y, partTypeDust, 2);
 		}
 		
+		// Set to ignore graphs if holding crouch
+		if (other.jumpInputted) ignoreGraphs = true;
+		
 		// Sound
 		audio_play_sound(landSound, 1, false);
 	}

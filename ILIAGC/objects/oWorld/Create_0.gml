@@ -1,5 +1,6 @@
 // States
 gameStarted = false;
+gameMode = Mode.COIN_RUSH;
 
 // Theme
 currentTheme = Theme.DEFAULT;
@@ -15,8 +16,10 @@ timeElapsed = 0;
 
 // Coins
 coins = 0;
-mostCoins = 0;
 coinsInBank = 0;
+mostCoins = 0;
+coinRushMostCoins = 0;
+soccerMostCoins = 0;
 
 // Obstacles
 obstacles = [oGraphEater, oSpikes, oCloud, oBubbleGum];
@@ -40,12 +43,15 @@ maxStepsBetweenPowerups = 3600;
 //maxStepsBetweenPowerups = 180;
 powerupTimer = irandom_range(minStepsBetweenPowerups, maxStepsBetweenPowerups);
 
-#region Coin Rush Functions
+#region Mode Functions
 
-/// @func	startGameCoinRush();
-startGameCoinRush = function()
+/// @func	startGame({int} mode);
+startGame = function(_mode)
 {
-	// Start timers
+	// Set game mode
+	gameMode = _mode;
+	
+	// Set counters
 	gameTimer = 59;
 	gameCounter = 0;
 	timeElapsed = 0;
@@ -56,53 +62,51 @@ startGameCoinRush = function()
 	// Reset coins
 	coins = 0;
 	
-	// Spawn/activate first coin
-	var _coin = instance_create_layer(random_range(24,168),random_range(24,168),"Instances",oCoin);
-	with (_coin)
-	{
-		activate();
-	}
-	
 	// Start game
 	gameStarted = true;
 	
 	// Start music
 	audio_play_sound(mChillinInACalculator, 3, true);
+	
+	// Start game mode
+	switch (gameMode)
+	{
+		case Mode.SOCCER:
+			startGameSoccer();
+			break;
+		default:
+			startGameCoinRush();
+	}
 }
 
-/// @func	endGameCoinRush();
-endGameCoinRush = function()
+/// @func	endGame();
+endGame = function()
 {
 	// Destroy all game objects
 	instance_destroy(oCollectable);
 	instance_destroy(oObstacle);
-			
+	
 	// Spawn home coins
-	instance_create_layer(96,96,"Instances",oModeCoin);
-	instance_create_layer(160,160,"Instances",oShopCoin);
-	instance_create_layer(32,160,"Instances",oStorageCoin);
-			
-	// Highscore
-	if (coins > mostCoins)
-	{
-		// Save new high score to disk
-		mostCoins = coins;
-		ini_open("save.ini");
-		ini_write_real("high_scores","most_coins",mostCoins);
-		ini_close();
-	}
+	spawnHomeCoins();
 	
 	// Game over sound
 	audio_play_sound(sfxGameOver, 2, false);
 			
-	// Zero graph cooldowns
+	// Reset equations
 	with (oGrapher)
 	{
 		for (var _i = 0; _i < array_length(graphs); _i++)
 		{
+			// Clear equation
+			graphs[_i][0] = [];
+			
+			// Clear cooldown
 			graphs[_i][2] = 0;
 		}
 	}
+	
+	// Destroy all graphs
+	instance_destroy(oGraph);
 	
 	// Reset variables
 	gameTimer = 0;
@@ -140,15 +144,107 @@ endGameCoinRush = function()
 		ironGraphTimer = 0;
 	}
 	if (instance_exists(oBlock)) instance_destroy(oBlock);
-	
-	// Destroy all graphs
-	instance_destroy(oGraph);
+	if (instance_exists(oBall)) instance_destroy(oBall);
 	
 	// Stop music
 	audio_stop_sound(mChillinInACalculator);
+	
+	switch (gameMode)
+	{
+		case Mode.SOCCER:
+			endGameSoccer()
+			break;
+		default:
+			endGameCoinRush();
+	}
+}
+
+#region Coin Rush Functions
+
+/// @func	startGameCoinRush();
+startGameCoinRush = function()
+{	
+	// Spawn/activate first coin
+	var _coin = instance_create_layer(random_range(24,168),random_range(24,168),"Instances",oCoin);
+	with (_coin)
+	{
+		activate();
+	}
+}
+
+/// @func	endGameCoinRush();
+endGameCoinRush = function()
+{	
+	// Highscore
+	if (coins > coinRushMostCoins)
+	{
+		// Save new high score to disk
+		coinRushMostCoins = coins;
+		ini_open("save.ini");
+		ini_write_real("high_scores","coin_rush",coins);
+		ini_close();
+		mostCoins = coins;
+	}
 }
 
 #endregion
+
+#region Soccer Functions
+
+/// @func	startGameSoccer();
+startGameSoccer = function()
+{
+	// Spawn/activate first coin
+	var _coin = instance_create_layer(random_range(24,168),random_range(24,168),"Instances",oCoinRed);
+	with (_coin)
+	{
+		activate();
+	}
+	
+	// Spawn soccer ball
+	instance_create_layer(96,160,"Instances",oBallSoccer);
+}
+
+/// @func	endGameSoccer();
+endGameSoccer = function()
+{
+	// Highscore
+	if (coins > soccerMostCoins)
+	{
+		// Save new high score to disk
+		soccerMostCoins = coins;
+		ini_open("save.ini");
+		ini_write_real("high_scores","soccer",coins);
+		ini_close();
+		mostCoins = coins;
+	}
+}
+
+#endregion
+
+#endregion
+
+/// @func	spawnHomeCoins();
+spawnHomeCoins = function()
+{
+	// Game modes
+	instance_create_layer(96, 96, "Instances", oModeCoin);
+	if (oGame.myModes[Mode.SOCCER][1] > 0)
+	{
+		var _mode = instance_create_layer(48, 96, "Instances", oModeCoin);
+		with (_mode)
+		{
+			description = "Soccer";
+			mode = Mode.SOCCER;
+		}
+	}
+	
+	// Shop
+	instance_create_layer(160, 160, "Instances", oShopCoin);
+	
+	// Storage
+	instance_create_layer(32, 160, "Instances", oStorageCoin);
+}
 
 // Coin Sprites (HUD)
 var _coinsSpriteInstance = instance_create_layer(8,8,"HUDInstances",oSprite);
@@ -166,13 +262,13 @@ with (_mostCoinsSpriteInstance)
 
 // Get high score from disk
 ini_open("save.ini");
-mostCoins = ini_read_real("high_scores","most_coins",0);
+coinRushMostCoins = ini_read_real("high_scores","coin_rush",0);
+soccerMostCoins = ini_read_real("high_scores","soccer",0);
 ini_close();
+mostCoins = coinRushMostCoins;
 
 // Spawn player
 instance_create_layer(96, 144, "Instances", oPlayerHuman);
 
-// Spawn coins
-instance_create_layer(96, 96, "Instances", oModeCoin);
-instance_create_layer(160, 160, "Instances", oShopCoin);
-instance_create_layer(32, 160, "Instances", oStorageCoin);
+// Spawn home coins
+spawnHomeCoins();

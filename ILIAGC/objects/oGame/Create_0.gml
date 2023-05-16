@@ -29,6 +29,10 @@ myCharacters = [
 	[Character.DOG,			0, 1],
 	[Character.SLIME,		0, 1],
 ];
+myModes = [
+	[Mode.COIN_RUSH,		1, 1],
+	[Mode.SOCCER,			1, 1],
+];
 
 #endregion
 

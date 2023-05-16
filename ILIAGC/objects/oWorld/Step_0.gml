@@ -65,6 +65,6 @@ if (gameStarted && !gameTimerPaused)
 		}
 		
 		// End game if timer reached zero
-		if (gameTimer <= 0) endGameCoinRush();
+		if (gameTimer <= 0) endGame();
 	}
 }

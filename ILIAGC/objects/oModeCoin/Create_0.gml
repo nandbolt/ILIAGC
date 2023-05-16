@@ -1,8 +1,11 @@
 // Inherit the parent event
 event_inherited();
 
-// Text
-description = "Play Coin Rush";
+// Description
+description = "Coin Rush";
+
+// Mode
+mode = Mode.COIN_RUSH;
 
 /// @func	onCollect();
 onCollect = function()
@@ -13,6 +16,6 @@ onCollect = function()
 	// Start game
 	with (oWorld)
 	{
-		startGameCoinRush();
+		startGame(other.mode);
 	}
 }

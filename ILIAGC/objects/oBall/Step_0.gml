@@ -24,7 +24,11 @@ if (!oWorld.gameTimerPaused)
 {
 	// Kick timer
 	if (kickTimer > 0) kickTimer--;
-	else rotationSpeed = lerp(rotationSpeed, 0, 0.05);
+	else
+	{
+		rotationSpeed = lerp(rotationSpeed, 0, 0.05);
+		ignoreGraphs = false;
+	}
 	
 	// Lifetimer
 	if (lifeTime <= 0) instance_destroy();

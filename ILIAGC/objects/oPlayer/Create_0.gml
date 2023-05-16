@@ -155,6 +155,7 @@ takeDamage = function(_damage)
 		// End game if timer reached zero
 		if (oWorld.gameTimer <= 0)
 		{
+			oWorld.gameTimer = 0;
 			with (oWorld)
 			{
 				endGameCoinRush();

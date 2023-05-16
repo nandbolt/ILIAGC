@@ -12,6 +12,8 @@ with (other)
 			// Else pay the price
 			else oWorld.coinsInBank -= price;
 		}
+		// Exit if coin and playing soccer
+		else if (oWorld.gameMode == Mode.SOCCER && (object_index == oCoin || object_is_ancestor(object_index, oCoin))) exit;
 		
 		// Collect
 		collect();
