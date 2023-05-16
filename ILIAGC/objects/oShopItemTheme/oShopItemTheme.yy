@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "oShopItemAltDefault",
+  "name": "oShopItemTheme",
   "spriteId": {
     "name": "sCoinOutline",
     "path": "sprites/sCoinOutline/sCoinOutline.yy",
@@ -33,7 +33,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Theme",
-    "path": "folders/Objects/Collectable/Collectables/LogicCoins/ShopItems/Theme.yy",
+    "name": "ShopItems",
+    "path": "folders/Objects/Collectable/Collectables/LogicCoins/ShopItems.yy",
   },
 }

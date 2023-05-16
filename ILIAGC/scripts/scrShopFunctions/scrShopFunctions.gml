@@ -13,64 +13,46 @@ function shopSpawnItemPowerup(_idx, _x, _y, _level)
 	}
 }
 
-/// @func	shopSpawnItemUpgrade({int} idx, {real} x, {real} y, {int} level);
-function shopSpawnItemUpgrade(_idx, _x, _y, _level)
+/// @func	shopSpawnItemUpgrade({int} idx, {real} x, {real} y);
+function shopSpawnItemUpgrade(_idx, _x, _y)
 {
-	var _shopItem = noone;
-	switch (_idx)
+	var _shopItem = instance_create_layer(_x, _y, "Instances", oShopItemUpgrade);
+	with (_shopItem)
 	{
-		case Upgrade.EQUATION_UP:
-			_shopItem = oShopItemEquationUp;
-			break;
-		default:
-			_shopItem = oShopItemCoin;
+		// Set shop item info
+		misc = _idx;
+		description = getUpgradeName(_idx);
+		sprite_index = getUpgradeSprite(_idx);
+		price = getUpgradeCost(_idx);
 	}
-	instance_create_layer(_x, _y, "Instances", _shopItem);
 }
 
-/// @func	shopSpawnItemMisc({int} idx, {real} x, {real} y, {int} level);
-function shopSpawnItemMisc(_idx, _x, _y, _level)
+/// @func	shopSpawnItemMisc({int} idx, {real} x, {real} y);
+function shopSpawnItemMisc(_idx, _x, _y)
 {
-	var _shopItem = noone;
-	switch (_idx)
+	var _shopItem = instance_create_layer(_x, _y, "Instances", oShopItemMisc);
+	with (_shopItem)
 	{
-		case Misc.DEBUG_MODE:
-			_shopItem = oShopItemDebug;
-			break;
-		default:
-			_shopItem = oShopItemCoin;
+		// Set shop item info
+		misc = _idx;
+		description = getMiscName(_idx);
+		sprite_index = getMiscSprite(_idx);
+		price = getMiscCost(_idx);
 	}
-	instance_create_layer(_x, _y, "Instances", _shopItem);
 }
 
-/// @func	shopSpawnItemTheme({int} idx, {real} x, {real} y, {int} level);
-function shopSpawnItemTheme(_idx, _x, _y, _level)
+/// @func	shopSpawnItemTheme({int} idx, {real} x, {real} y);
+function shopSpawnItemTheme(_idx, _x, _y)
 {
-	var _shopItem = noone;
-	switch (_idx)
+	var _shopItem = instance_create_layer(_x, _y, "Instances", oShopItemTheme);
+	with (_shopItem)
 	{
-		case Theme.DAY:
-			_shopItem = oShopItemDay;
-			break;
-		case Theme.BASIC:
-			_shopItem = oShopItemBasic;
-			break;
-		case Theme.AQUA:
-			_shopItem = oShopItemAqua;
-			break;
-		case Theme.GREEN:
-			_shopItem = oShopItemGreen;
-			break;
-		case Theme.ALT_DEFAULT:
-			_shopItem = oShopItemAltDefault;
-			break;
-		case Theme.TI_83:
-			_shopItem = oShopItem83;
-			break;
-		default:
-			_shopItem = oShopItemCoin;
+		// Set shop item info
+		theme = _idx;
+		description = getThemeName(_idx);
+		sprite_index = getThemeSprite(_idx);
+		price = getThemeCost(_idx);
 	}
-	instance_create_layer(_x, _y, "Instances", _shopItem);
 }
 
 /// @func	shopSpawnItemCharacter({int} idx, {real} x, {real} y);

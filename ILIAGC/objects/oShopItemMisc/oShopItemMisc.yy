@@ -1,10 +1,10 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "oShopItemEquationUp",
+  "name": "oShopItemMisc",
   "spriteId": {
-    "name": "sShopItemEquationUp",
-    "path": "sprites/sShopItemEquationUp/sShopItemEquationUp.yy",
+    "name": "sCoinOutline",
+    "path": "sprites/sCoinOutline/sCoinOutline.yy",
   },
   "solid": false,
   "visible": true,
@@ -33,7 +33,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Upgrade",
-    "path": "folders/Objects/Collectable/Collectables/LogicCoins/ShopItems/Upgrade.yy",
+    "name": "ShopItems",
+    "path": "folders/Objects/Collectable/Collectables/LogicCoins/ShopItems.yy",
   },
 }

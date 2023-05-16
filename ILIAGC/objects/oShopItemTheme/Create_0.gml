@@ -1,13 +1,12 @@
 // Inherit the parent event
 event_inherited();
 
-// Text
-description = "Aqua";
-price = 0;
+// Theme
+theme = Theme.DEFAULT;
 
 /// @func	onCollect();
 onCollect = function()
 {
-	setTheme(Theme.AQUA);
-	oGame.myTheme[Theme.AQUA][1]++;
+	setTheme(theme);
+	oGame.myTheme[theme][1]++;
 }

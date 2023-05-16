@@ -63,7 +63,7 @@ onCollect = function()
 			{
 				// Spawn random shop item and remove from backstock
 				var _i = irandom(array_length(_shopUpgrades) - 1);
-				shopSpawnItemUpgrade(_shopUpgrades[_i][0], _x, _y, _shopUpgrades[_i][1] + 1);
+				shopSpawnItemUpgrade(_shopUpgrades[_i][0], _x, _y);
 				array_delete(_shopUpgrades, _i, 1);
 			}
 			// Else if shop has misc inventory
@@ -71,7 +71,7 @@ onCollect = function()
 			{
 				// Spawn random shop item and remove from backstock
 				var _i = irandom(array_length(_shopMisc) - 1);
-				shopSpawnItemMisc(_shopMisc[_i][0], _x, _y, _shopMisc[_i][1] + 1);
+				shopSpawnItemMisc(_shopMisc[_i][0], _x, _y);
 				array_delete(_shopMisc, _i, 1);
 			}
 			// Else if shop has theme inventory
@@ -79,7 +79,7 @@ onCollect = function()
 			{
 				// Spawn random shop item and remove from backstock
 				var _i = irandom(array_length(_shopTheme) - 1);
-				shopSpawnItemTheme(_shopTheme[_i][0], _x, _y, _shopTheme[_i][1] + 1);
+				shopSpawnItemTheme(_shopTheme[_i][0], _x, _y);
 				array_delete(_shopTheme, _i, 1);
 			}
 			// Else if shop has character inventory

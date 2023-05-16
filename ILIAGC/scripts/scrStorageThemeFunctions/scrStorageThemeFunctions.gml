@@ -91,3 +91,25 @@ function getThemeSprite(_idx)
 			return sThemeDefault;
 	}
 }
+
+/// @func	getThemeCost({int} idx);
+function getThemeCost(_idx)
+{
+	switch (_idx)
+	{
+		case Theme.DAY:
+			return 0;
+		case Theme.BASIC:
+			return 0;
+		case Theme.AQUA:
+			return 0;
+		case Theme.GREEN:
+			return 0;
+		case Theme.ALT_DEFAULT:
+			return 0;
+		case Theme.TI_83:
+			return 0;
+		default:
+			return 0;
+	}
+}

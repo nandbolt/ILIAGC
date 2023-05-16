@@ -1,11 +1,11 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "scrThemeFunctions",
+  "name": "scrStorageCharacterFunctions",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Scripts",
-    "path": "folders/Scripts.yy",
+    "name": "Storage",
+    "path": "folders/Scripts/Storage.yy",
   },
 }
