@@ -35,7 +35,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Powerups",
-    "path": "folders/Objects/Powerups.yy",
+    "name": "Balls",
+    "path": "folders/Objects/Powerups/Balls.yy",
   },
 }
