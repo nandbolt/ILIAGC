@@ -4,6 +4,9 @@ event_inherited();
 // Rigid body
 initRigidBody();
 
+// HP
+hp = 12;
+
 // States
 ignoreGraphs = true;
 

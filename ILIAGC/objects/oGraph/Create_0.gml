@@ -191,14 +191,6 @@ getGraphOutput = function(_input)
 	return evaluateExpression(_input, expressionTree.root);
 }
 
-/// @func	damageGraph();
-damageGraph = function()
-{
-	// Destroy graph hp <= 0
-	hp--;
-	if (hp <= 0) instance_destroy();
-}
-
 /// @func	pointAboveGraph({real} x, {real} y);
 pointAboveGraph = function(_x, _y)
 {

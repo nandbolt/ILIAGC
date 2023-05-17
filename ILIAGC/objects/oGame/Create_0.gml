@@ -151,6 +151,25 @@ pauseGame = function()
 	}
 	
 	#endregion
+	
+	#region Spider
+	
+	if (instance_exists(oSpider))
+	{
+		with (oSpider)
+		{
+			var _spriteInstance = instance_create_layer(x, y, "BackgroundInstances", oPauseSprite);
+			with (_spriteInstance)
+			{
+				sprite_index = other.sprite_index;
+				image_alpha = other.image_alpha;
+				image_angle = other.image_angle;
+			}
+		}
+		instance_deactivate_object(oSpider);
+	}
+	
+	#endregion
 }
 
 /// @func	resumeGame();

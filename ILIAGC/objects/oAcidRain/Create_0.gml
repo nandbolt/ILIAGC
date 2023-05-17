@@ -5,7 +5,7 @@ event_inherited();
 initRigidBody();
 
 // HP
-hp = 3;
+hp = 6;
 
 // Gravity
 gravityStrength = 0.05;

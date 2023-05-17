@@ -22,7 +22,7 @@ coinRushMostCoins = 0;
 soccerMostCoins = 0;
 
 // Obstacles
-obstacles = [oGraphEater, oSpikes, oCloud, oBubbleGum];
+obstacles = [oGraphEater, oSpikes, oCloud, oBubbleGum, oSpider];
 baseMinObstacleTime = 600;
 baseMaxObstacleTime = 900;
 lowestMinObstacleTime = 180;
