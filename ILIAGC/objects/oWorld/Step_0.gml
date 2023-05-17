@@ -50,8 +50,8 @@ if (gameStarted && !gameTimerPaused)
 		}
 		
 		// Clock aid
-		if (timeElapsed mod timeBetweenNormalClocks == 0) instance_create_layer(random_range(24,168), random_range(24,168), "BackgroundInstances", oClock);
-		if (timeElapsed mod timeBetweenBonusClocks == 0) instance_create_layer(random_range(24,168), random_range(24,168), "BackgroundInstances", oClock);
+		if (timeElapsed mod timeBetweenBonusClocks == 0) instance_create_layer(random_range(24,168), random_range(24,168), "BackgroundInstances", oResetClock);
+		else if (timeElapsed mod timeBetweenNormalClocks == 0) instance_create_layer(random_range(24,168), random_range(24,168), "BackgroundInstances", oClock);
 		
 		// If obstacles exist
 		if (instance_exists(oObstacle))
