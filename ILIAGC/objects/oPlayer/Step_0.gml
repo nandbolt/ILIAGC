@@ -67,6 +67,10 @@ if (!grounded) _moveStrength = driftStrength;
 velocity.x += xInput * _moveStrength;
 
 // Gravity
+gravityStrength = normalGravityStrength;
+if (shield == 3) gravityStrength *= 0.4;
+else if (shield == 2) gravityStrength *= 0.6;
+else if (shield == 1) gravityStrength *= 0.8;
 rbApplyGravity();
 
 #region Jump

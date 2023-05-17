@@ -39,8 +39,8 @@ timeBetweenBonusClocks = 300;
 powerups = [oPowerupShield];
 minStepsBetweenPowerups = 1800;
 maxStepsBetweenPowerups = 3600;
-//minStepsBetweenPowerups = 180;
-//maxStepsBetweenPowerups = 180;
+minStepsBetweenPowerups = 180;
+maxStepsBetweenPowerups = 180;
 powerupTimer = irandom_range(minStepsBetweenPowerups, maxStepsBetweenPowerups);
 
 #region Mode Functions

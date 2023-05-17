@@ -12,6 +12,9 @@ idleGroundConstant = 0.3;
 slideGroundConstant = 0.02;
 holdGroundConstant = 2;
 
+// Gravity
+normalGravityStrength = gravityStrength;
+
 // Jumping
 jumpPressed = false;
 jumpInputted = false;

@@ -25,28 +25,72 @@ function unsetPowerup(_idx)
 	}
 }
 
-/// @func	getPowerupName({int} idx);
-function getPowerupName(_idx)
+/// @func	getPowerupName({int} idx, {int} lvl);
+function getPowerupName(_idx, _lvl)
 {
 	switch (_idx)
 	{
 		case Powerup.AIR_JUMP:
-			return "Air Jump";
+			if (_lvl == 3) return "Aerodynamics";
+			else if (_lvl == 2) return "Vacuum Chamber";
+			return "Jump Boots";
 		case Powerup.INVINCIBLE:
-			return "Invincible";
+			if (_lvl == 3) return "Ball of Sunshine";
+			else if (_lvl == 2) return "Slow Fusion";
+			return "Star Power";
 		case Powerup.BALL:
+			if (_lvl == 3) return "Ghost Ball";
+			else if (_lvl == 2) return "Spherical Purity";
 			return "Ball";
 		case Powerup.IRON_GRAPH:
-			return "Iron Graph";
+			if (_lvl == 3) return "Molten Graphs";
+			else if (_lvl == 2) return "Special Alloy";
+			return "Iron Graphs";
 		case Powerup.BLOCK:
+			if (_lvl == 3) return "Auto Vaults";
+			else if (_lvl == 2) return "Builder Buff";
 			return "Block";
 		default:
-			return "Shield";
+			if (_lvl == 3) return "Red Formula";
+			else if (_lvl == 2) return "Green Formula";
+			return "Bubble";
 	}
 }
 
-/// @func	getPowerupSprite({int} idx);
-function getPowerupSprite(_idx)
+/// @func	getPowerupDescription({int} idx, {int} lvl);
+function getPowerupDescription(_idx, _lvl)
+{
+	switch (_idx)
+	{
+		case Powerup.AIR_JUMP:
+			if (_lvl == 3) return "Lvl 3 Jump Boots. Start with 10 seconds of unlimited jumps (20 charges, 20 max).";
+			else if (_lvl == 2) return "Lvl 2 Jump Boots. More charges (10 charges, 20 max)";
+			return "Allows you to jump midair (5 charges, 10 max).";
+		case Powerup.INVINCIBLE:
+			if (_lvl == 3) return "Lvl 3 Star Power. With such high energy being released, anything in your path gets destroyed.";
+			else if (_lvl == 2) return "Lvl 2 Star Power. Slow the fusion process, increasing the duration to 30 seconds.";
+			return "Harness the power of the stars and become invunerable to damage for 15 seconds.";
+		case Powerup.BALL:
+			if (_lvl == 3) return "Lvl 3 Ball. Adds a second smaller ball that is faster and ignores graphs. Ghastly!";
+			else if (_lvl == 2) return "Lvl 2 Ball. Days of polish don't go unnoticed. The ball's duration is increased to 60 seconds and can't be destroyed by the environment!";
+			return "A ball that does your bidding. It can also collect for you! Lasts for 30 seconds.";
+		case Powerup.IRON_GRAPH:
+			if (_lvl == 3) return "Lvl 3 Iron Graphs.";
+			else if (_lvl == 2) return "Lvl 2 Iron Graphs. Your graphs are made of a special alloy, now allowing you to have more graphs at your disposal (4 charges, 4 max)";
+			return "Your graphs become made of iron, becoming impervious to damage. (2 charges, 2 max)";
+		case Powerup.BLOCK:
+			if (_lvl == 3) return "Lvl 3 Block. Blocks now collect coins for you! So long as they are touching any...";
+			else if (_lvl == 2) return "Lvl 2 Block. You become more crafty, allowing for more blocks to be placed. (3 charges, 6 max)";
+			return "Place a block at the your feet. (1 charge, 3 max)";
+		default:
+			if (_lvl == 3) return "Lvl 3 Bubble. A secret recipe. Allows for a 3rd red shield that makes you ignore 60% of gravity!";
+			else if (_lvl == 2) return "Lvl 2 Bubble. A special blend. Allows for a 2nd green shield that makes you ignore 40% of gravity.";
+			return "Prevents damage once and makes you more ignore 20% of gravity, lasts until popped.";
+	}
+}
+
+/// @func	getPowerupSprite({int} idx, {int} lvl);
+function getPowerupSprite(_idx, _lvl)
 {
 	switch (_idx)
 	{
@@ -65,8 +109,8 @@ function getPowerupSprite(_idx)
 	}
 }
 
-/// @func	getPowerupCost({int} idx);
-function getPowerupCost(_idx)
+/// @func	getPowerupCost({int} idx, {int} lvl);
+function getPowerupCost(_idx, _lvl)
 {
 	switch (_idx)
 	{

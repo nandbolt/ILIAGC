@@ -1,15 +1,16 @@
-/// @func	shopSpawnItemPowerup({int} idx, {real} x, {real} y, {int} level);
-function shopSpawnItemPowerup(_idx, _x, _y, _level)
+/// @func	shopSpawnItemPowerup({int} idx, {real} x, {real} y);
+function shopSpawnItemPowerup(_idx, _x, _y)
 {
 	var _shopItem = instance_create_layer(_x, _y, "Instances", oShopItemPowerup);
+	var _lvl = oGame.myPowerups[_idx][1] + 1;
 	with (_shopItem)
 	{
 		// Set shop item info
 		powerup = _idx;
-		description = getPowerupName(_idx);
-		sprite_index = getPowerupSprite(_idx);
-		price = getPowerupCost(_idx);
-		level = _level;
+		description = getPowerupName(_idx, _lvl);
+		longDescription = getPowerupDescription(_idx, _lvl);
+		sprite_index = getPowerupSprite(_idx, _lvl);
+		price = getPowerupCost(_idx, _lvl);
 	}
 }
 

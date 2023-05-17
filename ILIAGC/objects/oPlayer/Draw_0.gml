@@ -20,9 +20,15 @@ if (invinciblePowerActive)
 draw_self();
 
 // Shield
-if (shield > 0) draw_sprite_ext(sShield,0,x,y,1,1,image_angle,c_white,1);
+if (shield > 0)
+{
+	var _c = c_aqua;
+	if (shield > 2) _c = c_red;
+	else if (shield > 1) _c = c_lime;
+	draw_sprite_ext(sShield,0,x,y,1,1,image_angle,_c,1);
+}
 
-// Shield
+// Block
 if (blocks > 0)
 {
 	var _x = floor(x / TILE_SIZE) * TILE_SIZE, _y = floor(y / TILE_SIZE) * TILE_SIZE + TILE_SIZE;

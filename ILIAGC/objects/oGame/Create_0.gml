@@ -2,12 +2,12 @@
 
 // Item idx, current lvl, max lvl
 myPowerups = [
-	[Powerup.SHIELD,		1, 1],
-	[Powerup.AIR_JUMP,		0, 1],
-	[Powerup.INVINCIBLE,	0, 1],
-	[Powerup.BALL,			0, 1],
-	[Powerup.IRON_GRAPH,	0, 1],
-	[Powerup.BLOCK,			0, 1],
+	[Powerup.SHIELD,		1, 3],
+	[Powerup.AIR_JUMP,		0, 3],
+	[Powerup.INVINCIBLE,	0, 3],
+	[Powerup.BALL,			0, 3],
+	[Powerup.IRON_GRAPH,	0, 3],
+	[Powerup.BLOCK,			0, 3],
 ];
 myUpgrades = [
 	[Upgrade.EQUATION_UP,	0, 1],

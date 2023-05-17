@@ -18,7 +18,7 @@ onCollect = function()
 	for (var _i = 0; _i < array_length(oGame.myPowerups); _i++)
 	{
 		var _lvl = oGame.myPowerups[_i][1];
-		if (_lvl == 0) array_push(_shopPowerups, oGame.myPowerups[_i]);
+		if (_lvl < oGame.myPowerups[_i][2]) array_push(_shopPowerups, oGame.myPowerups[_i]);
 	}
 	var _shopUpgrades = [];
 	for (var _i = 0; _i < array_length(oGame.myUpgrades); _i++)
@@ -61,7 +61,7 @@ onCollect = function()
 			{
 				// Spawn random shop item and remove from backstock
 				var _i = irandom(array_length(_shopPowerups) - 1);
-				shopSpawnItemPowerup(_shopPowerups[_i][0], _x, _y, _shopPowerups[_i][1] + 1);
+				shopSpawnItemPowerup(_shopPowerups[_i][0], _x, _y);
 				array_delete(_shopPowerups, _i, 1);
 			}
 			// Else if shop has upgrade inventory
