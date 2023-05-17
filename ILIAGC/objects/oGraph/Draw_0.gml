@@ -4,7 +4,11 @@ var _drawPercent = 1;
 if (drawCounter < drawTime) _drawPercent = drawCounter / drawTime;
 var _c = normalGraphColor, _a = 1;
 if (oGrapher.editingEquation && graphIdx == oGrapher.graphIdx) _c = c_yellow;
-else if (ironGraph) _c = c_lime;
+else if (ironGraphTimer > 0)
+{
+	if (molten) _c = c_red;
+	else _c = c_lime;
+}
 for (var _i = 0; _i < _pointCount - 1; _i++)
 {
 	// Check draw percent

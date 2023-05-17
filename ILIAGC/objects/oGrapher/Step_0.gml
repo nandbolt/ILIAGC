@@ -4,9 +4,6 @@ mousePressed = mouse_check_button_pressed(mb_left);
 // If game started and timer not paused
 if (oWorld.gameStarted && !oWorld.gameTimerPaused)
 {
-	// Iron graph timer
-	if (ironGraphTimer > 0) ironGraphTimer--; 
-	
 	// Decrement graph cooldowns
 	with (oGrapher)
 	{

@@ -144,7 +144,7 @@ endGame = function()
 	with (oGrapher)
 	{
 		// Iron graphs
-		ironGraphTimer = 0;
+		ironGraphs = 0;
 	}
 	if (instance_exists(oBlock)) instance_destroy(oBlock);
 	if (instance_exists(oBall)) instance_destroy(oBall);

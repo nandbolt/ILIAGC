@@ -14,7 +14,7 @@ if (instance_exists(oGraph))
 	with (oGraph)
 	{
 		// If not iron graph
-		if (!ironGraph)
+		if (ironGraphTimer <= 0)
 		{
 			// If any points disagree
 			var _aboveGraph = pointAboveGraph(other.bbox_left, other.bbox_top);

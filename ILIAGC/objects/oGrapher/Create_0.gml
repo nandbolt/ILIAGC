@@ -33,8 +33,12 @@ showInfo = true;
 menuIdx = 0;
 menuCount = 4;
 
+#region Powerups
+
 // Iron graph
-ironGraphTimer = 0;
+ironGraphs = 0;
+
+#endregion
 
 // Table
 table = [0,0,0,0,0,0,0,0,0,0];
@@ -329,7 +333,11 @@ graphEquation = function()
 			graphIdx = other.graphIdx;
 			
 			// If iron graph
-			if (other.ironGraphTimer > 0) ironGraph = true;
+			if (other.ironGraphs > 0)
+			{
+				setIronGraph();
+				other.ironGraphs--;
+			}
 		}
 		
 		// Apply cooldown on exit

@@ -46,7 +46,8 @@ drawTime = 30;
 drawCounter = 0;
 
 // Iron
-ironGraph = false;
+ironGraphTimer = 0;
+molten = false;
 
 // Vertical asymptote
 verticalAsymptoteValue = 10;	// -infinity -> +infinity, with this value essentially taking place of infinity
@@ -213,4 +214,12 @@ vectorCollidesWithGraph = function(_startX, _startY, _endX, _endY)
 		return true;
 	}
 	return false;
+}
+
+/// @func	setIronGraph();
+setIronGraph = function()
+{
+	// Set iron timer
+	ironGraphTimer = 30 * 60 + (oGame.myPowerups[Powerup.IRON_GRAPH][1] - 1) * 15 * 60;
+	if (oGame.myPowerups[Powerup.IRON_GRAPH][1] > 2) molten = true;
 }
