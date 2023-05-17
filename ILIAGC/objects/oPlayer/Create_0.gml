@@ -52,9 +52,7 @@ mousePressedInput = false;
 shield = 0;
 
 // Air jump
-canAirJump = false;
 airJumps = 0;
-airJumpTimer = 0;
 
 // Invincible
 invinciblePowerActive = false;
@@ -144,6 +142,13 @@ jump = function()
 	audio_play_sound(sfxJump, 2, false);
 }
 
+/// @func	airJump();
+airJump = function()
+{
+	jump();
+	airJumps--;
+}
+
 /// @func	takeDamage({real} damage);
 takeDamage = function(_damage)
 {
@@ -177,11 +182,7 @@ takeDamage = function(_damage)
 }
 
 /// @func	onLand();
-onLand = function()
-{
-	// Reset air jumps
-	if (canAirJump) airJumps = 1;
-}
+onLand = function(){}
 
 /// @func	updateTheme({int} theme);
 updateTheme = function(_theme){}

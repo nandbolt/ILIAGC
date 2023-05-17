@@ -124,7 +124,6 @@ endGame = function()
 		shield = 0;
 		
 		// Air jump
-		canAirJump = false;
 		airJumps = 0;
 		
 		// Invincible

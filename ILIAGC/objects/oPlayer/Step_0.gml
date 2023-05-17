@@ -26,13 +26,6 @@ if (oWorld.gameStarted && !oWorld.gameTimerPaused)
 		else invinciblePowerTimer--;
 	}
 	
-	// Air jump power timer
-	if (canAirJump)
-	{
-		if (airJumpTimer <= 0) canAirJump = false;
-		else airJumpTimer--;
-	}
-	
 	// Update invincibility if invincible
 	if (invincible && !invinciblePowerActive)
 	{
@@ -79,12 +72,13 @@ rbApplyGravity();
 if (jumpPressed && !crouchInputted) jumpBufferCounter = jumpBuffer;
 else jumpBufferCounter = clamp(jumpBufferCounter-1,0,jumpBuffer);
 
-// Jump if jump buffered and grounded or jump buffered and coyote ready
-if ((jumpBufferCounter > 0 && grounded) || (jumpBufferCounter > 0 && coyoteBufferCounter > 0)) jump();
-else
+// If jump buffered 
+if (jumpBufferCounter > 0)
 {
-	// If block set
-	if (blocks > 0 && jumpPressed)
+	// Ground jump
+	if (grounded || coyoteBufferCounter > 0) jump();
+	// Block place
+	else if (blocks > 0)
 	{
 		// If at empty space
 		var _x = floor(x / TILE_SIZE) * TILE_SIZE, _y = floor(y / TILE_SIZE) * TILE_SIZE + TILE_SIZE;
@@ -96,16 +90,15 @@ else
 			
 			// Block sound
 			audio_play_sound(sfxGraphEquation, 1, false);
+			
+			// Reset jump buffer
+			jumpBufferCounter = 0;
 		}
-	}
-	
-	// If air jump
-	if (canAirJump && jumpPressed && airJumps > 0 && !grounded && !crouchInputted)
-	{
 		// Air jump
-		jump();
-		airJumps--;
+		else if (airJumps > 0) airJump();
 	}
+	// Air jump
+	else if (airJumps > 0) airJump();
 }
 
 #endregion

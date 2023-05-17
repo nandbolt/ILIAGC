@@ -33,7 +33,7 @@ function getPowerupName(_idx, _lvl)
 		case Powerup.AIR_JUMP:
 			if (_lvl == 3) return "Aerodynamics";
 			else if (_lvl == 2) return "Vacuum Chamber";
-			return "Jump Boots";
+			return "Booster Pack";
 		case Powerup.INVINCIBLE:
 			if (_lvl == 3) return "Ball of Sunshine";
 			else if (_lvl == 2) return "Slow Fusion";
@@ -63,8 +63,8 @@ function getPowerupDescription(_idx, _lvl)
 	switch (_idx)
 	{
 		case Powerup.AIR_JUMP:
-			if (_lvl == 3) return "Lvl 3 Jump Boots. Start with 10 seconds of unlimited jumps (20 charges, 20 max).";
-			else if (_lvl == 2) return "Lvl 2 Jump Boots. More charges (10 charges, 20 max)";
+			if (_lvl == 3) return "Lvl 3 Booster Pack. Even more charges (15 charges, 30 max).";
+			else if (_lvl == 2) return "Lvl 2 Booster Pack. More charges (10 charges, 20 max).";
 			return "Allows you to jump midair (5 charges, 10 max).";
 		case Powerup.INVINCIBLE:
 			if (_lvl == 3) return "Lvl 3 Star Power. With such high energy being released, anything in your path gets destroyed.";

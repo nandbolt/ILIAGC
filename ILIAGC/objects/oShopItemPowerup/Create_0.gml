@@ -3,7 +3,6 @@ event_inherited();
 
 // Powerup
 powerup = Powerup.SHIELD;
-level = 0;
 
 /// @func	onCollect();
 onCollect = function()

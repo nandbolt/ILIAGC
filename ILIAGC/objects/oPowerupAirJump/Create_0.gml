@@ -4,14 +4,13 @@ event_inherited();
 // Particles
 particleColor = c_yellow;
 
+// Jumps
+maxJumps = oGame.myPowerups[Powerup.AIR_JUMP][1] * 10;
+jumpsOnPickup = oGame.myPowerups[Powerup.AIR_JUMP][1] * 5;
+
 /// @func	onCollect();
 onCollect = function()
 {
-	// Set player air jumps
-	with (oPlayer)
-	{
-		canAirJump = true;
-		airJumps = 1;
-		airJumpTimer = 1200;
-	}
+	// Set player jumps
+	oPlayer.airJumps = clamp(oPlayer.airJumps + jumpsOnPickup, 0, maxJumps);
 }
