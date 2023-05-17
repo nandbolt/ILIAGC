@@ -39,19 +39,28 @@ onActivate = function()
 spawnNextCoin = function()
 {
 	var _coin = oCoinBlue;
+	var _x = random_range(24,168), _y = x;
 	if (oWorld.gameMode == Mode.SOCCER)
 	{
-		if (oWorld.timeElapsed < goldBound) _coin = oCoinRed;
-		else if (oWorld.timeElapsed < silverBound) _coin = oCoinBlue;
-		else if (oWorld.timeElapsed < redBound) _coin = oCoinBlue;
+		// Set coin y
+		_y = random_range(24,oWorld.soccerLowestCoinSpawnY);
+		
+		// Set coin type
+		if (oWorld.timeElapsed < goldBound) _coin = oCoinSilver;
+		else if (oWorld.timeElapsed < silverBound) _coin = oCoinRed;
+		else if (oWorld.timeElapsed < redBound) _coin = oCoinRed;
 	}
 	else
 	{
+		// Set coin y
+		_y = random_range(24,168);
+		
+		// Set coin type
 		if (oWorld.timeElapsed < goldBound) _coin = oCoin;
 		else if (oWorld.timeElapsed < silverBound) _coin = oCoinSilver;
 		else if (oWorld.timeElapsed < redBound) _coin = oCoinRed;
 	}
-	nextCoin = instance_create_layer(random_range(24,168),random_range(24,168),"Instances",_coin);
+	nextCoin = instance_create_layer(_x,_y,"Instances",_coin);
 }
 
 // Set alpha

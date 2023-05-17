@@ -43,6 +43,9 @@ minStepsBetweenPowerups = 180;
 maxStepsBetweenPowerups = 180;
 powerupTimer = irandom_range(minStepsBetweenPowerups, maxStepsBetweenPowerups);
 
+// Soccer
+soccerLowestCoinSpawnY = 96;
+
 #region Mode Functions
 
 /// @func	startGame({int} mode);
@@ -194,7 +197,7 @@ endGameCoinRush = function()
 startGameSoccer = function()
 {
 	// Spawn/activate first coin
-	var _coin = instance_create_layer(random_range(24,168),random_range(24,168),"Instances",oCoinRed);
+	var _coin = instance_create_layer(random_range(24,168),random_range(24,soccerLowestCoinSpawnY),"Instances",oCoinRed);
 	with (_coin)
 	{
 		activate();
