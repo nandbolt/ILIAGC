@@ -132,6 +132,7 @@ endGame = function()
 		// Invincible
 		invinciblePowerActive = false;
 		invincible = false;
+		deathTouch = false;
 		
 		// Bubble gum
 		bubbleGumTimer = 0;

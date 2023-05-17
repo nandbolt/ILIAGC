@@ -31,6 +31,7 @@ crouchInputted = false;
 invincible = false;
 damageInvincibilityTime = 60;
 invincibleTimer = 0;
+deathTouch = false;
 
 // Sprites
 spriteIdle = sPlayerIdle;

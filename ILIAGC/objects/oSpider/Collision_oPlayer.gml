@@ -6,3 +6,6 @@ if (active)
 		takeDamage(other.damage);
 	}
 }
+
+// Inherit parent
+event_inherited();

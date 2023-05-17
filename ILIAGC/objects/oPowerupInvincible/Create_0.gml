@@ -12,6 +12,7 @@ onCollect = function()
 	{
 		invinciblePowerActive = true;
 		invincible = true;
-		invinciblePowerTimer = 600;
+		invinciblePowerTimer = oGame.myPowerups[Powerup.INVINCIBLE][1] * 15 * 60;
+		if (oGame.myPowerups[Powerup.INVINCIBLE][1] > 2) deathTouch = true;
 	}
 }

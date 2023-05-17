@@ -4,6 +4,9 @@ event_inherited();
 // Spin
 image_angle -= 10;
 
+// Exit if not active
+if (!active) exit;
+
 // If graph exists
 if (instance_exists(oGraph))
 {

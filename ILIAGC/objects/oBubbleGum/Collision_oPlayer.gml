@@ -13,4 +13,5 @@ if (active)
 
 	// Destroy self
 	instance_destroy();
+	exit;
 }
