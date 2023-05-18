@@ -11,10 +11,10 @@ onCollect = function()
 	instance_destroy(oCollectable);
 	
 	// Home coin
-	instance_create_layer(96, 160, "Instances", oHomeCoin);
+	instance_create_layer(96, 168, "Instances", oHomeCoin);
 	
 	// Display storage coins (Powerups, Stats)
-	var _x = 32, _y = 128;
+	var _x = 32, _y = 136;
 	for (var _i = 0; _i < array_length(oGame.myCharacters); _i++)
 	{
 		// Get character

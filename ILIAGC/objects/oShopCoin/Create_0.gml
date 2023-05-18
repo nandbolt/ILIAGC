@@ -11,7 +11,7 @@ onCollect = function()
 	instance_destroy(oCollectable);
 	
 	// Home coin
-	instance_create_layer(96, 160, "Instances", oHomeCoin);
+	instance_create_layer(96, 168, "Instances", oHomeCoin);
 	
 	// Gather all potential shop items
 	var _shopPowerups = [];
@@ -52,10 +52,13 @@ onCollect = function()
 	}
 	
 	// Show available shop items
-	for (var _y = 64; _y <= 128; _y += 64)
+	for (var _j = 0; _j < 2; _j++)
 	{
-		for (var _x = 48; _x <= 144; _x += 48)
+		for (var _k = 0; _k < 3; _k++)
 		{
+			// Get position
+			var _x = 48 + _k * 48, _y = 136 - _j * 32;
+			
 			// If shop has powerup inventory
 			if (array_length(_shopPowerups) > 0)
 			{

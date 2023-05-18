@@ -1,5 +1,5 @@
-// Self
-draw_self();
+// Inherit the parent event
+event_inherited();
 
 // Description
 draw_set_halign(fa_center);

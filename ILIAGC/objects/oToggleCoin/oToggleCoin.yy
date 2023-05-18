@@ -12,8 +12,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "oLogicCoin",
-    "path": "objects/oLogicCoin/oLogicCoin.yy",
+    "name": "oInteractCollectable",
+    "path": "objects/oInteractCollectable/oInteractCollectable.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -35,7 +35,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "LogicCoins",
-    "path": "folders/Objects/Collectable/Collectables/Interact/LogicCoins.yy",
+    "name": "StorageCoins",
+    "path": "folders/Objects/Collectable/Collectables/Interact/StorageCoins.yy",
   },
 }

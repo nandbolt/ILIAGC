@@ -11,6 +11,9 @@ alphaFadeSpeed = 0.02;
 driftUpSpeed = 0.1;
 spinBoost = 0.1;
 
+// Sprite
+imageXScale = 1;
+
 // Sound
 collectSound = sfxCoinCollect;
 

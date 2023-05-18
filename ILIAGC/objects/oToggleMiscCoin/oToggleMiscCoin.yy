@@ -33,7 +33,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "StorageCoins",
-    "path": "folders/Objects/Collectable/Collectables/Interact/LogicCoins/StorageCoins.yy",
+    "name": "Toggleables",
+    "path": "folders/Objects/Collectable/Collectables/Interact/StorageCoins/Toggleables.yy",
   },
 }

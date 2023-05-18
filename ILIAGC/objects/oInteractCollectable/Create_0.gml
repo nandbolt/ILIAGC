@@ -3,3 +3,6 @@ event_inherited();
 
 // Text
 description = "???";
+
+// Interactable
+nearbyTimer = 0;

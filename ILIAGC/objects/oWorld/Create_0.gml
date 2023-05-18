@@ -243,10 +243,10 @@ spawnHomeCoins = function()
 	}
 	
 	// Shop
-	instance_create_layer(160, 160, "Instances", oShopCoin);
+	instance_create_layer(160, 168, "Instances", oShopCoin);
 	
 	// Storage
-	instance_create_layer(32, 160, "Instances", oStorageCoin);
+	instance_create_layer(32, 168, "Instances", oStorageCoin);
 }
 
 // Coin Sprites (HUD)

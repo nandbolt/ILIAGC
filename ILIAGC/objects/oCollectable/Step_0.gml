@@ -1,6 +1,6 @@
 // Spin
 spinCounter += spinSpeed;
-image_xscale = cos(spinCounter);
+imageXScale = cos(spinCounter);
 
 // If collected
 if (collected)
