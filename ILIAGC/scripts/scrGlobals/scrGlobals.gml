@@ -60,6 +60,17 @@ enum TokenIndexs
 	UP					= 36,
 }
 
+enum ShopItem
+{
+	POWERUP,
+	UPGRADE,
+	CHARACTER,
+	MODE,
+	FOOD,
+	THEME,
+	MISC,
+}
+
 enum Mode
 {
 	COIN_RUSH,

@@ -14,111 +14,62 @@ onCollect = function()
 	instance_create_layer(96, 168, "Instances", oHomeCoin);
 	
 	// Gather all potential shop items
-	var _shopPowerups = [];
+	var _shopItems = [], _lvl = 0;
 	for (var _i = 0; _i < array_length(oGame.myPowerups); _i++)
 	{
-		var _lvl = oGame.myPowerups[_i][1];
-		if (_lvl < oGame.myPowerups[_i][2]) array_push(_shopPowerups, oGame.myPowerups[_i]);
+		_lvl = oGame.myPowerups[_i][1];
+		if (_lvl < oGame.myPowerups[_i][2]) array_push(_shopItems, [ShopItem.POWERUP, oGame.myPowerups[_i][0]]);
 	}
-	var _shopUpgrades = [];
 	for (var _i = 0; _i < array_length(oGame.myUpgrades); _i++)
 	{
-		var _lvl = oGame.myUpgrades[_i][1];
-		if (_lvl == 0) array_push(_shopUpgrades, oGame.myUpgrades[_i]);
+		_lvl = oGame.myUpgrades[_i][1];
+		if (_lvl == 0) array_push(_shopItems, [ShopItem.UPGRADE, oGame.myUpgrades[_i][0]]);
 	}
-	var _shopMisc = [];
 	for (var _i = 0; _i < array_length(oGame.myMisc); _i++)
 	{
-		var _lvl = oGame.myMisc[_i][1];
-		if (_lvl == 0) array_push(_shopMisc, oGame.myMisc[_i]);
+		_lvl = oGame.myMisc[_i][1];
+		if (_lvl == 0) array_push(_shopItems, [ShopItem.MISC, oGame.myMisc[_i][0]]);
 	}
-	var _shopTheme = [];
 	for (var _i = 0; _i < array_length(oGame.myTheme); _i++)
 	{
-		var _lvl = oGame.myTheme[_i][1];
-		if (_lvl == 0) array_push(_shopTheme, oGame.myTheme[_i]);
+		_lvl = oGame.myTheme[_i][1];
+		if (_lvl == 0) array_push(_shopItems, [ShopItem.THEME, oGame.myTheme[_i][0]]);
 	}
-	var _shopCharacters = [];
 	for (var _i = 0; _i < array_length(oGame.myCharacters); _i++)
 	{
-		var _lvl = oGame.myCharacters[_i][1];
-		if (_lvl == 0) array_push(_shopCharacters, oGame.myCharacters[_i]);
+		_lvl = oGame.myCharacters[_i][1];
+		if (_lvl == 0) array_push(_shopItems, [ShopItem.CHARACTER, oGame.myCharacters[_i][0]]);
 	}
-	var _shopModes = [];
 	for (var _i = 0; _i < array_length(oGame.myModes); _i++)
 	{
-		var _lvl = oGame.myModes[_i][1];
-		if (_lvl == 0) array_push(_shopModes, oGame.myModes[_i]);
+		_lvl = oGame.myModes[_i][1];
+		if (_lvl == 0) array_push(_shopItems, [ShopItem.MODE, oGame.myModes[_i][0]]);
 	}
-	var _shopFoods = [];
 	for (var _i = 0; _i < array_length(oGame.myFoods); _i++)
 	{
-		array_push(_shopFoods, oGame.myFoods[_i]);
+		array_push(_shopItems, [ShopItem.FOOD, oGame.myFoods[_i][0]]);
 	}
 	
 	// Show available shop items
 	for (var _j = 0; _j < 2; _j++)
 	{
-		for (var _k = 0; _k < 3; _k++)
+		for (var _i = 0; _i < 3; _i++)
 		{
 			// Get position
-			var _x = 48 + _k * 48, _y = 136 - _j * 32;
+			var _x = 48 + _i * 48, _y = 136 - _j * 32;
 			
-			// If shop has powerup inventory
-			if (array_length(_shopPowerups) > 0)
+			// If shop has inventory
+			if (array_length(_shopItems) > 0)
 			{
-				// Spawn random shop item and remove from backstock
-				var _i = irandom(array_length(_shopPowerups) - 1);
-				shopSpawnItemPowerup(_shopPowerups[_i][0], _x, _y);
-				array_delete(_shopPowerups, _i, 1);
-			}
-			// Else if shop has upgrade inventory
-			else if (array_length(_shopUpgrades) > 0)
-			{
-				// Spawn random shop item and remove from backstock
-				var _i = irandom(array_length(_shopUpgrades) - 1);
-				shopSpawnItemUpgrade(_shopUpgrades[_i][0], _x, _y);
-				array_delete(_shopUpgrades, _i, 1);
-			}
-			// Else if shop has misc inventory
-			else if (array_length(_shopMisc) > 0)
-			{
-				// Spawn random shop item and remove from backstock
-				var _i = irandom(array_length(_shopMisc) - 1);
-				shopSpawnItemMisc(_shopMisc[_i][0], _x, _y);
-				array_delete(_shopMisc, _i, 1);
-			}
-			// Else if shop has theme inventory
-			else if (array_length(_shopTheme) > 0)
-			{
-				// Spawn random shop item and remove from backstock
-				var _i = irandom(array_length(_shopTheme) - 1);
-				shopSpawnItemTheme(_shopTheme[_i][0], _x, _y);
-				array_delete(_shopTheme, _i, 1);
-			}
-			// Else if shop has character inventory
-			else if (array_length(_shopCharacters) > 0)
-			{
-				// Spawn random shop item and remove from backstock
-				var _i = irandom(array_length(_shopCharacters) - 1);
-				shopSpawnItemCharacter(_shopCharacters[_i][0], _x, _y);
-				array_delete(_shopCharacters, _i, 1);
-			}
-			// Else if shop has mode inventory
-			else if (array_length(_shopModes) > 0)
-			{
-				// Spawn random shop item and remove from backstock
-				var _i = irandom(array_length(_shopModes) - 1);
-				shopSpawnItemMode(_shopModes[_i][0], _x, _y);
-				array_delete(_shopModes, _i, 1);
-			}
-			// Else if shop has food inventory
-			else if (array_length(_shopFoods) > 0)
-			{
-				// Spawn random shop item and remove from backstock
-				var _i = irandom(array_length(_shopFoods) - 1);
-				shopSpawnItemFood(_shopFoods[_i][0], _x, _y);
-				array_delete(_shopFoods, _i, 1);
+				// Get shop item
+				var _k = irandom(array_length(_shopItems) - 1);
+				var _shopItemType = _shopItems[_k][0], _shopItemIdx = _shopItems[_k][1];
+				
+				// Spawn item
+				shopSpawnItem(_shopItemType, _shopItemIdx, _x, _y);
+				
+				// Remove from inventory
+				array_delete(_shopItems, _k, 1);
 			}
 		}
 	}

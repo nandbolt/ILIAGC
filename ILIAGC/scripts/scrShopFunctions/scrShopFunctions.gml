@@ -1,3 +1,32 @@
+/// @func	shopSpawnItem({int} itemType, {int} itemIdx, {real} x, {real} y);
+function shopSpawnItem(_itemType, _itemIdx, _x, _y)
+{
+	switch (_itemType)
+	{
+		case ShopItem.POWERUP:
+			shopSpawnItemPowerup(_itemIdx, _x, _y);
+			break;
+		case ShopItem.UPGRADE:
+			shopSpawnItemUpgrade(_itemIdx, _x, _y);
+			break;
+		case ShopItem.CHARACTER:
+			shopSpawnItemCharacter(_itemIdx, _x, _y);
+			break;
+		case ShopItem.MODE:
+			shopSpawnItemMode(_itemIdx, _x, _y);
+			break;
+		case ShopItem.FOOD:
+			shopSpawnItemFood(_itemIdx, _x, _y);
+			break;
+		case ShopItem.THEME:
+			shopSpawnItemTheme(_itemIdx, _x, _y);
+			break;
+		case ShopItem.MISC:
+			shopSpawnItemMisc(_itemIdx, _x, _y);
+			break;
+	}
+}
+
 /// @func	shopSpawnItemPowerup({int} idx, {real} x, {real} y);
 function shopSpawnItemPowerup(_idx, _x, _y)
 {
