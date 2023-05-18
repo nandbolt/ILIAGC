@@ -36,6 +36,6 @@
   "overriddenProperties": [],
   "parent": {
     "name": "LogicCoins",
-    "path": "folders/Objects/Collectable/Collectables/LogicCoins.yy",
+    "path": "folders/Objects/Collectable/Collectables/Interact/LogicCoins.yy",
   },
 }

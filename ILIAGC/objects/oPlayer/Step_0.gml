@@ -5,6 +5,7 @@ xInput = getRightXInput() - getLeftXInput();
 jumpInputted = getJumpInput();
 jumpPressed = getJumpPressedInput();
 crouchInputted = getCrouchInput();
+interactPressed = getInteractPressedInput();
 
 // Ignore graphs
 if (crouchInputted && jumpInputted) ignoreGraphs = true;

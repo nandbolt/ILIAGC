@@ -34,6 +34,6 @@
   "overriddenProperties": [],
   "parent": {
     "name": "TimeCoins",
-    "path": "folders/Objects/Collectable/Collectables/TimeCoins.yy",
+    "path": "folders/Objects/Collectable/Collectables/Instant/TimeCoins.yy",
   },
 }

@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "oStorageUpgradesCoin",
+  "name": "oInteractCollectable",
   "spriteId": {
     "name": "sCoinOutline",
     "path": "sprites/sCoinOutline/sCoinOutline.yy",
@@ -12,8 +12,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "oLogicCoin",
-    "path": "objects/oLogicCoin/oLogicCoin.yy",
+    "name": "oCollectable",
+    "path": "objects/oCollectable/oCollectable.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -27,13 +27,11 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,},
-  ],
+  "eventList": [],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "StorageCoins",
-    "path": "folders/Objects/Collectable/Collectables/Interact/LogicCoins/StorageCoins.yy",
+    "name": "Collectables",
+    "path": "folders/Objects/Collectable/Collectables.yy",
   },
 }

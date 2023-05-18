@@ -1,6 +1,9 @@
 // Rigid body
 initRigidBody();
 
+// Interact
+interactPressed = false;
+
 // Movement vectors
 xInput = 0;
 
@@ -119,6 +122,12 @@ getJumpInput = function()
 getCrouchInput = function()
 {
 	return keyboard_check(ord("S")) || keyboard_check(vk_down) || gamepad_button_check(0,gp_padd) || touchInputDown();
+}
+
+/// @func	getInteractPressedInput();
+getInteractPressedInput = function()
+{
+	return keyboard_check_pressed(vk_enter) || gamepad_button_check(0,gp_face2) || touchInputInteractPressed();
 }
 
 #endregion

@@ -12,8 +12,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "oCollectable",
-    "path": "objects/oCollectable/oCollectable.yy",
+    "name": "oInstantCollectable",
+    "path": "objects/oInstantCollectable/oInstantCollectable.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -34,7 +34,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Collectables",
-    "path": "folders/Objects/Collectable/Collectables.yy",
+    "name": "Instant",
+    "path": "folders/Objects/Collectable/Collectables/Instant.yy",
   },
 }

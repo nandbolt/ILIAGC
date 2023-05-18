@@ -1,2 +1,2 @@
 // Toggle on jump
-if (other.jumpPressed) toggle();
+if (other.interactPressed) toggle();

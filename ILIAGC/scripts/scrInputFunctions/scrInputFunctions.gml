@@ -75,4 +75,10 @@ function touchInputJumpPressed()
 	return false;
 }
 
+/// @func	touchInputInteractPressed();
+function touchInputInteractPressed()
+{
+	return false;
+}
+
 #endregion

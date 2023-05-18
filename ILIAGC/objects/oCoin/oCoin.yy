@@ -12,8 +12,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "oCollectable",
-    "path": "objects/oCollectable/oCollectable.yy",
+    "name": "oInstantCollectable",
+    "path": "objects/oInstantCollectable/oInstantCollectable.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -34,6 +34,6 @@
   "overriddenProperties": [],
   "parent": {
     "name": "TimeCoins",
-    "path": "folders/Objects/Collectable/Collectables/TimeCoins.yy",
+    "path": "folders/Objects/Collectable/Collectables/Instant/TimeCoins.yy",
   },
 }

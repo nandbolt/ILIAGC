@@ -12,8 +12,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "oCollectable",
-    "path": "objects/oCollectable/oCollectable.yy",
+    "name": "oInteractCollectable",
+    "path": "objects/oInteractCollectable/oInteractCollectable.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -34,7 +34,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Collectables",
-    "path": "folders/Objects/Collectable/Collectables.yy",
+    "name": "Interact",
+    "path": "folders/Objects/Collectable/Collectables/Interact.yy",
   },
 }

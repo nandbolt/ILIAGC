@@ -216,6 +216,15 @@ vectorCollidesWithGraph = function(_startX, _startY, _endX, _endY)
 	return false;
 }
 
+/// @func	touchingGraph({id} inst);
+touchingGraph = function(_inst)
+{
+	var _aboveGraph = pointAboveGraph(_inst.bbox_left, _inst.bbox_top);
+	return (_aboveGraph != pointAboveGraph(_inst.bbox_right, _inst.bbox_top) ||
+			_aboveGraph != pointAboveGraph(_inst.bbox_right, _inst.bbox_bottom) ||
+			_aboveGraph != pointAboveGraph(_inst.bbox_left, _inst.bbox_bottom));
+}
+
 /// @func	setIronGraph();
 setIronGraph = function()
 {

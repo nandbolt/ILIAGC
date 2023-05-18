@@ -34,6 +34,6 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Clocks",
-    "path": "folders/Objects/Collectable/Collectables/Clocks.yy",
+    "path": "folders/Objects/Collectable/Collectables/Instant/Clocks.yy",
   },
 }
