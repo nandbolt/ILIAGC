@@ -18,7 +18,7 @@
   "option_html5_allow_fullscreen": true,
   "option_html5_interpolate_pixels": false,
   "option_html5_centregame": true,
-  "option_html5_usebuiltinparticles": true,
+  "option_html5_usebuiltinparticles": false,
   "option_html5_usebuiltinfont": false,
   "option_html5_webgl": 2,
   "option_html5_scale": 1,

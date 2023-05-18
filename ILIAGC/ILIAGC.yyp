@@ -126,6 +126,7 @@
     {"id":{"name":"oAcidRain","path":"objects/oAcidRain/oAcidRain.yy",},"order":3,},
     {"id":{"name":"sThemeAltDefault","path":"sprites/sThemeAltDefault/sThemeAltDefault.yy",},"order":5,},
     {"id":{"name":"oStorageUpgradesCoin","path":"objects/oStorageUpgradesCoin/oStorageUpgradesCoin.yy",},"order":4,},
+    {"id":{"name":"sDust","path":"sprites/sDust/sDust.yy",},"order":0,},
     {"id":{"name":"oBlock","path":"objects/oBlock/oBlock.yy",},"order":1,},
     {"id":{"name":"sNNEBox","path":"sprites/sNNEBox/sNNEBox.yy",},"order":2,},
     {"id":{"name":"oPowerupBall","path":"objects/oPowerupBall/oPowerupBall.yy",},"order":3,},
@@ -147,6 +148,7 @@
     {"id":{"name":"sDogSlide","path":"sprites/sDogSlide/sDogSlide.yy",},"order":6,},
     {"id":{"name":"sfxPowerCollect","path":"sounds/sfxPowerCollect/sfxPowerCollect.yy",},"order":2,},
     {"id":{"name":"sThemeBasic","path":"sprites/sThemeBasic/sThemeBasic.yy",},"order":2,},
+    {"id":{"name":"sPulse","path":"sprites/sPulse/sPulse.yy",},"order":1,},
     {"id":{"name":"sSpider","path":"sprites/sSpider/sSpider.yy",},"order":6,},
     {"id":{"name":"sPowerupBlock3","path":"sprites/sPowerupBlock3/sPowerupBlock3.yy",},"order":2,},
     {"id":{"name":"oMain","path":"objects/oMain/oMain.yy",},"order":2,},
@@ -330,6 +332,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tilesets","folderPath":"folders/Sprites/Tilesets.yy","order":3,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tile Sets","folderPath":"folders/Tile Sets.yy","order":2,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy","order":8,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Particles","folderPath":"folders/Sprites/Particles.yy","order":13,},
   ],
   "AudioGroups": [
     {"resourceType":"GMAudioGroup","resourceVersion":"1.3","name":"audiogroup_default","targets":-1,},
