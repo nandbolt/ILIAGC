@@ -35,6 +35,11 @@ myModes = [
 	[Mode.COIN_RUSH,		1, 1],
 	[Mode.SOCCER,			0, 1],
 ];
+myFoods = [
+	[Food.BUBBLE_TEA,		0, 1],
+	[Food.SPAGHETTI,		0, 1],
+	[Food.CHOCOLATE,		0, 1],
+];
 
 #endregion
 

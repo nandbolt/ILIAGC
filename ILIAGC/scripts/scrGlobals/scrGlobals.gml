@@ -106,4 +106,11 @@ enum Character
 	SLIME,
 }
 
+enum Food
+{
+	BUBBLE_TEA,
+	SPAGHETTI,
+	CHOCOLATE,
+}
+
 #endregion

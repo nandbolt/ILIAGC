@@ -50,6 +50,11 @@ onCollect = function()
 		var _lvl = oGame.myModes[_i][1];
 		if (_lvl == 0) array_push(_shopModes, oGame.myModes[_i]);
 	}
+	var _shopFoods = [];
+	for (var _i = 0; _i < array_length(oGame.myFoods); _i++)
+	{
+		array_push(_shopFoods, oGame.myFoods[_i]);
+	}
 	
 	// Show available shop items
 	for (var _j = 0; _j < 2; _j++)
@@ -106,6 +111,14 @@ onCollect = function()
 				var _i = irandom(array_length(_shopModes) - 1);
 				shopSpawnItemMode(_shopModes[_i][0], _x, _y);
 				array_delete(_shopModes, _i, 1);
+			}
+			// Else if shop has food inventory
+			else if (array_length(_shopFoods) > 0)
+			{
+				// Spawn random shop item and remove from backstock
+				var _i = irandom(array_length(_shopFoods) - 1);
+				shopSpawnItemFood(_shopFoods[_i][0], _x, _y);
+				array_delete(_shopFoods, _i, 1);
 			}
 		}
 	}

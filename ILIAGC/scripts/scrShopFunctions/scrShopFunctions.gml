@@ -83,3 +83,17 @@ function shopSpawnItemMode(_idx, _x, _y)
 		price = getModeCost(_idx);
 	}
 }
+
+/// @func	shopSpawnItemFood({int} idx, {real} x, {real} y);
+function shopSpawnItemFood(_idx, _x, _y)
+{
+	var _shopItem = instance_create_layer(_x, _y, "Instances", oShopItemFood);
+	with (_shopItem)
+	{
+		// Set shop item info
+		food = _idx;
+		description = getFoodName(_idx);
+		sprite_index = getFoodSprite(_idx);
+		price = getFoodCost(_idx);
+	}
+}
