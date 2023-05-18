@@ -24,15 +24,15 @@ onCollect = function()
 		var _inst = instance_create_layer(_x, _y, "Instances", oTogglePowerupCoin);
 		with (_inst)
 		{
-			// Set coin
-			powerup = _powerup;
-			description = getPowerupName(powerup);
-			
 			// If unlocked
-			if (oGame.myPowerups[powerup][1] > 0)
+			if (oGame.myPowerups[_powerup][1] > 0)
 			{
+				// Set coin
+				powerup = _powerup;
+				description = getPowerupName(powerup, 0);
+				
 				// Set toggleable
-				sprite_index = getPowerupSprite(powerup);
+				sprite_index = getPowerupSprite(powerup, 0);
 				canToggle = true;
 				
 				// Find powerup location in array

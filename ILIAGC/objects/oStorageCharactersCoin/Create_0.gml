@@ -24,13 +24,13 @@ onCollect = function()
 		var _inst = instance_create_layer(_x, _y, "Instances", oToggleCharacterCoin);
 		with (_inst)
 		{
-			// Set coin
-			character = _character;
-			description = getCharacterName(character);
-			
 			// If unlocked
-			if (oGame.myCharacters[character][1] > 0)
+			if (oGame.myCharacters[_character][1] > 0)
 			{
+				// Set coin
+				character = _character;
+				description = getCharacterName(character);
+				
 				// Set toggleable
 				sprite_index = getCharacterSprite(character);
 				canToggle = true;

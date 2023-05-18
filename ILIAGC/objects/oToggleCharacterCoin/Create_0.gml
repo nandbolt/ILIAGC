@@ -1,11 +1,8 @@
 // Inherit the parent event
 event_inherited();
 
-// Text
-description = "Human";
-
 // Character
-character = Character.HUMAN;
+character = -1;
 
 /// @func	onToggleOn();
 onToggleOn = function()

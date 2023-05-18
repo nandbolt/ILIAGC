@@ -24,13 +24,13 @@ onCollect = function()
 		var _inst = instance_create_layer(_x, _y, "Instances", oToggleUpgradeCoin);
 		with (_inst)
 		{
-			// Set coin
-			upgrade = _upgrade;
-			description = getUpgradeName(upgrade);
-			
 			// If unlocked
-			if (oGame.myUpgrades[_i][1] > 0)
+			if (oGame.myUpgrades[_upgrade][1] > 0)
 			{
+				// Set coin
+				upgrade = _upgrade;
+				description = getUpgradeName(upgrade);
+				
 				// Set toggleable
 				sprite_index = getUpgradeSprite(upgrade);
 				canToggle = true;

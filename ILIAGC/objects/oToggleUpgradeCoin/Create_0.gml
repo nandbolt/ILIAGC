@@ -1,11 +1,8 @@
 // Inherit the parent event
 event_inherited();
 
-// Text
-description = "Upgrade";
-
 // Upgrade
-upgrade = Upgrade.EQUATION_UP;
+upgrade = -1;
 
 /// @func	onToggleOn();
 onToggleOn = function()

@@ -24,13 +24,13 @@ onCollect = function()
 		var _inst = instance_create_layer(_x, _y, "Instances", oToggleMiscCoin);
 		with (_inst)
 		{
-			// Set coin
-			misc = _misc;
-			description = getMiscName(misc);
-			
 			// If unlocked
-			if (oGame.myMisc[_i][1] > 0)
+			if (oGame.myMisc[_misc][1] > 0)
 			{
+				// Set coin
+				misc = _misc;
+				description = getMiscName(misc);
+				
 				// Set toggleable
 				sprite_index = getMiscSprite(misc);
 				canToggle = true;

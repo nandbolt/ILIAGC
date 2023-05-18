@@ -1,11 +1,8 @@
 // Inherit the parent event
 event_inherited();
 
-// Text
-description = "Powerup";
-
 // Powerup
-powerup = Powerup.SHIELD;
+powerup = -1;
 
 /// @func	onToggleOn();
 onToggleOn = function()

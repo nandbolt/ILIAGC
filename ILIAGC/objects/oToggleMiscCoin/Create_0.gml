@@ -1,11 +1,8 @@
 // Inherit the parent event
 event_inherited();
 
-// Text
-description = "Default";
-
 // Misc
-misc = Misc.DEBUG_MODE;
+misc = -1;
 
 /// @func	onToggleOn();
 onToggleOn = function()

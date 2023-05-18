@@ -24,13 +24,13 @@ onCollect = function()
 		var _inst = instance_create_layer(_x, _y, "Instances", oToggleThemeCoin);
 		with (_inst)
 		{
-			// Set coin
-			theme = _theme;
-			description = getThemeName(_theme);
-			
 			// If unlocked
-			if (oGame.myTheme[_i][1] > 0)
+			if (oGame.myTheme[_theme][1] > 0)
 			{
+				// Set coin
+				theme = _theme;
+				description = getThemeName(_theme);
+				
 				// Set toggleable
 				sprite_index = getThemeSprite(_theme);
 				canToggle = true;

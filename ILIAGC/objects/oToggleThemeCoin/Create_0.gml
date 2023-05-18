@@ -1,11 +1,8 @@
 // Inherit the parent event
 event_inherited();
 
-// Text
-description = "Default";
-
 // Theme
-theme = Theme.DEFAULT;
+theme = -1;
 
 /// @func	onToggleOn();
 onToggleOn = function()
