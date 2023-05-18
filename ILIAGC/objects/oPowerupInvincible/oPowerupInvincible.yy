@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "oPowerupInvincible",
   "spriteId": {
-    "name": "sPowerupInvincible",
-    "path": "sprites/sPowerupInvincible/sPowerupInvincible.yy",
+    "name": "sPowerupInvincible1",
+    "path": "sprites/sPowerupInvincible1/sPowerupInvincible1.yy",
   },
   "solid": false,
   "visible": true,

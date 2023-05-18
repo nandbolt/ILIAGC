@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "oPowerupAirJump",
   "spriteId": {
-    "name": "sPowerupAirJump",
-    "path": "sprites/sPowerupAirJump/sPowerupAirJump.yy",
+    "name": "sPowerupAirJump1",
+    "path": "sprites/sPowerupAirJump1/sPowerupAirJump1.yy",
   },
   "solid": false,
   "visible": true,

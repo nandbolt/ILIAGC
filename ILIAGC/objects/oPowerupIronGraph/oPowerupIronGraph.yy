@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "oPowerupIronGraph",
   "spriteId": {
-    "name": "sPowerupIronGraph",
-    "path": "sprites/sPowerupIronGraph/sPowerupIronGraph.yy",
+    "name": "sPowerupIronGraph1",
+    "path": "sprites/sPowerupIronGraph1/sPowerupIronGraph1.yy",
   },
   "solid": false,
   "visible": true,

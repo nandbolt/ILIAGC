@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "oPowerupBlock",
   "spriteId": {
-    "name": "sPowerupBlock",
-    "path": "sprites/sPowerupBlock/sPowerupBlock.yy",
+    "name": "sPowerupBlock1",
+    "path": "sprites/sPowerupBlock1/sPowerupBlock1.yy",
   },
   "solid": false,
   "visible": true,

@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "oPowerupShield",
   "spriteId": {
-    "name": "sPowerupShield",
-    "path": "sprites/sPowerupShield/sPowerupShield.yy",
+    "name": "sPowerupShield1",
+    "path": "sprites/sPowerupShield1/sPowerupShield1.yy",
   },
   "solid": false,
   "visible": true,

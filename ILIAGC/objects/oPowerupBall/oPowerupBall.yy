@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "oPowerupBall",
   "spriteId": {
-    "name": "sPowerupBall",
-    "path": "sprites/sPowerupBall/sPowerupBall.yy",
+    "name": "sPowerupBall1",
+    "path": "sprites/sPowerupBall1/sPowerupBall1.yy",
   },
   "solid": false,
   "visible": true,

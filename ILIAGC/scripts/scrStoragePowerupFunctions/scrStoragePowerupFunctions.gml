@@ -95,17 +95,29 @@ function getPowerupSprite(_idx, _lvl)
 	switch (_idx)
 	{
 		case Powerup.AIR_JUMP:
-			return sPowerupAirJump;
+			if (_lvl == 3) return sPowerupAirJump3;
+			else if (_lvl == 2) return sPowerupAirJump2;
+			return sPowerupAirJump1;
 		case Powerup.INVINCIBLE:
-			return sPowerupInvincible;
+			if (_lvl == 3) return sPowerupInvincible3;
+			else if (_lvl == 2) return sPowerupInvincible2;
+			return sPowerupInvincible1;
 		case Powerup.BALL:
-			return sPowerupBall;
+			if (_lvl == 3) return sPowerupBall3;
+			else if (_lvl == 2) return sPowerupBall2;
+			return sPowerupBall1;
 		case Powerup.IRON_GRAPH:
-			return sPowerupIronGraph;
+			if (_lvl == 3) return sPowerupIronGraph3;
+			else if (_lvl == 2) return sPowerupIronGraph2;
+			return sPowerupIronGraph1;
 		case Powerup.BLOCK:
-			return sPowerupBlock;
+			if (_lvl == 3) return sPowerupBlock3;
+			else if (_lvl == 2) return sPowerupBlock2;
+			return sPowerupBlock1;
 		default:
-			return sPowerupShield;
+			if (_lvl == 3) return sPowerupShield3;
+			else if (_lvl == 2) return sPowerupShield2;
+			return sPowerupShield1;
 	}
 }
 
