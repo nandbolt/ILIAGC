@@ -10,6 +10,7 @@ for (var _gamepadId = 0; _gamepadId < _maxGamepadSlot; _gamepadId++)
 	{
 		// If any gamepad button is pressed
 		if (gamepad_button_check_pressed(_gamepadId, gp_start) ||
+			gamepad_button_check_pressed(_gamepadId, gp_select) ||
 			gamepad_button_check_pressed(_gamepadId, gp_padl) ||
 			gamepad_button_check_pressed(_gamepadId, gp_padr) ||
 			gamepad_button_check_pressed(_gamepadId, gp_padu) ||

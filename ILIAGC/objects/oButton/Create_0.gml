@@ -25,3 +25,6 @@ unselect = function()
 	selected = false;
 	image_blend = c_white;
 }
+
+/// @func	onPressed();
+onPressed = function(){}

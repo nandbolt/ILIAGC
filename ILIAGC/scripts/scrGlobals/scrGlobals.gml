@@ -23,6 +23,11 @@ enum InputAction
 	INTERACT,
 	START,
 	SELECT,
+	MENU_LEFT,
+	MENU_RIGHT,
+	MENU_UP,
+	MENU_DOWN,
+	CLEAR,
 }
 
 enum InputState

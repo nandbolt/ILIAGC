@@ -25,7 +25,7 @@ if (editingEquation)
 		// Key sound
 		audio_play_sound(sfxKeyPressed, 1, false);
 	}
-	else if (keyboard_check_pressed(vk_up))
+	else if (inputPressed(0, InputAction.MENU_DOWN))
 	{
 		// Toggle previous graph
 		if (graphIdx == 0) graphIdx = array_length(graphs) - 1;
@@ -41,7 +41,7 @@ if (editingEquation)
 		// Key sound
 		audio_play_sound(sfxKeyPressed, 1, false);
 	}
-	else if (keyboard_check_pressed(vk_down))
+	else if (inputPressed(0, InputAction.MENU_UP))
 	{
 		// Toggle next graph
 		if (graphIdx == array_length(graphs) - 1) graphIdx = 0;
@@ -57,7 +57,7 @@ if (editingEquation)
 		// Key sound
 		audio_play_sound(sfxKeyPressed, 1, false);
 	}
-	else if (keyboard_check_pressed(vk_left))
+	else if (inputPressed(0, InputAction.MENU_LEFT))
 	{
 		// Toggle next menu
 		if (menuIdx == 0) menuIdx = menuCount;
@@ -69,7 +69,7 @@ if (editingEquation)
 		// Key sound
 		audio_play_sound(sfxKeyPressed, 1, false);
 	}
-	else if (keyboard_check_pressed(vk_right))
+	else if (inputPressed(0, InputAction.MENU_RIGHT))
 	{
 		// Toggle next menu
 		if (menuIdx == menuCount) menuIdx = 0;
@@ -114,7 +114,7 @@ if (editingEquation)
 	else if (_lc == "p") addEquationToken(TokenIndexs.PI);
 	else if (_lc == "e") addEquationToken(TokenIndexs.E);
 	else if (_lc == ".") addEquationToken(TokenIndexs.DECIMAL);
-	else if (_lc == " ")
+	else if (inputPressed(0, InputAction.CLEAR))
 	{
 		// Destroy current graph
 		destroyGraph();

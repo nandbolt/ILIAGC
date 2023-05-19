@@ -5,14 +5,24 @@ with (buttons[buttonIdx])
 }
 
 // Inputs
+selectedPressed = inputPressed(0, InputAction.JUMP);
 if (inputPressed(0, InputAction.RIGHT)) inputAction = InputAction.RIGHT;
 else if (inputPressed(0, InputAction.LEFT)) inputAction = InputAction.LEFT;
 else if (inputPressed(0, InputAction.UP)) inputAction = InputAction.UP;
 else if (inputPressed(0, InputAction.DOWN)) inputAction = InputAction.DOWN;
 else inputAction = -1;
 
-// If inputted a direction
-if (inputAction != -1)
+// If selected pressed
+if (selectedPressed)
+{
+	// Call button on pressed
+	with (buttons[buttonIdx])
+	{
+		onPressed();
+	}
+}
+// Else if inputted a direction
+else if (inputAction != -1)
 {
 	// Get button neighbor corresponding to input direction
 	var _neighbor = buttons[buttonIdx].neighbors[inputAction];

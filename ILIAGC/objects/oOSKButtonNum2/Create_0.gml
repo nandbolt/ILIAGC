@@ -8,3 +8,4 @@ tokenIdx = TokenIndexs.NUM2;
 neighbors[InputAction.LEFT] = oOSKButtonNum1;
 neighbors[InputAction.RIGHT] = oOSKButtonNum3;
 neighbors[InputAction.UP] = oOSKButtonNum5;
+neighbors[InputAction.DOWN] = oOSKButtonX;
