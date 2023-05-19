@@ -34,6 +34,8 @@ if (instance_exists(oPlayer))
 			draw_text_transformed(_x, _y, "FPS: "+string(fps), _s, _s, 0);
 			_y += _yoff;
 			draw_text_transformed(_x, _y, "Instances: "+string(instance_count), _s, _s, 0);
+			_y += _yoff;
+			draw_text_transformed(_x, _y, "Gamepads: "+string(oInput.gamepadCount), _s, _s, 0);
 			_y += _yoff * 2;
 			draw_text_transformed(_x, _y, "Player", _s, _s, 0);
 			_y += _yoff;

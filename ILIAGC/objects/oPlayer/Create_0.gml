@@ -1,11 +1,15 @@
 // Rigid body
 initRigidBody();
 
-// Interact
-interactPressed = false;
+// Player
+playerId = 0;
 
-// Movement vectors
-xInput = 0;
+// Inputs
+inputDirection = new Vector2();
+jumpPressed = false;
+jumpInputted = false;
+interactPressed = false;
+crouchInputted = false;
 
 // Movement scalars
 runStrength = 0.2;
@@ -19,16 +23,11 @@ holdGroundConstant = 2;
 normalGravityStrength = gravityStrength;
 
 // Jumping
-jumpPressed = false;
-jumpInputted = false;
 jumpStrength = 3;
 jumpBuffer = 10;
 jumpBufferCounter = 0;
 coyoteBuffer = 10;
 coyoteBufferCounter = 0;
-
-// Crouch
-crouchInputted = false;
 
 // States
 invincible = false;
@@ -45,10 +44,6 @@ spriteJumpCenter = sPlayerJumpCenter;
 spriteSlide = sPlayerSlide;
 spriteCrouch = sPlayerCrouch;
 spriteRotationSpeed = 0.1;
-
-// Mouse
-mouseInput = false;
-mousePressedInput = false;
 
 #region Powerups
 
@@ -89,46 +84,6 @@ blocks = 0;
 
 // Bubble gum
 bubbleGumTimer = 0;
-
-#endregion
-
-#region Input Functions
-
-/// @func	getLeftXInput();
-getLeftXInput = function()
-{
-	return keyboard_check(ord("A")) || keyboard_check(vk_left) || gamepad_button_check(0,gp_padl) || touchInputLeft();
-}
-
-/// @func	getRightXInput();
-getRightXInput = function()
-{
-	return keyboard_check(ord("D")) || keyboard_check(vk_right) || gamepad_button_check(0,gp_padr) || touchInputRight();
-}
-
-/// @func	getJumpPressedInput();
-getJumpPressedInput = function()
-{
-	return keyboard_check_pressed(vk_space) || keyboard_check_pressed(ord("J")) || gamepad_button_check_pressed(0,gp_face1) || touchInputJumpPressed();
-}
-
-/// @func	getJumpInput();
-getJumpInput = function()
-{
-	return keyboard_check(vk_space) || keyboard_check(ord("J")) || gamepad_button_check(0,gp_face1) || touchInputJump();
-}
-
-/// @func	getCrouchInput();
-getCrouchInput = function()
-{
-	return keyboard_check(ord("S")) || keyboard_check(vk_down) || gamepad_button_check(0,gp_padd) || touchInputDown();
-}
-
-/// @func	getInteractPressedInput();
-getInteractPressedInput = function()
-{
-	return keyboard_check_pressed(vk_enter) || gamepad_button_check(0,gp_face2) || touchInputInteractPressed();
-}
 
 #endregion
 

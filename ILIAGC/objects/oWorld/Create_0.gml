@@ -249,6 +249,45 @@ spawnHomeCoins = function()
 	instance_create_layer(32, 168, "Instances", oStorageCoin);
 }
 
+/// @func	spawnPlayer({int} playerId);
+spawnPlayer = function(_playerId)
+{
+	// Init player already spawned
+	var _playerAlreadySpawned = false;
+	
+	// Check player already spawned
+	with (oPlayer)
+	{
+		// Set player already spawned
+		if (playerId == _playerId) _playerAlreadySpawned = true;
+	}
+	
+	// If player hasn't spawned
+	if (!_playerAlreadySpawned)
+	{
+		// Spawn player
+		var _player = instance_create_layer(96, 144, "Instances", oPlayerHuman);
+		with (_player)
+		{
+			// Set/return id
+			playerId = _playerId;
+			return id;
+		}
+	}
+	else return noone;
+}
+
+/// @func	despawnPlayer({int} playerId);
+despawnPlayer = function(_playerId)
+{
+	// Check player already spawned
+	with (oPlayer)
+	{
+		// Destroy correct player
+		if (playerId == _playerId) instance_destroy();
+	}
+}
+
 // Coin Sprites (HUD)
 var _coinsSpriteInstance = instance_create_layer(8,8,"HUDInstances",oSprite);
 with (_coinsSpriteInstance)
@@ -269,9 +308,6 @@ coinRushMostCoins = ini_read_real("high_scores","coin_rush",0);
 soccerMostCoins = ini_read_real("high_scores","soccer",0);
 ini_close();
 mostCoins = coinRushMostCoins;
-
-// Spawn player
-instance_create_layer(96, 144, "Instances", oPlayerHuman);
 
 // Spawn home coins
 spawnHomeCoins();

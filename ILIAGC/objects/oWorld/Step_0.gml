@@ -1,3 +1,36 @@
+#region Players
+
+// If game is not paused
+if (!oGrapher.editingEquation)
+{
+	// Get info
+	var _numPlayersSpawned = instance_number(oPlayer);
+	var _numPlayersConnected = ds_list_size(oInput.playerGamepadIds);
+
+	// If someone connected
+	if (_numPlayersSpawned < _numPlayersConnected)
+	{
+		// Add all necessary players
+		for (var _playerId = 0; _playerId < ds_list_size(oInput.playerGamepadIds); _playerId++)
+		{
+			// Spawn player
+			spawnPlayer(_playerId);
+		}
+	}
+	// Else if someone disconnected
+	else if (_numPlayersSpawned > _numPlayersConnected)
+	{
+		// Remove unnecessary players
+		for (var _playerId = _numPlayersSpawned - 1; _playerId >= _numPlayersConnected; _playerId--)
+		{
+			// Despawn player
+			despawnPlayer(_playerId);
+		}
+	}
+}
+
+#endregion
+
 // If game started and timer not paused
 if (gameStarted && !gameTimerPaused)
 {

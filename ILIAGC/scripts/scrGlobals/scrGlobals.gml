@@ -13,6 +13,26 @@
 
 #region Enums
 
+enum InputAction
+{
+	LEFT,
+	RIGHT,
+	UP,
+	DOWN,
+	JUMP,
+	INTERACT,
+	START,
+	SELECT,
+}
+
+enum InputState
+{
+	NONE,
+	PRESSED,
+	HELD,
+	RELEASED,
+}
+
 enum Collision
 {
 	SLIDE,

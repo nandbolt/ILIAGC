@@ -26,7 +26,7 @@ if (instance_exists(oGraph))
 if (_graph != noone)
 {
 	// Get direction
-	var _x = x + xInput, _y = y;
+	var _x = x + inputDirection.x, _y = y;
 	with (_graph)
 	{
 		_y = convertGraphYToY(getGraphOutput(convertXToGraphX(_x)));
@@ -48,14 +48,14 @@ if (_graph != noone)
 	if (tilemap_get_at_pixel(collisionTiles, x + velocity.x, y + velocity.y) == 1)
 	{
 		velocity.multiplyByScalar(-1);
-		xInput *= -1;
+		inputDirection.x *= -1;
 	}
 }
 else
 {
 	// If next to wall
-	if (tilemap_get_at_pixel(collisionTiles, x + 1, y) == 1) xInput = -1;
-	else if (tilemap_get_at_pixel(collisionTiles, x - 1, y) == 1) xInput = 1;
+	if (tilemap_get_at_pixel(collisionTiles, x + 1, y) == 1) inputDirection.x = -1;
+	else if (tilemap_get_at_pixel(collisionTiles, x - 1, y) == 1) inputDirection.x = 1;
 }
 
 // If not touching graph
@@ -67,8 +67,8 @@ if (_graph == noone)
 	// Resistances
 	rbHandleResistances();
 
-	// Apply xInput to x velocity
-	if (grounded) velocity.x += xInput * crawlStrength;
+	// Apply input direction to velocity
+	if (grounded) velocity.x += inputDirection.x * crawlStrength;
 
 	// Gravity
 	rbApplyGravity();

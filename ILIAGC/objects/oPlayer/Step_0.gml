@@ -1,11 +1,10 @@
-// Update input
-mouseInput = mouse_check_button(mb_left);
-mousePressedInput = mouse_check_button_pressed(mb_left);
-xInput = getRightXInput() - getLeftXInput();
-jumpInputted = getJumpInput();
-jumpPressed = getJumpPressedInput();
-crouchInputted = getCrouchInput();
-interactPressed = getInteractPressedInput();
+// Update inputs
+inputDirection.x = inputHeld(playerId, InputAction.RIGHT) - inputHeld(playerId, InputAction.LEFT);
+inputDirection.y = inputHeld(playerId, InputAction.DOWN) - inputHeld(playerId, InputAction.UP);
+jumpInputted = inputHeld(playerId, InputAction.JUMP);
+jumpPressed = inputPressed(playerId, InputAction.JUMP);
+crouchInputted = inputHeld(playerId, InputAction.DOWN);
+interactPressed = inputPressed(playerId, InputAction.INTERACT);
 
 // Ignore graphs
 if (crouchInputted && jumpInputted) ignoreGraphs = true;
@@ -49,16 +48,16 @@ else coyoteBufferCounter = coyoteBuffer;
 
 // Resistances
 if (crouchInputted) groundConstant = slideGroundConstant;
-else if (xInput != 0) groundConstant = runGroundConstant;
+else if (inputDirection.x != 0) groundConstant = runGroundConstant;
 else if (!jumpPressed && jumpInputted) groundConstant = holdGroundConstant;
 else groundConstant = idleGroundConstant;
 rbHandleResistances();
 
-// Apply xInput to x velocity
+// Apply input to velocity
 var _moveStrength = runStrength;
 if (crouchInputted) _moveStrength = 0;
 if (!grounded) _moveStrength = driftStrength;
-velocity.x += xInput * _moveStrength;
+velocity.x += inputDirection.x * _moveStrength;
 
 // Gravity
 gravityStrength = normalGravityStrength;
@@ -71,7 +70,7 @@ rbApplyGravity();
 
 // Set jump buffer counter
 if (jumpPressed && !crouchInputted) jumpBufferCounter = jumpBuffer;
-else jumpBufferCounter = clamp(jumpBufferCounter-1,0,jumpBuffer);
+else jumpBufferCounter = clamp(jumpBufferCounter - 1, 0, jumpBuffer);
 
 // If jump buffered 
 if (jumpBufferCounter > 0)
@@ -159,11 +158,11 @@ else
 		}
 	}
 	// Else if inputted an x direction
-	else if (xInput != 0)
+	else if (inputDirection.x != 0)
 	{
 		// Run
 		sprite_index = spriteRun;
-		if (xInput > 0) image_xscale = 1;
+		if (inputDirection.x > 0) image_xscale = 1;
 		else image_xscale = -1;
 	}
 	// Idle

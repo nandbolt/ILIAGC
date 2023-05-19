@@ -86,7 +86,7 @@ if (editingEquation)
 	
 	// Check last character
 	var _lc = string_lower(keyboard_lastchar);
-	if (getGraphEquationInput()) graphEquation();
+	if (inputPressed(0, InputAction.INTERACT)) graphEquation();
 	else if ((_lc == "\b" || oskeyboardCheckBackspace()) && array_length(equationTokens) > 0) removeEquationToken();
 	else if ((_lc == "0" && !keyboard_check(vk_shift)) || oskeyboardCheck0()) addEquationToken(TokenIndexs.NUM0);
 	else if (_lc == "1" || oskeyboardCheck1()) addEquationToken(TokenIndexs.NUM1);
@@ -142,7 +142,7 @@ if (editingEquation)
 }
 
 // If want to edit equation
-if (getToggleEquationEditorInput()) 
+if (inputPressed(0, InputAction.SELECT)) 
 {
 	// Toggle editing equation
 	editingEquation = !editingEquation;

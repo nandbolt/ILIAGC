@@ -1,3 +1,51 @@
+#region General
+
+/// @func	inputCreate({int} inputAction, {int} keyboardHotkey, {int} inputGamepadKey);
+function inputCreate(_inputAction, _inputHotkey, _inputGamepadKey)
+{
+	with (oInput)
+	{
+		// Assign keyboard + gamepad keys
+		inputKeyboardKeys[_inputAction] = _inputHotkey;
+		inputGamepadKeys[_inputAction] = _inputGamepadKey;
+		
+		// Assign input action state to none for all players
+		for (var _p = 0; _p < maxPlayers; _p++)
+		{
+			inputStates[_p, _inputAction] = InputState.NONE;
+		}
+	}
+}
+
+/// @func	inputPressed({int} playerId, {int} inputId);
+function inputPressed(_playerId, _inputId)
+{
+	with (oInput)
+	{
+		return inputStates[_playerId][_inputId] == InputState.PRESSED;
+	}
+}
+
+/// @func	inputHeld({int} playerId, {int} inputId, {bool} countPressAsHold);
+function inputHeld(_playerId, _inputId, _countPressAsHold=true)
+{
+	with (oInput)
+	{
+		return (inputStates[_playerId][_inputId] == InputState.HELD) || ((inputStates[_playerId][_inputId] == InputState.PRESSED) && _countPressAsHold);
+	}
+}
+
+/// @func	inputReleased({int} playerId, {int} inputId);
+function inputReleased(_playerId, _inputId)
+{
+	with (oInput)
+	{
+		return inputStates[_playerId][_inputId] == InputState.RELEASED;
+	}
+}
+
+#endregion
+
 #region Keyboard + Mouse
 
 //keyboardCheckRightInput

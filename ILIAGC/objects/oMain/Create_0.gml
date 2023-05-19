@@ -12,3 +12,6 @@ instance_create_layer(0,0,"Instances",oParticles);
 
 // Game
 instance_create_layer(0,0,"Instances",oGame);
+
+// Input
+instance_create_layer(0,0,"Instances",oInput);

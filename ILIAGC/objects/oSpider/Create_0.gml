@@ -4,6 +4,9 @@ event_inherited();
 // Rigid body
 initRigidBody();
 
+// Inputs
+inputDirection = new Vector2();
+
 // HP
 hp = 15;
 
@@ -12,9 +15,6 @@ damage = 10;
 
 // Gravity
 gravityStrength = 0.05;
-
-// Movement vectors
-xInput = 1;
 
 // Movement scalars
 crawlStrength = 0.05;
