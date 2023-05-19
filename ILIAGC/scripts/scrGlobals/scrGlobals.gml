@@ -33,6 +33,13 @@ enum InputState
 	RELEASED,
 }
 
+enum ControlType
+{
+	KEYBOARD = -1,
+	GAMEPAD = 0,
+	TOUCH = 1,
+}
+
 enum Collision
 {
 	SLIDE,

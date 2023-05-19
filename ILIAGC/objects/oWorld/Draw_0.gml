@@ -28,3 +28,5 @@ for (var _i = 1; _i <= string_length(_mostCoinsString); _i++)
 	draw_sprite(sTokens,real(string_char_at(_mostCoinsString,_i))+2,_x,_y);
 	_x += 8;
 }
+
+// Control

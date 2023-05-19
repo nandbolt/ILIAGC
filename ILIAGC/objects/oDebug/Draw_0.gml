@@ -1,6 +1,6 @@
 var _x = 0, _y = 0;
 
-var _s = 0.25, _yoff = 4;
+var _s = 0.25, _xoff = 0, _yoff = 4;
 
 // Player
 if (instance_exists(oPlayer))
@@ -36,6 +36,13 @@ if (instance_exists(oPlayer))
 			draw_text_transformed(_x, _y, "Instances: "+string(instance_count), _s, _s, 0);
 			_y += _yoff;
 			draw_text_transformed(_x, _y, "Gamepads: "+string(oInput.gamepadCount), _s, _s, 0);
+			_y += _yoff;
+			_xoff = 0;
+			for (var _playerId = 0; _playerId < ds_list_size(oInput.playerGamepadIds); _playerId++)
+			{
+				draw_text_transformed(_x + _xoff, _y, "P" + string(_playerId + 1) + ": " + string(oInput.playerGamepadIds[| _playerId]), _s, _s, 0);
+				_xoff += 15;
+			}
 			_y += _yoff * 2;
 			draw_text_transformed(_x, _y, "Player", _s, _s, 0);
 			_y += _yoff;
