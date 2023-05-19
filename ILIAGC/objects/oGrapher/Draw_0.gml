@@ -188,31 +188,6 @@ if (editingEquation)
 		}
 	}
 	
-	#region On-Screen Keyboard
-	
-	if (showKeyboard)
-	{
-		_x = keyboardX;
-		_y = keyboardY;
-		var _keyboardWidth = array_length(keyboard[0]), _keyboardHeight = array_length(keyboard);
-		for (var _j = 0; _j < _keyboardHeight; _j++)
-		{
-			for (var _i = 0; _i < _keyboardWidth; _i++)
-			{
-				if (!(_j == 3 && _i > 6))
-				{
-					draw_sprite(sKeyBackground, 0, _x, _y);
-					draw_sprite(sTokens, keyboard[_j][_i], _x, _y);
-				}
-				_x += TILE_SIZE;
-			}
-			_x = keyboardX;
-			_y += TILE_SIZE;
-		}
-	}
-	
-	#endregion
-	
 	// Reset color
 	draw_set_color(c_white);
 }

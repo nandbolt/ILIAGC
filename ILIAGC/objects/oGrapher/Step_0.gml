@@ -25,7 +25,7 @@ if (editingEquation)
 		// Key sound
 		audio_play_sound(sfxKeyPressed, 1, false);
 	}
-	else if (keyboard_check_pressed(vk_up) || oskeyboardCheckUp())
+	else if (keyboard_check_pressed(vk_up))
 	{
 		// Toggle previous graph
 		if (graphIdx == 0) graphIdx = array_length(graphs) - 1;
@@ -41,7 +41,7 @@ if (editingEquation)
 		// Key sound
 		audio_play_sound(sfxKeyPressed, 1, false);
 	}
-	else if (keyboard_check_pressed(vk_down) || oskeyboardCheckDown())
+	else if (keyboard_check_pressed(vk_down))
 	{
 		// Toggle next graph
 		if (graphIdx == array_length(graphs) - 1) graphIdx = 0;
@@ -57,7 +57,7 @@ if (editingEquation)
 		// Key sound
 		audio_play_sound(sfxKeyPressed, 1, false);
 	}
-	else if (keyboard_check_pressed(vk_left) || oskeyboardCheckLeft())
+	else if (keyboard_check_pressed(vk_left))
 	{
 		// Toggle next menu
 		if (menuIdx == 0) menuIdx = menuCount;
@@ -69,7 +69,7 @@ if (editingEquation)
 		// Key sound
 		audio_play_sound(sfxKeyPressed, 1, false);
 	}
-	else if (keyboard_check_pressed(vk_right) || oskeyboardCheckRight())
+	else if (keyboard_check_pressed(vk_right))
 	{
 		// Toggle next menu
 		if (menuIdx == menuCount) menuIdx = 0;
@@ -87,34 +87,34 @@ if (editingEquation)
 	// Check last character
 	var _lc = string_lower(keyboard_lastchar);
 	if (inputPressed(0, InputAction.INTERACT)) graphEquation();
-	else if ((_lc == "\b" || oskeyboardCheckBackspace()) && array_length(equationTokens) > 0) removeEquationToken();
-	else if ((_lc == "0" && !keyboard_check(vk_shift)) || oskeyboardCheck0()) addEquationToken(TokenIndexs.NUM0);
-	else if (_lc == "1" || oskeyboardCheck1()) addEquationToken(TokenIndexs.NUM1);
-	else if (_lc == "2" || oskeyboardCheck2()) addEquationToken(TokenIndexs.NUM2);
-	else if (_lc == "3" || oskeyboardCheck3()) addEquationToken(TokenIndexs.NUM3);
-	else if (_lc == "4" || oskeyboardCheck4()) addEquationToken(TokenIndexs.NUM4);
-	else if (_lc == "5" || oskeyboardCheck5()) addEquationToken(TokenIndexs.NUM5);
-	else if ((_lc == "6" && !keyboard_check(vk_shift)) || oskeyboardCheck6()) addEquationToken(TokenIndexs.NUM6);
-	else if (_lc == "7"  || oskeyboardCheck7()) addEquationToken(TokenIndexs.NUM7);
-	else if ((_lc == "8" && !keyboard_check(vk_shift)) || oskeyboardCheck8()) addEquationToken(TokenIndexs.NUM8);
-	else if ((_lc == "9" && !keyboard_check(vk_shift)) || oskeyboardCheck9()) addEquationToken(TokenIndexs.NUM9);
-	else if (_lc == "x" || oskeyboardCheckX()) addEquationToken(TokenIndexs.X);
-	else if (_lc == "+" || oskeyboardCheckPlus()) addEquationToken(TokenIndexs.PLUS);
-	else if (_lc == "-" || oskeyboardCheckMinus()) addEquationToken(TokenIndexs.MINUS);
-	else if (_lc = "*" || oskeyboardCheckAsterisk()) addEquationToken(TokenIndexs.ASTERISK);
-	else if (_lc = "/" || oskeyboardCheckSlash()) addEquationToken(TokenIndexs.SLASH);
-	else if (_lc = "^" || oskeyboardCheckCarrot()) addEquationToken(TokenIndexs.CARROT);
-	else if (_lc == "(" || oskeyboardCheckOpenParenthesis()) addEquationToken(TokenIndexs.OPEN_PARENTHESIS);
-	else if (_lc == ")" || oskeyboardCheckCloseParenthesis()) addEquationToken(TokenIndexs.CLOSE_PARENTHESIS);
-	else if (_lc == "s" || oskeyboardCheckSin()) addEquationToken(TokenIndexs.SINE);
-	else if (_lc == "c" || oskeyboardCheckCos()) addEquationToken(TokenIndexs.COSINE);
-	else if (_lc == "t" || oskeyboardCheckTan()) addEquationToken(TokenIndexs.TANGENT);
-	else if (_lc == "l" || oskeyboardCheckLog()) addEquationToken(TokenIndexs.LOG);
-	else if (_lc == "r" || oskeyboardCheckRoot()) addEquationToken(TokenIndexs.ROOT);
-	else if (_lc == "p" || oskeyboardCheckPi()) addEquationToken(TokenIndexs.PI);
-	else if (_lc == "e" || oskeyboardCheckE()) addEquationToken(TokenIndexs.E);
-	else if (_lc == "." || oskeyboardCheckDecimal()) addEquationToken(TokenIndexs.DECIMAL);
-	else if (_lc == " " || oskeyboardCheckSpace())
+	else if ((_lc == "\b") && array_length(equationTokens) > 0) removeEquationToken();
+	else if ((_lc == "0" && !keyboard_check(vk_shift))) addEquationToken(TokenIndexs.NUM0);
+	else if (_lc == "1") addEquationToken(TokenIndexs.NUM1);
+	else if (_lc == "2") addEquationToken(TokenIndexs.NUM2);
+	else if (_lc == "3") addEquationToken(TokenIndexs.NUM3);
+	else if (_lc == "4") addEquationToken(TokenIndexs.NUM4);
+	else if (_lc == "5") addEquationToken(TokenIndexs.NUM5);
+	else if ((_lc == "6" && !keyboard_check(vk_shift))) addEquationToken(TokenIndexs.NUM6);
+	else if (_lc == "7") addEquationToken(TokenIndexs.NUM7);
+	else if ((_lc == "8" && !keyboard_check(vk_shift))) addEquationToken(TokenIndexs.NUM8);
+	else if ((_lc == "9" && !keyboard_check(vk_shift))) addEquationToken(TokenIndexs.NUM9);
+	else if (_lc == "x") addEquationToken(TokenIndexs.X);
+	else if (_lc == "+") addEquationToken(TokenIndexs.PLUS);
+	else if (_lc == "-") addEquationToken(TokenIndexs.MINUS);
+	else if (_lc = "*") addEquationToken(TokenIndexs.ASTERISK);
+	else if (_lc = "/") addEquationToken(TokenIndexs.SLASH);
+	else if (_lc = "^") addEquationToken(TokenIndexs.CARROT);
+	else if (_lc == "(") addEquationToken(TokenIndexs.OPEN_PARENTHESIS);
+	else if (_lc == ")") addEquationToken(TokenIndexs.CLOSE_PARENTHESIS);
+	else if (_lc == "s") addEquationToken(TokenIndexs.SINE);
+	else if (_lc == "c") addEquationToken(TokenIndexs.COSINE);
+	else if (_lc == "t") addEquationToken(TokenIndexs.TANGENT);
+	else if (_lc == "l") addEquationToken(TokenIndexs.LOG);
+	else if (_lc == "r") addEquationToken(TokenIndexs.ROOT);
+	else if (_lc == "p") addEquationToken(TokenIndexs.PI);
+	else if (_lc == "e") addEquationToken(TokenIndexs.E);
+	else if (_lc == ".") addEquationToken(TokenIndexs.DECIMAL);
+	else if (_lc == " ")
 	{
 		// Destroy current graph
 		destroyGraph();
@@ -142,58 +142,4 @@ if (editingEquation)
 }
 
 // If want to edit equation
-if (inputPressed(0, InputAction.SELECT)) 
-{
-	// Toggle editing equation
-	editingEquation = !editingEquation;
-	
-	// Update equation tokens
-	equationTokens = [];
-	array_copy(equationTokens, 0, graphs[graphIdx][0], 0, array_length(graphs[graphIdx][0]));
-	
-	// Reset variables
-	if (editingEquation)
-	{
-		// Pause game
-		with (oGame)
-		{
-			pauseGame();
-		}
-		
-		// Set type cursor
-		cursor = false;
-		blinkTimer = 0;
-		
-		// Fill table if necessary
-		if (menuIdx == 3) fillTable();
-		
-		// Show cooldown if applicable
-		if (graphs[graphIdx][2] > 0) previousPostfixEquation = "Cooldown ends in " + string(graphs[graphIdx][2] / 60) + " seconds";
-		else if (string_length(previousPostfixEquation) > 0 && string_char_at(previousPostfixEquation, 0) == "C") previousPostfixEquation = "None";
-	}
-	else
-	{
-		// Set cursor
-		cursor = true;
-		
-		// Apply cooldowns
-		for (var _i = 0; _i < array_length(graphs); _i++)
-		{
-			// Apply cooldown on exit
-			if (graphs[graphIdx][3])
-			{
-				graphs[graphIdx][2] = graphCooldown;
-				graphs[graphIdx][3] = false;
-			}
-		}
-		
-		// Resume game
-		with (oGame)
-		{
-			resumeGame();
-		}
-	}
-	
-	// Toggle grapher sound
-	audio_play_sound(sfxToggleGrapher, 2, false);
-}
+if (inputPressed(0, InputAction.SELECT)) toggleEquationEditor();

@@ -43,256 +43,6 @@ ironGraphs = 0;
 // Table
 table = [0,0,0,0,0,0,0,0,0,0];
 
-#region On-Screen Keyboard
-showKeyboard = false;
-keyboardX = TILE_SIZE + HALF_TILE_SIZE;
-keyboardY = TILE_SIZE * 7 + HALF_TILE_SIZE;
-keyboard = [
-[TokenIndexs.NUM1,      TokenIndexs.NUM2,    TokenIndexs.NUM3,   TokenIndexs.NUM4,			   TokenIndexs.NUM5,			  TokenIndexs.NUM6, TokenIndexs.NUM7,  TokenIndexs.NUM8,	 TokenIndexs.NUM9],
-[TokenIndexs.NUM0,	    TokenIndexs.DECIMAL, TokenIndexs.X,      TokenIndexs.OPEN_PARENTHESIS, TokenIndexs.CLOSE_PARENTHESIS, TokenIndexs.PLUS, TokenIndexs.MINUS, TokenIndexs.ASTERISK, TokenIndexs.SLASH],
-[TokenIndexs.CARROT,    TokenIndexs.SINE,    TokenIndexs.COSINE, TokenIndexs.TANGENT,		   TokenIndexs.ROOT,			  TokenIndexs.LOG,  TokenIndexs.PI,	   TokenIndexs.E,		 TokenIndexs.SPACE],
-[TokenIndexs.BACKSPACE, TokenIndexs.ENTER,   TokenIndexs.TAB,	 TokenIndexs.RIGHT,			   TokenIndexs.LEFT,			  TokenIndexs.DOWN, TokenIndexs.UP,	   TokenIndexs.SPACE,	 TokenIndexs.SPACE],
-]
-/// @func	oskeyboardCheck1();
-oskeyboardCheck1 = function()
-{
-	var _bboxLeft = keyboardX - HALF_TILE_SIZE, _bboxTop = keyboardY - HALF_TILE_SIZE;
-	if (showKeyboard && mousePressed && mouse_x > _bboxLeft && mouse_x < _bboxLeft + TILE_SIZE && mouse_y > _bboxTop && mouse_y < _bboxTop + TILE_SIZE) return true
-	return false;
-}
-/// @func	oskeyboardCheck2();
-oskeyboardCheck2 = function()
-{
-	var _bboxLeft = keyboardX - HALF_TILE_SIZE + TILE_SIZE, _bboxTop = keyboardY - HALF_TILE_SIZE;
-	if (showKeyboard && mousePressed && mouse_x > _bboxLeft && mouse_x < _bboxLeft + TILE_SIZE && mouse_y > _bboxTop && mouse_y < _bboxTop + TILE_SIZE) return true
-	return false;
-}
-/// @func	oskeyboardCheck3();
-oskeyboardCheck3 = function()
-{
-	var _bboxLeft = keyboardX - HALF_TILE_SIZE + TILE_SIZE * 2, _bboxTop = keyboardY - HALF_TILE_SIZE;
-	if (showKeyboard && mousePressed && mouse_x > _bboxLeft && mouse_x < _bboxLeft + TILE_SIZE && mouse_y > _bboxTop && mouse_y < _bboxTop + TILE_SIZE) return true
-	return false;
-}
-/// @func	oskeyboardCheck4();
-oskeyboardCheck4 = function()
-{
-	var _bboxLeft = keyboardX - HALF_TILE_SIZE + TILE_SIZE * 3, _bboxTop = keyboardY - HALF_TILE_SIZE;
-	if (showKeyboard && mousePressed && mouse_x > _bboxLeft && mouse_x < _bboxLeft + TILE_SIZE && mouse_y > _bboxTop && mouse_y < _bboxTop + TILE_SIZE) return true
-	return false;
-}
-/// @func	oskeyboardCheck5();
-oskeyboardCheck5 = function()
-{
-	var _bboxLeft = keyboardX - HALF_TILE_SIZE + TILE_SIZE * 4, _bboxTop = keyboardY - HALF_TILE_SIZE;
-	if (showKeyboard && mousePressed && mouse_x > _bboxLeft && mouse_x < _bboxLeft + TILE_SIZE && mouse_y > _bboxTop && mouse_y < _bboxTop + TILE_SIZE) return true
-	return false;
-}
-/// @func	oskeyboardCheck6();
-oskeyboardCheck6 = function()
-{
-	var _bboxLeft = keyboardX - HALF_TILE_SIZE + TILE_SIZE * 5, _bboxTop = keyboardY - HALF_TILE_SIZE;
-	if (showKeyboard && mousePressed && mouse_x > _bboxLeft && mouse_x < _bboxLeft + TILE_SIZE && mouse_y > _bboxTop && mouse_y < _bboxTop + TILE_SIZE) return true
-	return false;
-}
-/// @func	oskeyboardCheck7();
-oskeyboardCheck7 = function()
-{
-	var _bboxLeft = keyboardX - HALF_TILE_SIZE + TILE_SIZE * 6, _bboxTop = keyboardY - HALF_TILE_SIZE;
-	if (showKeyboard && mousePressed && mouse_x > _bboxLeft && mouse_x < _bboxLeft + TILE_SIZE && mouse_y > _bboxTop && mouse_y < _bboxTop + TILE_SIZE) return true
-	return false;
-}
-/// @func	oskeyboardCheck8();
-oskeyboardCheck8 = function()
-{
-	var _bboxLeft = keyboardX - HALF_TILE_SIZE + TILE_SIZE * 7, _bboxTop = keyboardY - HALF_TILE_SIZE;
-	if (showKeyboard && mousePressed && mouse_x > _bboxLeft && mouse_x < _bboxLeft + TILE_SIZE && mouse_y > _bboxTop && mouse_y < _bboxTop + TILE_SIZE) return true
-	return false;
-}
-/// @func	oskeyboardCheck9();
-oskeyboardCheck9 = function()
-{
-	var _bboxLeft = keyboardX - HALF_TILE_SIZE + TILE_SIZE * 8, _bboxTop = keyboardY - HALF_TILE_SIZE;
-	if (showKeyboard && mousePressed && mouse_x > _bboxLeft && mouse_x < _bboxLeft + TILE_SIZE && mouse_y > _bboxTop && mouse_y < _bboxTop + TILE_SIZE) return true
-	return false;
-}
-/// @func	oskeyboardCheck0();
-oskeyboardCheck0 = function()
-{
-	var _bboxLeft = keyboardX - HALF_TILE_SIZE, _bboxTop = keyboardY - HALF_TILE_SIZE + TILE_SIZE;
-	if (showKeyboard && mousePressed && mouse_x > _bboxLeft && mouse_x < _bboxLeft + TILE_SIZE && mouse_y > _bboxTop && mouse_y < _bboxTop + TILE_SIZE) return true
-	return false;
-}
-/// @func	oskeyboardCheckDecimal();
-oskeyboardCheckDecimal = function()
-{
-	var _bboxLeft = keyboardX - HALF_TILE_SIZE + TILE_SIZE, _bboxTop = keyboardY - HALF_TILE_SIZE + TILE_SIZE;
-	if (showKeyboard && mousePressed && mouse_x > _bboxLeft && mouse_x < _bboxLeft + TILE_SIZE && mouse_y > _bboxTop && mouse_y < _bboxTop + TILE_SIZE) return true
-	return false;
-}
-/// @func	oskeyboardCheckX();
-oskeyboardCheckX = function()
-{
-	var _bboxLeft = keyboardX - HALF_TILE_SIZE + TILE_SIZE * 2, _bboxTop = keyboardY - HALF_TILE_SIZE + TILE_SIZE;
-	if (showKeyboard && mousePressed && mouse_x > _bboxLeft && mouse_x < _bboxLeft + TILE_SIZE && mouse_y > _bboxTop && mouse_y < _bboxTop + TILE_SIZE) return true
-	return false;
-}
-/// @func	oskeyboardCheckOpenParenthesis();
-oskeyboardCheckOpenParenthesis = function()
-{
-	var _bboxLeft = keyboardX - HALF_TILE_SIZE + TILE_SIZE * 3, _bboxTop = keyboardY - HALF_TILE_SIZE + TILE_SIZE;
-	if (showKeyboard && mousePressed && mouse_x > _bboxLeft && mouse_x < _bboxLeft + TILE_SIZE && mouse_y > _bboxTop && mouse_y < _bboxTop + TILE_SIZE) return true
-	return false;
-}
-/// @func	oskeyboardCheckCloseParenthesis();
-oskeyboardCheckCloseParenthesis = function()
-{
-	var _bboxLeft = keyboardX - HALF_TILE_SIZE + TILE_SIZE * 4, _bboxTop = keyboardY - HALF_TILE_SIZE + TILE_SIZE;
-	if (showKeyboard && mousePressed && mouse_x > _bboxLeft && mouse_x < _bboxLeft + TILE_SIZE && mouse_y > _bboxTop && mouse_y < _bboxTop + TILE_SIZE) return true
-	return false;
-}
-/// @func	oskeyboardCheckPlus();
-oskeyboardCheckPlus = function()
-{
-	var _bboxLeft = keyboardX - HALF_TILE_SIZE + TILE_SIZE * 5, _bboxTop = keyboardY - HALF_TILE_SIZE + TILE_SIZE;
-	if (showKeyboard && mousePressed && mouse_x > _bboxLeft && mouse_x < _bboxLeft + TILE_SIZE && mouse_y > _bboxTop && mouse_y < _bboxTop + TILE_SIZE) return true
-	return false;
-}
-/// @func	oskeyboardCheckMinus();
-oskeyboardCheckMinus = function()
-{
-	var _bboxLeft = keyboardX - HALF_TILE_SIZE + TILE_SIZE * 6, _bboxTop = keyboardY - HALF_TILE_SIZE + TILE_SIZE;
-	if (showKeyboard && mousePressed && mouse_x > _bboxLeft && mouse_x < _bboxLeft + TILE_SIZE && mouse_y > _bboxTop && mouse_y < _bboxTop + TILE_SIZE) return true
-	return false;
-}
-/// @func	oskeyboardCheckAsterisk();
-oskeyboardCheckAsterisk = function()
-{
-	var _bboxLeft = keyboardX - HALF_TILE_SIZE + TILE_SIZE * 7, _bboxTop = keyboardY - HALF_TILE_SIZE + TILE_SIZE;
-	if (showKeyboard && mousePressed && mouse_x > _bboxLeft && mouse_x < _bboxLeft + TILE_SIZE && mouse_y > _bboxTop && mouse_y < _bboxTop + TILE_SIZE) return true
-	return false;
-}
-/// @func	oskeyboardCheckSlash();
-oskeyboardCheckSlash = function()
-{
-	var _bboxLeft = keyboardX - HALF_TILE_SIZE + TILE_SIZE * 8, _bboxTop = keyboardY - HALF_TILE_SIZE + TILE_SIZE;
-	if (showKeyboard && mousePressed && mouse_x > _bboxLeft && mouse_x < _bboxLeft + TILE_SIZE && mouse_y > _bboxTop && mouse_y < _bboxTop + TILE_SIZE) return true
-	return false;
-}
-/// @func	oskeyboardCheckCarrot();
-oskeyboardCheckCarrot = function()
-{
-	var _bboxLeft = keyboardX - HALF_TILE_SIZE, _bboxTop = keyboardY - HALF_TILE_SIZE + TILE_SIZE * 2;
-	if (showKeyboard && mousePressed && mouse_x > _bboxLeft && mouse_x < _bboxLeft + TILE_SIZE && mouse_y > _bboxTop && mouse_y < _bboxTop + TILE_SIZE) return true
-	return false;
-}
-/// @func	oskeyboardCheckSin();
-oskeyboardCheckSin = function()
-{
-	var _bboxLeft = keyboardX - HALF_TILE_SIZE + TILE_SIZE, _bboxTop = keyboardY - HALF_TILE_SIZE + TILE_SIZE * 2;
-	if (showKeyboard && mousePressed && mouse_x > _bboxLeft && mouse_x < _bboxLeft + TILE_SIZE && mouse_y > _bboxTop && mouse_y < _bboxTop + TILE_SIZE) return true
-	return false;
-}
-/// @func	oskeyboardCheckCos();
-oskeyboardCheckCos = function()
-{
-	var _bboxLeft = keyboardX - HALF_TILE_SIZE + TILE_SIZE * 2, _bboxTop = keyboardY - HALF_TILE_SIZE + TILE_SIZE * 2;
-	if (showKeyboard && mousePressed && mouse_x > _bboxLeft && mouse_x < _bboxLeft + TILE_SIZE && mouse_y > _bboxTop && mouse_y < _bboxTop + TILE_SIZE) return true
-	return false;
-}
-/// @func	oskeyboardCheckTan();
-oskeyboardCheckTan = function()
-{
-	var _bboxLeft = keyboardX - HALF_TILE_SIZE + TILE_SIZE * 3, _bboxTop = keyboardY - HALF_TILE_SIZE + TILE_SIZE * 2;
-	if (showKeyboard && mousePressed && mouse_x > _bboxLeft && mouse_x < _bboxLeft + TILE_SIZE && mouse_y > _bboxTop && mouse_y < _bboxTop + TILE_SIZE) return true
-	return false;
-}
-/// @func	oskeyboardCheckRoot();
-oskeyboardCheckRoot = function()
-{
-	var _bboxLeft = keyboardX - HALF_TILE_SIZE + TILE_SIZE * 4, _bboxTop = keyboardY - HALF_TILE_SIZE + TILE_SIZE * 2;
-	if (showKeyboard && mousePressed && mouse_x > _bboxLeft && mouse_x < _bboxLeft + TILE_SIZE && mouse_y > _bboxTop && mouse_y < _bboxTop + TILE_SIZE) return true
-	return false;
-}
-/// @func	oskeyboardCheckLog();
-oskeyboardCheckLog = function()
-{
-	var _bboxLeft = keyboardX - HALF_TILE_SIZE + TILE_SIZE * 5, _bboxTop = keyboardY - HALF_TILE_SIZE + TILE_SIZE * 2;
-	if (showKeyboard && mousePressed && mouse_x > _bboxLeft && mouse_x < _bboxLeft + TILE_SIZE && mouse_y > _bboxTop && mouse_y < _bboxTop + TILE_SIZE) return true
-	return false;
-}
-/// @func	oskeyboardCheckPi();
-oskeyboardCheckPi = function()
-{
-	var _bboxLeft = keyboardX - HALF_TILE_SIZE + TILE_SIZE * 6, _bboxTop = keyboardY - HALF_TILE_SIZE + TILE_SIZE * 2;
-	if (showKeyboard && mousePressed && mouse_x > _bboxLeft && mouse_x < _bboxLeft + TILE_SIZE && mouse_y > _bboxTop && mouse_y < _bboxTop + TILE_SIZE) return true
-	return false;
-}
-/// @func	oskeyboardCheckE();
-oskeyboardCheckE = function()
-{
-	var _bboxLeft = keyboardX - HALF_TILE_SIZE + TILE_SIZE * 7, _bboxTop = keyboardY - HALF_TILE_SIZE + TILE_SIZE * 2;
-	if (showKeyboard && mousePressed && mouse_x > _bboxLeft && mouse_x < _bboxLeft + TILE_SIZE && mouse_y > _bboxTop && mouse_y < _bboxTop + TILE_SIZE) return true
-	return false;
-}
-/// @func	oskeyboardCheckSpace();
-oskeyboardCheckSpace = function()
-{
-	var _bboxLeft = keyboardX - HALF_TILE_SIZE + TILE_SIZE * 8, _bboxTop = keyboardY - HALF_TILE_SIZE + TILE_SIZE * 2;
-	if (showKeyboard && mousePressed && mouse_x > _bboxLeft && mouse_x < _bboxLeft + TILE_SIZE && mouse_y > _bboxTop && mouse_y < _bboxTop + TILE_SIZE) return true
-	return false;
-}
-/// @func	oskeyboardCheckBackspace();
-oskeyboardCheckBackspace = function()
-{
-	var _bboxLeft = keyboardX - HALF_TILE_SIZE, _bboxTop = keyboardY - HALF_TILE_SIZE + TILE_SIZE * 3;
-	if (showKeyboard && mousePressed && mouse_x > _bboxLeft && mouse_x < _bboxLeft + TILE_SIZE && mouse_y > _bboxTop && mouse_y < _bboxTop + TILE_SIZE) return true
-	return false;
-}
-/// @func	oskeyboardCheckEnter();
-oskeyboardCheckEnter = function()
-{
-	var _bboxLeft = keyboardX - HALF_TILE_SIZE + TILE_SIZE, _bboxTop = keyboardY - HALF_TILE_SIZE + TILE_SIZE * 3;
-	if (showKeyboard && mousePressed && mouse_x > _bboxLeft && mouse_x < _bboxLeft + TILE_SIZE && mouse_y > _bboxTop && mouse_y < _bboxTop + TILE_SIZE) return true
-	return false;
-}
-/// @func	oskeyboardCheckTab();
-oskeyboardCheckTab = function()
-{
-	var _bboxLeft = keyboardX - HALF_TILE_SIZE + TILE_SIZE * 2, _bboxTop = keyboardY - HALF_TILE_SIZE + TILE_SIZE * 3;
-	if (editingEquation && showKeyboard && mousePressed && mouse_x > _bboxLeft && mouse_x < _bboxLeft + TILE_SIZE && mouse_y > _bboxTop && mouse_y < _bboxTop + TILE_SIZE) return true
-	return false;
-}
-/// @func	oskeyboardCheckRight();
-oskeyboardCheckRight = function()
-{
-	var _bboxLeft = keyboardX - HALF_TILE_SIZE + TILE_SIZE * 3, _bboxTop = keyboardY - HALF_TILE_SIZE + TILE_SIZE * 3;
-	if (editingEquation && showKeyboard && mousePressed && mouse_x > _bboxLeft && mouse_x < _bboxLeft + TILE_SIZE && mouse_y > _bboxTop && mouse_y < _bboxTop + TILE_SIZE) return true
-	return false;
-}
-/// @func	oskeyboardCheckLeft();
-oskeyboardCheckLeft = function()
-{
-	var _bboxLeft = keyboardX - HALF_TILE_SIZE + TILE_SIZE * 4, _bboxTop = keyboardY - HALF_TILE_SIZE + TILE_SIZE * 3;
-	if (editingEquation && showKeyboard && mousePressed && mouse_x > _bboxLeft && mouse_x < _bboxLeft + TILE_SIZE && mouse_y > _bboxTop && mouse_y < _bboxTop + TILE_SIZE) return true
-	return false;
-}
-/// @func	oskeyboardCheckDown();
-oskeyboardCheckDown = function()
-{
-	var _bboxLeft = keyboardX - HALF_TILE_SIZE + TILE_SIZE * 5, _bboxTop = keyboardY - HALF_TILE_SIZE + TILE_SIZE * 3;
-	if (editingEquation && showKeyboard && mousePressed && mouse_x > _bboxLeft && mouse_x < _bboxLeft + TILE_SIZE && mouse_y > _bboxTop && mouse_y < _bboxTop + TILE_SIZE) return true
-	return false;
-}
-/// @func	oskeyboardCheckUp();
-oskeyboardCheckUp = function()
-{
-	var _bboxLeft = keyboardX - HALF_TILE_SIZE + TILE_SIZE * 6, _bboxTop = keyboardY - HALF_TILE_SIZE + TILE_SIZE * 3;
-	if (editingEquation && showKeyboard && mousePressed && mouse_x > _bboxLeft && mouse_x < _bboxLeft + TILE_SIZE && mouse_y > _bboxTop && mouse_y < _bboxTop + TILE_SIZE) return true
-	return false;
-}
-#endregion
-
 /// @func	graphEquation();
 graphEquation = function()
 {
@@ -487,18 +237,6 @@ convertInfixToPostfix = function(_expression)
 	return _postfixExpression;
 }
 
-/// @func	getToggleEquationEditorInput();
-getToggleEquationEditorInput = function()
-{
-	return keyboard_check_pressed(vk_tab) || gamepad_button_check_pressed(0,gp_start) || (mousePressed && mouse_y > 191) || oskeyboardCheckTab();
-}
-
-/// @func	getGraphEquationInput();
-getGraphEquationInput = function()
-{
-	return keyboard_check_pressed(vk_enter) || gamepad_button_check_pressed(0,gp_face2) || oskeyboardCheckEnter();
-}
-
 /// @func	destroyGraph();
 destroyGraph = function()
 {
@@ -549,4 +287,73 @@ fillTable = function()
 	}
 	// Clear table
 	else for (var _i = 0; _i < array_length(table); _i++) table[_i] = 0;
+}
+
+/// @func	toggleEquationEditor();
+toggleEquationEditor = function()
+{
+	// Toggle editing equation
+	editingEquation = !editingEquation;
+	
+	// Update equation tokens
+	equationTokens = [];
+	array_copy(equationTokens, 0, graphs[graphIdx][0], 0, array_length(graphs[graphIdx][0]));
+	
+	// Reset variables
+	if (editingEquation) onToggleEquationEditorOn();
+	else onToggleEquationEditorOff();
+	
+	// Toggle grapher sound
+	audio_play_sound(sfxToggleGrapher, 2, false);
+}
+
+/// @func	onToggleEquationEditorOn();
+onToggleEquationEditorOn = function()
+{
+	// Pause game
+	with (oGame)
+	{
+		pauseGame();
+	}
+		
+	// Set type cursor
+	cursor = false;
+	blinkTimer = 0;
+		
+	// Fill table if necessary
+	if (menuIdx == 3) fillTable();
+		
+	// Show cooldown if applicable
+	if (graphs[graphIdx][2] > 0) previousPostfixEquation = "Cooldown ends in " + string(graphs[graphIdx][2] / 60) + " seconds";
+	else if (string_length(previousPostfixEquation) > 0 && string_char_at(previousPostfixEquation, 0) == "C") previousPostfixEquation = "None";
+	
+	// Spawn on screen keyboard if real one not being used
+	if (oInput.playerGamepadIds[| 0] != -1) instance_create_layer(0, 0, "Instances", oOnScreenKeyboard);
+}
+
+/// @func	onToggleEquationEditorOff();
+onToggleEquationEditorOff = function()
+{
+	// Set cursor
+	cursor = true;
+		
+	// Apply cooldowns
+	for (var _i = 0; _i < array_length(graphs); _i++)
+	{
+		// Apply cooldown on exit
+		if (graphs[graphIdx][3])
+		{
+			graphs[graphIdx][2] = graphCooldown;
+			graphs[graphIdx][3] = false;
+		}
+	}
+	
+	// Destroy on screen keyboard if one exists
+	if (instance_exists(oOnScreenKeyboard)) instance_destroy(oOnScreenKeyboard);
+		
+	// Resume game
+	with (oGame)
+	{
+		resumeGame();
+	}
 }
