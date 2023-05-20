@@ -36,9 +36,7 @@ function setTheme(_idx)
 			
 			// Background
 			var _background = layer_background_get_id("Background");
-			layer_background_sprite(_background, sNeokyoCityMountains);
-			layer_background_vtiled(_background, false);
-			layer_y(layer_get_id("Background"), 104);
+			layer_background_blend(_background, c_black);
 			layer_set_visible("NeokyoCity", true);
 			layer_set_visible("GridAxis", false);
 			break;
@@ -82,9 +80,7 @@ function unsetTheme(_idx)
 			
 			// Background
 			var _background = layer_background_get_id("Background");
-			layer_background_sprite(_background, sGrid);
-			layer_background_vtiled(_background, true);
-			layer_y(layer_get_id("Background"), 0);
+			layer_background_blend(_background, c_white);
 			layer_set_visible("NeokyoCity", false);
 			layer_set_visible("GridAxis", true);
 			break;

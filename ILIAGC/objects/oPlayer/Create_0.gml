@@ -1,7 +1,7 @@
 // Rigid body
 initRigidBody();
 
-//oWorld.coinsInBank = 10000;
+oWorld.coinsInBank = 10000;
 
 // Player
 playerId = 0;
