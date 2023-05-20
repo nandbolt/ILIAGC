@@ -3,6 +3,7 @@ initRigidBody();
 
 // Player
 playerId = 0;
+playerColor = c_white;
 
 // Inputs
 inputDirection = new Vector2();

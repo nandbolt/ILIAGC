@@ -181,6 +181,6 @@ if (sprite_index != _previousSprite) image_index = 0;
 
 // Bubble gum
 if (bubbleGumTimer > 0) image_blend = c_fuchsia;
-else image_blend = c_white;
+else image_blend = playerColor;
 
 #endregion

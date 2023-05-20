@@ -5,7 +5,7 @@ event_inherited();
 initRigidBody();
 
 // Inputs
-inputDirection = new Vector2();
+inputDirection = new Vector2(1, 0);
 
 // HP
 hp = 15;
