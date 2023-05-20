@@ -15,3 +15,4 @@ if (!collected)
 	}
 	else image_alpha = 0.25;
 }
+else nearbyTimer = 0;

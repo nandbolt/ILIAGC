@@ -28,6 +28,20 @@ function getCharacterName(_idx)
 	}
 }
 
+/// @func	getCharacterDescription({int} idx);
+function getCharacterDescription(_idx)
+{
+	switch (_idx)
+	{
+		case Character.DOG:
+			return "Character: Ruff ruff!";
+		case Character.SLIME:
+			return "Character: Slimy, yet satisfying.";
+		default:
+			return "Character: The root of all evil.";
+	}
+}
+
 /// @func	getCharacterSprite({int} idx);
 function getCharacterSprite(_idx)
 {

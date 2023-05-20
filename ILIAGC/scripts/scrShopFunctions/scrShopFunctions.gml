@@ -52,6 +52,7 @@ function shopSpawnItemUpgrade(_idx, _x, _y)
 		// Set shop item info
 		misc = _idx;
 		description = getUpgradeName(_idx);
+		longDescription = getUpgradeDescription(_idx);
 		sprite_index = getUpgradeSprite(_idx);
 		price = getUpgradeCost(_idx);
 	}
@@ -66,6 +67,7 @@ function shopSpawnItemMisc(_idx, _x, _y)
 		// Set shop item info
 		misc = _idx;
 		description = getMiscName(_idx);
+		longDescription = getMiscDescription(_idx);
 		sprite_index = getMiscSprite(_idx);
 		price = getMiscCost(_idx);
 	}
@@ -80,6 +82,7 @@ function shopSpawnItemTheme(_idx, _x, _y)
 		// Set shop item info
 		theme = _idx;
 		description = getThemeName(_idx);
+		longDescription = getThemeDescription(_idx);
 		sprite_index = getThemeSprite(_idx);
 		price = getThemeCost(_idx);
 	}
@@ -94,6 +97,7 @@ function shopSpawnItemCharacter(_idx, _x, _y)
 		// Set shop item info
 		character = _idx;
 		description = getCharacterName(_idx);
+		longDescription = getCharacterDescription(_idx);
 		sprite_index = getCharacterSprite(_idx);
 		price = getCharacterCost(_idx);
 	}
@@ -108,6 +112,7 @@ function shopSpawnItemMode(_idx, _x, _y)
 		// Set shop item info
 		mode = _idx;
 		description = getModeName(_idx);
+		longDescription = getModeDescription(_idx);
 		sprite_index = getModeSprite(_idx);
 		price = getModeCost(_idx);
 	}
@@ -122,6 +127,7 @@ function shopSpawnItemFood(_idx, _x, _y)
 		// Set shop item info
 		food = _idx;
 		description = getFoodName(_idx);
+		longDescription = getFoodDescription(_idx);
 		sprite_index = getFoodSprite(_idx);
 		price = getFoodCost(_idx);
 	}

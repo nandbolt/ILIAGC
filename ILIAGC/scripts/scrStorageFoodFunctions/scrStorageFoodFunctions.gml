@@ -28,6 +28,20 @@ function getFoodName(_idx)
 	}
 }
 
+/// @func	getFoodDescription({int} idx);
+function getFoodDescription(_idx)
+{
+	switch (_idx)
+	{
+		case Food.SPAGHETTI:
+			return "Food: Start your next run with a ball, a meaty one!";
+		case Food.CHOCOLATE:
+			return "Food: Start with a block next run. It's 100% cacao, so I'm not sure if you want to eat it...";
+		default:
+			return "Food: Start with a bubble next run. What did you expect!?";
+	}
+}
+
 /// @func	getFoodSprite({int} idx);
 function getFoodSprite(_idx)
 {

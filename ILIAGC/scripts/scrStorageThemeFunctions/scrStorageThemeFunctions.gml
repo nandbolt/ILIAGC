@@ -130,6 +130,32 @@ function getThemeName(_idx)
 	}
 }
 
+/// @func	getThemeDescription({int} idx);
+function getThemeDescription(_idx)
+{
+	switch (_idx)
+	{
+		case Theme.DAY:
+			return "Theme: It'll burn your eyes.";
+		case Theme.BASIC:
+			return "Theme: For those who enjoy the simple things.";
+		case Theme.AQUA:
+			return "Theme: Ah, I can almost smell the ocean.";
+		case Theme.GREEN:
+			return "Theme: If the system had a color, it would be green.";
+		case Theme.ALT_DEFAULT:
+			return "Theme: For those who really, really like purple coins.";
+		case Theme.TI_83:
+			return "Theme: The essence of older times.";
+		case Theme.NEOKYO_CITY:
+			return "Theme: In a city powered by the noble gases and overtaken by evil robots, one brave hero...";
+		case Theme.NNE:
+			return "Theme: The engine is fried! Oh, wait, I think I just crashed the ship. What planet is this...";
+		default:
+			return "Theme: ???";
+	}
+}
+
 /// @func	getThemeSprite({int} idx);
 function getThemeSprite(_idx)
 {

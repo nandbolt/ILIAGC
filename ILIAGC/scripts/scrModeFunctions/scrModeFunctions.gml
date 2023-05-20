@@ -10,6 +10,18 @@ function getModeName(_idx)
 	}
 }
 
+/// @func	getModeDescription({int} idx);
+function getModeDescription(_idx)
+{
+	switch (_idx)
+	{
+		case Mode.SOCCER:
+			return "Mode: GOOOOOOOOOOOOOAAAAAAAAAAAALL...";
+		default:
+			return "Mode: ???";
+	}
+}
+
 /// @func	getModeSprite({int} idx);
 function getModeSprite(_idx)
 {

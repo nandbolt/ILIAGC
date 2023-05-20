@@ -42,6 +42,18 @@ function getUpgradeName(_idx)
 	}
 }
 
+/// @func	getUpgradeDescription({int} idx);
+function getUpgradeDescription(_idx)
+{
+	switch (_idx)
+	{
+		case Upgrade.EQUATION_UP:
+			return "Upgrade: Allows you to simultaneously graph 3 different equations.";
+		default:
+			return "Upgrade: ???";
+	}
+}
+
 /// @func	getUpgradeSprite({int} idx);
 function getUpgradeSprite(_idx)
 {

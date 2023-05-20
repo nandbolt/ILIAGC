@@ -32,6 +32,18 @@ function getMiscName(_idx)
 	}
 }
 
+/// @func	getMiscDescription({int} idx);
+function getMiscDescription(_idx)
+{
+	switch (_idx)
+	{
+		case Misc.DEBUG_MODE:
+			return "Misc: Allows you to see hitboxes and junk.";
+		default:
+			return "Misc: ???";
+	}
+}
+
 /// @func	getMiscSprite({int} idx);
 function getMiscSprite(_idx)
 {

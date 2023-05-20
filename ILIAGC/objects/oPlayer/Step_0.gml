@@ -10,6 +10,22 @@ interactPressed = inputPressed(playerId, InputAction.INTERACT);
 if (crouchInputted && jumpInputted) ignoreGraphs = true;
 else ignoreGraphs = false;
 
+// Block place
+if (blocks > 0 && inputPressed(playerId, InputAction.INTERACT))
+{
+	// If at empty space
+	var _x = floor(x / TILE_SIZE) * TILE_SIZE, _y = floor(y / TILE_SIZE) * TILE_SIZE + TILE_SIZE;
+	if (tilemap_get_at_pixel(collisionTiles, _x, _y) == 0)
+	{
+		// Set block
+		instance_create_layer(_x, _y, "Instances", oBlock);
+		blocks--;
+			
+		// Block sound
+		audio_play_sound(sfxGraphEquation, 1, false);
+	}
+}
+
 #region Powerups/Invincibility/Other
 
 // Switch scopes
@@ -77,26 +93,6 @@ if (jumpBufferCounter > 0)
 {
 	// Ground jump
 	if (grounded || coyoteBufferCounter > 0) jump();
-	// Block place
-	else if (blocks > 0)
-	{
-		// If at empty space
-		var _x = floor(x / TILE_SIZE) * TILE_SIZE, _y = floor(y / TILE_SIZE) * TILE_SIZE + TILE_SIZE;
-		if (tilemap_get_at_pixel(collisionTiles, _x, _y) == 0)
-		{
-			// Set block
-			instance_create_layer(_x, _y, "Instances", oBlock);
-			blocks--;
-			
-			// Block sound
-			audio_play_sound(sfxGraphEquation, 1, false);
-			
-			// Reset jump buffer
-			jumpBufferCounter = 0;
-		}
-		// Air jump
-		else if (airJumps > 0) airJump();
-	}
 	// Air jump
 	else if (airJumps > 0) airJump();
 }
