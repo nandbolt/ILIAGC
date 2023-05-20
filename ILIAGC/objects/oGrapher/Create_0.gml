@@ -311,12 +311,18 @@ toggleEquationEditor = function()
 /// @func	onToggleEquationEditorOn();
 onToggleEquationEditorOn = function()
 {
-	// Pause game
-	with (oGame)
+	// If game not paused
+	if (!oGame.gamePaused)
 	{
-		pauseGame();
+		// Pause game
+		with (oGame)
+		{
+			pauseGame();
+		}
 	}
-		
+	// Else destroy pause menu if it exists
+	else if (instance_exists(oPauseMenu)) instance_destroy(oPauseMenu);
+	
 	// Set type cursor
 	cursor = false;
 	blinkTimer = 0;

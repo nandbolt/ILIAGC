@@ -141,5 +141,5 @@ if (editingEquation)
 	}
 }
 
-// If want to edit equation
+// If want to edit equation and game not paused
 if (inputPressed(0, InputAction.SELECT)) toggleEquationEditor();

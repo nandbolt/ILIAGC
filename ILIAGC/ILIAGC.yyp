@@ -187,6 +187,7 @@
     {"id":{"name":"sNNESpace","path":"sprites/sNNESpace/sNNESpace.yy",},"order":0,},
     {"id":{"name":"oOSKButtonLog","path":"objects/oOSKButtonLog/oOSKButtonLog.yy",},"order":10,},
     {"id":{"name":"sNeokyoCityLaser","path":"sprites/sNeokyoCityLaser/sNeokyoCityLaser.yy",},"order":2,},
+    {"id":{"name":"oPauseMenu","path":"objects/oPauseMenu/oPauseMenu.yy",},"order":1,},
     {"id":{"name":"oStoragePowerupsCoin","path":"objects/oStoragePowerupsCoin/oStoragePowerupsCoin.yy",},"order":2,},
     {"id":{"name":"sScientistSlide","path":"sprites/sScientistSlide/sScientistSlide.yy",},"order":6,},
     {"id":{"name":"sPowerupInvincible3","path":"sprites/sPowerupInvincible3/sPowerupInvincible3.yy",},"order":2,},

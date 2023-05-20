@@ -1,3 +1,6 @@
+// States
+gamePaused = false;
+
 #region Unlockables
 
 // Item idx, current lvl, max lvl
@@ -67,6 +70,9 @@ browserScaleCanvas = function(_baseWidth, _baseHeight, _currentWidth, _currentHe
 /// @func	pauseGame();
 pauseGame = function()
 {
+	// Pause game state
+	gamePaused = true;
+	
 	// Pause game timer
 	oWorld.gameTimerPaused = true;
 	
@@ -188,4 +194,7 @@ resumeGame = function()
 	
 	// Resume game timer
 	oWorld.gameTimerPaused = false;
+	
+	// Pause game state
+	gamePaused = false;
 }

@@ -1,7 +1,10 @@
 // Select current button if not selected
-with (buttons[buttonIdx])
+if (array_length(buttons) > 0)
 {
-	if (!selected) select();
+	with (buttons[buttonIdx])
+	{
+		if (!selected) select();
+	}
 }
 
 // Inputs

@@ -1,7 +1,7 @@
 #region Players
 
 // If game is not paused
-if (!oGrapher.editingEquation)
+if (!oGame.gamePaused)
 {
 	// Get info
 	var _numPlayersSpawned = instance_number(oPlayer);
