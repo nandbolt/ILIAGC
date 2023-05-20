@@ -27,6 +27,7 @@ ds_map_add(precedenceMap, "l", 5);
 ds_map_add(precedenceMap, "r", 5);
 previousPostfixEquation = "None";
 graphCooldown = 300;
+axisVisible = layer_get_visible("GridAxis");
 
 // Other
 showInfo = true;
@@ -329,6 +330,14 @@ onToggleEquationEditorOn = function()
 	
 	// Spawn on screen keyboard if real one not being used
 	if (oInput.playerGamepadIds[| 0] != -1) instance_create_layer(0, 0, "Instances", oOnScreenKeyboard);
+	
+	// Storge previous axis visibility
+	axisVisible = layer_get_visible("GridAxis");
+	
+	// Set axis visible
+	layer_set_visible("GridNumbers", true);
+	layer_set_visible("GridNumberBackgrounds", true);
+	layer_set_visible("GridAxis", true);
 }
 
 /// @func	onToggleEquationEditorOff();
@@ -350,6 +359,11 @@ onToggleEquationEditorOff = function()
 	
 	// Destroy on screen keyboard if one exists
 	if (instance_exists(oOnScreenKeyboard)) instance_destroy(oOnScreenKeyboard);
+	
+	// Set axis visibility to previous
+	layer_set_visible("GridNumbers", axisVisible);
+	layer_set_visible("GridNumberBackgrounds", axisVisible);
+	layer_set_visible("GridAxis", axisVisible);
 		
 	// Resume game
 	with (oGame)

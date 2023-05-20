@@ -38,7 +38,8 @@ function setTheme(_idx)
 			var _background = layer_background_get_id("Background");
 			layer_background_blend(_background, c_black);
 			layer_set_visible("NeokyoCity", true);
-			layer_set_visible("GridNumberBackgrounds", true);
+			layer_set_visible("GridNumbers", false);
+			layer_set_visible("GridNumberBackgrounds", false);
 			layer_set_visible("GridAxis", false);
 			break;
 		case Theme.NNE:
@@ -52,7 +53,8 @@ function setTheme(_idx)
 			var _background = layer_background_get_id("Background");
 			layer_background_sprite(_background, sNNESpace);
 			layer_set_visible("NNE", true);
-			layer_set_visible("GridNumberBackgrounds", true);
+			layer_set_visible("GridNumbers", false);
+			layer_set_visible("GridNumberBackgrounds", false);
 			layer_set_visible("GridAxis", false);
 			break;
 	}
@@ -84,7 +86,8 @@ function unsetTheme(_idx)
 			var _background = layer_background_get_id("Background");
 			layer_background_blend(_background, c_white);
 			layer_set_visible("NeokyoCity", false);
-			layer_set_visible("GridNumberBackgrounds", false);
+			layer_set_visible("GridNumbers", true);
+			layer_set_visible("GridNumberBackgrounds", true);
 			layer_set_visible("GridAxis", true);
 			break;
 		case Theme.NNE:
@@ -98,7 +101,8 @@ function unsetTheme(_idx)
 			var _background = layer_background_get_id("Background");
 			layer_background_sprite(_background, sGrid);
 			layer_set_visible("NNE", false);
-			layer_set_visible("GridNumberBackgrounds", false);
+			layer_set_visible("GridNumbers", true);
+			layer_set_visible("GridNumberBackgrounds", true);
 			layer_set_visible("GridAxis", true);
 			break;
 	}

@@ -28,7 +28,7 @@ function getModeSprite(_idx)
 	switch (_idx)
 	{
 		case Mode.SOCCER:
-			return sShopItemEquationUp;
+			return sShopItemSoccer;
 		default:
 			return sCoinOutline;
 	}
@@ -40,7 +40,7 @@ function getModeCost(_idx)
 	switch (_idx)
 	{
 		case Mode.SOCCER:
-			return 0;
+			return 100;
 		default:
 			return 0;
 	}
