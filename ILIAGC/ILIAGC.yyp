@@ -112,6 +112,7 @@
     {"id":{"name":"scrStoragePowerupFunctions","path":"scripts/scrStoragePowerupFunctions/scrStoragePowerupFunctions.yy",},"order":2,},
     {"id":{"name":"oToggleThemeCoin","path":"objects/oToggleThemeCoin/oToggleThemeCoin.yy",},"order":3,},
     {"id":{"name":"oBallSoccer","path":"objects/oBallSoccer/oBallSoccer.yy",},"order":1,},
+    {"id":{"name":"sTokenBackground","path":"sprites/sTokenBackground/sTokenBackground.yy",},"order":7,},
     {"id":{"name":"oOSKButtonPi","path":"objects/oOSKButtonPi/oOSKButtonPi.yy",},"order":10,},
     {"id":{"name":"oStorageCoin","path":"objects/oStorageCoin/oStorageCoin.yy",},"order":4,},
     {"id":{"name":"oCoinBlue","path":"objects/oCoinBlue/oCoinBlue.yy",},"order":3,},
