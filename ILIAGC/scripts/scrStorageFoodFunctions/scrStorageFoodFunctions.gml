@@ -47,10 +47,12 @@ function getFoodCost(_idx)
 {
 	switch (_idx)
 	{
+		case Food.BUBBLE_TEA:
+			return 45;
 		case Food.SPAGHETTI:
-			return 0;
+			return 30;
 		case Food.CHOCOLATE:
-			return 0;
+			return 15;
 		default:
 			return 0;
 	}
