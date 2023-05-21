@@ -62,6 +62,7 @@
     {"id":{"name":"sPlayerCrouch","path":"sprites/sPlayerCrouch/sPlayerCrouch.yy",},"order":0,},
     {"id":{"name":"sPlayerRun","path":"sprites/sPlayerRun/sPlayerRun.yy",},"order":5,},
     {"id":{"name":"sNeokyoCityTiles","path":"sprites/sNeokyoCityTiles/sNeokyoCityTiles.yy",},"order":1,},
+    {"id":{"name":"oResetSaveCoin","path":"objects/oResetSaveCoin/oResetSaveCoin.yy",},"order":5,},
     {"id":{"name":"sScientistJumpCenter","path":"sprites/sScientistJumpCenter/sScientistJumpCenter.yy",},"order":4,},
     {"id":{"name":"sPlayerJumpCenter","path":"sprites/sPlayerJumpCenter/sPlayerJumpCenter.yy",},"order":4,},
     {"id":{"name":"oShopItemCharacter","path":"objects/oShopItemCharacter/oShopItemCharacter.yy",},"order":1,},

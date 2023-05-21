@@ -12,9 +12,11 @@ function resetSave()
 	ini_section_delete("characters");
 	ini_section_delete("modes");
 	
-	// Delete scores
+	// Delete high scores
+	ini_section_delete("high_scores");
 	
-	// Delete money
+	// Delete inventory
+	ini_section_delete("inventory");
 	
 	// Close save
 	ini_close();

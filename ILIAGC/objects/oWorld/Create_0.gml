@@ -120,6 +120,11 @@ endGame = function()
 	// Add coins to the bank
 	coinsInBank += coins;
 	
+	// Save coins
+	ini_open("save.ini");
+	ini_write_real("inventory", "coins_in_bank", oWorld.coinsInBank);
+	ini_close();
+	
 	// Clear effects
 	with (oPlayer)
 	{
@@ -303,8 +308,9 @@ with (_mostCoinsSpriteInstance)
 	spins = true;
 }
 
-// Get high score from disk
+// Get save info
 ini_open("save.ini");
+coinsInBank = ini_read_real("inventory", "coins_in_bank", 0);
 coinRushMostCoins = ini_read_real("high_scores","coin_rush",0);
 soccerMostCoins = ini_read_real("high_scores","soccer",0);
 ini_close();

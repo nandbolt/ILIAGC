@@ -19,4 +19,7 @@ onCollect = function()
 	instance_create_layer(96, 136, "Instances", oStorageCharactersCoin);
 	instance_create_layer(128, 136, "Instances", oStorageUpgradesCoin);
 	instance_create_layer(160, 136, "Instances", oStorageMiscCoin);
+	
+	// Reset coin
+	instance_create_layer(160, 48, "Instances", oResetSaveCoin);
 }

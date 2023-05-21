@@ -27,6 +27,7 @@ onCollect = function()
 		// Save item purchase
 		ini_open("save.ini");
 		ini_write_real(itemTypeString, itemName, itemValue);
+		ini_write_real("inventory", "coins_in_bank", oWorld.coinsInBank);
 		ini_close();
 	}
 }

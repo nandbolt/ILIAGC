@@ -1,60 +1,6 @@
 // States
 gamePaused = false;
 
-// Clear save
-//resetSave();
-
-#region Unlockables
-
-// Open save
-ini_open("save.ini");
-
-// Item idx, current lvl, max lvl
-myPowerups = [
-	[Powerup.SHIELD,		ini_read_real("powerups", getPowerupSaveName(Powerup.SHIELD), 1),		3],
-	[Powerup.AIR_JUMP,		ini_read_real("powerups", getPowerupSaveName(Powerup.AIR_JUMP), 0),		3],
-	[Powerup.INVINCIBLE,	ini_read_real("powerups", getPowerupSaveName(Powerup.INVINCIBLE), 0),	3],
-	[Powerup.BALL,			ini_read_real("powerups", getPowerupSaveName(Powerup.BALL), 0),			3],
-	[Powerup.IRON_GRAPH,	ini_read_real("powerups", getPowerupSaveName(Powerup.IRON_GRAPH), 0),	3],
-	[Powerup.BLOCK,			ini_read_real("powerups", getPowerupSaveName(Powerup.BLOCK), 0),		3],
-];
-myUpgrades = [
-	[Upgrade.EQUATION_UP,	ini_read_real("upgrades", getUpgradeSaveName(Upgrade.EQUATION_UP), 0),	1],
-];
-myMisc = [
-	[Misc.DEBUG_MODE,		ini_read_real("misc", getMiscSaveName(Misc.DEBUG_MODE), 0),				1],
-];
-myTheme = [
-	[Theme.DEFAULT,			ini_read_real("themes", getThemeSaveName(Theme.DEFAULT), 1),			1],
-	[Theme.DAY,				ini_read_real("themes", getThemeSaveName(Theme.DAY), 0),				1],
-	[Theme.BASIC,			ini_read_real("themes", getThemeSaveName(Theme.BASIC), 0),				1],
-	[Theme.AQUA,			ini_read_real("themes", getThemeSaveName(Theme.AQUA), 0),				1],
-	[Theme.GREEN,			ini_read_real("themes", getThemeSaveName(Theme.GREEN), 0),				1],
-	[Theme.ALT_DEFAULT,		ini_read_real("themes", getThemeSaveName(Theme.ALT_DEFAULT), 0),		1],
-	[Theme.TI_83,			ini_read_real("themes", getThemeSaveName(Theme.TI_83), 0),				1],
-	[Theme.NEOKYO_CITY,		ini_read_real("themes", getThemeSaveName(Theme.NEOKYO_CITY), 0),		1],
-	[Theme.NNE,				ini_read_real("themes", getThemeSaveName(Theme.NNE), 0),				1],
-];
-myCharacters = [
-	[Character.HUMAN,		ini_read_real("characters", getCharacterSaveName(Character.HUMAN), 1),	1],
-	[Character.DOG,			ini_read_real("characters", getCharacterSaveName(Character.DOG), 0),	1],
-	[Character.SLIME,		ini_read_real("characters", getCharacterSaveName(Character.SLIME), 0),	1],
-];
-myModes = [
-	[Mode.COIN_RUSH,		ini_read_real("modes", getModeSaveName(Mode.COIN_RUSH), 1),				1],
-	[Mode.SOCCER,			ini_read_real("modes", getModeSaveName(Mode.SOCCER), 0),				1],
-];
-myFoods = [
-	[Food.BUBBLE_TEA,		0, 1],
-	[Food.SPAGHETTI,		0, 1],
-	[Food.CHOCOLATE,		0, 1],
-];
-
-// Close save
-ini_close();
-
-#endregion
-
 // Canvas
 canvasWidth = CANVAS_BASE_WIDTH;
 canvasHeight = CANVAS_BASE_HEIGHT;
@@ -213,3 +159,57 @@ resumeGame = function()
 	// Pause game state
 	gamePaused = false;
 }
+
+/// @func	loadUnlockables();
+loadUnlockables = function()
+{
+	// Open save
+	ini_open("save.ini");
+
+	// Item idx, current lvl, max lvl
+	myPowerups = [
+		[Powerup.SHIELD,		ini_read_real("powerups", getPowerupSaveName(Powerup.SHIELD), 1),		3],
+		[Powerup.AIR_JUMP,		ini_read_real("powerups", getPowerupSaveName(Powerup.AIR_JUMP), 0),		3],
+		[Powerup.INVINCIBLE,	ini_read_real("powerups", getPowerupSaveName(Powerup.INVINCIBLE), 0),	3],
+		[Powerup.BALL,			ini_read_real("powerups", getPowerupSaveName(Powerup.BALL), 0),			3],
+		[Powerup.IRON_GRAPH,	ini_read_real("powerups", getPowerupSaveName(Powerup.IRON_GRAPH), 0),	3],
+		[Powerup.BLOCK,			ini_read_real("powerups", getPowerupSaveName(Powerup.BLOCK), 0),		3],
+	];
+	myUpgrades = [
+		[Upgrade.EQUATION_UP,	ini_read_real("upgrades", getUpgradeSaveName(Upgrade.EQUATION_UP), 0),	1],
+	];
+	myMisc = [
+		[Misc.DEBUG_MODE,		ini_read_real("misc", getMiscSaveName(Misc.DEBUG_MODE), 0),				1],
+	];
+	myTheme = [
+		[Theme.DEFAULT,			ini_read_real("themes", getThemeSaveName(Theme.DEFAULT), 1),			1],
+		[Theme.DAY,				ini_read_real("themes", getThemeSaveName(Theme.DAY), 0),				1],
+		[Theme.BASIC,			ini_read_real("themes", getThemeSaveName(Theme.BASIC), 0),				1],
+		[Theme.AQUA,			ini_read_real("themes", getThemeSaveName(Theme.AQUA), 0),				1],
+		[Theme.GREEN,			ini_read_real("themes", getThemeSaveName(Theme.GREEN), 0),				1],
+		[Theme.ALT_DEFAULT,		ini_read_real("themes", getThemeSaveName(Theme.ALT_DEFAULT), 0),		1],
+		[Theme.TI_83,			ini_read_real("themes", getThemeSaveName(Theme.TI_83), 0),				1],
+		[Theme.NEOKYO_CITY,		ini_read_real("themes", getThemeSaveName(Theme.NEOKYO_CITY), 0),		1],
+		[Theme.NNE,				ini_read_real("themes", getThemeSaveName(Theme.NNE), 0),				1],
+	];
+	myCharacters = [
+		[Character.HUMAN,		ini_read_real("characters", getCharacterSaveName(Character.HUMAN), 1),	1],
+		[Character.DOG,			ini_read_real("characters", getCharacterSaveName(Character.DOG), 0),	1],
+		[Character.SLIME,		ini_read_real("characters", getCharacterSaveName(Character.SLIME), 0),	1],
+	];
+	myModes = [
+		[Mode.COIN_RUSH,		ini_read_real("modes", getModeSaveName(Mode.COIN_RUSH), 1),				1],
+		[Mode.SOCCER,			ini_read_real("modes", getModeSaveName(Mode.SOCCER), 0),				1],
+	];
+	myFoods = [
+		[Food.BUBBLE_TEA,		0, 1],
+		[Food.SPAGHETTI,		0, 1],
+		[Food.CHOCOLATE,		0, 1],
+	];
+
+	// Close save
+	ini_close();
+}
+
+// Load unlockables
+loadUnlockables();
