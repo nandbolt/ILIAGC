@@ -181,6 +181,9 @@ pauseGame = function()
 	}
 	
 	#endregion
+	
+	// Pause sound
+	audio_play_sound(sfxToggleGrapher, 2, false);
 }
 
 /// @func	resumeGame();
@@ -191,6 +194,9 @@ resumeGame = function()
 	
 	// Activate all objects
 	instance_activate_all();
+	
+	// Resume sound
+	audio_play_sound(sfxToggleGrapher, 2, false);
 	
 	// Resume game timer
 	oWorld.gameTimerPaused = false;

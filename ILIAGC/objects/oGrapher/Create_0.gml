@@ -303,9 +303,6 @@ toggleEquationEditor = function()
 	// Reset variables
 	if (editingEquation) onToggleEquationEditorOn();
 	else onToggleEquationEditorOff();
-	
-	// Toggle grapher sound
-	audio_play_sound(sfxToggleGrapher, 2, false);
 }
 
 /// @func	onToggleEquationEditorOn();
