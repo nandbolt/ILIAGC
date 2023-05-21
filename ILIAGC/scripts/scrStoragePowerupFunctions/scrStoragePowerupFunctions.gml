@@ -57,6 +57,26 @@ function getPowerupName(_idx, _lvl)
 	}
 }
 
+/// @func	getPowerupSaveName({int} idx);
+function getPowerupSaveName(_idx)
+{
+	switch (_idx)
+	{
+		case Powerup.AIR_JUMP:
+			return "air_jump";
+		case Powerup.INVINCIBLE:
+			return "invincible";
+		case Powerup.BALL:
+			return "ball";
+		case Powerup.IRON_GRAPH:
+			return "iron_graph";
+		case Powerup.BLOCK:
+			return "block";
+		default:
+			return "shield";
+	}
+}
+
 /// @func	getPowerupDescription({int} idx, {int} lvl);
 function getPowerupDescription(_idx, _lvl)
 {

@@ -4,8 +4,8 @@ event_inherited();
 // Food
 food = Food.BUBBLE_TEA;
 
-/// @func	onCollect();
-onCollect = function()
+/// @func	buyItem();
+buyItem = function()
 {
 	eatFood(food);
 }

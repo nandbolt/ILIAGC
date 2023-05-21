@@ -4,9 +4,13 @@ event_inherited();
 // Theme
 theme = Theme.DEFAULT;
 
-/// @func	onCollect();
-onCollect = function()
+// Saving
+itemTypeString = "themes";
+
+/// @func	buyItem();
+buyItem = function()
 {
 	setTheme(theme);
 	oGame.myTheme[theme][1]++;
+	itemValue = oGame.myTheme[theme][1];
 }

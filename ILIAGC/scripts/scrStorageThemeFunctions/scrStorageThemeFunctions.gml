@@ -134,6 +134,32 @@ function getThemeName(_idx)
 	}
 }
 
+/// @func	getThemeSaveName({int} idx);
+function getThemeSaveName(_idx)
+{
+	switch (_idx)
+	{
+		case Theme.DAY:
+			return "day";
+		case Theme.BASIC:
+			return "basic";
+		case Theme.AQUA:
+			return "aqua";
+		case Theme.GREEN:
+			return "green";
+		case Theme.ALT_DEFAULT:
+			return "alt_default";
+		case Theme.TI_83:
+			return "ti_83";
+		case Theme.NEOKYO_CITY:
+			return "neokyo_city";
+		case Theme.NNE:
+			return "nne";
+		default:
+			return "default";
+	}
+}
+
 /// @func	getThemeDescription({int} idx);
 function getThemeDescription(_idx)
 {

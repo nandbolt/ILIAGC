@@ -28,6 +28,20 @@ function getCharacterName(_idx)
 	}
 }
 
+/// @func	getCharacterSaveName({int} idx);
+function getCharacterSaveName(_idx)
+{
+	switch (_idx)
+	{
+		case Character.DOG:
+			return "dog";
+		case Character.SLIME:
+			return "slime";
+		default:
+			return "human";
+	}
+}
+
 /// @func	getCharacterDescription({int} idx);
 function getCharacterDescription(_idx)
 {

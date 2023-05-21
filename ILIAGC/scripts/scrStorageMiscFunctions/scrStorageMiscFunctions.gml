@@ -32,6 +32,18 @@ function getMiscName(_idx)
 	}
 }
 
+/// @func	getMiscSaveName({int} idx);
+function getMiscSaveName(_idx)
+{
+	switch (_idx)
+	{
+		case Misc.DEBUG_MODE:
+			return "debug_mode";
+		default:
+			return "???";
+	}
+}
+
 /// @func	getMiscDescription({int} idx);
 function getMiscDescription(_idx)
 {

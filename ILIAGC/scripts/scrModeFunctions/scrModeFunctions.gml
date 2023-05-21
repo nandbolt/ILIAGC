@@ -10,6 +10,18 @@ function getModeName(_idx)
 	}
 }
 
+/// @func	getModeSaveName({int} idx);
+function getModeSaveName(_idx)
+{
+	switch (_idx)
+	{
+		case Mode.SOCCER:
+			return "soccer";
+		default:
+			return "coin_rush";
+	}
+}
+
 /// @func	getModeDescription({int} idx);
 function getModeDescription(_idx)
 {

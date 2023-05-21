@@ -42,6 +42,18 @@ function getUpgradeName(_idx)
 	}
 }
 
+/// @func	getUpgradeSaveName({int} idx);
+function getUpgradeSaveName(_idx)
+{
+	switch (_idx)
+	{
+		case Upgrade.EQUATION_UP:
+			return "equation_up";
+		default:
+			return "???";
+	}
+}
+
 /// @func	getUpgradeDescription({int} idx);
 function getUpgradeDescription(_idx)
 {
