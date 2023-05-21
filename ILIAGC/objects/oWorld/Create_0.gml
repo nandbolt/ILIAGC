@@ -314,6 +314,12 @@ coinsInBank = ini_read_real("inventory", "coins_in_bank", 0);
 coinRushMostCoins = ini_read_real("high_scores","coin_rush",0);
 soccerMostCoins = ini_read_real("high_scores","soccer",0);
 setTheme(ini_read_real("inventory", "theme", Theme.DEFAULT));
+if (ini_read_real("inventory", getPowerupSaveName(Powerup.SHIELD), 1) > 0) array_push(powerups, oPowerupShield);
+if (ini_read_real("inventory", getPowerupSaveName(Powerup.AIR_JUMP), 0) > 0) array_push(powerups, oPowerupAirJump);
+if (ini_read_real("inventory", getPowerupSaveName(Powerup.INVINCIBLE), 0) > 0) array_push(powerups, oPowerupInvincible);
+if (ini_read_real("inventory", getPowerupSaveName(Powerup.BALL), 0) > 0) array_push(powerups, oPowerupBall);
+if (ini_read_real("inventory", getPowerupSaveName(Powerup.IRON_GRAPH), 0) > 0) array_push(powerups, oPowerupIronGraph);
+if (ini_read_real("inventory", getPowerupSaveName(Powerup.BLOCK), 0) > 0) array_push(powerups, oPowerupBlock);
 ini_close();
 mostCoins = coinRushMostCoins;
 

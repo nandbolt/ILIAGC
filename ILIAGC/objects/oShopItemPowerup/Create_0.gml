@@ -16,4 +16,9 @@ buyItem = function()
 	// Unlock
 	oGame.myPowerups[powerup][1]++;
 	itemValue = oGame.myPowerups[powerup][1];
+	
+	// Save current powerup
+	ini_open("save.ini");
+	ini_write_real("inventory", getPowerupSaveName(powerup), 1);
+	ini_close();
 }
