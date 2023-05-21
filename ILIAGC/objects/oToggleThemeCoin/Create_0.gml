@@ -15,6 +15,11 @@ onToggleOn = function()
 	
 	// Set toggle on
 	toggledOn = true;
+	
+	// Save current theme
+	ini_open("save.ini");
+	ini_write_real("inventory", "theme", theme);
+	ini_close();
 }
 
 /// @func	onToggleOff();
@@ -25,4 +30,9 @@ onToggleOff = function()
 	{
 		if (theme == Theme.DEFAULT) toggledOn = true;
 	}
+	
+	// Save default theme
+	ini_open("save.ini");
+	ini_write_real("inventory", "theme", Theme.DEFAULT);
+	ini_close();
 }
