@@ -15,6 +15,11 @@ onToggleOn = function()
 	
 	// Set toggle on
 	toggledOn = true;
+	
+	// Save current character
+	ini_open("save.ini");
+	ini_write_real("inventory", "character", character);
+	ini_close();
 }
 
 /// @func	onToggleOff();
@@ -25,4 +30,9 @@ onToggleOff = function()
 	{
 		if (character == Character.HUMAN) toggledOn = true;
 	}
+	
+	// Save current character
+	ini_open("save.ini");
+	ini_write_real("inventory", "character", Character.HUMAN);
+	ini_close();
 }

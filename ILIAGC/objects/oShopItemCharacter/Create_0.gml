@@ -16,4 +16,9 @@ buyItem = function()
 	// Unlock
 	oGame.myCharacters[character][1]++;
 	itemValue = oGame.myCharacters[character][1];
+	
+	// Save current character
+	ini_open("save.ini");
+	ini_write_real("inventory", "character", character);
+	ini_close();
 }

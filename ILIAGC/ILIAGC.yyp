@@ -312,6 +312,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Players","folderPath":"folders/Objects/Actors/Players.yy","order":0,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Collectable","folderPath":"folders/Objects/Collectable.yy","order":4,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Collectables","folderPath":"folders/Objects/Collectable/Collectables.yy","order":2,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Display","folderPath":"folders/Objects/Collectable/Collectables/Display.yy","order":17,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Instant","folderPath":"folders/Objects/Collectable/Collectables/Instant.yy","order":14,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Clocks","folderPath":"folders/Objects/Collectable/Collectables/Instant/Clocks.yy","order":0,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Powerups","folderPath":"folders/Objects/Collectable/Collectables/Instant/Powerups.yy","order":2,},
@@ -390,7 +391,6 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tilesets","folderPath":"folders/Sprites/Tilesets.yy","order":3,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tile Sets","folderPath":"folders/Tile Sets.yy","order":2,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy","order":8,},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Display","folderPath":"folders/Objects/Collectable/Collectables/Display.yy","order":17,},
   ],
   "AudioGroups": [
     {"resourceType":"GMAudioGroup","resourceVersion":"1.3","name":"audiogroup_default","targets":-1,},

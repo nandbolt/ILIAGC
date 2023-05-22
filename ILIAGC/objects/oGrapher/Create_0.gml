@@ -374,3 +374,8 @@ onToggleEquationEditorOff = function()
 		resumeGame();
 	}
 }
+
+// Add upgrade if toggled
+ini_open("save.ini");
+if (ini_read_real("inventory", getUpgradeSaveName(Upgrade.EQUATION_UP), 0) > 0) setUpgrade(Upgrade.EQUATION_UP);
+ini_close();

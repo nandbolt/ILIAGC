@@ -308,18 +308,29 @@ with (_mostCoinsSpriteInstance)
 	spins = true;
 }
 
-// Get save info
+// Open save
 ini_open("save.ini");
+
+// Coins
 coinsInBank = ini_read_real("inventory", "coins_in_bank", 0);
 coinRushMostCoins = ini_read_real("high_scores","coin_rush",0);
 soccerMostCoins = ini_read_real("high_scores","soccer",0);
+
+// Theme
 setTheme(ini_read_real("inventory", "theme", Theme.DEFAULT));
-if (ini_read_real("inventory", getPowerupSaveName(Powerup.SHIELD), 1) > 0) array_push(powerups, oPowerupShield);
-if (ini_read_real("inventory", getPowerupSaveName(Powerup.AIR_JUMP), 0) > 0) array_push(powerups, oPowerupAirJump);
-if (ini_read_real("inventory", getPowerupSaveName(Powerup.INVINCIBLE), 0) > 0) array_push(powerups, oPowerupInvincible);
-if (ini_read_real("inventory", getPowerupSaveName(Powerup.BALL), 0) > 0) array_push(powerups, oPowerupBall);
-if (ini_read_real("inventory", getPowerupSaveName(Powerup.IRON_GRAPH), 0) > 0) array_push(powerups, oPowerupIronGraph);
-if (ini_read_real("inventory", getPowerupSaveName(Powerup.BLOCK), 0) > 0) array_push(powerups, oPowerupBlock);
+
+// Powerups
+if (ini_read_real("inventory", getPowerupSaveName(Powerup.SHIELD), 1) > 0) setPowerup(Powerup.SHIELD);
+if (ini_read_real("inventory", getPowerupSaveName(Powerup.AIR_JUMP), 0) > 0) setPowerup(Powerup.AIR_JUMP);
+if (ini_read_real("inventory", getPowerupSaveName(Powerup.INVINCIBLE), 0) > 0) setPowerup(Powerup.INVINCIBLE);
+if (ini_read_real("inventory", getPowerupSaveName(Powerup.BALL), 0) > 0) setPowerup(Powerup.BALL);
+if (ini_read_real("inventory", getPowerupSaveName(Powerup.IRON_GRAPH), 0) > 0) setPowerup(Powerup.IRON_GRAPH);
+if (ini_read_real("inventory", getPowerupSaveName(Powerup.BLOCK), 0) > 0) setPowerup(Powerup.BLOCK);
+
+// Misc
+if (ini_read_real("inventory", getMiscSaveName(Misc.DEBUG_MODE), 0) > 0) setMisc(Misc.DEBUG_MODE);
+
+// Close save
 ini_close();
 mostCoins = coinRushMostCoins;
 
