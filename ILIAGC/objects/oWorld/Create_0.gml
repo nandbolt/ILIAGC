@@ -46,6 +46,9 @@ powerupTimer = irandom_range(minStepsBetweenPowerups, maxStepsBetweenPowerups);
 // Soccer
 soccerLowestCoinSpawnY = 96;
 
+// Highscore
+highscore = false;
+
 #region Mode Functions
 
 /// @func	startGame({int} mode);
@@ -58,6 +61,7 @@ startGame = function(_mode)
 	gameTimer = 59;
 	gameCounter = 0;
 	timeElapsed = 0;
+	highscore = false;
 	minObstacleTime = baseMinObstacleTime;
 	maxObstacleTime = baseMaxObstacleTime;
 	obstacleTimer = irandom_range(minObstacleTime, maxObstacleTime);
@@ -155,13 +159,13 @@ endGame = function()
 	audio_stop_sound(mChillinInACalculator);
 	
 	// Set alarm buffer (before home coins spawn)
-	alarm[0] = 180;
+	alarm[0] = 120;
 	
 	// Game mode specific
 	switch (gameMode)
 	{
 		case Mode.SOCCER:
-			endGameSoccer()
+			endGameSoccer();
 			break;
 		default:
 			endGameCoinRush();
@@ -193,6 +197,7 @@ endGameCoinRush = function()
 		ini_write_real("high_scores","coin_rush",coins);
 		ini_close();
 		mostCoins = coins;
+		highscore = true;
 	}
 }
 
@@ -204,14 +209,14 @@ endGameCoinRush = function()
 startGameSoccer = function()
 {
 	// Spawn/activate first coin
-	var _coin = instance_create_layer(random_range(24,168),random_range(24,soccerLowestCoinSpawnY),"Instances",oCoinRed);
+	var _coin = instance_create_layer(random_range(24,168), random_range(24,soccerLowestCoinSpawnY), "Instances", oCoinRed);
 	with (_coin)
 	{
 		activate();
 	}
 	
 	// Spawn soccer ball
-	instance_create_layer(96,160,"Instances",oBallSoccer);
+	instance_create_layer(96, 160, "Instances", oBallSoccer);
 }
 
 /// @func	endGameSoccer();
@@ -223,9 +228,10 @@ endGameSoccer = function()
 		// Save new high score to disk
 		soccerMostCoins = coins;
 		ini_open("save.ini");
-		ini_write_real("high_scores","soccer",coins);
+		ini_write_real("high_scores", "soccer", coins);
 		ini_close();
 		mostCoins = coins;
+		highscore = true;
 	}
 }
 
