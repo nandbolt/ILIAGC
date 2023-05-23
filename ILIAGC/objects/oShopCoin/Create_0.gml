@@ -12,7 +12,7 @@ onCollect = function()
 	
 	// Main coins
 	instance_create_layer(96, 168, "Instances", oHomeCoin);
-	instance_create_layer(48, 168 - TILE_SIZE * 7, "Instances", oDisplayCoinsInBank);
+	instance_create_layer(24, 168, "Instances", oDisplayCoinsInBank);
 	
 	// Gather all potential shop items
 	var _shopItems = [], _lvl = 0;
