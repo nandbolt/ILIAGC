@@ -9,7 +9,7 @@ buttonIdx = 0;
 
 // Buttons
 var _x = 36, _y = 22 + TILE_SIZE;
-var _xoff = 0, _yoff = TILE_SIZE + 2;
+var _yoff = TILE_SIZE + 2;
 array_push(buttons, instance_create_layer(_x, _y, menuLayer, oPauseButtonResume));
 _y += _yoff;
 array_push(buttons, instance_create_layer(_x, _y, menuLayer, oPauseButtonMusicUp));

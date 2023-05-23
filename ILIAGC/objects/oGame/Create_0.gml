@@ -5,6 +5,10 @@ gamePaused = false;
 canvasWidth = CANVAS_BASE_WIDTH;
 canvasHeight = CANVAS_BASE_HEIGHT;
 
+// Audio
+musicGain = 0.5;
+sfxGain = 0.5;
+
 /// @func	browserScaleCanvas({int} baseWidth, {int} baseHeight, {int} currentWidth, {int} currentHeight, {bool} center);
 browserScaleCanvas = function(_baseWidth, _baseHeight, _currentWidth, _currentHeight, _center)
 {
@@ -213,3 +217,7 @@ loadUnlockables = function()
 
 // Load unlockables
 loadUnlockables();
+
+// Set gain
+audio_group_set_gain(audiogroup_default, sfxGain, 0);
+audio_group_set_gain(audiogroup_music, musicGain, 0);
