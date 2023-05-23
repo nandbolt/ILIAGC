@@ -11,22 +11,26 @@ for (var _i = 1; _i <= string_length(_coinCountString); _i++)
 }
 
 // Time
-_x = 85;
-var _gameTimeString = string(gameTimer);
-if (!gameStarted) _gameTimeString = string(coinsInBank);
-for (var _i = 1; _i <= string_length(_gameTimeString); _i++)
+if (gameStarted)
 {
-	draw_sprite(sTokens,real(string_char_at(_gameTimeString,_i))+2,_x,_y);
-	_x += 8;
+	_x = 85;
+	var _gameTimeString = string(gameTimer);
+	if (!gameStarted) _gameTimeString = string(coinsInBank);
+	for (var _i = 1; _i <= string_length(_gameTimeString); _i++)
+	{
+		draw_sprite(sTokens,real(string_char_at(_gameTimeString,_i))+2,_x,_y);
+		_x += 8;
+	}
 }
 
 // High Score
-_x = 152;
+_x = 160;
 var _mostCoinsString = string(mostCoins);
-for (var _i = 1; _i <= string_length(_mostCoinsString); _i++)
+//var _mostCoinsString = string(9);
+for (var _i = string_length(_mostCoinsString); _i > 0; _i--)
 {
 	draw_sprite(sTokens,real(string_char_at(_mostCoinsString,_i))+2,_x,_y);
-	_x += 8;
+	_x -= 8;
 }
 
 // Control

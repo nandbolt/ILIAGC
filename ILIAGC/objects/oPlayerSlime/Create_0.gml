@@ -16,3 +16,6 @@ spriteFall = sSlimeFall;
 spriteJumpCenter = sSlimeJumpCenter;
 spriteSlide = sSlimeSlide;
 spriteCrouch = sSlimeCrouch;
+
+// Update theme
+updateTheme(oWorld.currentTheme);

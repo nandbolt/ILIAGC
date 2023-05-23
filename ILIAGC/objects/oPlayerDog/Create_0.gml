@@ -15,3 +15,6 @@ spriteFall = sDogFall;
 spriteJumpCenter = sDogJumpCenter;
 spriteSlide = sDogSlide;
 spriteCrouch = sDogCrouch;
+
+// Update theme
+updateTheme(oWorld.currentTheme);

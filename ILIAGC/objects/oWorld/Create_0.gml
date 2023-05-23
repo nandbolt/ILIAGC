@@ -308,7 +308,7 @@ with (_coinsSpriteInstance)
 	sprite_index = sCoinGold;
 	spins = true;
 }
-var _mostCoinsSpriteInstance = instance_create_layer(144,8,"HUDInstances",oSprite);
+var _mostCoinsSpriteInstance = instance_create_layer(168,8,"HUDInstances",oSprite);
 with (_mostCoinsSpriteInstance)
 {
 	sprite_index = sCoinHighScore;

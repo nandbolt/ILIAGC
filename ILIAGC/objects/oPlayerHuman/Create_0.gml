@@ -37,3 +37,6 @@ updateTheme = function(_theme)
 			spriteCrouch = sPlayerCrouch;
 	}
 }
+
+// Update theme
+updateTheme(oWorld.currentTheme);
