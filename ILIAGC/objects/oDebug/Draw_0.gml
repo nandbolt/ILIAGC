@@ -2,6 +2,34 @@ var _x = 0, _y = 0;
 
 var _s = 0.25, _xoff = 0, _yoff = 4;
 
+// World stats
+if (!oGame.gamePaused)
+{
+	draw_set_halign(fa_right);
+	draw_set_valign(fa_middle);
+	_x = 174;
+	_y = 31;
+	draw_set_color(c_gray);
+	draw_text_transformed(_x, _y, "Game", _s, _s, 0);
+	_y += _yoff;
+	draw_text_transformed(_x, _y, "FPS: "+string(fps), _s, _s, 0);
+	_y += _yoff;
+	draw_text_transformed(_x, _y, "Instances: "+string(instance_count), _s, _s, 0);
+	_y += _yoff;
+	draw_text_transformed(_x, _y, "Gamepads: "+string(oInput.gamepadCount), _s, _s, 0);
+	_y += _yoff;
+	_xoff = 0;
+	for (var _playerId = 0; _playerId < ds_list_size(oInput.playerGamepadIds); _playerId++)
+	{
+		draw_text_transformed(_x + _xoff, _y, "P" + string(_playerId + 1) + ": " + string(oInput.playerGamepadIds[| _playerId]), _s, _s, 0);
+		_xoff += 15;
+	}
+	_y += _yoff * 2;
+	
+	// Reset color
+	draw_set_color(c_white);
+}
+
 // Player
 if (instance_exists(oPlayer))
 {
@@ -19,41 +47,27 @@ if (instance_exists(oPlayer))
 		// Origin
 		draw_sprite(sGraphSegment, 0, x-0.5, y-0.5);
 		
-		// Player stats
-		if (!oGrapher.editingEquation)
+		// Info
+		if (playerId == 0)
 		{
-			draw_set_halign(fa_left);
-			draw_set_valign(fa_middle);
-			_x = 22;
-			_y = 31;
+			// Set text color
 			draw_set_color(c_gray);
-			draw_text_transformed(_x, _y, "Game", _s, _s, 0);
-			_y += _yoff;
-			draw_text_transformed(_x, _y, "FPS Real: "+string(fps_real), _s, _s, 0);
-			_y += _yoff;
-			draw_text_transformed(_x, _y, "FPS: "+string(fps), _s, _s, 0);
-			_y += _yoff;
-			draw_text_transformed(_x, _y, "Instances: "+string(instance_count), _s, _s, 0);
-			_y += _yoff;
-			draw_text_transformed(_x, _y, "Gamepads: "+string(oInput.gamepadCount), _s, _s, 0);
-			_y += _yoff;
-			_xoff = 0;
-			for (var _playerId = 0; _playerId < ds_list_size(oInput.playerGamepadIds); _playerId++)
-			{
-				draw_text_transformed(_x + _xoff, _y, "P" + string(_playerId + 1) + ": " + string(oInput.playerGamepadIds[| _playerId]), _s, _s, 0);
-				_xoff += 15;
-			}
-			_y += _yoff * 2;
+			
+			// First player info
 			draw_text_transformed(_x, _y, "Player", _s, _s, 0);
+			_y += _yoff;
+			var _graphX = convertXToGraphX(x);
+			draw_text_transformed(_x, _y, "Pos: (" + string(x) + ", " + string(y) + ")", _s, _s, 0);
+			_y += _yoff;
+			draw_text_transformed(_x, _y, "Local Pos: (" + string(_graphX) + ", " + string(convertYToGraphY(y)) + ")", _s, _s, 0);
+			_y += _yoff;
+			draw_text_transformed(_x, _y, "Speed: " + string(velocity.getLength()), _s, _s, 0);
 			_y += _yoff;
 			draw_text_transformed(_x, _y, "Grounded: " + string(grounded), _s, _s, 0);
 			_y += _yoff;
-			draw_text_transformed(_x, _y, "World Pos: (" + string(x) + ", " + string(y) + ")", _s, _s, 0);
-			_y += _yoff;
-			var _graphX = convertXToGraphX(x);
-			draw_text_transformed(_x, _y, "Graph Pos: (" + string(_graphX) + ", " + string(convertYToGraphY(y)) + ")", _s, _s, 0);
-			_y += _yoff;
-			
+			draw_text_transformed(_x, _y, "Graph collision: " + string(collidedWithGraph), _s, _s, 0);
+			_y += _yoff * 2;
+		
 			// If graphs exist
 			if (instance_exists(oGraph))
 			{
@@ -62,12 +76,12 @@ if (instance_exists(oPlayer))
 					// Show output
 					draw_text_transformed(_x, _y, "y" + string(graphIdx + 1) + "(x) = " + string(getGraphOutput(_graphX)), _s, _s, 0);
 					_y += _yoff;
+					draw_text_transformed(_x, _y, "Postfix: " + postfixEquation, _s, _s, 0);
+					_y += _yoff * 2;
 				}
-				
-				// Graph collision
-				draw_text_transformed(_x, _y, "Graph collision: " + string(collidedWithGraph), _s, _s, 0);
-				_y += _yoff;
 			}
+		
+			// Reset color
 			draw_set_color(c_white);
 		}
 	}

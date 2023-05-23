@@ -25,7 +25,6 @@ ds_map_add(precedenceMap, "t", 3);
 ds_map_add(precedenceMap, "^", 4);
 ds_map_add(precedenceMap, "l", 5);
 ds_map_add(precedenceMap, "r", 5);
-previousPostfixEquation = "None";
 graphCooldown = 300;
 axisVisible = layer_get_visible("GridAxis");
 
@@ -48,11 +47,7 @@ table = [0,0,0,0,0,0,0,0,0,0];
 graphEquation = function()
 {
 	// Exit function if graph on cooldown
-	if (graphs[graphIdx][2] > 0)
-	{
-		previousPostfixEquation = "Cooldown ends in " + string(graphs[graphIdx][2] / 60) + " seconds";
-		return;
-	}
+	if (graphs[graphIdx][2] > 0) return;
 	
 	// Check expression validity
 	var _expression = simplifyExpression(equationTokens);
@@ -64,11 +59,6 @@ graphEquation = function()
 		
 		// Get postfix expression
 		var _postfixExpression = convertInfixToPostfix(_expression);
-		previousPostfixEquation = "";
-		for (var _i = 0; _i < array_length(_postfixExpression); _i++)
-		{
-			previousPostfixEquation += _postfixExpression[_i] + " ";
-		}
 		
 		// Destroy current graph
 		destroyGraph();
@@ -89,6 +79,12 @@ graphEquation = function()
 				setIronGraph();
 				other.ironGraphs--;
 			}
+			
+			// Set postfix expression
+			for (var _i = 0; _i < array_length(_postfixExpression); _i++)
+			{
+				postfixEquation += _postfixExpression[_i] + " ";
+			}
 		}
 		
 		// Apply cooldown on exit
@@ -100,7 +96,11 @@ graphEquation = function()
 		// Graph equation sound
 		audio_play_sound(sfxGraphEquation, 3, false);
 	}
-	else previousPostfixEquation = "Invalid equation";
+	else
+	{
+		// Graph equation sound
+		audio_play_sound(sfxHurt, 1, false);
+	}
 }
 
 /// @func	simplifyExpression({array} tokenIdxs);
@@ -326,10 +326,6 @@ onToggleEquationEditorOn = function()
 		
 	// Fill table if necessary
 	if (menuIdx == 3) fillTable();
-		
-	// Show cooldown if applicable
-	if (graphs[graphIdx][2] > 0) previousPostfixEquation = "Cooldown ends in " + string(graphs[graphIdx][2] / 60) + " seconds";
-	else if (string_length(previousPostfixEquation) > 0 && string_char_at(previousPostfixEquation, 0) == "C") previousPostfixEquation = "None";
 	
 	// Spawn on screen keyboard if real one not being used
 	if (oInput.playerGamepadIds[| 0] != -1) instance_create_layer(0, 0, "Instances", oOnScreenKeyboard);

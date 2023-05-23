@@ -1,5 +1,3 @@
-#region General
-
 /// @func	inputCreate({int} inputAction, {int} keyboardHotkey, {int} inputGamepadKey);
 function inputCreate(_inputAction, _inputHotkey, _inputGamepadKey)
 {
@@ -44,17 +42,15 @@ function inputReleased(_playerId, _inputId)
 	}
 }
 
-#endregion
+/// @func	firstPlayerUsingKeyboard();
+function firstPlayerUsingKeyboard()
+{
+	with (oInput)
+	{
+		return playerGamepadIds[| 0] == -1;
+	}
+}
 
-#region Keyboard + Mouse
-
-//keyboardCheckRightInput
-
-#endregion
-
-#region Gamepad
-
-#endregion
 
 #region Touch Screen
 

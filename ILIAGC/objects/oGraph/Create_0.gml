@@ -40,6 +40,7 @@ else graphSegment = sGraphSegment;
 
 // Equation
 expressionTree = new Tree();
+postfixEquation = "";
 
 // Draw
 drawTime = 30;

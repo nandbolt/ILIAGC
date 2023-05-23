@@ -1,6 +1,8 @@
 // Rigid body
 initRigidBody();
 
+oWorld.coinsInBank = 1000;
+
 // Player
 playerId = 0;
 playerColor = c_white;
