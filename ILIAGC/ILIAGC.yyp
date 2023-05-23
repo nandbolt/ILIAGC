@@ -189,6 +189,7 @@
     {"id":{"name":"oStorageMiscCoin","path":"objects/oStorageMiscCoin/oStorageMiscCoin.yy",},"order":1,},
     {"id":{"name":"sPowerupIronGraph1","path":"sprites/sPowerupIronGraph1/sPowerupIronGraph1.yy",},"order":0,},
     {"id":{"name":"oPowerupInvincible","path":"objects/oPowerupInvincible/oPowerupInvincible.yy",},"order":2,},
+    {"id":{"name":"oTimeParticle","path":"objects/oTimeParticle/oTimeParticle.yy",},"order":4,},
     {"id":{"name":"sPlayerFall","path":"sprites/sPlayerFall/sPlayerFall.yy",},"order":1,},
     {"id":{"name":"shdrPass","path":"shaders/shdrPass/shdrPass.yy",},"order":1,},
     {"id":{"name":"sSpiderLeg","path":"sprites/sSpiderLeg/sSpiderLeg.yy",},"order":7,},

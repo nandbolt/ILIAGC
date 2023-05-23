@@ -6,7 +6,7 @@ if (!collected)
 	{
 		with (oParticles)
 		{
-			part_particles_create(lowPartSystem, other.x, other.y, partTypePulse, 1);
+			part_particles_create_color(lowPartSystem, other.x, other.y, partTypePulse, other.particleColor, 1);
 		}
 	
 		// Reset timer

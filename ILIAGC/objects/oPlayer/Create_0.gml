@@ -124,7 +124,15 @@ takeDamage = function(_damage)
 		// If has shield
 		if (shield > 0) shield--;
 		// Else decrement game timer
-		else oWorld.gameTimer -= _damage;
+		else
+		{
+			oWorld.gameTimer -= _damage;
+			with (instance_create_layer(x, y, "Instances", oTimeParticle))
+			{
+				value = "-" + string(_damage);
+				image_blend = c_red;
+			}
+		}
 		
 		// End game if timer reached zero
 		if (oWorld.gameTimer <= 0)
