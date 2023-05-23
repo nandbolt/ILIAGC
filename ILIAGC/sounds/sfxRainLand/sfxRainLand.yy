@@ -18,6 +18,6 @@
   "duration": 0.102041,
   "parent": {
     "name": "World",
-    "path": "folders/Sounds/World.yy",
+    "path": "folders/Sounds/SFXs/World.yy",
   },
 }

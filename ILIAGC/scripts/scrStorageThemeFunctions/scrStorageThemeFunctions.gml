@@ -41,6 +41,12 @@ function setTheme(_idx)
 			layer_set_visible("GridNumbers", false);
 			layer_set_visible("GridNumberBackgrounds", false);
 			layer_set_visible("GridAxis", false);
+			
+			// Music
+			with (oWorld)
+			{
+				currentSong = mNeokyoCity;
+			}
 			break;
 		case Theme.NNE:
 			// Player
@@ -56,6 +62,12 @@ function setTheme(_idx)
 			layer_set_visible("GridNumbers", false);
 			layer_set_visible("GridNumberBackgrounds", false);
 			layer_set_visible("GridAxis", false);
+			
+			// Music
+			with (oWorld)
+			{
+				currentSong = mNNE;
+			}
 			break;
 	}
 	oWorld.currentTheme = _idx;
@@ -89,6 +101,12 @@ function unsetTheme(_idx)
 			layer_set_visible("GridNumbers", true);
 			layer_set_visible("GridNumberBackgrounds", true);
 			layer_set_visible("GridAxis", true);
+			
+			// Music
+			with (oWorld)
+			{
+				currentSong = mChillinInACalculator;
+			}
 			break;
 		case Theme.NNE:
 			// Player
@@ -104,6 +122,12 @@ function unsetTheme(_idx)
 			layer_set_visible("GridNumbers", true);
 			layer_set_visible("GridNumberBackgrounds", true);
 			layer_set_visible("GridAxis", true);
+			
+			// Music
+			with (oWorld)
+			{
+				currentSong = mChillinInACalculator;
+			}
 			break;
 	}
 }

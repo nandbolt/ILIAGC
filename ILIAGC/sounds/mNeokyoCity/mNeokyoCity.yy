@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSound",
   "resourceVersion": "1.0",
-  "name": "sfxDestroyGraph",
+  "name": "mNeokyoCity",
   "conversionMode": 0,
   "compression": 0,
   "volume": 1.0,
@@ -14,10 +14,10 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "sfxDestroyGraph.wav",
-  "duration": 0.700771,
+  "soundFile": "mNeokyoCity.mp3",
+  "duration": 96.02612,
   "parent": {
-    "name": "Grapher",
-    "path": "folders/Sounds/SFXs/Grapher.yy",
+    "name": "Music",
+    "path": "folders/Sounds/Music.yy",
   },
 }

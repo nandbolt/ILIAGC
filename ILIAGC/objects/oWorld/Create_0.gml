@@ -4,9 +4,8 @@ gameMode = Mode.COIN_RUSH;
 
 // Theme
 currentTheme = Theme.DEFAULT;
-
-// Shader
 currentShader = shdrPass;
+currentSong = mChillinInACalculator;
 
 // Timer
 gameTimer = 0;
@@ -73,7 +72,7 @@ startGame = function(_mode)
 	gameStarted = true;
 	
 	// Start music
-	audio_play_sound(mChillinInACalculator, 3, true);
+	audio_play_sound(currentSong, 3, true);
 	
 	// Start game mode
 	switch (gameMode)
@@ -156,7 +155,7 @@ endGame = function()
 	if (instance_exists(oBall)) instance_destroy(oBall);
 	
 	// Stop music
-	audio_stop_sound(mChillinInACalculator);
+	audio_stop_sound(currentSong);
 	
 	// Set alarm buffer (before home coins spawn)
 	alarm[0] = 120;
@@ -323,6 +322,7 @@ ini_open("save.ini");
 
 // Coins
 coinsInBank = ini_read_real("inventory", "coins_in_bank", 0);
+coinsInBank = 9999;
 coinRushMostCoins = ini_read_real("high_scores","coin_rush",0);
 soccerMostCoins = ini_read_real("high_scores","soccer",0);
 
