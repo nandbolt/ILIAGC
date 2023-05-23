@@ -58,7 +58,7 @@ startGame = function(_mode)
 	gameMode = _mode;
 	
 	// Set counters
-	gameTimer = 59;
+	gameTimer = 60;
 	gameCounter = 0;
 	timeElapsed = 0;
 	highscore = false;
@@ -302,16 +302,19 @@ despawnPlayer = function(_playerId)
 }
 
 // Coin Sprites (HUD)
-var _coinsSpriteInstance = instance_create_layer(8,8,"HUDInstances",oSprite);
-with (_coinsSpriteInstance)
+with (instance_create_layer(8,8,"HUDInstances",oSprite))
 {
 	sprite_index = sCoinGold;
 	spins = true;
 }
-var _mostCoinsSpriteInstance = instance_create_layer(168,8,"HUDInstances",oSprite);
-with (_mostCoinsSpriteInstance)
+with (instance_create_layer(168,8,"HUDInstances",oSprite))
 {
 	sprite_index = sCoinHighScore;
+	spins = true;
+}
+with (instance_create_layer(76,8,"HUDInstances",oSprite))
+{
+	sprite_index = sClock;
 	spins = true;
 }
 
