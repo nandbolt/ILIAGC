@@ -8,11 +8,20 @@ var _c = c_white;
 // If not tidy ui
 if (!oGame.tidyUI)
 {
+	//_x = TILE_SIZE * 7;
+	//_y = TILE_SIZE * 2;
+	//_yoff = TILE_SIZE;
+	//draw_sprite(sIconRun, 0, _x, _y);
+	//draw_text_transformed(_x + 16, _y + 4, ":", _s, _s, 0);
+	//draw_sprite(sKeyA, 0, _x + 20, _y + 4);
+	//draw_sprite(sKeyD, 0, _x + 28, _y + 4);
+	//_y += _yoff;
+
 	// Aligment + origin
 	draw_set_halign(fa_left);
-	draw_set_valign(fa_middle);
-	_x = 18;
-	_y = 19;
+	draw_set_valign(fa_top);
+	_x = 16;
+	_y = 16;
 
 	// Paused alpha
 	if (oGame.gamePaused) draw_set_alpha(0.25);
@@ -21,39 +30,20 @@ if (!oGame.tidyUI)
 	// Pause
 	if (!editingEquation)
 	{
-		if (firstPlayerUsingKeyboard())
-		{
-			draw_sprite(sKeyEscape, 0, _x, _y);
-			_x += 14;
-		}
-		else
-		{
-			draw_sprite(sButtonStart, 0, _x, _y);
-			_x += 24;
-		}
-		_y += 5;
-		draw_text_transformed(_x, _y, ":Pause", _s, _s, 0);
-	
-		// Set next position
-		_y += 11;
-		_x = 18;
+		draw_sprite(sIconPause, 0, _x, _y)
+		draw_text_transformed(_x + 16, _y + 4, ":", _s, _s, 0);
+		if (firstPlayerUsingKeyboard()) draw_sprite(sKeyEscape, 0, _x + 20, _y + 4);
+		else draw_sprite(sButtonStart, 0, _x + 20, _y + 4);
+		_y += 16;
 	}
 
 	// Toggle EQ
 	if (editingEquation || !oGame.gamePaused)
 	{
-		if (firstPlayerUsingKeyboard())
-		{
-			draw_sprite(sKeyTab, 0, _x, _y);
-			_x += 14;
-		}
-		else
-		{
-			draw_sprite(sButtonSelect, 0, _x, _y);
-			_x += 26;
-		}
-		_y += 5;
-		draw_text_transformed(_x, _y, ":EQ Editor", _s, _s, 0);
+		draw_sprite(sIconGraph, 0, _x, _y)
+		draw_text_transformed(_x + 16, _y + 4, ":", _s, _s, 0);
+		if (firstPlayerUsingKeyboard()) draw_sprite(sKeyTab, 0, _x + 20, _y + 4);
+		else draw_sprite(sButtonSelect, 0, _x + 20, _y + 4);
 	}
 
 	// Reset alpha
