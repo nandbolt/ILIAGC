@@ -89,9 +89,6 @@ endGame = function()
 	instance_destroy(oCollectable);
 	instance_destroy(oObstacle);
 	
-	// Spawn home coins
-	spawnHomeCoins();
-	
 	// Game over sound
 	audio_play_sound(sfxGameOver, 2, false);
 			
@@ -157,6 +154,10 @@ endGame = function()
 	// Stop music
 	audio_stop_sound(mChillinInACalculator);
 	
+	// Set alarm buffer (before home coins spawn)
+	alarm[0] = 180;
+	
+	// Game mode specific
 	switch (gameMode)
 	{
 		case Mode.SOCCER:
