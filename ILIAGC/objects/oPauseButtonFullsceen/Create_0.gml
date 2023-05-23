@@ -6,7 +6,7 @@ name = "Fullscreen";
 
 // Add neighbors
 neighbors[InputAction.UP] = oPauseButtonSFXUp;
-neighbors[InputAction.DOWN] = oPauseButtonQuit;
+neighbors[InputAction.DOWN] = oPauseButtonTidyUI;
 
 /// @func	onPressed();
 onPressed = function()

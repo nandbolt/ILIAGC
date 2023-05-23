@@ -5,56 +5,60 @@ var _c = c_white;
 
 #region Pause + Toggle EQ
 
-// Aligment + origin
-draw_set_halign(fa_left);
-draw_set_valign(fa_middle);
-_x = 18;
-_y = 19;
-
-// Paused alpha
-if (oGame.gamePaused) draw_set_alpha(0.25);
-else draw_set_alpha(0.75);
-
-// Pause
-if (!editingEquation)
+// If not tidy ui
+if (!oGame.tidyUI)
 {
-	if (firstPlayerUsingKeyboard())
-	{
-		draw_sprite(sKeyEscape, 0, _x, _y);
-		_x += 14;
-	}
-	else
-	{
-		draw_sprite(sButtonStart, 0, _x, _y);
-		_x += 24;
-	}
-	_y += 5;
-	draw_text_transformed(_x, _y, ":Pause", _s, _s, 0);
-	
-	// Set next position
-	_y += 11;
+	// Aligment + origin
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_middle);
 	_x = 18;
-}
+	_y = 19;
 
-// Toggle EQ
-if (editingEquation || !oGame.gamePaused)
-{
-	if (firstPlayerUsingKeyboard())
-	{
-		draw_sprite(sKeyTab, 0, _x, _y);
-		_x += 14;
-	}
-	else
-	{
-		draw_sprite(sButtonSelect, 0, _x, _y);
-		_x += 26;
-	}
-	_y += 5;
-	draw_text_transformed(_x, _y, ":EQ Editor", _s, _s, 0);
-}
+	// Paused alpha
+	if (oGame.gamePaused) draw_set_alpha(0.25);
+	else draw_set_alpha(0.75);
 
-// Reset alpha
-draw_set_alpha(1);
+	// Pause
+	if (!editingEquation)
+	{
+		if (firstPlayerUsingKeyboard())
+		{
+			draw_sprite(sKeyEscape, 0, _x, _y);
+			_x += 14;
+		}
+		else
+		{
+			draw_sprite(sButtonStart, 0, _x, _y);
+			_x += 24;
+		}
+		_y += 5;
+		draw_text_transformed(_x, _y, ":Pause", _s, _s, 0);
+	
+		// Set next position
+		_y += 11;
+		_x = 18;
+	}
+
+	// Toggle EQ
+	if (editingEquation || !oGame.gamePaused)
+	{
+		if (firstPlayerUsingKeyboard())
+		{
+			draw_sprite(sKeyTab, 0, _x, _y);
+			_x += 14;
+		}
+		else
+		{
+			draw_sprite(sButtonSelect, 0, _x, _y);
+			_x += 26;
+		}
+		_y += 5;
+		draw_text_transformed(_x, _y, ":EQ Editor", _s, _s, 0);
+	}
+
+	// Reset alpha
+	draw_set_alpha(1);
+}
 
 #endregion
 

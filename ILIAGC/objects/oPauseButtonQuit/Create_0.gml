@@ -5,7 +5,7 @@ event_inherited();
 name = "Quit";
 
 // Add neighbors
-neighbors[InputAction.UP] = oPauseButtonFullsceen;
+neighbors[InputAction.UP] = oPauseButtonTidyUI;
 neighbors[InputAction.DOWN] = oPauseButtonResume;
 
 /// @func	onPressed();

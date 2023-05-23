@@ -18,5 +18,7 @@ array_push(buttons, instance_create_layer(_x, _y, menuLayer, oPauseButtonSFXUp))
 _y += _yoff;
 array_push(buttons, instance_create_layer(_x, _y, menuLayer, oPauseButtonFullsceen));
 _y += _yoff;
+array_push(buttons, instance_create_layer(_x, _y, menuLayer, oPauseButtonTidyUI));
+_y += _yoff;
 array_push(buttons, instance_create_layer(_x, _y, menuLayer, oPauseButtonQuit));
 _y += _yoff;

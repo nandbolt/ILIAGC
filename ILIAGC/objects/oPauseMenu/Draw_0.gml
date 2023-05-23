@@ -16,6 +16,8 @@ _y += _yoff;
 draw_text_transformed(_x, _y, string(round(oGame.sfxGain * 100)) + "%", _s, _s, 0);
 _y += _yoff;
 draw_text_transformed(_x, _y, window_get_fullscreen() ? "Yes" : "No", _s, _s, 0);
+_y += _yoff;
+draw_text_transformed(_x, _y, oGame.tidyUI ? "Yes" : "No", _s, _s, 0);
 draw_set_alpha(1);
 
 // Controls

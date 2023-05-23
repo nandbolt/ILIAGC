@@ -9,6 +9,9 @@ canvasHeight = CANVAS_BASE_HEIGHT;
 musicGain = 0.5;
 sfxGain = 0.5;
 
+// UI
+tidyUI = false;
+
 /// @func	browserScaleCanvas({int} baseWidth, {int} baseHeight, {int} currentWidth, {int} currentHeight, {bool} center);
 browserScaleCanvas = function(_baseWidth, _baseHeight, _currentWidth, _currentHeight, _center)
 {
