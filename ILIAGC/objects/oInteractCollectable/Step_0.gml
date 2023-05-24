@@ -13,6 +13,7 @@ if (!collected)
 		// Decrement timer
 		nearbyTimer--;
 	}
-	else image_alpha = 0.25;
+	// Fade in collectable
+	else image_alpha = clamp(image_alpha + alphaFadeSpeed, 0, 0.25);
 }
 else nearbyTimer = 0;
