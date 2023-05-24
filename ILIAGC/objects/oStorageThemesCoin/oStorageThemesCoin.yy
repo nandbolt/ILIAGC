@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "oStorageThemesCoin",
   "spriteId": {
-    "name": "sCoinOutline",
-    "path": "sprites/sCoinOutline/sCoinOutline.yy",
+    "name": "sThemesCoin",
+    "path": "sprites/sThemesCoin/sThemesCoin.yy",
   },
   "solid": false,
   "visible": true,

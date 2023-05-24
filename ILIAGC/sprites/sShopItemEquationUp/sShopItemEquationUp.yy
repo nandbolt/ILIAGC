@@ -69,6 +69,6 @@
   "nineSlice": null,
   "parent": {
     "name": "Upgrades",
-    "path": "folders/Sprites/Collectables/ShopItems/Upgrades.yy",
+    "path": "folders/Sprites/Collectables/Interactables/ShopItems/Upgrades.yy",
   },
 }

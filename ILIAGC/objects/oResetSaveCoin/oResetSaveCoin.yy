@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "oResetSaveCoin",
   "spriteId": {
-    "name": "sCoinOutline",
-    "path": "sprites/sCoinOutline/sCoinOutline.yy",
+    "name": "sResetSaveCoin",
+    "path": "sprites/sResetSaveCoin/sResetSaveCoin.yy",
   },
   "solid": false,
   "visible": true,

@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "oModeCoin",
   "spriteId": {
-    "name": "sCoinOutline",
-    "path": "sprites/sCoinOutline/sCoinOutline.yy",
+    "name": "sResetClock",
+    "path": "sprites/sResetClock/sResetClock.yy",
   },
   "solid": false,
   "visible": true,

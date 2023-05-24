@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "oStorageCoin",
   "spriteId": {
-    "name": "sCoinOutline",
-    "path": "sprites/sCoinOutline/sCoinOutline.yy",
+    "name": "sStorageCoin",
+    "path": "sprites/sStorageCoin/sStorageCoin.yy",
   },
   "solid": false,
   "visible": true,

@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "oShopCoin",
   "spriteId": {
-    "name": "sCoinOutline",
-    "path": "sprites/sCoinOutline/sCoinOutline.yy",
+    "name": "sShopCoin",
+    "path": "sprites/sShopCoin/sShopCoin.yy",
   },
   "solid": false,
   "visible": true,

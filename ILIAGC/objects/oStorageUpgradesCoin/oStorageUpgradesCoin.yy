@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "oStorageUpgradesCoin",
   "spriteId": {
-    "name": "sCoinOutline",
-    "path": "sprites/sCoinOutline/sCoinOutline.yy",
+    "name": "sUpgradesCoin",
+    "path": "sprites/sUpgradesCoin/sUpgradesCoin.yy",
   },
   "solid": false,
   "visible": true,

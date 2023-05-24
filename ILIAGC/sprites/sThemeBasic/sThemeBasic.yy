@@ -69,6 +69,6 @@
   "nineSlice": null,
   "parent": {
     "name": "Themes",
-    "path": "folders/Sprites/Collectables/ShopItems/Themes.yy",
+    "path": "folders/Sprites/Collectables/Interactables/ShopItems/Themes.yy",
   },
 }

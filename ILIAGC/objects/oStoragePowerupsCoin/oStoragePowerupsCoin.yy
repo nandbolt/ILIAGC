@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "oStoragePowerupsCoin",
   "spriteId": {
-    "name": "sCoinOutline",
-    "path": "sprites/sCoinOutline/sCoinOutline.yy",
+    "name": "sPowerupsCoin",
+    "path": "sprites/sPowerupsCoin/sPowerupsCoin.yy",
   },
   "solid": false,
   "visible": true,

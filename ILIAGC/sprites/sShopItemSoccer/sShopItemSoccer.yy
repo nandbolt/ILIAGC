@@ -69,6 +69,6 @@
   "nineSlice": null,
   "parent": {
     "name": "Modes",
-    "path": "folders/Sprites/Collectables/ShopItems/Modes.yy",
+    "path": "folders/Sprites/Collectables/Interactables/ShopItems/Modes.yy",
   },
 }

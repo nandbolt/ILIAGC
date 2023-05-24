@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "oHomeCoin",
   "spriteId": {
-    "name": "sCoinOutline",
-    "path": "sprites/sCoinOutline/sCoinOutline.yy",
+    "name": "sHomeCoin",
+    "path": "sprites/sHomeCoin/sHomeCoin.yy",
   },
   "solid": false,
   "visible": true,
