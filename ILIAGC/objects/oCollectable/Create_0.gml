@@ -10,6 +10,7 @@ spinSpeed = 0.05;
 alphaFadeSpeed = 0.02;
 driftUpSpeed = 0.1;
 spinBoost = 0.1;
+normalAlpha = 0.25;
 
 // Sprite
 imageXScale = 1;

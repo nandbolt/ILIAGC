@@ -8,6 +8,9 @@ interactDescription = "Go?";
 // Interactable
 nearbyTimer = 0;
 
+// Fade out
+normalAlpha = 0.5;
+
 /// @func	drawDescription();
 drawDescription = function()
 {

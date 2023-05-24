@@ -14,6 +14,6 @@ if (!collected)
 		nearbyTimer--;
 	}
 	// Fade in collectable
-	else image_alpha = clamp(image_alpha + alphaFadeSpeed, 0, 0.25);
+	else image_alpha = clamp(image_alpha + alphaFadeSpeed, 0, normalAlpha);
 }
 else nearbyTimer = 0;
