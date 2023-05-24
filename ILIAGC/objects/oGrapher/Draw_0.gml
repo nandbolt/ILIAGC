@@ -103,50 +103,43 @@ if (editingEquation)
 	// Help menus
 	_y = 36;
 	_x = 22;
-	draw_set_color(c_yellow);
+	var _title = "";
+	if (!oGame.tidyUI) _title += "(" + string(menuIdx + 1) + "/" + string(menuCount + 1) + ") ";
+	draw_set_color(c_white);
 	switch (menuIdx)
 	{
 		case 0:
 			#region How To Graph
-			draw_sprite_stretched(sBorder,0,_x-2,_y-1,178-_x-2,112-_y-1);
-			draw_text_transformed(_x, _y,"How To Graph", _s, _s, 0);
+			_title += "How To Graph";
+			draw_sprite_stretched(sBorder,0,_x-2,_y-1,178-_x-2,75-_y-1);
 			_y += _yoff;
-			draw_set_color(c_white);
-			draw_text_ext_transformed(_x, _y, "Hello! And yep, I'm trapped inside a calculator. But no matter! Can you help me collect coins? " +
-												"Your graphs will be of great help!\n\nTo graph an equation (EQ), input any collection of " +
-												"constants (0-9), operators (+-), parenthesis and variables (X) that make sense and hit enter. For more help, " +
-												"look at the other menus with the <> arrows! Remember: X is input, Y is output.", 14, 304,  _s, _s, 0);
+			draw_text_transformed(_x, _y, "1. Choose a function to edit.", _s, _s, 0);
+			_y += _yoff;
+			draw_text_transformed(_x, _y, "2. Type in an expression.", _s, _s, 0);
+			_y += _yoff;
+			draw_text_transformed(_x, _y, "3. Enter a valid equation to graph it.", _s, _s, 0);
+			_y += _yoff;
+			draw_text_transformed(_x, _y, "4. Exit equation editor.", _s, _s, 0);
 			_y += _yoff;
 			#endregion
 			break;
 		case 1:
 			#region EQ Editor Controls
-			draw_sprite_stretched(sBorder,0,_x-2,_y-1,178-_x-2,112-_y-1);
-			draw_text_transformed(_x, _y,"EQ Editor Controls", _s, _s, 0);
-			_y += _yoff;
-			draw_set_color(c_white);
-			draw_text_transformed(_x, _y, "Enter: Graph EQ", _s, _s, 0);
-			_y += _yoff;
-			draw_text_transformed(_x, _y, "Backspace: Delete", _s, _s, 0);
-			_y += _yoff;
-			draw_text_transformed(_x, _y, "Space: Destroy Graph", _s, _s, 0);
-			_y += _yoff;
-			draw_text_transformed(_x, _y, "Up Arrow: Previous EQ", _s, _s, 0);
-			_y += _yoff;
-			draw_text_transformed(_x, _y, "Down Arrow: Next EQ", _s, _s, 0);
+			_title += "Equation Tokens";
+			draw_sprite_stretched(sBorder,0,_x-2,_y-1,178-_x-2,82-_y-1);
 			_y += _yoff;
 			draw_text_transformed(_x, _y, "(): Parenthesis", _s, _s, 0);
+			_y += _yoff;
+			draw_text_transformed(_x, _y, ".: Decimal", _s, _s, 0);
 			_y += _yoff;
 			draw_set_color(c_gray);
 			draw_text_transformed(_x, _y, "0-9: Numbers", _s, _s, 0);
 			_y += _yoff;
-			draw_text_transformed(_x, _y, ".: Decimal", _s, _s, 0);
-			_y += _yoff;
 			draw_text_transformed(_x, _y, "P: PI", _s, _s, 0);
+			_y += _yoff;
+			draw_text_transformed(_x, _y, "E: Euler's Number", _s, _s, 0);
 			_y = 36 + _yoff;
 			_x = room_width * 0.5 + 8;
-			draw_text_transformed(_x, _y, "E: Euler's Number", _s, _s, 0);
-			_y += _yoff;
 			draw_set_color(c_aqua);
 			draw_text_transformed(_x, _y, "X: Variable", _s, _s, 0);
 			_y += _yoff;
@@ -159,40 +152,61 @@ if (editingEquation)
 			_y += _yoff;
 			draw_text_transformed(_x, _y, "R: {nth} Root {arg}", _s, _s, 0);
 			_y += _yoff;
-	
 			#endregion
 			break;
 		case 2:
 			#region Example EQs
+			_title += "Example EQs";
 			draw_sprite_stretched(sBorder,0,_x-2,_y-1,178-_x-2,112-_y-1);
-			draw_text_transformed(_x, _y, "Example EQs", _s, _s, 0);
 			_y += _yoff;
-			draw_set_color(c_white);
+			
+			// Basic EQs
 			draw_text_transformed(_x, _y, "y = 2", _s, _s, 0);
 			_y += _yoff;
-			draw_text_transformed(_x, _y, "y = -.25x+3", _s, _s, 0);
+			draw_text_transformed(_x, _y, "y = x", _s, _s, 0);
 			_y += _yoff;
-			draw_text_transformed(_x, _y, "y = .5x^2-5x+14", _s, _s, 0);
+			draw_text_transformed(_x, _y, "y = (x+3)/4", _s, _s, 0);
 			_y += _yoff;
 			draw_text_transformed(_x, _y, "y = 9/x", _s, _s, 0);
 			_y += _yoff;
-			draw_text_transformed(_x, _y, "y = 2CX+3", _s, _s, 0);
+			draw_text_transformed(_x, _y, "y = -sinx+2", _s, _s, 0);
 			_y += _yoff;
-			draw_text_transformed(_x, _y, "y = 3+3R(X-5)", _s, _s, 0);
+			draw_text_transformed(_x, _y, "y = 2cosx+3", _s, _s, 0);
 			_y += _yoff;
-			draw_text_transformed(_x, _y, "y = 3(eLX)+S(2X)", _s, _s, 0);
+			draw_text_transformed(_x, _y, "y = tan(x/2)", _s, _s, 0);
 			_y += _yoff;
-			draw_text_transformed(_x, _y, "y = e^(-.2(x-9))SX", _s, _s, 0);
+			draw_text_transformed(_x, _y, "y = logx+2", _s, _s, 0);
 			_y += _yoff;
-			draw_text_transformed(_x, _y, "y = 2S(2S(2SX))+2", _s, _s, 0);
+			draw_text_transformed(_x, _y, "y = rootx+2", _s, _s, 0);
 			_y += _yoff;
-	
+			
+			// Complex EQs
+			_x += 54;
+			_y = 36 + _yoff;
+			draw_text_transformed(_x, _y, "y = .5x^2-5x+14", _s, _s, 0);
+			_y += _yoff;
+			draw_text_transformed(_x, _y, "y = 3+3root(x-5)", _s, _s, 0);
+			_y += _yoff;
+			draw_text_transformed(_x, _y, "y = 1/(sinx)+4", _s, _s, 0);
+			_y += _yoff;
+			draw_text_transformed(_x, _y, "y = x+cosx", _s, _s, 0);
+			_y += _yoff;
+			draw_text_transformed(_x, _y, "y = 1+e^(.2xsin(.9pix))", _s, _s, 0);
+			_y += _yoff;
+			draw_text_transformed(_x, _y, "y = 3(elogX)+sin(2X)", _s, _s, 0);
+			_y += _yoff;
+			draw_text_transformed(_x, _y, "y = .4((1-x)/(x-5))+5", _s, _s, 0);
+			_y += _yoff;
+			draw_text_transformed(_x, _y, "y = root(20sinx)+2", _s, _s, 0);
+			_y += _yoff;
+			draw_text_transformed(_x, _y, "y = 2sin(2sin(2sinX))+3", _s, _s, 0);
+			_y += _yoff;
 			#endregion
 			break;
 		case 3:
 			#region Table
+			_title += "Table";
 			draw_sprite_stretched(sBorder,0,_x-2,_y-1,178-_x-2,98-_y-1);
-			draw_text_transformed(_x, _y, "Table", _s, _s, 0);
 			_y += _yoff * 2;
 			var _x2 = _x + 20, _x3 = room_width * 0.5 + 8;
 			var _x4 = _x3 + 20;
@@ -236,6 +250,25 @@ if (editingEquation)
 			#endregion
 			break;
 	}
+	draw_set_color(c_yellow);
+	_y = 36;
+	_x = 22;
+	if (!oGame.tidyUI)
+	{
+		if (firstPlayerUsingKeyboard())
+		{
+			draw_sprite_ext(sKeyArrowLeft, 0, _x, _y + .5, 0.75, 0.75, 0, c_white, 1);
+			draw_sprite_ext(sKeyArrowRight, 0, _x + 6, _y + .5, 0.75, 0.75, 0, c_white, 1);
+			draw_text_transformed(_x + 12, _y,_title, _s, _s, 0);
+		}
+		else
+		{
+			draw_sprite_ext(sButtonLT, 0, _x, _y + .5, 0.75, 0.75, 0, c_white, 1);
+			draw_sprite_ext(sButtonRT, 0, _x + 8, _y + .5, 0.75, 0.75, 0, c_white, 1);
+			draw_text_transformed(_x + 15, _y, _title, _s, _s, 0);
+		}
+	}
+	else draw_text_transformed(_x, _y, _title, _s, _s, 0);
 	
 	// Reset color
 	draw_set_color(c_white);
