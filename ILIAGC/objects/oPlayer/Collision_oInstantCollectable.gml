@@ -2,5 +2,9 @@
 with (other)
 {
 	// Collect if active and not playing soccer
-	if (active && oWorld.gameMode != Mode.SOCCER) collect();
+	if (active && oWorld.gameMode != Mode.SOCCER)
+	{
+		collector = other.id;
+		collect();
+	}
 }

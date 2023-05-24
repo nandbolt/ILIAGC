@@ -262,8 +262,8 @@ spawnHomeCoins = function()
 	instance_create_layer(32, 168, "Instances", oStorageCoin);
 }
 
-/// @func	spawnPlayer({int} playerId);
-spawnPlayer = function(_playerId)
+/// @func	spawnPlayer({int} playerId, *{id} playerObject, *{real} x, *{real} y, *{real} velocityX, *{real} velocityY);
+spawnPlayer = function(_playerId, _playerObject = oPlayerHuman, _x = 96, _y = 144, _velocityX = 0, _velocityY = 0)
 {
 	// Init player already spawned
 	var _playerAlreadySpawned = false;
@@ -279,12 +279,16 @@ spawnPlayer = function(_playerId)
 	if (!_playerAlreadySpawned)
 	{
 		// Spawn player
-		var _player = instance_create_layer(96, 144, "Instances", oPlayerHuman);
+		var _player = instance_create_layer(_x, _y, "Instances", _playerObject);
 		with (_player)
 		{
 			// Set/return id
 			playerId = _playerId;
-			if (playerId > 0) playerColor = c_aqua;
+			if (playerId == 1) playerColor = c_aqua;
+			else if (playerId == 2) playerColor = c_lime;
+			else if (playerId == 3) playerColor = c_yellow;
+			velocity.x = _velocityX;
+			velocity.y = _velocityY;
 			return id;
 		}
 	}

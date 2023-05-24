@@ -11,7 +11,10 @@ itemTypeString = "characters";
 buyItem = function()
 {
 	// Set powerup
-	setCharacter(character);
+	with (oPlayer)
+	{
+		setCharacter(other.character);
+	}
 	
 	// Unlock
 	oGame.myCharacters[character][1]++;

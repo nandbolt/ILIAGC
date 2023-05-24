@@ -20,6 +20,7 @@ with (other)
 			}
 		
 			// Collect
+			collector = other.id;
 			collect();
 		}
 	}

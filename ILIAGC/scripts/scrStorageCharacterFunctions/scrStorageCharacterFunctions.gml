@@ -1,16 +1,20 @@
 /// @func	setCharacter({int} idx);
 function setCharacter(_idx)
 {
-	// Get object
+	// Get player info
 	var _characterObject = getCharacterObject(_idx);
-	var _x = oPlayer.x, _y = oPlayer.y;
-	var _velocityX = oPlayer.velocity.x, _velocityY = oPlayer.velocity.y;
-	instance_destroy(oPlayer);
-	var _character = instance_create_layer(_x, _y, "Instances", _characterObject);
-	with (_character)
+	var _x = x, _y = y;
+	var _velocityX = velocity.x, _velocityY = velocity.y;
+	var _playerId = playerId;
+	
+	// Change to world scope
+	with (oWorld)
 	{
-		velocity.x = _velocityX;
-		velocity.y = _velocityY;
+		// Despawn player
+		despawnPlayer(_playerId);
+	
+		// Spawn in player
+		spawnPlayer(_playerId, _characterObject, _x, _y, _velocityX, _velocityY);
 	}
 }
 

@@ -1,6 +1,7 @@
 // State
 active = true;
 collected = false;
+collector = noone;
 
 // Spin
 spinCounter = 0;

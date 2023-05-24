@@ -1,2 +1,6 @@
 // Toggle on jump
-if (other.interactPressed) toggle();
+if (other.interactPressed)
+{
+	collector = other.id;
+	toggle();
+}
