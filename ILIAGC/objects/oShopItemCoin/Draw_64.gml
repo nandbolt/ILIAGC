@@ -1,6 +1,3 @@
-// Inherit the parent event
-event_inherited();
-
 // If nearby
 if (nearbyTimer > 0)
 {
