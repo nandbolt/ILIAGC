@@ -97,7 +97,7 @@ if (gameStarted && !gameTimerPaused)
 			with (oObstacle)
 			{
 				hp--;
-				if (hp <= 0) instance_destroy();
+				if (hp <= 0) active = false;
 			}
 		}
 		
