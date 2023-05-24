@@ -62,6 +62,3 @@ spawnNextCoin = function()
 	}
 	nextCoin = instance_create_layer(_x,_y,"Instances",_coin);
 }
-
-// Set alpha
-image_alpha = 0.25;

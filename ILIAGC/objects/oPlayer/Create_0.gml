@@ -142,7 +142,7 @@ takeDamage = function(_damage)
 			oWorld.gameTimer = 0;
 			with (oWorld)
 			{
-				endGameCoinRush();
+				endGame();
 			}
 		}
 		else
