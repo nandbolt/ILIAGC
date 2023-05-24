@@ -249,6 +249,7 @@ spawnHomeCoins = function()
 		with (_mode)
 		{
 			description = "Soccer";
+			longDescription = getModeDescription(Mode.SOCCER);
 			mode = Mode.SOCCER;
 		}
 	}

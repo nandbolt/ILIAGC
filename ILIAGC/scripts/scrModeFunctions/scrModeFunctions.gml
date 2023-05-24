@@ -27,8 +27,10 @@ function getModeDescription(_idx)
 {
 	switch (_idx)
 	{
+		case Mode.COIN_RUSH:
+			return "Mode: Collect as many coins as possible while trying to make sure the timer doesn't run out!";
 		case Mode.SOCCER:
-			return "Mode: GOOOOOOOOOOOOOAAAAAAAAAAAALL...";
+			return "Mode: Similar to Coin Rush but the only way to collect coins is with balls. Start with a special ball.";
 		default:
 			return "Mode: ???";
 	}

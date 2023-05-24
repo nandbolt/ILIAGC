@@ -3,6 +3,7 @@ event_inherited();
 
 // Description
 description = "Coin Rush";
+longDescription = getModeDescription(Mode.COIN_RUSH);
 
 // Mode
 mode = Mode.COIN_RUSH;
