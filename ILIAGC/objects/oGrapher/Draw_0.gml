@@ -8,15 +8,6 @@ var _c = c_white;
 // If not tidy ui
 if (!oGame.tidyUI)
 {
-	//_x = TILE_SIZE * 7;
-	//_y = TILE_SIZE * 2;
-	//_yoff = TILE_SIZE;
-	//draw_sprite(sIconRun, 0, _x, _y);
-	//draw_text_transformed(_x + 16, _y + 4, ":", _s, _s, 0);
-	//draw_sprite(sKeyA, 0, _x + 20, _y + 4);
-	//draw_sprite(sKeyD, 0, _x + 28, _y + 4);
-	//_y += _yoff;
-
 	// Aligment + origin
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
@@ -44,6 +35,34 @@ if (!oGame.tidyUI)
 		draw_text_transformed(_x + 16, _y + 4, ":", _s, _s, 0);
 		if (firstPlayerUsingKeyboard()) draw_sprite(sKeyTab, 0, _x + 20, _y + 4);
 		else draw_sprite(sButtonSelect, 0, _x + 20, _y + 4);
+		
+		// Controls
+		if (editingEquation)
+		{
+			draw_set_alpha(0.75);
+			_x = TILE_SIZE * 8;
+			_y = TILE_SIZE * 7;
+			if (!firstPlayerUsingKeyboard()) _x += TILE_SIZE;
+			draw_sprite(sIconGraph2, 0, _x, _y)
+			draw_text_transformed(_x + 16, _y + 4, ":", _s, _s, 0);
+			if (firstPlayerUsingKeyboard()) draw_sprite(sKeyEnter, 0, _x + 20, _y + 4);
+			else draw_sprite(sButtonX, 0, _x + 20, _y + 4);
+			_y += 16;
+			_x = TILE_SIZE * 8;
+			if (!firstPlayerUsingKeyboard()) _x += TILE_SIZE;
+			draw_sprite(sIconClearGraph, 0, _x, _y)
+			draw_text_transformed(_x + 16, _y + 4, ":", _s, _s, 0);
+			if (firstPlayerUsingKeyboard()) draw_sprite(sKeySpace, 0, _x + 20, _y + 4);
+			else draw_sprite(sButtonB, 0, _x + 20, _y + 4);
+			_y += 16;
+			_x = TILE_SIZE * 8;
+			if (!firstPlayerUsingKeyboard()) _x += TILE_SIZE;
+			draw_sprite(sIconGraph3, 0, _x, _y)
+			draw_text_transformed(_x + 16, _y + 4, ":", _s, _s, 0);
+			if (firstPlayerUsingKeyboard()) draw_sprite(sKeyArrowUp, 0, _x + 20, _y + 4);
+			else draw_sprite(sButtonRB, 0, _x + 20, _y + 4);
+			_y += 16;
+		}
 	}
 
 	// Reset alpha
