@@ -52,9 +52,10 @@ timeBetweenBonusClocks = 300;
 
 // Powerups
 powerups = [oPowerupShield];
-minStepsBetweenPowerups = 1800;
-maxStepsBetweenPowerups = 3600;
-powerupTimer = irandom_range(minStepsBetweenPowerups, maxStepsBetweenPowerups);
+baseMinStepsBetweenPowerups = 2700;
+baseMaxStepsBetweenPowerups = 3600;
+powerupTimer = 0;
+powerupDiversity = 0;
 
 // Soccer
 soccerLowestCoinSpawnY = 96;
@@ -70,6 +71,11 @@ startGame = function(_mode)
 	// Set game mode
 	gameMode = _mode;
 	
+	// Powerup diversity
+	var _powerupCount = array_length(powerups);
+	if (_powerupCount < 2) powerupDiversity = 0;
+	else powerupDiversity = clamp(_powerupCount / array_length(oGame.myPowerups), 0, 1);
+	
 	// Set counters
 	gameTimer = 60;
 	gameCounter = 0;
@@ -77,6 +83,7 @@ startGame = function(_mode)
 	difficultyFactor = 0;
 	highscore = false;
 	updateObstacleTimer();
+	updatePowerupTimer();
 		
 	// Reset coins
 	coins = 0;
@@ -327,6 +334,14 @@ updateObstacleTimer = function()
 {
 	var _minTime = baseMinObstacleTime - (baseMinObstacleTime - lowestMinObstacleTime) * difficultyFactor;
 	var _maxTime = baseMaxObstacleTime - (baseMaxObstacleTime - lowestMaxObstacleTime) * difficultyFactor;
+	obstacleTimer = irandom_range(_minTime, _maxTime);
+}
+
+/// @func	updatePowerupTimer();
+updatePowerupTimer = function()
+{
+	var _minTime = baseMinStepsBetweenPowerups - 900 * powerupDiversity;
+	var _maxTime = baseMaxStepsBetweenPowerups - 900 * powerupDiversity;
 	obstacleTimer = irandom_range(_minTime, _maxTime);
 }
 

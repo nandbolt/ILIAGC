@@ -44,10 +44,20 @@ if (gameStarted && !gameTimerPaused)
 		// If powerup pool not empty
 		if (array_length(powerups) > 0)
 		{
-			var _powerupObject = powerups[irandom(array_length(powerups) - 1)];
-			instance_create_layer(random_range(24,168), random_range(24,168), "BackgroundInstances", _powerupObject);
+			// Get powerup count
+			var _powerupCount = 1;
+			if (random(1) * powerupDiversity > 0.5) _powerupCount++;
+			
+			// Add powerups
+			repeat (_powerupCount)
+			{
+				var _powerupObject = powerups[irandom(array_length(powerups) - 1)];
+				instance_create_layer(random_range(24,168), random_range(24,168), "Instances", _powerupObject);
+			}
 		}
-		powerupTimer = irandom_range(minStepsBetweenPowerups, maxStepsBetweenPowerups);
+		
+		// Update powerup timer
+		updatePowerupTimer();
 	}
 	else powerupTimer--;
 	
