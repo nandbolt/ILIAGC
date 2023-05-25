@@ -242,10 +242,10 @@ endGameSoccer = function()
 spawnHomeCoins = function()
 {
 	// Game modes
-	instance_create_layer(96, 96, "Instances", oModeCoin);
+	instance_create_layer(96, 96, "BackgroundInstances", oModeCoin);
 	if (oGame.myModes[Mode.SOCCER][1] > 0)
 	{
-		var _mode = instance_create_layer(48, 96, "Instances", oModeCoin);
+		var _mode = instance_create_layer(48, 96, "BackgroundInstances", oModeCoin);
 		with (_mode)
 		{
 			description = "Soccer";
@@ -256,10 +256,10 @@ spawnHomeCoins = function()
 	}
 	
 	// Shop
-	instance_create_layer(160, 168, "Instances", oShopCoin);
+	instance_create_layer(160, 168, "BackgroundInstances", oShopCoin);
 	
 	// Storage
-	instance_create_layer(32, 168, "Instances", oStorageCoin);
+	instance_create_layer(32, 168, "BackgroundInstances", oStorageCoin);
 }
 
 /// @func	spawnPlayer({int} playerId, *{id} playerObject, *{real} x, *{real} y, *{real} velocityX, *{real} velocityY);
