@@ -20,6 +20,10 @@ mostCoins = 0;
 coinRushMostCoins = 0;
 soccerMostCoins = 0;
 
+// Shop
+shopItems = [];
+shopRerollPrice = 0;
+
 // Obstacles
 obstacles = [oGraphEater, oSpikes, oCloud, oBubbleGum, oSpider];
 baseMinObstacleTime = 600;
@@ -159,6 +163,9 @@ endGame = function()
 	
 	// Set alarm buffer (before home coins spawn)
 	alarm[0] = 120;
+	
+	// Restock shop
+	shopRestock();
 	
 	// Game mode specific
 	switch (gameMode)
@@ -352,3 +359,6 @@ mostCoins = coinRushMostCoins;
 
 // Spawn home coins
 spawnHomeCoins();
+
+// Restock shop
+shopRestock();

@@ -1,3 +1,80 @@
+/// @func	shopRestock();
+function shopRestock()
+{
+	// Reset shop items
+	with (oWorld)
+	{
+		shopItems = [];
+		shopRerollPrice = 0;
+	}
+	
+	
+	// Gather all potential shop items
+	var _shopItems = [], _lvl = 0;
+	for (var _i = 0; _i < array_length(oGame.myPowerups); _i++)
+	{
+		_lvl = oGame.myPowerups[_i][1];
+		if (_lvl < oGame.myPowerups[_i][2]) array_push(_shopItems, [ShopItem.POWERUP, oGame.myPowerups[_i][0]]);
+	}
+	for (var _i = 0; _i < array_length(oGame.myUpgrades); _i++)
+	{
+		_lvl = oGame.myUpgrades[_i][1];
+		if (_lvl == 0) array_push(_shopItems, [ShopItem.UPGRADE, oGame.myUpgrades[_i][0]]);
+	}
+	for (var _i = 0; _i < array_length(oGame.myMisc); _i++)
+	{
+		_lvl = oGame.myMisc[_i][1];
+		if (_lvl == 0) array_push(_shopItems, [ShopItem.MISC, oGame.myMisc[_i][0]]);
+	}
+	for (var _i = 0; _i < array_length(oGame.myTheme); _i++)
+	{
+		_lvl = oGame.myTheme[_i][1];
+		if (_lvl == 0) array_push(_shopItems, [ShopItem.THEME, oGame.myTheme[_i][0]]);
+	}
+	for (var _i = 0; _i < array_length(oGame.myCharacters); _i++)
+	{
+		_lvl = oGame.myCharacters[_i][1];
+		if (_lvl == 0) array_push(_shopItems, [ShopItem.CHARACTER, oGame.myCharacters[_i][0]]);
+	}
+	for (var _i = 0; _i < array_length(oGame.myModes); _i++)
+	{
+		_lvl = oGame.myModes[_i][1];
+		if (_lvl == 0) array_push(_shopItems, [ShopItem.MODE, oGame.myModes[_i][0]]);
+	}
+	for (var _i = 0; _i < array_length(oGame.myFoods); _i++)
+	{
+		array_push(_shopItems, [ShopItem.FOOD, oGame.myFoods[_i][0]]);
+	}
+	
+	// Loop through potential shop items
+	for (var _i = 0; _i < array_length(_shopItems); _i++)
+	{
+		// Get random shop item
+		var _k = irandom(array_length(_shopItems) - 1);
+		var _shopItem = [_shopItems[_k][0], _shopItems[_k][1]];
+				
+		// Add item to shop items
+		array_push(oWorld.shopItems, _shopItem);
+		
+		// Break if at more than 6 items
+		if (array_length(oWorld.shopItems) > 5) break;
+		// Else remove from inventory
+		else array_delete(_shopItems, _k, 1);
+	}
+}
+
+/// @func	shopSpawnItems();
+function shopSpawnItems()
+{
+	// Loop through shop items
+	for (var _k = 0; _k < array_length(oWorld.shopItems); _k++)
+	{
+		// Spawn item at correct location
+		var _x = 48 + (_k % 3) * 48, _y = 136 - floor(_k / 3) * 32;
+		shopSpawnItem(oWorld.shopItems[_k][0], oWorld.shopItems[_k][1], _x, _y);
+	}
+}
+
 /// @func	shopSpawnItem({int} itemType, {int} itemIdx, {real} x, {real} y);
 function shopSpawnItem(_itemType, _itemIdx, _x, _y)
 {
@@ -34,8 +111,11 @@ function shopSpawnItemPowerup(_idx, _x, _y)
 	var _lvl = oGame.myPowerups[_idx][1] + 1;
 	with (_shopItem)
 	{
-		// Set shop item info
-		powerup = _idx;
+		// Item
+		itemIdx = _idx;
+		itemType = ShopItem.POWERUP;
+		
+		// Other
 		description = getPowerupName(_idx, _lvl);
 		itemName = getPowerupSaveName(_idx);
 		longDescription = getPowerupDescription(_idx, _lvl);
@@ -50,8 +130,11 @@ function shopSpawnItemUpgrade(_idx, _x, _y)
 	var _shopItem = instance_create_layer(_x, _y, "Instances", oShopItemUpgrade);
 	with (_shopItem)
 	{
-		// Set shop item info
-		misc = _idx;
+		// Item
+		itemIdx = _idx;
+		itemType = ShopItem.UPGRADE;
+		
+		// Other
 		description = getUpgradeName(_idx);
 		itemName = getUpgradeSaveName(_idx);
 		longDescription = getUpgradeDescription(_idx);
@@ -66,8 +149,11 @@ function shopSpawnItemMisc(_idx, _x, _y)
 	var _shopItem = instance_create_layer(_x, _y, "Instances", oShopItemMisc);
 	with (_shopItem)
 	{
-		// Set shop item info
-		misc = _idx;
+		// Item
+		itemIdx = _idx;
+		itemType = ShopItem.MISC;
+		
+		// Other
 		description = getMiscName(_idx);
 		itemName = getMiscSaveName(_idx);
 		longDescription = getMiscDescription(_idx);
@@ -82,8 +168,11 @@ function shopSpawnItemTheme(_idx, _x, _y)
 	var _shopItem = instance_create_layer(_x, _y, "Instances", oShopItemTheme);
 	with (_shopItem)
 	{
-		// Set shop item info
-		theme = _idx;
+		// Item
+		itemIdx = _idx;
+		itemType = ShopItem.THEME;
+		
+		// Other
 		description = getThemeName(_idx);
 		itemName = getThemeSaveName(_idx);
 		longDescription = getThemeDescription(_idx);
@@ -98,8 +187,11 @@ function shopSpawnItemCharacter(_idx, _x, _y)
 	var _shopItem = instance_create_layer(_x, _y, "Instances", oShopItemCharacter);
 	with (_shopItem)
 	{
-		// Set shop item info
-		character = _idx;
+		// Item
+		itemIdx = _idx;
+		itemType = ShopItem.CHARACTER;
+		
+		// Other
 		description = getCharacterName(_idx);
 		itemName = getCharacterSaveName(_idx);
 		longDescription = getCharacterDescription(_idx);
@@ -114,8 +206,11 @@ function shopSpawnItemMode(_idx, _x, _y)
 	var _shopItem = instance_create_layer(_x, _y, "Instances", oShopItemMode);
 	with (_shopItem)
 	{
-		// Set shop item info
-		mode = _idx;
+		// Item
+		itemIdx = _idx;
+		itemType = ShopItem.MODE;
+		
+		// Other
 		description = getModeName(_idx);
 		itemName = getModeSaveName(_idx);
 		longDescription = getModeDescription(_idx);
@@ -130,8 +225,11 @@ function shopSpawnItemFood(_idx, _x, _y)
 	var _shopItem = instance_create_layer(_x, _y, "Instances", oShopItemFood);
 	with (_shopItem)
 	{
-		// Set shop item info
-		food = _idx;
+		// Item
+		itemIdx = _idx;
+		itemType = ShopItem.FOOD;
+		
+		// Other
 		description = getFoodName(_idx);
 		longDescription = getFoodDescription(_idx);
 		sprite_index = getFoodSprite(_idx);

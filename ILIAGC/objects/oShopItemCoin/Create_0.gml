@@ -1,6 +1,10 @@
 // Inherit the parent event
 event_inherited();
 
+// Item
+itemIdx = -1;
+itemType = -1;
+
 // Text
 description = "Item";
 longDescription = "This is an item.";
@@ -29,6 +33,17 @@ onCollect = function()
 		ini_write_real(itemTypeString, itemName, itemValue);
 		ini_write_real("inventory", "coins_in_bank", oWorld.coinsInBank);
 		ini_close();
+	}
+	
+	// Remove item from shop items
+	for (var _i = 0; _i < array_length(oWorld.shopItems); _i++)
+	{
+		// If found item
+		if (oWorld.shopItems[_i][0] == itemType && oWorld.shopItems[_i][1] == itemIdx)
+		{
+			// Delete item from shop items
+			array_delete(oWorld.shopItems, _i, 1);
+		}
 	}
 }
 

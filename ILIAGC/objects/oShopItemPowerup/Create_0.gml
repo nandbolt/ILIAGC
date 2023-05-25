@@ -1,9 +1,6 @@
 // Inherit the parent event
 event_inherited();
 
-// Powerup
-powerup = Powerup.SHIELD;
-
 // Saving
 itemTypeString = "powerups";
 
@@ -11,14 +8,14 @@ itemTypeString = "powerups";
 buyItem = function()
 {
 	// Set powerup
-	setPowerup(powerup);
+	setPowerup(itemIdx);
 	
 	// Unlock
-	oGame.myPowerups[powerup][1]++;
-	itemValue = oGame.myPowerups[powerup][1];
+	oGame.myPowerups[itemIdx][1]++;
+	itemValue = oGame.myPowerups[itemIdx][1];
 	
 	// Save current powerup
 	ini_open("save.ini");
-	ini_write_real("inventory", getPowerupSaveName(powerup), 1);
+	ini_write_real("inventory", getPowerupSaveName(itemIdx), 1);
 	ini_close();
 }

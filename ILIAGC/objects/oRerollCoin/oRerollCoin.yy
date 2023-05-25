@@ -1,10 +1,10 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "oShopItemPowerup",
+  "name": "oRerollCoin",
   "spriteId": {
-    "name": "sCoinOutline",
-    "path": "sprites/sCoinOutline/sCoinOutline.yy",
+    "name": "sRerollCoin",
+    "path": "sprites/sRerollCoin/sRerollCoin.yy",
   },
   "solid": false,
   "visible": true,

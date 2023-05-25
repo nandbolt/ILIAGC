@@ -34,7 +34,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Interact",
-    "path": "folders/Objects/Collectable/Collectables/Interact.yy",
+    "name": "Shop",
+    "path": "folders/Objects/Collectable/Collectables/Interact/Shop.yy",
   },
 }

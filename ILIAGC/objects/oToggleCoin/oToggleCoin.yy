@@ -35,7 +35,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "StorageCoins",
-    "path": "folders/Objects/Collectable/Collectables/Interact/StorageCoins.yy",
+    "name": "Interact",
+    "path": "folders/Objects/Collectable/Collectables/Interact.yy",
   },
 }
