@@ -5,9 +5,11 @@ event_inherited();
 active = false;
 nextCoin = noone;
 value = 1;
-goldBound = 300;
-silverBound = 600;
-redBound = 900;
+
+// Thresholds
+silverThreshold = 0.25;
+redThreshold = 0.5;
+blueThreshold = 0.75;
 
 /// @func	onCollect();
 onCollect = function()
@@ -38,27 +40,23 @@ onActivate = function()
 /// @func	spawnNextCoin();
 spawnNextCoin = function()
 {
-	var _coin = oCoinBlue;
-	var _x = random_range(24,168), _y = x;
+	// Init coin parameters
+	var _coin = oCoin;
+	var _maxY = oWorld.spawnMaxY;
+	var _difficultyFactor = oWorld.difficultyFactor;
 	if (oWorld.gameMode == Mode.SOCCER)
 	{
-		// Set coin y
-		_y = random_range(24,oWorld.soccerLowestCoinSpawnY);
-		
-		// Set coin type
-		if (oWorld.timeElapsed < goldBound) _coin = oCoinSilver;
-		else if (oWorld.timeElapsed < silverBound) _coin = oCoinRed;
-		else if (oWorld.timeElapsed < redBound) _coin = oCoinRed;
+		// Set coin max y
+		_maxY = oWorld.soccerLowestCoinSpawnY;
+		_difficultyFactor += silverThreshold;
 	}
-	else
-	{
-		// Set coin y
-		_y = random_range(24,168);
-		
-		// Set coin type
-		if (oWorld.timeElapsed < goldBound) _coin = oCoin;
-		else if (oWorld.timeElapsed < silverBound) _coin = oCoinSilver;
-		else if (oWorld.timeElapsed < redBound) _coin = oCoinRed;
-	}
-	nextCoin = instance_create_layer(_x,_y,"Instances",_coin);
+	
+	// Choose coin
+	if (_difficultyFactor > blueThreshold) _coin = oCoinBlue;
+	else if (_difficultyFactor > redThreshold) _coin = oCoinRed;
+	else if (_difficultyFactor > silverThreshold) _coin = oCoinSilver;
+	
+	// Spawn coin
+	var _x = random_range(oWorld.spawnMinX, oWorld.spawnMaxX), _y = random_range(oWorld.spawnMinY, _maxY);
+	nextCoin = instance_create_layer(_x, _y, "Instances", _coin);
 }

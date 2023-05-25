@@ -57,7 +57,6 @@ if (gameStarted && !gameTimerPaused)
 		// Get obstacle count
 		var _obstacleCount = 1;
 		var _obstacleCountFactor = minObstacleSpawnCountFactor + (maxObstacleSpawnCountFactor - minObstacleSpawnCountFactor) * difficultyFactor;
-		_obstacleCountFactor = maxObstacleSpawnCountFactor;
 		for (var _i = 0; _i < maxObstacleSpawnCount; _i++)
 		{
 			if (random(1) > _obstacleCountFactor) break;
