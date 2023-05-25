@@ -109,11 +109,19 @@ if (gameStarted && !gameTimerPaused)
 		// Spawn obstacles if there are any to spawn
 		if (array_length(obstaclesToSpawn) > 0 && instance_number(oObstacle) < maxObstacleCount)
 		{
+			// Choose obstacle
 			var _obstacle = array_pop(obstaclesToSpawn);
 			var _x = random_range(spawnMinX, spawnMaxX), _y = spawnMaxY;
+			var _layer = "Instances";
 			if (_obstacle == oCloud) _y = random_range(spawnMinY, cloudSpawnMaxY);
-			else _y = random_range(spawnMinY, spawnMaxY);
-			instance_create_layer(_x, _y, "Instances", _obstacle);
+			else
+			{
+				_y = random_range(spawnMinY, spawnMaxY);
+				if (_obstacle == oSpikes || _obstacle == oGraphEater) _layer = "BackgroundInstances";
+			}
+			
+			// Spawn obstacle
+			instance_create_layer(_x, _y, _layer, _obstacle);
 		}
 		
 		// End game if timer reached zero
