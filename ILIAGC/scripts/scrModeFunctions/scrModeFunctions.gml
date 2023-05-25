@@ -3,6 +3,8 @@ function getModeName(_idx)
 {
 	switch (_idx)
 	{
+		case Mode.COIN_RUSH:
+			return "Coin Rush";
 		case Mode.SOCCER:
 			return "Soccer";
 		default:
@@ -41,6 +43,8 @@ function getModeSprite(_idx)
 {
 	switch (_idx)
 	{
+		case Mode.COIN_RUSH:
+			return sCoinOutline;
 		case Mode.SOCCER:
 			return sShopItemSoccer;
 		default:

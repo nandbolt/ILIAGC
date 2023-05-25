@@ -30,6 +30,29 @@ if (!oGame.gamePaused)
 	draw_set_color(c_white);
 }
 
+// Mode
+if (oWorld.gameStarted)
+{
+	// Set draw color
+	draw_set_color(c_gray);
+	
+	// World scope
+	with (oWorld)
+	{
+		draw_text_transformed(_x, _y, getModeName(gameMode), _s, _s, 0);
+		_y += _yoff;
+		draw_text_transformed(_x, _y, "Difficulty: " + string(difficultyFactor == 1 ? "MAX" : difficultyFactor), _s, _s, 0);
+		_y += _yoff;
+		draw_text_transformed(_x, _y, "Next obstacle in " + string(obstacleTimer), _s, _s, 0);
+		_y += _yoff;
+		draw_text_transformed(_x, _y, "Obstables to spawn: " + string(obstaclesToSpawn), _s, _s, 0);
+		_y += _yoff * 2;
+	}
+	
+	// Reset color
+	draw_set_color(c_white);
+}
+
 // Player
 if (instance_exists(oPlayer))
 {

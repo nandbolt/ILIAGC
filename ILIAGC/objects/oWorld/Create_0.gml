@@ -1,3 +1,10 @@
+// Dimensions
+spawnMinX = 24;
+spawnMinY = 24;
+spawnMaxX = 168;
+spawnMaxY = 168;
+cloudSpawnMaxY = 84;
+
 // States
 gameStarted = false;
 gameMode = Mode.COIN_RUSH;
@@ -12,6 +19,8 @@ gameTimer = 0;
 gameCounter = 0;
 gameTimerPaused = false;
 timeElapsed = 0;
+maxDifficultyTime = 1200;
+difficultyFactor = 0;
 
 // Coins
 coins = 0;
@@ -28,11 +37,14 @@ shopRerollPrice = 0;
 obstacles = [oGraphEater, oSpikes, oCloud, oBubbleGum, oSpider];
 baseMinObstacleTime = 600;
 baseMaxObstacleTime = 900;
-lowestMinObstacleTime = 180;
-lowestMaxObstacleTime = 300;
-minObstacleTime = lowestMinObstacleTime;
-maxObstacleTime = lowestMaxObstacleTime;
-obstacleTimer = irandom_range(minObstacleTime, maxObstacleTime);
+lowestMinObstacleTime = 300;
+lowestMaxObstacleTime = 600;
+obstacleTimer = 0;
+obstaclesToSpawn = [];
+maxObstacleCount = 20;
+maxObstacleSpawnCount = 10;
+minObstacleSpawnCountFactor = 0.4;
+maxObstacleSpawnCountFactor = 0.9;
 
 // Clock
 timeBetweenNormalClocks = 30;
@@ -42,8 +54,6 @@ timeBetweenBonusClocks = 300;
 powerups = [oPowerupShield];
 minStepsBetweenPowerups = 1800;
 maxStepsBetweenPowerups = 3600;
-//minStepsBetweenPowerups = 180;
-//maxStepsBetweenPowerups = 180;
 powerupTimer = irandom_range(minStepsBetweenPowerups, maxStepsBetweenPowerups);
 
 // Soccer
@@ -64,10 +74,9 @@ startGame = function(_mode)
 	gameTimer = 60;
 	gameCounter = 0;
 	timeElapsed = 0;
+	difficultyFactor = 0;
 	highscore = false;
-	minObstacleTime = baseMinObstacleTime;
-	maxObstacleTime = baseMaxObstacleTime;
-	obstacleTimer = irandom_range(minObstacleTime, maxObstacleTime);
+	updateObstacleTimer();
 		
 	// Reset coins
 	coins = 0;
@@ -311,6 +320,14 @@ despawnPlayer = function(_playerId)
 		// Destroy correct player
 		if (playerId == _playerId) instance_destroy();
 	}
+}
+
+/// @func	updateObstacleTimer();
+updateObstacleTimer = function()
+{
+	var _minTime = baseMinObstacleTime - (baseMinObstacleTime - lowestMinObstacleTime) * difficultyFactor;
+	var _maxTime = baseMaxObstacleTime - (baseMaxObstacleTime - lowestMaxObstacleTime) * difficultyFactor;
+	obstacleTimer = irandom_range(_minTime, _maxTime);
 }
 
 // Coin Sprites (HUD)

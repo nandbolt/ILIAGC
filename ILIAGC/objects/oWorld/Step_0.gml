@@ -36,7 +36,7 @@ if (gameStarted && !gameTimerPaused)
 {
 	// Increment counters
 	gameCounter++;
-	obstacleTimer--;
+	if (array_length(obstaclesToSpawn) == 0) obstacleTimer--;
 	
 	// Powerup timer
 	if (powerupTimer <= 0)
@@ -56,19 +56,29 @@ if (gameStarted && !gameTimerPaused)
 	{
 		// Get obstacle count
 		var _obstacleCount = 1;
-		var _num = random(100);
-		if (_num < 10) _obstacleCount = 3;
-		else if (_num < 40) _obstacleCount = 2;
+		var _obstacleCountFactor = minObstacleSpawnCountFactor + (maxObstacleSpawnCountFactor - minObstacleSpawnCountFactor) * difficultyFactor;
+		_obstacleCountFactor = maxObstacleSpawnCountFactor;
+		for (var _i = 0; _i < maxObstacleSpawnCount; _i++)
+		{
+			if (random(1) > _obstacleCountFactor) break;
+			_obstacleCount++;
+		}
+		
+		// Add obstacles
+		var _isEvent = false;
+		if (random(1) < 0.04) _isEvent = true;
+		var _i = irandom_range(0, array_length(obstacles) - 1);
 		repeat (_obstacleCount)
 		{
-			// Create obstacle
-			var _i = irandom_range(0, array_length(obstacles) - 1);
-			var _obstacle = obstacles[_i];
-			var _x = random_range(24,168), _y = random_range(24,168);
-			if (_obstacle == oCloud) _y = random_range(24,84);
-			instance_create_layer(_x, _y, "Instances", _obstacle);
-			obstacleTimer = irandom_range(minObstacleTime, maxObstacleTime);
+			// Add obstacle
+			array_push(obstaclesToSpawn, obstacles[_i]);
+			
+			// Reshuffle index if not event
+			if (!_isEvent) _i = irandom_range(0, array_length(obstacles) - 1);
 		}
+		
+		// Set obstacle timer
+		updateObstacleTimer();
 	}
 	
 	// If a second has passed
@@ -80,11 +90,7 @@ if (gameStarted && !gameTimerPaused)
 		timeElapsed++;
 		
 		// Difficulty scaling
-		if (timeElapsed mod 20 == 0)
-		{
-			minObstacleTime = clamp(minObstacleTime - 20, lowestMinObstacleTime, baseMinObstacleTime);
-			maxObstacleTime = clamp(maxObstacleTime - 20, lowestMaxObstacleTime, baseMaxObstacleTime);
-		}
+		difficultyFactor = clamp(timeElapsed / maxDifficultyTime, 0, 1);
 		
 		// Clock aid
 		if (timeElapsed mod timeBetweenBonusClocks == 0) instance_create_layer(random_range(24,168), random_range(24,168), "BackgroundInstances", oResetClock);
@@ -99,6 +105,16 @@ if (gameStarted && !gameTimerPaused)
 				hp--;
 				if (hp <= 0) active = false;
 			}
+		}
+		
+		// Spawn obstacles if there are any to spawn
+		if (array_length(obstaclesToSpawn) > 0 && instance_number(oObstacle) < maxObstacleCount)
+		{
+			var _obstacle = array_pop(obstaclesToSpawn);
+			var _x = random_range(spawnMinX, spawnMaxX), _y = spawnMaxY;
+			if (_obstacle == oCloud) _y = random_range(spawnMinY, cloudSpawnMaxY);
+			else _y = random_range(spawnMinY, spawnMaxY);
+			instance_create_layer(_x, _y, "Instances", _obstacle);
 		}
 		
 		// End game if timer reached zero
