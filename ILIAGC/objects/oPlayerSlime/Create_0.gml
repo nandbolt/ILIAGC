@@ -3,7 +3,6 @@ event_inherited();
 
 // Movement scalars
 runStrength = 0.05;
-driftStrength = 0.08;
 
 // Jumping
 jumpStrength = 4;
