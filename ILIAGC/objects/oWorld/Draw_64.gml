@@ -38,7 +38,7 @@ for (var _i = string_length(_mostCoinsString); _i > 0; _i--)
 }
 
 // Combo
-if (comboMeter > 0)
+if (gameStarted && comboMeter > 0)
 {
 	_x = TILE_SIZE * 5;
 	_y = 20;
