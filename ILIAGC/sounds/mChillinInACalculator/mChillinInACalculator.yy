@@ -15,7 +15,7 @@
     "path": "audiogroups/audiogroup_music",
   },
   "soundFile": "mChillinInACalculator.wav",
-  "duration": 80.0624,
+  "duration": 300.0,
   "parent": {
     "name": "Music",
     "path": "folders/Sounds/Music.yy",
