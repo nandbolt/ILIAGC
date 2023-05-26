@@ -13,17 +13,9 @@ else ignoreGraphs = false;
 // Block place
 if (blocks > 0 && inputPressed(playerId, InputAction.INTERACT))
 {
-	// If at empty space
+	// Spawn block if empty space
 	var _x = floor(x / TILE_SIZE) * TILE_SIZE, _y = floor(y / TILE_SIZE) * TILE_SIZE + TILE_SIZE;
-	if (tilemap_get_at_pixel(collisionTiles, _x, _y) == 0)
-	{
-		// Set block
-		instance_create_layer(_x, _y, "Instances", oBlock);
-		blocks--;
-			
-		// Block sound
-		audio_play_sound(sfxGraphEquation, 1, false);
-	}
+	if (tilemap_get_at_pixel(collisionTiles, _x, _y) == 0) spawnBlock(_x, _y);
 }
 
 #region Powerups/Invincibility/Other
@@ -38,7 +30,11 @@ if (oWorld.gameStarted && !oWorld.gameTimerPaused)
 	// Invincible power timer
 	if (invinciblePowerActive)
 	{
-		if (invinciblePowerTimer <= 0) invinciblePowerActive = false;
+		if (invinciblePowerTimer <= 0)
+		{
+			invinciblePowerActive = false;
+			deathTouch = false;
+		}
 		else invinciblePowerTimer--;
 	}
 	

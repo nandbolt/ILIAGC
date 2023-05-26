@@ -36,7 +36,6 @@ coyoteBufferCounter = 0;
 invincible = false;
 damageInvincibilityTime = 60;
 invincibleTimer = 0;
-deathTouch = false;
 
 // Sprites
 spriteIdle = sPlayerIdle;
@@ -60,6 +59,7 @@ airJumps = 0;
 // Invincible
 invinciblePowerActive = false;
 invinciblePowerTimer = 0;
+deathTouch = false;
 #region Rainbow Shader Uniforms
 rainbowUniUV         = shader_get_uniform(shdrRainbow, "u_uv");
 rainbowUniTime       = shader_get_uniform(shdrRainbow, "u_time");
@@ -167,3 +167,14 @@ onLand = function()
 
 /// @func	updateTheme({int} theme);
 updateTheme = function(_theme){}
+
+/// @func	spawnBlock({real} x, {real} y);
+spawnBlock = function(_x, _y)
+{
+	// Set block
+	instance_create_layer(_x, _y, "BackgroundInstances", oBlock);
+	blocks--;
+			
+	// Block sound
+	audio_play_sound(sfxGraphEquation, 1, false);
+}

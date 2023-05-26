@@ -57,7 +57,7 @@ timeBetweenNormalClocks = 30;
 timeBetweenBonusClocks = 300;
 
 // Powerups
-powerups = [oPowerupShield];
+powerups = [];
 baseMinStepsBetweenPowerups = 2700;
 baseMaxStepsBetweenPowerups = 3600;
 powerupTimer = 0;
