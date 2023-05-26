@@ -27,6 +27,7 @@ ds_map_add(precedenceMap, "l", 5);
 ds_map_add(precedenceMap, "r", 5);
 graphCooldown = 300;
 axisVisible = layer_get_visible("GridAxis");
+graphNote = "";
 
 // Other
 showInfo = true;
@@ -47,7 +48,11 @@ table = [0,0,0,0,0,0,0,0,0,0];
 graphEquation = function()
 {
 	// Exit function if graph on cooldown
-	if (graphs[graphIdx][2] > 0) return;
+	if (graphs[graphIdx][2] > 0)
+	{
+		graphNote = "Equation y" + string(graphIdx + 1) + " on cooldown."
+		return;
+	}
 	
 	// Check expression validity
 	var _expression = simplifyExpression(equationTokens);
@@ -92,6 +97,9 @@ graphEquation = function()
 		
 		// Fill table if necessary
 		if (menuIdx == 3) fillTable();
+		
+		// Clear graph note
+		graphNote = "";
 		
 		// Graph equation sound
 		audio_play_sound(sfxGraphEquation, 3, false);
@@ -177,17 +185,64 @@ simplifyExpression = function(_tokenIdxs)
 validExpression = function(_expression)
 {
 	// Empty check 
-	if (array_length(_expression) == 0) return false;
+	if (array_length(_expression) == 0)
+	{
+		graphNote = "No equation inputted.";
+		return false;
+	}
 	
-	// Parenthesis check
-	var _psum = 0;
+	// Token check
+	var _psum = 0;						// Parenthesis must sum to 0
+	var _parenthesisEmpty = false;		// Parenthesis must enclose something
+	var _hasValue = false;
 	for (var _i = 0; _i < array_length(_expression); _i++)
 	{
-		if (_expression[_i] == "(") _psum++;
-		else if (_expression[_i] == ")") _psum--;
-		if (_psum < 0) return false;
+		// Open parenthesis
+		if (_expression[_i] == "(")
+		{
+			_psum++;
+			_parenthesisEmpty = true;
+		}
+		// Closing parenthesis
+		else if (_expression[_i] == ")")
+		{
+			if (_parenthesisEmpty)
+			{
+				graphNote = "Parenthesis error: Empty parenthesis somewhere.";
+				return false;
+			}
+			_psum--;
+		}
+		else
+		{
+			// If has no value yet
+			if (!_hasValue && (_expression[_i] == "x" || tokenStringIsConstant(_expression[_i]))) _hasValue = true;
+			
+			// Reset empty parenthesis
+			_parenthesisEmpty = false;
+		}
+		
+		// If closing parenthesis without opening first parenthesis
+		if (_psum < 0)
+		{
+			graphNote = "Parenthesis error: Incorrect parenthesis order.";
+			return false;
+		}
 	}
-	if (_psum != 0) return false;
+	
+	// Parenthesis sum check
+	if (_psum != 0)
+	{
+		graphNote = "Parenthesis error: Missing a parenthesis somewhere.";
+		return false;
+	}
+	
+	// Value check
+	if (!_hasValue)
+	{
+		graphNote = "Equation must have at least one constant or variable.";
+		return false;
+	}
 	
 	return true;
 }
@@ -337,6 +392,9 @@ onToggleEquationEditorOn = function()
 	layer_set_visible("GridNumbers", true);
 	layer_set_visible("GridNumberBackgrounds", true);
 	layer_set_visible("GridAxis", true);
+	
+	// Clear graph note
+	graphNote = "";
 }
 
 /// @func	onToggleEquationEditorOff();

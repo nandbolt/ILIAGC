@@ -92,7 +92,7 @@ function convertTokenIndexToString(_idx)
 	}
 }
 
-/// @func	convertTokenIndexToString({string} _token);
+/// @func	convertTokenStringToIndex({string} _token);
 function convertTokenStringToIndex(_token)
 {
 	switch (_token)
@@ -179,6 +179,13 @@ function tokenStringIsOperator(_token)
 {
 	return _token == "+" || _token == "-" || _token == "*" || _token == "/" || _token == "^" ||
 		   _token == "s" || _token == "c" || _token == "t" || _token == "l" || _token == "r";
+}
+
+/// @func	tokenStringIsConstant({string} token);
+function tokenStringIsConstant(_token)
+{
+	var _idx = convertTokenStringToIndex(_token);
+	return tokenIsConstant(_idx);
 }
 
 /// @func	tokenIsNumber({int} tokenIdx);

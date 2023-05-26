@@ -73,7 +73,7 @@ createExpressionTree = function(_postfixExpression)
 			if (_token == "x") _value = "x";
 			else if (_token == "p") _value = pi;
 			else if (_token == "e") _value = 2.72;
-			else _value = real(_token);
+			else if (string_digits(_token) != "") _value = real(_token);
 			ds_stack_push(_nodeStack, new TreeNode(_value));
 		}
 		else

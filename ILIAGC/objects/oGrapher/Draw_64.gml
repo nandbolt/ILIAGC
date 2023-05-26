@@ -202,6 +202,20 @@ if (editingEquation)
 	}
 	else draw_text_transformed(_x, _y, _title, _s, _s, 0);
 	
+	// Grapher's note
+	if (graphNote != "")
+	{
+		// Setup
+		draw_set_valign(fa_bottom);
+		
+		// Border
+		var _noteWidth = string_width(graphNote)
+		draw_sprite_ext(sBorder, 0, 0, 182.5, ((_noteWidth + 8)  / 32), 0.55, 0, c_white, 1);
+		
+		// Note
+		draw_text_transformed(2, 191, graphNote, _s, _s, 0);
+	}
+	
 	// Reset color
 	draw_set_color(c_white);
 }
