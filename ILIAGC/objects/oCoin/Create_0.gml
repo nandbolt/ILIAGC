@@ -68,3 +68,6 @@ spawnNextCoin = function()
 	var _x = random_range(oWorld.spawnMinX, oWorld.spawnMaxX), _y = random_range(oWorld.spawnMinY, _maxY);
 	nextCoin = instance_create_layer(_x, _y, "Instances", _coin);
 }
+
+// Current theme
+if (getCurrentTheme() == Theme.NEOKYO_CITY) sprite_index = sInfoDisk;
