@@ -36,3 +36,16 @@ for (var _i = string_length(_mostCoinsString); _i > 0; _i--)
 	draw_sprite_ext(sTokens, real(string_char_at(_mostCoinsString, _i)) + 2, _x, _y, 1, 1, 0, _c, 1);
 	_x -= 8;
 }
+
+// Combo
+if (comboMeter > 0)
+{
+	_x = TILE_SIZE * 5;
+	_y = 20;
+	draw_set_halign(fa_right);
+	draw_set_valign(fa_middle);
+	var _rushing = !(comboMeter < comboThreshold);
+	_c = _rushing ? c_yellow : c_white;
+	draw_healthbar(_x, _y - 0.5, _x + TILE_SIZE * 2, _y + 0.5, (comboTimer / comboTime) * 100, c_black, c_red, _c, 0, false,false);
+	draw_text_transformed(_x - 2, _y, string(comboMeter) +"x", 0.5, 0.5, 0);
+}

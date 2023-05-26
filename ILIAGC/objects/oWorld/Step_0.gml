@@ -38,6 +38,10 @@ if (gameStarted && !gameTimerPaused)
 	gameCounter++;
 	if (array_length(obstaclesToSpawn) == 0) obstacleTimer--;
 	
+	// Combo timer
+	if (comboTimer > 0) comboTimer--;
+	else comboMeter = 0;
+	
 	// Powerup timer
 	if (powerupTimer <= 0)
 	{

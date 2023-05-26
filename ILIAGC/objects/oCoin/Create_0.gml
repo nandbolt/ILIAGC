@@ -17,6 +17,10 @@ onCollect = function()
 	// Update coins
 	oWorld.coins += value;
 	
+	// Update combo
+	oWorld.comboTimer = oWorld.comboTime;
+	oWorld.comboMeter++;
+	
 	// Make sure there is another coin
 	if (nextCoin == noone) spawnNextCoin();
 	
@@ -48,8 +52,11 @@ spawnNextCoin = function()
 	{
 		// Set coin max y
 		_maxY = oWorld.soccerLowestCoinSpawnY;
-		_difficultyFactor += silverThreshold;
+		_difficultyFactor = clamp(_difficultyFactor + silverThreshold, 0, blueThreshold);
 	}
+	
+	// Combo
+	if (oWorld.comboMeter >= oWorld.comboThreshold) _difficultyFactor += silverThreshold;
 	
 	// Choose coin
 	if (_difficultyFactor > blueThreshold) _coin = oCoinBlue;

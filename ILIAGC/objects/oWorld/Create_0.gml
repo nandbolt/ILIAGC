@@ -29,6 +29,12 @@ mostCoins = 0;
 coinRushMostCoins = 0;
 soccerMostCoins = 0;
 
+// Combo
+comboMeter = 0;
+comboTimer = 0;
+comboTime = 300;
+comboThreshold = 10;
+
 // Shop
 shopItems = [];
 shopRerollPrice = 0;
@@ -76,12 +82,14 @@ startGame = function(_mode)
 	if (_powerupCount < 2) powerupDiversity = 0;
 	else powerupDiversity = clamp(_powerupCount / array_length(oGame.myPowerups), 0, 1);
 	
-	// Set counters
+	// Reset counters
 	gameTimer = 60;
 	gameCounter = 0;
 	timeElapsed = 0;
 	difficultyFactor = 0;
 	highscore = false;
+	comboMeter = 0;
+	comboTimer = 0;
 	updateObstacleTimer();
 	updatePowerupTimer();
 		
@@ -342,7 +350,7 @@ updatePowerupTimer = function()
 {
 	var _minTime = baseMinStepsBetweenPowerups - 900 * powerupDiversity;
 	var _maxTime = baseMaxStepsBetweenPowerups - 900 * powerupDiversity;
-	obstacleTimer = irandom_range(_minTime, _maxTime);
+	powerupTimer = irandom_range(_minTime, _maxTime);
 }
 
 // Coin Sprites (HUD)

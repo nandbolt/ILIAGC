@@ -48,6 +48,8 @@ if (oWorld.gameStarted)
 		draw_text_transformed(_x, _y, "Obstables to spawn: " + string(obstaclesToSpawn), _s, _s, 0);
 		_y += _yoff;
 		draw_text_transformed(_x, _y, "Powerup diversity: " + string(powerupDiversity), _s, _s, 0);
+		_y += _yoff;
+		draw_text_transformed(_x, _y, "Combo Meter: " + string(comboMeter), _s, _s, 0);
 		_y += _yoff * 2;
 	}
 	
