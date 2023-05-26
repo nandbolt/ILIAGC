@@ -114,7 +114,21 @@ jump = function()
 /// @func	airJump();
 airJump = function()
 {
+	// Jump
 	jump();
+	
+	// Emit number if 
+	if (airJumps > baseAirJumps)
+	{
+		// Spawn charge number particle
+		with (instance_create_layer(x, y - 6, "Instances", oTimeParticle))
+		{
+			value = string(other.airJumps - 1);
+			image_blend = c_white;
+		}
+	}
+	
+	// Decrement air jumps
 	airJumps--;
 }
 

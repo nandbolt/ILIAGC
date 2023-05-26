@@ -16,6 +16,9 @@ if (invinciblePowerActive)
 	shader_set_uniform_f(rainbowUniMix, rainbowMix);
 }
 
+// Booster pack
+if (airJumps > baseAirJumps) draw_sprite(sBoosterPack, 0, x, y - 6);
+
 // Self
 draw_self();
 
