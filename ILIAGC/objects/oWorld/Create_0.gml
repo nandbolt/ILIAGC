@@ -300,10 +300,13 @@ spawnPlayer = function(_playerId, _playerObject = oPlayerHuman, _x = 96, _y = 14
 	var _playerAlreadySpawned = false;
 	
 	// Check player already spawned
-	with (oPlayer)
+	if (instance_exists(oPlayer))
 	{
-		// Set player already spawned
-		if (playerId == _playerId) _playerAlreadySpawned = true;
+		with (oPlayer)
+		{
+			// Set player already spawned
+			if (playerId == _playerId) _playerAlreadySpawned = true;
+		}
 	}
 	
 	// If player hasn't spawned
@@ -392,6 +395,9 @@ if (ini_read_real("inventory", getPowerupSaveName(Powerup.BLOCK), 0) > 0) setPow
 
 // Misc
 if (ini_read_real("inventory", getMiscSaveName(Misc.DEBUG_MODE), 0) > 0) setMisc(Misc.DEBUG_MODE);
+
+// Player
+spawnPlayer(0, getCharacterObject(ini_read_real("inventory", "character", 0)), 96, 175);
 
 // Close save
 ini_close();
