@@ -64,7 +64,7 @@ powerupTimer = 0;
 powerupDiversity = 0;
 
 // Soccer
-soccerLowestCoinSpawnY = 96;
+soccerLowestCoinSpawnY = 112;
 
 // Highscore
 highscore = false;
@@ -206,7 +206,10 @@ endGame = function()
 
 /// @func	startGameCoinRush();
 startGameCoinRush = function()
-{	
+{
+	// Set highscore display
+	mostCoins = coinRushMostCoins;
+	
 	// Spawn/activate first coin
 	var _coin = instance_create_layer(random_range(24,168),random_range(24,168),"Instances",oCoin);
 	with (_coin)
@@ -238,15 +241,18 @@ endGameCoinRush = function()
 /// @func	startGameSoccer();
 startGameSoccer = function()
 {
+	// Set highscore display
+	mostCoins = soccerMostCoins;
+	
 	// Spawn/activate first coin
-	var _coin = instance_create_layer(random_range(24,168), random_range(24,soccerLowestCoinSpawnY), "Instances", oCoinRed);
+	var _coin = instance_create_layer(random_range(spawnMinX,spawnMaxX), random_range(spawnMinY,soccerLowestCoinSpawnY), "Instances", oCoinSilver);
 	with (_coin)
 	{
 		activate();
 	}
 	
 	// Spawn soccer ball
-	instance_create_layer(96, 160, "Instances", oBallSoccer);
+	instance_create_layer(96, 32, "Instances", oBallSoccer);
 }
 
 /// @func	endGameSoccer();

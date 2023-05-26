@@ -8,6 +8,9 @@ longDescription = getModeDescription(Mode.COIN_RUSH);
 // Mode
 mode = Mode.COIN_RUSH;
 
+// Highscore
+highscore = 0;
+
 /// @func	onCollect();
 onCollect = function()
 {

@@ -1,3 +1,17 @@
+/// @func	getModeHighscore({int} idx);
+function getModeHighscore(_idx)
+{
+	switch (_idx)
+	{
+		case Mode.COIN_RUSH:
+			return oWorld.coinRushMostCoins;
+		case Mode.SOCCER:
+			return oWorld.soccerMostCoins;
+		default:
+			return 0;
+	}
+}
+
 /// @func	getModeName({int} idx);
 function getModeName(_idx)
 {

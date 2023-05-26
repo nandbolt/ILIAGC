@@ -60,9 +60,9 @@ spawnNextCoin = function()
 	
 	// Choose coin
 	if (_difficultyFactor > 1) _coin = oCoinBlack;
-	else if (_difficultyFactor > blueThreshold) _coin = oCoinBlue;
-	else if (_difficultyFactor > redThreshold) _coin = oCoinRed;
-	else if (_difficultyFactor > silverThreshold) _coin = oCoinSilver;
+	else if (_difficultyFactor >= blueThreshold) _coin = oCoinBlue;
+	else if (_difficultyFactor >= redThreshold) _coin = oCoinRed;
+	else if (_difficultyFactor >= silverThreshold) _coin = oCoinSilver;
 	
 	// Spawn coin
 	var _x = random_range(oWorld.spawnMinX, oWorld.spawnMaxX), _y = random_range(oWorld.spawnMinY, _maxY);

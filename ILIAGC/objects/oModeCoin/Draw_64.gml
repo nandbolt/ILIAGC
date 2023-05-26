@@ -8,4 +8,5 @@ if (nearbyTimer > 0)
 	draw_sprite_stretched(sBorder,0,_x-2,_y-1,178-_x-2,32);
 	draw_set_color(c_white);
 	draw_text_ext_transformed(_x, _y, longDescription, 14, 304, 0.5, 0.5, 0);
+	draw_text_ext_transformed(_x, _y + 32, "Highscore: " + string(getModeHighscore(mode)), 14, 304, 0.5, 0.5, 0);
 }
