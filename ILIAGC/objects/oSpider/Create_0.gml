@@ -32,3 +32,6 @@ legs = [	// [body position, foot position, goal position];
 	[new Vector2(x-2,y-2), new Vector2(x-2,y-2), new Vector2(x,y)],
 	[new Vector2(x+2,y-2), new Vector2(x+2,y-2), new Vector2(x,y)],
 ];
+
+// Sprite
+if (getCurrentTheme() == Theme.NNE) sprite_index = sNNEJelly;

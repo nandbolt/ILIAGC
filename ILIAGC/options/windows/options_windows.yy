@@ -8,7 +8,7 @@
   "option_windows_company_info": "nandbolt",
   "option_windows_product_info": "ILIAGC",
   "option_windows_copyright_info": "",
-  "option_windows_description_info": "A nanbolt Game",
+  "option_windows_description_info": "A game created by nandbolt",
   "option_windows_display_cursor": true,
   "option_windows_icon": "icons/icon.ico",
   "option_windows_save_location": 0,

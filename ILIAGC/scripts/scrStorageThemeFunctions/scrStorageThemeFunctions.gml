@@ -1,3 +1,9 @@
+/// @func	getCurrentTheme();
+function getCurrentTheme()
+{
+	return oWorld.currentTheme;
+}
+
 /// @func	setTheme({int} idx);
 function setTheme(_idx)
 {
