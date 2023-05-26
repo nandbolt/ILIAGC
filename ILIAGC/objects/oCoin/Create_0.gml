@@ -59,7 +59,8 @@ spawnNextCoin = function()
 	if (oWorld.comboMeter >= oWorld.comboThreshold) _difficultyFactor += silverThreshold;
 	
 	// Choose coin
-	if (_difficultyFactor > blueThreshold) _coin = oCoinBlue;
+	if (_difficultyFactor > 1) _coin = oCoinBlack;
+	else if (_difficultyFactor > blueThreshold) _coin = oCoinBlue;
 	else if (_difficultyFactor > redThreshold) _coin = oCoinRed;
 	else if (_difficultyFactor > silverThreshold) _coin = oCoinSilver;
 	
