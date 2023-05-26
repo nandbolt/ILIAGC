@@ -151,6 +151,9 @@ takeDamage = function(_damage)
 			}
 		}
 		
+		// Break combo
+		oWorld.comboMeter = 0;
+		
 		// End game if timer reached zero
 		if (oWorld.gameTimer <= 0)
 		{
