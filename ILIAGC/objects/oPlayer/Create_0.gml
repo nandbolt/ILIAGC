@@ -54,6 +54,7 @@ spriteRotationSpeed = 0.1;
 shield = 0;
 
 // Air jump
+baseAirJumps = 0;
 airJumps = 0;
 
 // Invincible
@@ -158,7 +159,11 @@ takeDamage = function(_damage)
 }
 
 /// @func	onLand();
-onLand = function(){}
+onLand = function()
+{
+	// Reset air jumps
+	if (airJumps < baseAirJumps) airJumps = baseAirJumps;
+}
 
 /// @func	updateTheme({int} theme);
 updateTheme = function(_theme){}
