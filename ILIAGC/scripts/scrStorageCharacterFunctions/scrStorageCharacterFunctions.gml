@@ -66,11 +66,11 @@ function getCharacterSprite(_idx)
 	switch (_idx)
 	{
 		case Character.DOG:
-			return sDogIdle;
+			return sCharacterDog;
 		case Character.SLIME:
-			return sSlimeIdle;
+			return sCharacterSlime;
 		default:
-			return sPlayerIdle;
+			return sCharacterHuman;
 	}
 }
 
