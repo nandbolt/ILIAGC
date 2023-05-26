@@ -96,3 +96,9 @@ else
 	draw_sprite(sButtonA, 0, _x + 20, _y + 4);
 	draw_text_transformed(_x + 28, _y + 4, "(Hold)", _s, _s, 0);
 }
+
+// Credits/version
+draw_set_halign(fa_center);
+draw_set_valign(fa_bottom);
+draw_text_transformed(96, 168, "ILIAGC: v" + GM_version, _s, _s, 0);
+draw_text_transformed(96, 176, "created by nandbolt", _s, _s, 0);
