@@ -46,20 +46,20 @@ function shopRestock()
 		array_push(_shopItems, [ShopItem.FOOD, oGame.myFoods[_i][0]]);
 	}
 	
-	// Loop through potential shop items
-	for (var _i = 0; _i < array_length(_shopItems); _i++)
+	// Spawn at most 6 items
+	repeat (6)
 	{
-		// Get random shop item
-		var _k = irandom(array_length(_shopItems) - 1);
-		var _shopItem = [_shopItems[_k][0], _shopItems[_k][1]];
+		// If there are items available
+		if (array_length(_shopItems) > 0)
+		{
+			// Get random shop item
+			var _k = irandom(array_length(_shopItems) - 1);
+			var _shopItem = [_shopItems[_k][0], _shopItems[_k][1]];
 				
-		// Add item to shop items
-		array_push(oWorld.shopItems, _shopItem);
-		
-		// Break if at more than 6 items
-		if (array_length(oWorld.shopItems) > 5) break;
-		// Else remove from inventory
-		else array_delete(_shopItems, _k, 1);
+			// Add item to shop and remove from truck
+			array_push(oWorld.shopItems, _shopItem);
+			array_delete(_shopItems, _k, 1);
+		}
 	}
 }
 

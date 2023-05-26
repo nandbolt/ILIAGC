@@ -28,8 +28,8 @@
   "gridX": 2,
   "gridY": 2,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"bfc3883e-f79a-4046-9a63-165bb2965325",},
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"7537ec3f-c255-4ba9-8b09-a7118c924ec6",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"bfc3883e-f79a-4046-9a63-165bb2965325",},
   ],
   "sequence": {
     "resourceType": "GMSequence",
@@ -46,8 +46,8 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"9b63c9b0-5216-4d9f-8ca3-af611037f759","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"bfc3883e-f79a-4046-9a63-165bb2965325","path":"sprites/sDenizenRun/sDenizenRun.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-            {"id":"ba5ee663-2d15-4c3d-ab68-dc9be428ad40","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"7537ec3f-c255-4ba9-8b09-a7118c924ec6","path":"sprites/sDenizenRun/sDenizenRun.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"ba5ee663-2d15-4c3d-ab68-dc9be428ad40","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"7537ec3f-c255-4ba9-8b09-a7118c924ec6","path":"sprites/sDenizenRun/sDenizenRun.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"9b63c9b0-5216-4d9f-8ca3-af611037f759","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"bfc3883e-f79a-4046-9a63-165bb2965325","path":"sprites/sDenizenRun/sDenizenRun.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
