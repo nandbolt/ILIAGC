@@ -216,6 +216,15 @@ if (editingEquation)
 		draw_text_transformed(2, 191, graphNote, _s, _s, 0);
 	}
 	
+	// Iron graphs
+	_x = 168;
+	_y = 191;
+	repeat (ironGraphs)
+	{
+		draw_sprite(sIron, 0, _x, _y);
+		_x -= TILE_SIZE;
+	}
+	
 	// Reset color
 	draw_set_color(c_white);
 }

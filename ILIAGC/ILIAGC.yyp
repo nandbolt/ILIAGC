@@ -266,6 +266,7 @@
     {"id":{"name":"sBallGhost","path":"sprites/sBallGhost/sBallGhost.yy",},"order":3,},
     {"id":{"name":"sCloud","path":"sprites/sCloud/sCloud.yy",},"order":1,},
     {"id":{"name":"oPlayerDog","path":"objects/oPlayerDog/oPlayerDog.yy",},"order":1,},
+    {"id":{"name":"sIron","path":"sprites/sIron/sIron.yy",},"order":4,},
     {"id":{"name":"oDisplayCollectable","path":"objects/oDisplayCollectable/oDisplayCollectable.yy",},"order":16,},
     {"id":{"name":"scrRigidBodyFunctions","path":"scripts/scrRigidBodyFunctions/scrRigidBodyFunctions.yy",},"order":1,},
     {"id":{"name":"sDogJump","path":"sprites/sDogJump/sDogJump.yy",},"order":3,},

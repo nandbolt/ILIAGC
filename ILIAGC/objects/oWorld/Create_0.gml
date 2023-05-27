@@ -385,7 +385,6 @@ ini_open("save.ini");
 
 // Coins
 coinsInBank = ini_read_real("inventory", "coins_in_bank", 0);
-coinsInBank = 9999;
 coinRushMostCoins = ini_read_real("high_scores","coin_rush",0);
 soccerMostCoins = ini_read_real("high_scores","soccer",0);
 
