@@ -164,8 +164,10 @@ else
 	image_angle = lerp(image_angle, normal.getAngleDegrees() - 90, spriteRotationSpeed);
 }
 
-// If grounded
-if (invincible && !invinciblePowerActive) image_alpha = random(1);
+// Check flashing alpha
+if ((invincible && (!invinciblePowerActive || invinciblePowerTimer < 180)) ||	// Damage invincibility
+	(collisionType == Collision.BOUNCE && bubbleGumTimer < 180) ||	// Sticky 3 sec
+	(false)) image_alpha = random(1);
 else image_alpha = 1;
 
 // Reset image index if new sprite
