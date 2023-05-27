@@ -48,10 +48,14 @@ function setTheme(_idx)
 			layer_set_visible("GridNumberBackgrounds", false);
 			layer_set_visible("GridAxis", false);
 			
-			// Music
+			// World
 			with (oWorld)
 			{
+				// Music
 				currentSong = mNeokyoCity;
+				
+				// Coin icon
+				coinHudIcon.sprite_index = sInfoDisk;
 			}
 			break;
 		case Theme.NNE:
@@ -73,6 +77,9 @@ function setTheme(_idx)
 			with (oWorld)
 			{
 				currentSong = mNNE;
+				
+				// Coin icon
+				coinHudIcon.sprite_index = sMinerals;
 			}
 			break;
 	}
@@ -112,6 +119,9 @@ function unsetTheme(_idx)
 			with (oWorld)
 			{
 				currentSong = mChillinInACalculator;
+				
+				// Coin icon
+				coinHudIcon.sprite_index = sCoinGold;
 			}
 			break;
 		case Theme.NNE:
@@ -133,6 +143,9 @@ function unsetTheme(_idx)
 			with (oWorld)
 			{
 				currentSong = mChillinInACalculator;
+				
+				// Coin icon
+				coinHudIcon.sprite_index = sCoinGold;
 			}
 			break;
 	}

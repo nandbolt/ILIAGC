@@ -5,4 +5,6 @@ event_inherited();
 value = 10;
 
 // Current theme
-if (getCurrentTheme() == Theme.NEOKYO_CITY) sprite_index = sInfoDisk4;
+var _theme = getCurrentTheme();
+if (_theme == Theme.NEOKYO_CITY) sprite_index = sInfoDisk4;
+else if (_theme == Theme.NNE) sprite_index = sMinerals4;

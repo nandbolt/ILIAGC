@@ -363,7 +363,8 @@ updatePowerupTimer = function()
 }
 
 // Coin Sprites (HUD)
-with (instance_create_layer(8,8,"HUDInstances",oSprite))
+coinHudIcon = instance_create_layer(8,8,"HUDInstances",oSprite);
+with (coinHudIcon)
 {
 	sprite_index = sCoinGold;
 	spins = true;
