@@ -10,6 +10,6 @@ draw_text_transformed(x, y, name, 0.5, 0.5, 0);
 if (selected && !oGame.tidyUI)
 {
 	// Show interact key
-	if (firstPlayerUsingKeyboard()) draw_sprite(sKeyEnter, 0, x-24, y+5);
-	else draw_sprite(sButtonX, 0, x-10, y+5);
+	if (firstPlayerUsingKeyboard()) draw_sprite(sKeySpace, 0, x-24, y+5);
+	else draw_sprite(sButtonA, 0, x-10, y+5);
 }
