@@ -84,7 +84,7 @@ function getUpgradeCost(_idx)
 	switch (_idx)
 	{
 		case Upgrade.EQUATION_UP:
-			return 999;
+			return 9999;
 		default:
 			return 0;
 	}

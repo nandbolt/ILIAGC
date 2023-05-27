@@ -74,7 +74,7 @@ function getMiscCost(_idx)
 	switch (_idx)
 	{
 		case Misc.DEBUG_MODE:
-			return 100;
+			return 500;
 		default:
 			return 0;
 	}

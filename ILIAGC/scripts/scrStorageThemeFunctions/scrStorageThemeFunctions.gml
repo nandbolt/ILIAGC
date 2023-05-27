@@ -261,21 +261,21 @@ function getThemeCost(_idx)
 	switch (_idx)
 	{
 		case Theme.DAY:
-			return 10;
-		case Theme.BASIC:
 			return 25;
-		case Theme.AQUA:
+		case Theme.BASIC:
 			return 50;
+		case Theme.AQUA:
+			return 350;
 		case Theme.GREEN:
-			return 75;
+			return 150;
 		case Theme.ALT_DEFAULT:
-			return 40;
-		case Theme.TI_83:
-			return 83;
-		case Theme.NEOKYO_CITY:
 			return 100;
-		case Theme.NNE:
+		case Theme.TI_83:
 			return 200;
+		case Theme.NEOKYO_CITY:
+			return 1000;
+		case Theme.NNE:
+			return 1500;
 		default:
 			return 0;
 	}

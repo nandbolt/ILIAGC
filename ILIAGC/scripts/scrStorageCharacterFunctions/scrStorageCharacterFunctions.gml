@@ -80,9 +80,9 @@ function getCharacterCost(_idx)
 	switch (_idx)
 	{
 		case Character.DOG:
-			return 50;
+			return 150;
 		case Character.SLIME:
-			return 100;
+			return 200;
 		default:
 			return 0;
 	}

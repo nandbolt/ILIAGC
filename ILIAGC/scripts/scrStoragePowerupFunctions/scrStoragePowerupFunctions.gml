@@ -147,28 +147,28 @@ function getPowerupCost(_idx, _lvl)
 	switch (_idx)
 	{
 		case Powerup.SHIELD:
-			if (_lvl == 3) return 150;
-			else if (_lvl == 2) return 75;
+			if (_lvl == 3) return 1000;
+			else if (_lvl == 2) return 500;
 			return 0;
 		case Powerup.AIR_JUMP:
-			if (_lvl == 3) return 100;
-			else if (_lvl == 2) return 50;
-			return 25;
+			if (_lvl == 3) return 400;
+			else if (_lvl == 2) return 200;
+			return 75;
 		case Powerup.INVINCIBLE:
-			if (_lvl == 3) return 120;
-			else if (_lvl == 2) return 60;
-			return 30;
+			if (_lvl == 3) return 800;
+			else if (_lvl == 2) return 250;
+			return 120;
 		case Powerup.BALL:
-			if (_lvl == 3) return 150;
-			else if (_lvl == 2) return 50;
-			return 20;
+			if (_lvl == 3) return 500;
+			else if (_lvl == 2) return 200;
+			return 50;
 		case Powerup.IRON_GRAPH:
-			if (_lvl == 3) return 200;
-			else if (_lvl == 2) return 50;
-			return 20;
+			if (_lvl == 3) return 1200;
+			else if (_lvl == 2) return 600;
+			return 100;
 		case Powerup.BLOCK:
-			if (_lvl == 3) return 200;
-			else if (_lvl == 2) return 40;
+			if (_lvl == 3) return 900;
+			else if (_lvl == 2) return 100;
 			return 20;
 		default:
 			return 0;

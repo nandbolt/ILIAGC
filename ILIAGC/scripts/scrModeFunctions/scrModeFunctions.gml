@@ -72,7 +72,7 @@ function getModeCost(_idx)
 	switch (_idx)
 	{
 		case Mode.SOCCER:
-			return 100;
+			return 300;
 		default:
 			return 0;
 	}

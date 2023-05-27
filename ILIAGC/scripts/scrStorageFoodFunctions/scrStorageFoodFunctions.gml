@@ -34,11 +34,11 @@ function getFoodDescription(_idx)
 	switch (_idx)
 	{
 		case Food.SPAGHETTI:
-			return "Food: Start your next run with a ball, a meaty one!";
+			return "Food (temporary): Start your next run with a ball, a meaty one!";
 		case Food.CHOCOLATE:
-			return "Food: Start with a block next run. It's 100% cacao, so I'm not sure if you want to eat it...";
+			return "Food (temporary): Start with a block next run. It's 100% cacao, so I'm not sure if you want to eat it...";
 		default:
-			return "Food: Start with a bubble next run. What did you expect!?";
+			return "Food (temporary): Start with a bubble next run. What did you expect!?";
 	}
 }
 
@@ -62,11 +62,11 @@ function getFoodCost(_idx)
 	switch (_idx)
 	{
 		case Food.BUBBLE_TEA:
-			return 45;
+			return 100;
 		case Food.SPAGHETTI:
-			return 30;
+			return 75;
 		case Food.CHOCOLATE:
-			return 15;
+			return 50;
 		default:
 			return 0;
 	}
