@@ -4,8 +4,8 @@
 
 #region Macros
 
-#macro CANVAS_BASE_WIDTH 176*4
-#macro CANVAS_BASE_HEIGHT 208*4
+#macro CANVAS_BASE_WIDTH 176*5
+#macro CANVAS_BASE_HEIGHT 208*5
 #macro TILE_SIZE 16
 #macro HALF_TILE_SIZE 8
 

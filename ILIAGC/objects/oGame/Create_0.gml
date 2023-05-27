@@ -19,6 +19,8 @@ browserScaleCanvas = function(_baseWidth, _baseHeight, _currentWidth, _currentHe
 	var _aspect = _baseWidth / _baseHeight;
 	if ((_currentWidth / _aspect) > _currentHeight) window_set_size(_currentHeight * _aspect, _currentHeight);
 	else window_set_size(_currentWidth, _currentWidth / _aspect);
+	
+	// Set center
 	if (_center) window_center();
 	
 	// Set viewport size
