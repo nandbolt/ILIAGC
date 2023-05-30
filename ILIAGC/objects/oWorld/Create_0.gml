@@ -232,6 +232,16 @@ endGameCoinRush = function()
 		mostCoins = coins;
 		highscore = true;
 	}
+	
+	// If coin challenge (GX Games)
+	if (os_type == os_gxgames &&
+		global.currentChallenge == global.challengeIdCoinRush &&
+		coins > global.currentHighScore)
+	{
+		// Submit score
+		gxc_challenge_submit_score(coins);
+		global.currentHighScore = coins;
+	}
 }
 
 #endregion

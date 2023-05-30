@@ -1,5 +1,14 @@
 #region Global Variables
 
+// GX Games challenges
+if (os_type == os_gxgames)
+{
+	// Challenge info
+	global.challengeIdCoinRush = "87009ca6-3303-40eb-ace4-7dfdd3daeb0b";
+	global.currentChallenge = gxc_get_query_param("challenge");
+	global.currentHighScore = 0;
+}
+
 #endregion
 
 #region Macros
