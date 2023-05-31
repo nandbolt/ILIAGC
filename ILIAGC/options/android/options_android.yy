@@ -29,7 +29,7 @@
   "option_android_splash_screens_portrait": "splash/portrait.png",
   "option_android_splash_time": 3,
   "option_android_launchscreen_fill": 1,
-  "option_android_splashscreen_background_colour": 4278190080,
+  "option_android_splashscreen_background_colour": 4284717968,
   "option_android_tv_banner": "tv_banner.png",
   "option_android_interpolate_pixels": false,
   "option_android_screen_depth": 0,
