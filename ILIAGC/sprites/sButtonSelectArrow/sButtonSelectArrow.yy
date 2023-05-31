@@ -68,7 +68,7 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Controller",
-    "path": "folders/Sprites/HUD/Controller.yy",
+    "name": "OnScreenController",
+    "path": "folders/Sprites/HUD/OnScreenController.yy",
   },
 }
