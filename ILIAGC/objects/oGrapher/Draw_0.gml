@@ -22,7 +22,8 @@ if (!oGame.tidyUI)
 	{
 		draw_sprite(sIconPause, 0, _x, _y)
 		draw_text_transformed(_x + 16, _y + 4, ":", _s, _s, 0);
-		if (os_type == os_android || !firstPlayerUsingKeyboard()) draw_sprite(sButtonStart, 0, _x + 20, _y + 4);
+		if (os_type == os_android) draw_sprite(sButtonStartArrow, 0, _x + 20, _y + 4);
+		else if (!firstPlayerUsingKeyboard()) draw_sprite(sButtonStart, 0, _x + 20, _y + 4);
 		else draw_sprite(sKeyEscape, 0, _x + 20, _y + 4);
 		_y += 16;
 	}
@@ -32,7 +33,8 @@ if (!oGame.tidyUI)
 	{
 		draw_sprite(sIconGraph, 0, _x, _y)
 		draw_text_transformed(_x + 16, _y + 4, ":", _s, _s, 0);
-		if (os_type == os_android || !firstPlayerUsingKeyboard()) draw_sprite(sButtonSelect, 0, _x + 20, _y + 4);
+		if (os_type == os_android) draw_sprite(sButtonSelectArrow, 0, _x + 20, _y + 4);
+		else if (!firstPlayerUsingKeyboard()) draw_sprite(sButtonSelect, 0, _x + 20, _y + 4);
 		else draw_sprite(sKeyTab, 0, _x + 20, _y + 4);
 		
 		// Controls

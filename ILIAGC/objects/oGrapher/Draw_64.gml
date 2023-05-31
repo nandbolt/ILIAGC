@@ -187,17 +187,17 @@ if (editingEquation)
 	_x = 22;
 	if (!oGame.tidyUI)
 	{
-		if (firstPlayerUsingKeyboard())
-		{
-			draw_sprite_ext(sKeyArrowLeft, 0, _x, _y + .5, 0.75, 0.75, 0, c_white, 1);
-			draw_sprite_ext(sKeyArrowRight, 0, _x + 6, _y + .5, 0.75, 0.75, 0, c_white, 1);
-			draw_text_transformed(_x + 12, _y,_title, _s, _s, 0);
-		}
-		else
+		if (os_type == os_android || !firstPlayerUsingKeyboard())
 		{
 			draw_sprite_ext(sButtonLT, 0, _x, _y + .5, 0.75, 0.75, 0, c_white, 1);
 			draw_sprite_ext(sButtonRT, 0, _x + 8, _y + .5, 0.75, 0.75, 0, c_white, 1);
 			draw_text_transformed(_x + 15, _y, _title, _s, _s, 0);
+		}
+		else
+		{
+			draw_sprite_ext(sKeyArrowLeft, 0, _x, _y + .5, 0.75, 0.75, 0, c_white, 1);
+			draw_sprite_ext(sKeyArrowRight, 0, _x + 6, _y + .5, 0.75, 0.75, 0, c_white, 1);
+			draw_text_transformed(_x + 12, _y,_title, _s, _s, 0);
 		}
 	}
 	else draw_text_transformed(_x, _y, _title, _s, _s, 0);
