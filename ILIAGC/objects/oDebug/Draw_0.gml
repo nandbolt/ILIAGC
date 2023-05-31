@@ -151,3 +151,19 @@ if (instance_exists(oBall))
 		draw_set_alpha(1);
 	}
 }
+
+// Touch Boxes
+if (os_type == os_android)
+{
+	with (oInput)
+	{
+		// Hitbox
+		draw_set_alpha(0.5);
+		for (var _i = 0; _i < array_length(inputTouchKeys); _i++)
+		{
+			draw_sprite_stretched(sBallCollider, 0, inputTouchKeys[_i][0], inputTouchKeys[_i][1],
+								  inputTouchKeys[_i][2] - inputTouchKeys[_i][0], inputTouchKeys[_i][3] - inputTouchKeys[_i][1]);
+		}
+		draw_set_alpha(1);
+	}
+}

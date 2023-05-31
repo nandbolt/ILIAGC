@@ -12,6 +12,6 @@ draw_set_alpha(1);
 if (!collected && nearbyTimer > 0 && !oGame.tidyUI)
 {
 	// Show interact key
-	if (firstPlayerUsingKeyboard()) draw_sprite(sKeyEnter, 0, x-10, y+9);
-	else draw_sprite(sButtonX, 0, x-3.5, y+9);
+	if (os_type == os_android || !firstPlayerUsingKeyboard()) draw_sprite(sButtonX, 0, x-3.5, y+9);
+	else draw_sprite(sKeyEnter, 0, x-10, y+9);
 }

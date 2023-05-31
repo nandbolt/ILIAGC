@@ -1,6 +1,6 @@
 // Position
 var _x = 0, _y = 0;
-var _s = 0.5, _xoff = 7, _yoff = 7;
+var _s = 0.5, _yoff = 7;
 var _c = c_white;
 
 // Equation
@@ -227,20 +227,6 @@ if (editingEquation)
 	
 	// Reset color
 	draw_set_color(c_white);
-}
-// Draw buttons if on android
-else if (os_type == os_android)
-{
-	_xoff = (room_width - TILE_SIZE) * 0.25;
-	_x = _xoff * 0.5;
-	_y = room_height * 0.7;
-	draw_sprite_ext(sArrowButton,0,_x,_y,1,1,180,c_white,1);	// Left
-	_x += _xoff;
-	draw_sprite_ext(sArrowButton,0,_x,_y,1,1,0,c_white,1);		// Right
-	_x += _xoff;
-	draw_sprite_ext(sArrowButton,0,_x,_y,1,1,-90,c_white,1);	// Down
-	_x += _xoff;
-	draw_sprite_ext(sJumpButton,0,_x,_y,1,1,0,c_white,1);		// Jump
 }
 
 // Y number

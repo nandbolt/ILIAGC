@@ -1,11 +1,12 @@
-/// @func	inputCreate({int} inputAction, {int} keyboardHotkey, {int} inputGamepadKey);
-function inputCreate(_inputAction, _inputHotkey, _inputGamepadKey)
+/// @func	inputCreate({int} inputAction, {int} keyboardHotkey, {int} inputGamepadKey, {int} inputTouchKey);
+function inputCreate(_inputAction, _inputHotkey, _inputGamepadKey, _inputTouchKey)
 {
 	with (oInput)
 	{
 		// Assign keyboard + gamepad keys
 		inputKeyboardKeys[_inputAction] = _inputHotkey;
 		inputGamepadKeys[_inputAction] = _inputGamepadKey;
+		inputTouchKeys[_inputAction] = _inputTouchKey;
 		
 		// Assign input action state to none for all players
 		for (var _p = 0; _p < maxPlayers; _p++)
@@ -54,74 +55,43 @@ function firstPlayerUsingKeyboard()
 
 #region Touch Screen
 
-/// @func	touchInputRight();
-function touchInputRight()
-{
-	// Check all 4 touch inputs
-	for (var _i = 0; _i < 4; _i++)
-	{
-		var _mousePressed = device_mouse_check_button(_i, mb_left);
-		var _dx = device_mouse_x(_i), _dy = device_mouse_y(_i);
-		if (_mousePressed && _dx < (room_width - TILE_SIZE) * 0.5 && _dx > (room_width - TILE_SIZE) * 0.25 && _dy < 192) return true;
-	}
-	return false;
-}
-
-/// @func	touchInputLeft();
-function touchInputLeft()
-{
-	// Check all 4 touch inputs
-	for (var _i = 0; _i < 4; _i++)
-	{
-		var _mousePressed = device_mouse_check_button(_i, mb_left);
-		var _dx = device_mouse_x(_i), _dy = device_mouse_y(_i);
-		if (_mousePressed && _dx < (room_width - TILE_SIZE) * 0.25 && _dy < 192) return true;
-	}
-	return false;
-}
-
-/// @func	touchInputDown();
-function touchInputDown()
-{
-	// Check all 4 touch inputs
-	for (var _i = 0; _i < 4; _i++)
-	{
-		var _mousePressed = device_mouse_check_button(_i, mb_left);
-		var _dx = device_mouse_x(_i), _dy = device_mouse_y(_i);
-		if (_mousePressed && _dx < (room_width - TILE_SIZE) * 0.75 && _dx > (room_width - TILE_SIZE) * 0.5 && _dy < 192) return true;
-	}
-	return false;
-}
-
-/// @func	touchInputJump();
-function touchInputJump()
-{
-	// Check all 4 touch inputs
-	for (var _i = 0; _i < 4; _i++)
-	{
-		var _mousePressed = device_mouse_check_button(_i, mb_left);
-		var _dx = device_mouse_x(_i), _dy = device_mouse_y(_i);
-		if (_mousePressed && _dx > (room_width - TILE_SIZE) * 0.75 && _dy < 192) return true;
-	}
-	return false;
-}
-
-/// @func	touchInputJumpPressed();
-function touchInputJumpPressed()
+/// @func	touchInputPressed({real} x1, {real} y1, {real) x2, {real} y2);
+function touchInputPressed(_x1, _y1, _x2, _y2)
 {
 	// Check all 4 touch inputs
 	for (var _i = 0; _i < 4; _i++)
 	{
 		var _mousePressed = device_mouse_check_button_pressed(_i, mb_left);
 		var _dx = device_mouse_x(_i), _dy = device_mouse_y(_i);
-		if (_mousePressed && _dx > (room_width - TILE_SIZE) * 0.75 && _dy < 192) return true;
+		if (_mousePressed && _dx > _x1 && _dx < _x2 && _dy > _y1 && _dy < _y2) return true;
 	}
 	return false;
 }
 
-/// @func	touchInputInteractPressed();
-function touchInputInteractPressed()
+/// @func	touchInputHeld({real} x1, {real} y1, {real) x2, {real} y2);
+function touchInputHeld(_x1, _y1, _x2, _y2)
 {
+	// Check all 4 touch inputs
+	for (var _i = 0; _i < 4; _i++)
+	{
+		var _mouseHeld = device_mouse_check_button(_i, mb_left);
+		//var _mouseHeld = mouse_check_button(mb_left);
+		var _dx = device_mouse_x(_i), _dy = device_mouse_y(_i);
+		if (_mouseHeld && _dx > _x1 && _dx < _x2 && _dy > _y1 && _dy < _y2) return true;
+	}
+	return false;
+}
+
+/// @func	touchInputReleased({real} x1, {real} y1, {real) x2, {real} y2);
+function touchInputReleased(_x1, _y1, _x2, _y2)
+{
+	// Check all 4 touch inputs
+	for (var _i = 0; _i < 4; _i++)
+	{
+		var _mouseReleased = device_mouse_check_button_released(_i, mb_left);
+		var _dx = device_mouse_x(_i), _dy = device_mouse_y(_i);
+		if (_mouseReleased && _dx > _x1 && _dx < _x2 && _dy > _y1 && _dy < _y2) return true;
+	}
 	return false;
 }
 

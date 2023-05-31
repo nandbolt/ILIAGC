@@ -383,7 +383,7 @@ onToggleEquationEditorOn = function()
 	if (menuIdx == 3) fillTable();
 	
 	// Spawn on screen keyboard if real one not being used
-	if (oInput.playerGamepadIds[| 0] != -1) instance_create_layer(0, 0, "Instances", oOnScreenKeyboard);
+	if (oInput.playerGamepadIds[| 0] != -1 || os_type == os_android) instance_create_layer(0, 0, "Instances", oOnScreenKeyboard);
 	
 	// Storge previous axis visibility
 	axisVisible = layer_get_visible("GridAxis");

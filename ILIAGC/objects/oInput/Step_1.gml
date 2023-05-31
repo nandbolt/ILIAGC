@@ -79,6 +79,19 @@ for (var _playerId = 0; _playerId < ds_list_size(playerGamepadIds); _playerId++)
 			else if (gamepad_button_check_released(_thisGamepadId, _thisInputButton)) inputStates[_playerId][_thisInputAction] = InputState.RELEASED;
 			else inputStates[_playerId][_thisInputAction] = InputState.NONE;
 		}
+		// Else if android
+		else if (os_type == os_android)
+		{
+			// Check gamepad inputs
+			var _thisBBox = inputTouchKeys[_thisInputAction];
+			
+			// Update input types
+			if (touchInputPressed(_thisBBox[0], _thisBBox[1], _thisBBox[2], _thisBBox[3])) inputStates[_playerId][_thisInputAction] = InputState.PRESSED;
+			else if (touchInputHeld(_thisBBox[0], _thisBBox[1], _thisBBox[2], _thisBBox[3])) inputStates[_playerId][_thisInputAction] = InputState.HELD;
+			else if (touchInputReleased(_thisBBox[0], _thisBBox[1], _thisBBox[2], _thisBBox[3])) inputStates[_playerId][_thisInputAction] = InputState.RELEASED;
+			else inputStates[_playerId][_thisInputAction] = InputState.NONE;
+		}
+		// Else keyboard
 		else
 		{
 			// Check keyboard inputs
