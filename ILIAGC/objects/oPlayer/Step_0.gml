@@ -1,9 +1,11 @@
 // Update inputs
-inputDirection.x = inputHeld(playerId, InputAction.RIGHT) - inputHeld(playerId, InputAction.LEFT);
-inputDirection.y = inputHeld(playerId, InputAction.DOWN) - inputHeld(playerId, InputAction.UP);
+inputDirection.x = (inputHeld(playerId, InputAction.RIGHT) || inputHeld(playerId, InputAction.MENU_RIGHT)) -
+	(inputHeld(playerId, InputAction.LEFT) || inputHeld(playerId, InputAction.MENU_LEFT));
+inputDirection.y = (inputHeld(playerId, InputAction.DOWN) || inputHeld(playerId, InputAction.MENU_DOWN)) -
+	(inputHeld(playerId, InputAction.UP) || inputHeld(playerId, InputAction.MENU_DOWN));
 jumpInputted = inputHeld(playerId, InputAction.JUMP);
 jumpPressed = inputPressed(playerId, InputAction.JUMP);
-crouchInputted = inputHeld(playerId, InputAction.DOWN);
+crouchInputted = inputHeld(playerId, InputAction.DOWN) || inputHeld(playerId, InputAction.MENU_DOWN);
 interactPressed = inputPressed(playerId, InputAction.INTERACT);
 
 // Ignore graphs

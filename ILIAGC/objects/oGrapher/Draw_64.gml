@@ -45,13 +45,13 @@ if (editingEquation)
 			_title += "How To Graph";
 			draw_sprite_stretched(sBorder,0,_x-2,_y-1,178-_x-2,75-_y-1);
 			_y += _yoff;
-			draw_text_transformed(_x, _y, "1. Choose a function to edit.", _s, _s, 0);
+			draw_text_transformed(_x, _y, "1. Choose an EQ to edit (y1,y2,...)", _s, _s, 0);
 			_y += _yoff;
-			draw_text_transformed(_x, _y, "2. Type in an expression.", _s, _s, 0);
+			draw_text_transformed(_x, _y, "2. Type in an EQ using valid tokens", _s, _s, 0);
 			_y += _yoff;
-			draw_text_transformed(_x, _y, "3. Enter a valid equation to graph it.", _s, _s, 0);
+			draw_text_transformed(_x, _y, "3. Enter a valid EQ to graph it", _s, _s, 0);
 			_y += _yoff;
-			draw_text_transformed(_x, _y, "4. Exit equation editor.", _s, _s, 0);
+			draw_text_transformed(_x, _y, "4. Exit EQ Editor", _s, _s, 0);
 			_y += _yoff;
 			#endregion
 			break;

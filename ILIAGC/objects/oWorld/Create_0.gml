@@ -307,6 +307,9 @@ spawnHomeCoins = function()
 	
 	// Storage
 	instance_create_layer(32, 168, "BackgroundInstances", oStorageCoin);
+	
+	// Tutorial
+	instance_create_layer((160 - 32) * 0.5, 168, "BackgroundInstances", oTutorialCoin);
 }
 
 /// @func	spawnPlayer({int} playerId, *{id} playerObject, *{real} x, *{real} y, *{real} velocityX, *{real} velocityY);
