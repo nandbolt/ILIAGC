@@ -48,7 +48,7 @@ spawnNextCoin = function()
 		// Basic graphing
 		case 3:
 			_x = 32;
-			_y = 96;
+			_y = 94;
 			break;
 		// Go through graph
 		case 4:
@@ -63,7 +63,7 @@ spawnNextCoin = function()
 		// Two graphs
 		case 6:
 			_x = 96;
-			_y = 48;
+			_y = 32;
 			break;
 	}
 	

@@ -262,7 +262,7 @@ startGameSoccer = function()
 	mostCoins = soccerMostCoins;
 	
 	// Spawn/activate first coin
-	var _coin = instance_create_layer(random_range(spawnMinX,spawnMaxX), random_range(spawnMinY,spawnMaxY), "Instances", oCoinSilver);
+	var _coin = instance_create_layer(random_range(spawnMinX,spawnMaxX), random_range(spawnMinY,soccerLowestCoinSpawnY), "Instances", oCoinSilver);
 	with (_coin)
 	{
 		activate();
@@ -299,7 +299,7 @@ startGamePuzzle = function()
 	mostCoins = puzzleMostCoins;
 	
 	// Spawn/activate first coin
-	var _coin = instance_create_layer(random_range(spawnMinX,spawnMaxX), random_range(spawnMinY,soccerLowestCoinSpawnY), "Instances", oCoin);
+	var _coin = instance_create_layer(random_range(spawnMinX,spawnMaxX), random_range(spawnMinY,spawnMaxY), "Instances", oCoin);
 	with (_coin)
 	{
 		activate();
