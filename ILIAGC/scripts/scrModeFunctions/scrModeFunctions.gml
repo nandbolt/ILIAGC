@@ -7,6 +7,8 @@ function getModeHighscore(_idx)
 			return oWorld.coinRushMostCoins;
 		case Mode.SOCCER:
 			return oWorld.soccerMostCoins;
+		case Mode.PUZZLE:
+			return oWorld.puzzleMostCoins;
 		default:
 			return 0;
 	}
@@ -21,6 +23,8 @@ function getModeName(_idx)
 			return "Coin Rush";
 		case Mode.SOCCER:
 			return "Soccer";
+		case Mode.PUZZLE:
+			return "Puzzle";
 		default:
 			return "???";
 	}
@@ -33,6 +37,8 @@ function getModeSaveName(_idx)
 	{
 		case Mode.SOCCER:
 			return "soccer";
+		case Mode.PUZZLE:
+			return "puzzle";
 		default:
 			return "coin_rush";
 	}
@@ -47,6 +53,8 @@ function getModeDescription(_idx)
 			return "Mode: Collect as many coins as possible while trying to make sure the timer doesn't run out!";
 		case Mode.SOCCER:
 			return "Mode: Similar to Coin Rush but the only way to collect coins is with balls. Start with a special ball.";
+		case Mode.PUZZLE:
+			return "Mode: Collect coins, but graph eaters will always be present. Their pattern will change every so often.";
 		default:
 			return "Mode: ???";
 	}
@@ -61,6 +69,8 @@ function getModeSprite(_idx)
 			return sCoinOutline;
 		case Mode.SOCCER:
 			return sShopItemSoccer;
+		case Mode.PUZZLE:
+			return sGraphEater;
 		default:
 			return sCoinOutline;
 	}
@@ -73,6 +83,8 @@ function getModeCost(_idx)
 	{
 		case Mode.SOCCER:
 			return 300;
+		case Mode.PUZZLE:
+			return 200;
 		default:
 			return 0;
 	}

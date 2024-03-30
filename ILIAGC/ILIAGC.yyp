@@ -122,6 +122,7 @@
     {"id":{"name":"sButtonStartArrow","path":"sprites/sButtonStartArrow/sButtonStartArrow.yy",},"order":16,},
     {"id":{"name":"sCoinSilver","path":"sprites/sCoinSilver/sCoinSilver.yy",},"order":6,},
     {"id":{"name":"sprYoYoTextbox","path":"sprites/sprYoYoTextbox/sprYoYoTextbox.yy",},"order":3,},
+    {"id":{"name":"scrPuzzleFunctions","path":"scripts/scrPuzzleFunctions/scrPuzzleFunctions.yy",},"order":9,},
     {"id":{"name":"oOSKButtonNum9","path":"objects/oOSKButtonNum9/oOSKButtonNum9.yy",},"order":8,},
     {"id":{"name":"sDogRun","path":"sprites/sDogRun/sDogRun.yy",},"order":5,},
     {"id":{"name":"sSpikes","path":"sprites/sSpikes/sSpikes.yy",},"order":1,},

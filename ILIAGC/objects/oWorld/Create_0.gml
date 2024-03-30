@@ -28,6 +28,7 @@ coinsInBank = 0;
 mostCoins = 0;
 coinRushMostCoins = 0;
 soccerMostCoins = 0;
+puzzleMostCoins = 0;
 
 // Combo
 comboMeter = 0;
@@ -107,6 +108,9 @@ startGame = function(_mode)
 	{
 		case Mode.SOCCER:
 			startGameSoccer();
+			break;
+		case Mode.PUZZLE:
+			startGamePuzzle();
 			break;
 		default:
 			startGameCoinRush();
@@ -197,6 +201,9 @@ endGame = function()
 		case Mode.SOCCER:
 			endGameSoccer();
 			break;
+		case Mode.PUZZLE:
+			endGamePuzzle();
+			break;
 		default:
 			endGameCoinRush();
 	}
@@ -255,7 +262,7 @@ startGameSoccer = function()
 	mostCoins = soccerMostCoins;
 	
 	// Spawn/activate first coin
-	var _coin = instance_create_layer(random_range(spawnMinX,spawnMaxX), random_range(spawnMinY,soccerLowestCoinSpawnY), "Instances", oCoinSilver);
+	var _coin = instance_create_layer(random_range(spawnMinX,spawnMaxX), random_range(spawnMinY,spawnMaxY), "Instances", oCoinSilver);
 	with (_coin)
 	{
 		activate();
@@ -283,6 +290,43 @@ endGameSoccer = function()
 
 #endregion
 
+#region Puzzle Functions
+
+/// @func	startGamePuzzle();
+startGamePuzzle = function()
+{
+	// Set highscore display
+	mostCoins = puzzleMostCoins;
+	
+	// Spawn/activate first coin
+	var _coin = instance_create_layer(random_range(spawnMinX,spawnMaxX), random_range(spawnMinY,soccerLowestCoinSpawnY), "Instances", oCoin);
+	with (_coin)
+	{
+		activate();
+	}
+	
+	// Spawn graph eater pattern
+	spawnPuzzle();
+}
+
+/// @func	endGamePuzzle();
+endGamePuzzle = function()
+{
+	// Highscore
+	if (coins > puzzleMostCoins)
+	{
+		// Save new high score to disk
+		puzzleMostCoins = coins;
+		ini_open("save.ini");
+		ini_write_real("high_scores", "puzzle", coins);
+		ini_close();
+		mostCoins = coins;
+		highscore = true;
+	}
+}
+
+#endregion
+
 #endregion
 
 /// @func	spawnHomeCoins();
@@ -299,6 +343,17 @@ spawnHomeCoins = function()
 			mode = Mode.SOCCER;
 			longDescription = getModeDescription(Mode.SOCCER);
 			sprite_index = getModeSprite(Mode.SOCCER);
+		}
+	}
+	if (oGame.myModes[Mode.PUZZLE][1] > 0)
+	{
+		var _mode = instance_create_layer(48 + 96, 96, "BackgroundInstances", oModeCoin);
+		with (_mode)
+		{
+			description = "Puzzle";
+			mode = Mode.PUZZLE;
+			longDescription = getModeDescription(Mode.PUZZLE);
+			sprite_index = getModeSprite(Mode.PUZZLE);
 		}
 	}
 	

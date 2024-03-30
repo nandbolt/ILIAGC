@@ -116,6 +116,7 @@ enum Mode
 {
 	COIN_RUSH,
 	SOCCER,
+	PUZZLE,
 }
 
 enum Powerup

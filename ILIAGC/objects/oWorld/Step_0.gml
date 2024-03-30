@@ -80,7 +80,9 @@ if (gameStarted && !gameTimerPaused)
 		// Add obstacles
 		var _isEvent = false;
 		if (random(1) < 0.04) _isEvent = true;
-		var _i = irandom_range(0, array_length(obstacles) - 1);
+		var _lowerBoundIdx = 0;
+		if (gameMode == Mode.PUZZLE) _lowerBoundIdx = 1; // Don't add any more graph eaters
+		var _i = irandom_range(_lowerBoundIdx, array_length(obstacles) - 1);
 		repeat (_obstacleCount)
 		{
 			// Add obstacle

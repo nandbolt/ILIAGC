@@ -20,6 +20,9 @@ onCollect = function()
 	{
 		// Update time
 		gameTimer += other.timeAdded;
+		
+		// Update puzzle if correct mode
+		if (gameMode == Mode.PUZZLE) spawnPuzzle();
 	}
 	
 	// Spawn time particle

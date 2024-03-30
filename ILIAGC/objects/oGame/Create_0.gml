@@ -209,6 +209,7 @@ loadUnlockables = function()
 	myModes = [
 		[Mode.COIN_RUSH,		ini_read_real("modes", getModeSaveName(Mode.COIN_RUSH), 1),				1],
 		[Mode.SOCCER,			ini_read_real("modes", getModeSaveName(Mode.SOCCER), 0),				1],
+		[Mode.PUZZLE,			ini_read_real("modes", getModeSaveName(Mode.PUZZLE), 0),				1],
 	];
 	myFoods = [
 		[Food.BUBBLE_TEA,		0, 1],
