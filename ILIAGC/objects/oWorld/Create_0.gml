@@ -455,6 +455,7 @@ ini_open("save.ini");
 coinsInBank = ini_read_real("inventory", "coins_in_bank", 0);
 coinRushMostCoins = ini_read_real("high_scores","coin_rush",0);
 soccerMostCoins = ini_read_real("high_scores","soccer",0);
+puzzleMostCoins = ini_read_real("high_scores","puzzle",0);
 
 // Theme
 setTheme(ini_read_real("inventory", "theme", Theme.DEFAULT));
