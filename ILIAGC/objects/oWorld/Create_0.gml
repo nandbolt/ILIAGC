@@ -54,8 +54,10 @@ minObstacleSpawnCountFactor = 0.4;
 maxObstacleSpawnCountFactor = 0.9;
 
 // Clock
-timeBetweenNormalClocks = 30;
-timeBetweenBonusClocks = 300;
+timeBetweenClocks = 30;		// Seconds
+bonusClockFrequency = 10;	// Every 10th clock
+clockTimer = timeBetweenClocks;
+clockCount = 0;
 
 // Powerups
 powerups = [];
@@ -93,6 +95,8 @@ startGame = function(_mode)
 	comboTimer = 0;
 	updateObstacleTimer();
 	updatePowerupTimer();
+	clockTimer = timeBetweenClocks;
+	clockCount = 0;
 		
 	// Reset coins
 	coins = 0;

@@ -51,7 +51,11 @@ if (oWorld.gameStarted)
 		_y += _yoff;
 		draw_text_transformed(_x, _y, "Powerup diversity: " + string(powerupDiversity), _s, _s, 0);
 		_y += _yoff;
-		draw_text_transformed(_x, _y, "Combo Meter: " + string(comboMeter), _s, _s, 0);
+		draw_text_transformed(_x, _y, "Combo meter: " + string(comboMeter), _s, _s, 0);
+		_y += _yoff;
+		draw_text_transformed(_x, _y, "Clock timer: " + string(clockTimer), _s, _s, 0);
+		_y += _yoff;
+		draw_text_transformed(_x, _y, "Clocks spawned: " + string(clockCount), _s, _s, 0);
 		_y += _yoff * 2;
 	}
 	

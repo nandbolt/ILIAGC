@@ -108,8 +108,15 @@ if (gameStarted && !gameTimerPaused)
 		difficultyFactor = clamp(timeElapsed / maxDifficultyTime, 0, 1);
 		
 		// Clock aid
-		if (timeElapsed mod timeBetweenBonusClocks == 0) instance_create_layer(random_range(24,168), random_range(24,168), "BackgroundInstances", oResetClock);
-		else if (timeElapsed mod timeBetweenNormalClocks == 0) instance_create_layer(random_range(24,168), random_range(24,168), "BackgroundInstances", oClock);
+		if (clockTimer > -1) clockTimer--;
+		if (clockTimer == 0)
+		{
+			// Spawn a clock
+			clockCount++;
+			var _clockObj = oClock;
+			if ((clockCount % bonusClockFrequency) == 0) _clockObj = oResetClock;
+			instance_create_layer(random_range(24,168), random_range(24,168), "BackgroundInstances", _clockObj);
+		}
 		
 		// If obstacles exist
 		if (instance_exists(oObstacle))

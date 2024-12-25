@@ -12,6 +12,9 @@ onCollect = function()
 	{
 		// Update time
 		gameTimer = 60;
+		
+		// Reset clock timer
+		clockTimer = timeBetweenClocks;
 	}
 	
 	// Spawn time particle

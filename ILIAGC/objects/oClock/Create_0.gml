@@ -23,6 +23,9 @@ onCollect = function()
 		
 		// Update puzzle if correct mode
 		if (gameMode == Mode.PUZZLE) spawnPuzzle();
+		
+		// Reset clock timer
+		clockTimer = timeBetweenClocks;
 	}
 	
 	// Spawn time particle

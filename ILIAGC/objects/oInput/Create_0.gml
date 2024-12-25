@@ -1,5 +1,5 @@
 // Info
-maxPlayers = 2;
+maxPlayers = 4;
 inputStates = 0;
 inputKeyboardKeys = 0;
 inputGamepadKeys = 0;
