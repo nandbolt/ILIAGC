@@ -86,6 +86,15 @@ if (editingEquation)
 	
 	// Check last character
 	var _lc = string_lower(keyboard_lastchar);
+	if (os_type == os_gxgames)
+	{
+		// Handle Opera key
+		if (_lc == "a") _lc = "+";
+		else if (_lc == "q") _lc = "-";
+		else if (_lc == "m") _lc = "*";
+		else if (_lc == "d") _lc = "/";
+		else if (_lc == "p") _lc = "^";
+	}
 	if (inputPressed(0, InputAction.INTERACT)) graphEquation();
 	else if ((_lc == "\b") && array_length(equationTokens) > 0) removeEquationToken();
 	else if ((_lc == "0" && !keyboard_check(vk_shift))) addEquationToken(TokenIndexs.NUM0);
