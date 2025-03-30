@@ -11,7 +11,7 @@
   "option_html5_outputdebugtoconsole": true,
   "option_html5_display_cursor": true,
   "option_html5_localrunalert": true,
-  "option_html5_index": "use_default",
+  "option_html5_index": "index.html",
   "option_html5_loadingbar": "Use Default",
   "option_html5_jsprepend": "",
   "option_html5_icon": "fav.ico",
