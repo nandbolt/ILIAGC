@@ -44,6 +44,7 @@
     {"id":{"name":"scrStorageFoodFunctions","path":"scripts/scrStorageFoodFunctions/scrStorageFoodFunctions.yy",},"order":6,},
     {"id":{"name":"sCoinOutline","path":"sprites/sCoinOutline/sCoinOutline.yy",},"order":4,},
     {"id":{"name":"sScientistRun","path":"sprites/sScientistRun/sScientistRun.yy",},"order":5,},
+    {"id":{"name":"sCmg","path":"sprites/sCmg/sCmg.yy",},"order":1,},
     {"id":{"name":"sDenizenJump","path":"sprites/sDenizenJump/sDenizenJump.yy",},"order":3,},
     {"id":{"name":"sThemesCoin","path":"sprites/sThemesCoin/sThemesCoin.yy",},"order":6,},
     {"id":{"name":"sButtonLB2","path":"sprites/sButtonLB2/sButtonLB2.yy",},"order":11,},
@@ -505,6 +506,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Particles","folderPath":"folders/Sprites/Particles.yy","order":13,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Powerups","folderPath":"folders/Sprites/Powerups.yy","order":10,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Ball","folderPath":"folders/Sprites/Powerups/Ball.yy","order":2,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Splash","folderPath":"folders/Sprites/Splash.yy","order":14,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Themes","folderPath":"folders/Sprites/Themes.yy","order":12,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"NeokyoCity","folderPath":"folders/Sprites/Themes/NeokyoCity.yy","order":1,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Background","folderPath":"folders/Sprites/Themes/NeokyoCity/Background.yy","order":3,},
@@ -521,7 +523,6 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Objects","folderPath":"folders/YoYo Shared Assets/Objects.yy","order":2,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Rooms","folderPath":"folders/YoYo Shared Assets/Rooms.yy","order":3,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Sprites","folderPath":"folders/YoYo Shared Assets/Sprites.yy","order":4,},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Splash","folderPath":"folders/Sprites/Splash.yy","order":14,},
   ],
   "AudioGroups": [
     {"resourceType":"GMAudioGroup","resourceVersion":"1.3","name":"audiogroup_default","targets":-1,},

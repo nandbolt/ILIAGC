@@ -21,6 +21,10 @@ else
 {
 	if (alarm[1] >= 120) draw_set_alpha(clamp(1 - (180 - alarm[1]) / 30, 0, 1));
 	else draw_set_alpha(1);
+	var _w = clamp(view_wport[0], 256, 512);
+	var _h = _w;
+	draw_sprite_stretched(sCmg, 0, (view_wport[0] - _w) * 0.5,
+		(view_hport[0] - _h) * 0.5, _w, _h);
 	draw_text_transformed(8, 8, loadText, 3, 3, 0);
 	draw_set_alpha(1);
 }
