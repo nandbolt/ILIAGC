@@ -278,6 +278,7 @@
     {"id":{"name":"oHomeCoin","path":"objects/oHomeCoin/oHomeCoin.yy",},"order":0,},
     {"id":{"name":"oCloud","path":"objects/oCloud/oCloud.yy",},"order":4,},
     {"id":{"name":"oModeCoin","path":"objects/oModeCoin/oModeCoin.yy",},"order":1,},
+    {"id":{"name":"sNb","path":"sprites/sNb/sNb.yy",},"order":0,},
     {"id":{"name":"sNNEJelly","path":"sprites/sNNEJelly/sNNEJelly.yy",},"order":0,},
     {"id":{"name":"oResetClock","path":"objects/oResetClock/oResetClock.yy",},"order":0,},
     {"id":{"name":"sScientistFall","path":"sprites/sScientistFall/sScientistFall.yy",},"order":1,},
@@ -333,6 +334,7 @@
     {"id":{"name":"sNeokyoCityDrone","path":"sprites/sNeokyoCityDrone/sNeokyoCityDrone.yy",},"order":1,},
     {"id":{"name":"sfxJump","path":"sounds/sfxJump/sfxJump.yy",},"order":2,},
     {"id":{"name":"oSpikes","path":"objects/oSpikes/oSpikes.yy",},"order":2,},
+    {"id":{"name":"oFlushTransition","path":"objects/oFlushTransition/oFlushTransition.yy",},"order":5,},
     {"id":{"name":"oOSKButtonNum6","path":"objects/oOSKButtonNum6/oOSKButtonNum6.yy",},"order":5,},
     {"id":{"name":"oPlayerHuman","path":"objects/oPlayerHuman/oPlayerHuman.yy",},"order":2,},
     {"id":{"name":"sScientistJump","path":"sprites/sScientistJump/sScientistJump.yy",},"order":3,},
@@ -519,6 +521,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Objects","folderPath":"folders/YoYo Shared Assets/Objects.yy","order":2,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Rooms","folderPath":"folders/YoYo Shared Assets/Rooms.yy","order":3,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Sprites","folderPath":"folders/YoYo Shared Assets/Sprites.yy","order":4,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Splash","folderPath":"folders/Sprites/Splash.yy","order":14,},
   ],
   "AudioGroups": [
     {"resourceType":"GMAudioGroup","resourceVersion":"1.3","name":"audiogroup_default","targets":-1,},

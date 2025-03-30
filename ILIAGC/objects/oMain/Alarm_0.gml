@@ -1,2 +1,2 @@
-/// @desc Start Game
-room_goto_next();
+/// @desc Start Splash
+alarm[1] = 180;
