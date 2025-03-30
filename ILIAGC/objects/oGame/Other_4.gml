@@ -7,4 +7,5 @@ if (os_type == os_android)
 	surface_resize(application_surface, view_wport[0] * 5, view_hport[0] * 5);
 	window_set_size(view_wport[0] * 5, view_hport[0] * 5);
 }
-display_set_gui_size(camera_get_view_width(view_camera[0]), camera_get_view_height(view_camera[0]));
+if (room == rPlayMenu) display_set_gui_size(view_wport[0], view_hport[0]);
+else display_set_gui_size(camera_get_view_width(view_camera[0]), camera_get_view_height(view_camera[0]));
