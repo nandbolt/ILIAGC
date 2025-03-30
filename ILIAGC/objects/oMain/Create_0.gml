@@ -1,3 +1,6 @@
+// Load
+loadText = "Loading music...";
+
 // Font
 draw_set_font(fDefault);
 
@@ -28,3 +31,6 @@ else if (os_type == os_android)
 	// On-screen controller
 	instance_create_layer(0, 0, "Instances", oOnScreenController);
 }
+
+// Start load alarm
+alarm[0] = 180;
