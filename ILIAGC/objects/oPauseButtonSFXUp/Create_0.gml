@@ -6,7 +6,7 @@ name = "SFXs";
 
 // Add neighbors
 neighbors[InputAction.UP] = oPauseButtonMusicUp;
-neighbors[InputAction.DOWN] = oPauseButtonFullsceen;
+neighbors[InputAction.DOWN] = oPauseButtonTidyUI;
 
 /// @func	onPressed();
 onPressed = function()
