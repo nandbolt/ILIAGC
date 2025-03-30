@@ -2,7 +2,7 @@
   "resourceType": "GMHtml5Options",
   "resourceVersion": "1.0",
   "name": "HTML5",
-  "option_html5_browser_title": "ILIAGC",
+  "option_html5_browser_title": "ILIAGC - Play it now at CoolmathGames.com",
   "option_html5_version": "1.1.2.0",
   "option_html5_foldername": "ILIAGC",
   "option_html5_outputname": "index.html",
