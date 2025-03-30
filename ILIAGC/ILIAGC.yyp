@@ -5,6 +5,7 @@
   "resources": [
     {"id":{"name":"sMinerals5","path":"sprites/sMinerals5/sMinerals5.yy",},"order":4,},
     {"id":{"name":"sNNEBubble","path":"sprites/sNNEBubble/sNNEBubble.yy",},"order":6,},
+    {"id":{"name":"AdRollPause","path":"scripts/AdRollPause/AdRollPause.yy",},"order":0,},
     {"id":{"name":"sIconInteract","path":"sprites/sIconInteract/sIconInteract.yy",},"order":6,},
     {"id":{"name":"shdrSepiaInverse","path":"shaders/shdrSepiaInverse/shdrSepiaInverse.yy",},"order":11,},
     {"id":{"name":"oOSKButtonNum2","path":"objects/oOSKButtonNum2/oOSKButtonNum2.yy",},"order":1,},
@@ -115,6 +116,7 @@
     {"id":{"name":"sThemeDefault","path":"sprites/sThemeDefault/sThemeDefault.yy",},"order":0,},
     {"id":{"name":"sprYoYoButton","path":"sprites/sprYoYoButton/sprYoYoButton.yy",},"order":2,},
     {"id":{"name":"oOSKButtonSlash","path":"objects/oOSKButtonSlash/oOSKButtonSlash.yy",},"order":3,},
+    {"id":{"name":"AdRollUnpause","path":"scripts/AdRollUnpause/AdRollUnpause.yy",},"order":1,},
     {"id":{"name":"oOSKButtonNum3","path":"objects/oOSKButtonNum3/oOSKButtonNum3.yy",},"order":2,},
     {"id":{"name":"sPowerupsCoin","path":"sprites/sPowerupsCoin/sPowerupsCoin.yy",},"order":7,},
     {"id":{"name":"shdr83","path":"shaders/shdr83/shdr83.yy",},"order":10,},
@@ -335,6 +337,7 @@
     {"id":{"name":"sFoodChocolate","path":"sprites/sFoodChocolate/sFoodChocolate.yy",},"order":1,},
     {"id":{"name":"sNeokyoCityDrone","path":"sprites/sNeokyoCityDrone/sNeokyoCityDrone.yy",},"order":1,},
     {"id":{"name":"sLogo","path":"sprites/sLogo/sLogo.yy",},"order":1,},
+    {"id":{"name":"coolmath","path":"extensions/coolmath/coolmath.yy",},"order":0,},
     {"id":{"name":"sfxJump","path":"sounds/sfxJump/sfxJump.yy",},"order":2,},
     {"id":{"name":"oSpikes","path":"objects/oSpikes/oSpikes.yy",},"order":2,},
     {"id":{"name":"oFlushTransition","path":"objects/oFlushTransition/oFlushTransition.yy",},"order":5,},
@@ -527,6 +530,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Objects","folderPath":"folders/YoYo Shared Assets/Objects.yy","order":2,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Rooms","folderPath":"folders/YoYo Shared Assets/Rooms.yy","order":3,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Sprites","folderPath":"folders/YoYo Shared Assets/Sprites.yy","order":4,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"CMG","folderPath":"folders/Scripts/CMG.yy","order":10,},
   ],
   "AudioGroups": [
     {"resourceType":"GMAudioGroup","resourceVersion":"1.3","name":"audiogroup_default","targets":-1,},
