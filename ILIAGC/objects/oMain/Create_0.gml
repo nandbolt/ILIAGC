@@ -58,3 +58,14 @@ if (domain != "https://www.coolmath-games.com" &&
 	loadText = "This version of ILIAGC only runs on Coolmath Games!";
 	alarm[0] = -1;
 }
+else
+{
+	instance_create_layer(0, 0, "Instances", oCMG);
+	
+	// Unlock modes
+	ini_open("save.ini");
+	ini_write_real("modes", getModeSaveName(Mode.COIN_RUSH), 1);
+	ini_write_real("modes", getModeSaveName(Mode.SOCCER), 1);
+	ini_write_real("modes", getModeSaveName(Mode.PUZZLE), 1);
+	ini_close();
+}

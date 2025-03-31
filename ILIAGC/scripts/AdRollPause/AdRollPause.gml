@@ -1,5 +1,11 @@
-/// @func
+/// @func	AdRollPause();
 function AdRollPause()
 {
-	//instance_deactivate_all();
+	if (instance_exists(oCMG))
+	{
+		with (oCMG)
+		{
+			instance_deactivate_all(true);
+		}
+	}
 }

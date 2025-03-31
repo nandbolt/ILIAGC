@@ -107,13 +107,23 @@ src="https://www.coolmathgames.com/sites/default/files/cmg-ads.js"></script>
 document.addEventListener("adBreakStart", () => {
 console.log("AdBreak Started");
 //Invoke GML pause function
+if (window.global && typeof window.global.gmlAdRollPause === "function")
+{
 window.global.gmlAdRollPause(window.global, window.global);
+} else {
+	console.log("gmlAdRollPause is missing.");
+}
 });
 //To trigger the event Listener adBreakComplete
 document.addEventListener("adBreakComplete", () => {
 console.log("adBreak Complete");
 //Invoke GML unpause function
+if (window.global && typeof window.global.gmlAdRollPause === "function")
+{
 window.global.gmlAdRollUnpause(window.global, window.global);
+} else {
+	console.log("gmlAdRollUnpause is missing.");
+}
 });
 </script>
 </footer>

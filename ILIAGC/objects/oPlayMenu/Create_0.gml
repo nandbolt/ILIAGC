@@ -12,6 +12,8 @@ pressPlay = function()
 	alarm[0] = 30;
 	playPressed = true;
 	audio_play_sound(sfxToggleGrapher, 10, false);
+	coolmathCallStart();
+	coolmathCallLevelStart(0);
 }
 
 // Start alarm

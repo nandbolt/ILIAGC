@@ -1,6 +1,6 @@
 function coolmathCallStart()
 {
-	if (typeofparent.cmgGameEvent === "function") {
+	if (typeof parent.cmgGameEvent === "function") {
 		try {
 			parent.cmgGameEvent("start");
 		} catch (e) {}
@@ -10,7 +10,7 @@ function coolmathCallStart()
 
 function coolmathCallLevelStart(level)
 {
-	if (typeofparent.cmgGameEvent === "function") {
+	if (typeof parent.cmgGameEvent === "function") {
 		try {
 			parent.cmgGameEvent("start", String(level));
 		} catch(e) {}
@@ -20,7 +20,7 @@ function coolmathCallLevelStart(level)
 
 function coolmathCallLevelRestart(level)
 {
-	if (typeofparent.cmgGameEvent === "function") {
+	if (typeof parent.cmgGameEvent === "function") {
 		try {
 			parent.cmgGameEvent("replay", String(level));
 		} catch(e) {}

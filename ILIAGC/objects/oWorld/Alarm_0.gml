@@ -20,6 +20,10 @@ if (instance_exists(oDisplayCoinsCollected))
 		
 		// Sound
 		audio_play_sound(sfxKeyPressed, 1, false);
+		
+		// Ad
+		coolmathAdBreak();
+		coolmathCallLevelStart(0);
 	}
 }
 else

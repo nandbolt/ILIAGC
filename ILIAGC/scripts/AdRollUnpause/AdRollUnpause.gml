@@ -1,5 +1,11 @@
-/// @func
+/// @func	AdRollUnpause();
 function AdRollUnpause()
 {
-	//instance_activate_all();
+	if (instance_exists(oCMG))
+	{
+		with (oCMG)
+		{
+			instance_activate_all();
+		}
+	}
 }

@@ -119,6 +119,7 @@ startGame = function(_mode)
 		default:
 			startGameCoinRush();
 	}
+	coolmathCallLevelStart(gameMode + 1);
 }
 
 /// @func	endGame();
