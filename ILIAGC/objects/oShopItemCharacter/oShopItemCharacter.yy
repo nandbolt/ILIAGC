@@ -9,7 +9,10 @@
   "solid": false,
   "visible": true,
   "managed": true,
-  "spriteMaskId": null,
+  "spriteMaskId": {
+    "name": "sInteractCoinHitbox",
+    "path": "sprites/sInteractCoinHitbox/sInteractCoinHitbox.yy",
+  },
   "persistent": false,
   "parentObjectId": {
     "name": "oShopItemCoin",

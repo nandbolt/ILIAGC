@@ -184,6 +184,7 @@
     {"id":{"name":"oClock","path":"objects/oClock/oClock.yy",},"order":4,},
     {"id":{"name":"sDogJumpCenter","path":"sprites/sDogJumpCenter/sDogJumpCenter.yy",},"order":4,},
     {"id":{"name":"sButtonStart","path":"sprites/sButtonStart/sButtonStart.yy",},"order":1,},
+    {"id":{"name":"sInteractCoinHitbox","path":"sprites/sInteractCoinHitbox/sInteractCoinHitbox.yy",},"order":6,},
     {"id":{"name":"scrShopFunctions","path":"scripts/scrShopFunctions/scrShopFunctions.yy",},"order":5,},
     {"id":{"name":"shdrInvert","path":"shaders/shdrInvert/shdrInvert.yy",},"order":4,},
     {"id":{"name":"oOSKButtonCos","path":"objects/oOSKButtonCos/oOSKButtonCos.yy",},"order":8,},
