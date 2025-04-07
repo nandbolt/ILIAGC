@@ -20,5 +20,8 @@ array_push(buttons, instance_create_layer(_x, _y, menuLayer, oPauseButtonFullsce
 _y += _yoff;
 array_push(buttons, instance_create_layer(_x, _y, menuLayer, oPauseButtonTidyUI));
 _y += _yoff;
-array_push(buttons, instance_create_layer(_x, _y, menuLayer, oPauseButtonQuit));
-_y += _yoff;
+if (os_browser == browser_not_a_browser)
+{
+	array_push(buttons, instance_create_layer(_x, _y, menuLayer, oPauseButtonQuit));
+	_y += _yoff;
+}
