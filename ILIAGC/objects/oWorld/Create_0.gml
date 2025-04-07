@@ -337,10 +337,10 @@ endGamePuzzle = function()
 spawnHomeCoins = function()
 {
 	// Game modes
-	instance_create_layer(96, 96, "BackgroundInstances", oModeCoin);
+	instance_create_layer(96, 104, "BackgroundInstances", oModeCoin);
 	if (oGame.myModes[Mode.SOCCER][1] > 0)
 	{
-		var _mode = instance_create_layer(48, 96, "BackgroundInstances", oModeCoin);
+		var _mode = instance_create_layer(48, 104, "BackgroundInstances", oModeCoin);
 		with (_mode)
 		{
 			description = "Soccer";
@@ -351,7 +351,7 @@ spawnHomeCoins = function()
 	}
 	if (oGame.myModes[Mode.PUZZLE][1] > 0)
 	{
-		var _mode = instance_create_layer(48 + 96, 96, "BackgroundInstances", oModeCoin);
+		var _mode = instance_create_layer(48 + 96, 104, "BackgroundInstances", oModeCoin);
 		with (_mode)
 		{
 			description = "Puzzle";
