@@ -463,6 +463,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Paths","folderPath":"folders/Paths.yy","order":4,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Rooms","folderPath":"folders/Rooms.yy","order":10,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Scripts","folderPath":"folders/Scripts.yy","order":5,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"CMG","folderPath":"folders/Scripts/CMG.yy","order":10,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Physics","folderPath":"folders/Scripts/Physics.yy","order":3,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Storage","folderPath":"folders/Scripts/Storage.yy","order":6,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tree","folderPath":"folders/Scripts/Tree.yy","order":1,},
@@ -532,7 +533,6 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Objects","folderPath":"folders/YoYo Shared Assets/Objects.yy","order":2,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Rooms","folderPath":"folders/YoYo Shared Assets/Rooms.yy","order":3,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Sprites","folderPath":"folders/YoYo Shared Assets/Sprites.yy","order":4,},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"CMG","folderPath":"folders/Scripts/CMG.yy","order":10,},
   ],
   "AudioGroups": [
     {"resourceType":"GMAudioGroup","resourceVersion":"1.3","name":"audiogroup_default","targets":-1,},
