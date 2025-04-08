@@ -339,27 +339,19 @@ spawnHomeCoins = function()
 {
 	// Game modes
 	instance_create_layer(96, 104, "BackgroundInstances", oModeCoin);
-	if (oGame.myModes[Mode.SOCCER][1] > 0)
+	with (instance_create_layer(48, 104, "BackgroundInstances", oModeCoin))
 	{
-		var _mode = instance_create_layer(48, 104, "BackgroundInstances", oModeCoin);
-		with (_mode)
-		{
-			description = "Soccer";
-			mode = Mode.SOCCER;
-			longDescription = getModeDescription(Mode.SOCCER);
-			sprite_index = getModeSprite(Mode.SOCCER);
-		}
+		description = "Soccer";
+		mode = Mode.SOCCER;
+		longDescription = getModeDescription(Mode.SOCCER);
+		sprite_index = getModeSprite(Mode.SOCCER);
 	}
-	if (oGame.myModes[Mode.PUZZLE][1] > 0)
+	with (instance_create_layer(48 + 96, 104, "BackgroundInstances", oModeCoin))
 	{
-		var _mode = instance_create_layer(48 + 96, 104, "BackgroundInstances", oModeCoin);
-		with (_mode)
-		{
-			description = "Puzzle";
-			mode = Mode.PUZZLE;
-			longDescription = getModeDescription(Mode.PUZZLE);
-			sprite_index = getModeSprite(Mode.PUZZLE);
-		}
+		description = "Puzzle";
+		mode = Mode.PUZZLE;
+		longDescription = getModeDescription(Mode.PUZZLE);
+		sprite_index = getModeSprite(Mode.PUZZLE);
 	}
 	
 	// Shop
