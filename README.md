@@ -1,3 +1,5 @@
+Also available on [Coolmath Games](https://www.coolmathgames.com/0-iliagc)!
+
 *ILIAGC: I Live In A Graphing Calculator* is made with GameMaker and is something akin to a graphing calculator mixed with a 2D platformer. My goal for the game was to make something educational that is fun and gives the user the freedom to explore math equations in a unique way. There are coins to collect, things to buy, and high scores to chase. There's controller support and "seamless"-ish local multiplayer as well. Feel free to use the project however you'd like! Some interesting things I did that may be of use to you:
 - Turning typed equations into graphs using expression trees
 - Actor collisions with graphs
