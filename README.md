@@ -83,7 +83,7 @@ https://github.com/nandbolt/ILIAGC/blob/4e64cf0fd8539bb65dd1a1e4f0aa8c3c78c4fa62
 
 Congrats! If you've made it this far, then your expression tree is ready to be used. Simply pass in an input corresponding to the x and your corresponding y should appear. If your expression tree has no x, then it should always pop out the same value!
 
-https://github.com/nandbolt/ILIAGC/blob/4e64cf0fd8539bb65dd1a1e4f0aa8c3c78c4fa62/ILIAGC/objects/oGraph/Create_0.gml#L115-187
+https://github.com/nandbolt/ILIAGC/blob/4e64cf0fd8539bb65dd1a1e4f0aa8c3c78c4fa62/ILIAGC/objects/oGraph/Create_0.gml#L115-L187
 
 An important note are coordinates. The game's built-in coordinate system and the graph's coordinate system are different, so before evaluation conversions between the systems need to be considered.
 
