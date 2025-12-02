@@ -9,11 +9,7 @@
 
 **Watch the gameplay trailer on *[YouTube](https://www.youtube.com/watch?v=pV9QjFDXmaA)*!**
 
-*ILIAGC: I Live In A Graphing Calculator* is something akin to a graphing calculator mixed with a 2D platformer. Made with the LTS version of GameMaker Studio 2, my goal for the game was to make something educational that is fun and gives the user the freedom to explore math equations in a unique way. There are coins to collect, things to buy, and high scores to chase. There's controller support and "seamless"-ish local multiplayer as well. Feel free to use the project however you'd like! Some interesting things I did that may be of use to you:
-- Turning typed equations into graphs using expression trees
-- Actor collisions with graphs
-- Basic platforming mechanics
-- Drop in/out multiplayer
+*ILIAGC: I Live In A Graphing Calculator* is something akin to a graphing calculator mixed with a 2D platformer. Made with the LTS version of GameMaker Studio 2, my goal for the game was to make something educational that is fun and gives the user the freedom to explore math equations in a unique way. There are coins to collect, things to buy, and high scores to chase. There's controller support and "seamless"-ish local multiplayer as well. Feel free to use the project however you'd like!
 
 ~ | ~
 :---:|:-------:
