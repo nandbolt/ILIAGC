@@ -16,7 +16,7 @@
 ![Default theme](https://github.com/nandbolt/ILIAGC/blob/main/promo/sc1.png?raw=true "Default theme") | ![Day theme](https://github.com/nandbolt/ILIAGC/blob/main/promo/sc2.png?raw=true "Day theme")
 ![83 theme](https://github.com/nandbolt/ILIAGC/blob/main/promo/sc3.png?raw=true "83 theme") | ![Multiplayer](https://github.com/nandbolt/ILIAGC/blob/main/promo/sc4.png?raw=true "Multiplayer")
 
-# Understanding the code
+# Understanding the graphing
 - [I. Expression trees: the core of ILIAGC](#i-expression-trees-the-core-of-iliagc)
 - [II. Understanding the grapher object's relevant variables](#ii-understanding-the-grapher-objects-relevant-variables)
 - [III. Entering an equation](#iii-entering-an-equation)
