@@ -97,6 +97,6 @@ https://github.com/nandbolt/ILIAGC/blob/4e64cf0fd8539bb65dd1a1e4f0aa8c3c78c4fa62
 
 ### XI. Colliding with a graph
 
-Collisions are calculated by evaluating two point: one where the player is and where they're going. If they are on different sides of the graph, then a collision will occur and a normal is necessary to calculate the surface collision. This isn't the best solution to collisions, but it works decently enough and is easy to understand. Despite this, the code is still a handful.
+Collisions are calculated by evaluating two point: one where the player is and where they're going. We can tell which side a point is on the graph by evaluating the x and comparing y's: if the player's y is bigger than its on top and vice versa. If both points are on different sides of the graph, then a collision will occur and a normal is necessary to calculate the surface collision. This isn't the best solution to collisions, but it works decently enough and is easy to understand. Despite this, the code is still a handful.
 
 https://github.com/nandbolt/ILIAGC/blob/4e64cf0fd8539bb65dd1a1e4f0aa8c3c78c4fa62/ILIAGC/scripts/scrRigidBodyFunctions/scrRigidBodyFunctions.gml#L50-L143
